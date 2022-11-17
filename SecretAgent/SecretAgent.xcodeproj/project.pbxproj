@@ -17,6 +17,7 @@
 		35BD54BC2925D498008F96AC /* SecretAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54BB2925D498008F96AC /* SecretAgentTests.swift */; };
 		35BD54C62925D498008F96AC /* SecretAgentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54C52925D498008F96AC /* SecretAgentUITests.swift */; };
 		35BD54C82925D498008F96AC /* SecretAgentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54C72925D498008F96AC /* SecretAgentUITestsLaunchTests.swift */; };
+		35BD54D62925D75A008F96AC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 35BD54D52925D75A008F96AC /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BD54D62925D75A008F96AC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,9 @@
 			dependencies = (
 			);
 			name = SecretAgent;
+			packageProductDependencies = (
+				35BD54D52925D75A008F96AC /* SnapKit */,
+			);
 			productName = SecretAgent;
 			productReference = 35BD549E2925D497008F96AC /* SecretAgent.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 35BD54952925D497008F96AC;
+			packageReferences = (
+				35BD54D42925D75A008F96AC /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 35BD549F2925D497008F96AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -612,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35BD54D42925D75A008F96AC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35BD54D52925D75A008F96AC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35BD54D42925D75A008F96AC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		35BD54AA2925D497008F96AC /* SecretAgent.xcdatamodeld */ = {
