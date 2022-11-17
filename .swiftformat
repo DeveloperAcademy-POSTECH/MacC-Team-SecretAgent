@@ -1,0 +1,15 @@
+--swiftversion 5.7
+
+--enable acronyms
+--enable blankLineAfterImports
+--enable isEmpty
+--enable markTypes
+--enable preferDouble
+
+
+--disable trailingCommas
+--disable trailingSpace
+--disable unusedArguments
+--disable redundantReturn
+--disable wrapMultilineStatementBraces
+--disable wrapSingleLineComments
