@@ -13,4 +13,9 @@
 disabled_rules:
     # 후행 공백 제한
     - trailing_whitespace
+    - trailing_newline
+    - line_length
+opt_in_rules:
+    # 강제 언랩핑 제한
+    - force_unwrapping
 

@@ -19,6 +19,17 @@
 		35BD54C82925D498008F96AC /* SecretAgentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54C72925D498008F96AC /* SecretAgentUITestsLaunchTests.swift */; };
 		35BD54D62925D75A008F96AC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 35BD54D52925D75A008F96AC /* SnapKit */; };
 		35BD54D92925ED92008F96AC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 35BD54D82925ED92008F96AC /* .swiftlint.yml */; };
+		35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54FC2925FEA5008F96AC /* NSObject+Extension.swift */; };
+		35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54FE2925FEAC008F96AC /* UITableView+Extension.swift */; };
+		35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55002925FEB5008F96AC /* Color+Extension.swift */; };
+		35BD55032925FEC3008F96AC /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55022925FEC3008F96AC /* UIViewController+Extension.swift */; };
+		35BD55052925FED5008F96AC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55042925FED5008F96AC /* UICollectionView+Extension.swift */; };
+		35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55062925FEE0008F96AC /* UIViewController+Alert.swift */; };
+		35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55082925FEEA008F96AC /* UIFont+Extension.swift */; };
+		35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD550A2925FF10008F96AC /* BaseTableViewCell.swift */; };
+		35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD550B2925FF10008F96AC /* BaseCollectionViewCell.swift */; };
+		35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD550C2925FF10008F96AC /* BaseViewController.swift */; };
+		35BD551129260026008F96AC /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551029260026008F96AC /* ImageLiteral.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +65,24 @@
 		35BD54C52925D498008F96AC /* SecretAgentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretAgentUITests.swift; sourceTree = "<group>"; };
 		35BD54C72925D498008F96AC /* SecretAgentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretAgentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		35BD54D82925ED92008F96AC /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		35BD54DC2925F5DC008F96AC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		35BD54E02925F5DC008F96AC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		35BD54E22925F5DC008F96AC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		35BD54E42925F5DC008F96AC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		35BD54E62925F5DC008F96AC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		35BD54EA2925F5DC008F96AC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		35BD54EC2925F5DC008F96AC /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		35BD54FC2925FEA5008F96AC /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		35BD54FE2925FEAC008F96AC /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		35BD55002925FEB5008F96AC /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		35BD55022925FEC3008F96AC /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		35BD55042925FED5008F96AC /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		35BD55062925FEE0008F96AC /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		35BD55082925FEEA008F96AC /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		35BD550A2925FF10008F96AC /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		35BD550B2925FF10008F96AC /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		35BD550C2925FF10008F96AC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		35BD551029260026008F96AC /* ImageLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,14 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				35BD54D82925ED92008F96AC /* .swiftlint.yml */,
-				35BD54A12925D497008F96AC /* AppDelegate.swift */,
-				35BD54A32925D497008F96AC /* SceneDelegate.swift */,
-				35BD54A52925D497008F96AC /* ViewController.swift */,
-				35BD54A72925D497008F96AC /* Main.storyboard */,
-				35BD54AD2925D498008F96AC /* Assets.xcassets */,
-				35BD54AF2925D498008F96AC /* LaunchScreen.storyboard */,
+				35BD54F72925F605008F96AC /* Screen */,
+				35BD54F62925F5FD008F96AC /* Model */,
+				35BD54DA2925F5DC008F96AC /* Global */,
 				35BD54B22925D498008F96AC /* Info.plist */,
-				35BD54AA2925D497008F96AC /* SecretAgent.xcdatamodeld */,
 			);
 			path = SecretAgent;
 			sourceTree = "<group>";
@@ -133,6 +158,156 @@
 				35BD54C72925D498008F96AC /* SecretAgentUITestsLaunchTests.swift */,
 			);
 			path = SecretAgentUITests;
+			sourceTree = "<group>";
+		};
+		35BD54DA2925F5DC008F96AC /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54DB2925F5DC008F96AC /* Literal */,
+				35BD54DD2925F5DC008F96AC /* Extension */,
+				35BD54DF2925F5DC008F96AC /* Protocol */,
+				35BD54E12925F5DC008F96AC /* Support */,
+				35BD54E32925F5DC008F96AC /* Service */,
+				35BD54E52925F5DC008F96AC /* Resource */,
+				35BD54E72925F5DC008F96AC /* Base */,
+				35BD54E92925F5DC008F96AC /* UIComponent */,
+				35BD54EB2925F5DC008F96AC /* Utility */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		35BD54DB2925F5DC008F96AC /* Literal */ = {
+			isa = PBXGroup;
+			children = (
+				35BD551029260026008F96AC /* ImageLiteral.swift */,
+				35BD54DC2925F5DC008F96AC /* .gitkeep */,
+			);
+			path = Literal;
+			sourceTree = "<group>";
+		};
+		35BD54DD2925F5DC008F96AC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54FC2925FEA5008F96AC /* NSObject+Extension.swift */,
+				35BD54FE2925FEAC008F96AC /* UITableView+Extension.swift */,
+				35BD55002925FEB5008F96AC /* Color+Extension.swift */,
+				35BD55022925FEC3008F96AC /* UIViewController+Extension.swift */,
+				35BD55042925FED5008F96AC /* UICollectionView+Extension.swift */,
+				35BD55062925FEE0008F96AC /* UIViewController+Alert.swift */,
+				35BD55082925FEEA008F96AC /* UIFont+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		35BD54DF2925F5DC008F96AC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54E02925F5DC008F96AC /* .gitkeep */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		35BD54E12925F5DC008F96AC /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54A12925D497008F96AC /* AppDelegate.swift */,
+				35BD54A32925D497008F96AC /* SceneDelegate.swift */,
+				35BD54E22925F5DC008F96AC /* .gitkeep */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		35BD54E32925F5DC008F96AC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54F82925F8AC008F96AC /* Storage */,
+				35BD54E42925F5DC008F96AC /* .gitkeep */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		35BD54E52925F5DC008F96AC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54A72925D497008F96AC /* Main.storyboard */,
+				35BD54AD2925D498008F96AC /* Assets.xcassets */,
+				35BD54AF2925D498008F96AC /* LaunchScreen.storyboard */,
+				35BD54E62925F5DC008F96AC /* .gitkeep */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		35BD54E72925F5DC008F96AC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				35BD550B2925FF10008F96AC /* BaseCollectionViewCell.swift */,
+				35BD550A2925FF10008F96AC /* BaseTableViewCell.swift */,
+				35BD550C2925FF10008F96AC /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		35BD54E92925F5DC008F96AC /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54EA2925F5DC008F96AC /* .gitkeep */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		35BD54EB2925F5DC008F96AC /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54EC2925F5DC008F96AC /* .gitkeep */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		35BD54F62925F5FD008F96AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35BD54F72925F605008F96AC /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54F92925FBAE008F96AC /* Main */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		35BD54F82925F8AC008F96AC /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54AA2925D497008F96AC /* SecretAgent.xcdatamodeld */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		35BD54F92925FBAE008F96AC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54FA2925FBB1008F96AC /* View */,
+				35BD54A52925D497008F96AC /* ViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		35BD54FA2925FBB1008F96AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35BD54FB2925FBB5008F96AC /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		35BD54FB2925FBB5008F96AC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,10 +470,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BD55052925FED5008F96AC /* UICollectionView+Extension.swift in Sources */,
+				35BD55032925FEC3008F96AC /* UIViewController+Extension.swift in Sources */,
+				35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */,
+				35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */,
+				35BD551129260026008F96AC /* ImageLiteral.swift in Sources */,
+				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
+				35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */,
 				35BD54A62925D497008F96AC /* ViewController.swift in Sources */,
+				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
+				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
+				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
+				35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
