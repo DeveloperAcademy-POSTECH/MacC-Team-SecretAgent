@@ -1,9 +1,12 @@
+--marktypes never
+--indent tab
+--tabwidth 4
+
 --enable acronyms
 --enable blankLineAfterImports
 --enable isEmpty
 --enable markTypes
 --enable preferDouble
-
 
 --disable trailingCommas
 --disable trailingSpace
