@@ -8,21 +8,21 @@
 import UIKit
 
 extension UIViewController {
-	var screenWidth: Double {
-		return UIScreen.main.bounds.size.width
-	}
+    var screenWidth: Double {
+        return UIScreen.main.bounds.size.width
+    }
 
-	var screenHeight: Double {
-		return UIScreen.main.bounds.size.height
-	}
+    var screenHeight: Double {
+        return UIScreen.main.bounds.size.height
+    }
 
-	func hideKeyboardWhenTappedAround() {
-		let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-		tap.cancelsTouchesInView = false
-		view.addGestureRecognizer(tap)
-	}
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
 
-	@objc func dismissKeyboard() {
-		view.endEditing(true)
-	}
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
