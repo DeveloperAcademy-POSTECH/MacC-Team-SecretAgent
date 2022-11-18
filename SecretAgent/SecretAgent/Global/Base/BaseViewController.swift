@@ -10,22 +10,20 @@ import UIKit
 import SnapKit
 
 class BaseViewController: UIViewController {
+	// MARK: - Life Cycle
 
-    // MARK: - Life Cycle
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		render()
+		configUI()
+	}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        render()
-        configUI()
+	func render() {
+		// auto layout 관련 코드들 모아놓는 곳
+	}
 
-    }
-    
-    func render() {
-        // auto layout 관련 코드들 모아놓는 곳
-    }
-    
-    func configUI() {
-        // UI 관련 코드들 모아놓는 곳
-        view.backgroundColor = .systemBackground
-    }
+	func configUI() {
+		// UI 관련 코드들 모아놓는 곳
+		view.backgroundColor = .systemBackground
+	}
 }
