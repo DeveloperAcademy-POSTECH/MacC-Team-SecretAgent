@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIFont {
-
     /// regularCaption1 - 12px
     static let regularCaption1 = UIFont.font(.caption1, weight: .regular)
     /// regularFootnote - 13px
@@ -33,7 +32,6 @@ extension UIFont {
 }
 
 extension UIFont {
-
     static func font(_ textStyle: TextStyle, weight: Weight) -> UIFont {
         return UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: textStyle).pointSize, weight: weight)
     }

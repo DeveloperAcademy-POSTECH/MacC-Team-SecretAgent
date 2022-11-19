@@ -10,8 +10,7 @@ import UIKit
 
 enum ImageLiteral {
     // 예시
-    static var sampleRoom: UIImage { .load(named: "SampleRoom")}
-
+    static var sampleRoom: UIImage { .load(named: "SampleRoom") }
 }
 
 extension UIImage {
@@ -22,6 +21,7 @@ extension UIImage {
         image.accessibilityIdentifier = imageName
         return image
     }
+
     static func load(systemName: String) -> UIImage {
         guard let image = UIImage(systemName: systemName, compatibleWith: nil) else {
             return UIImage()
@@ -29,5 +29,4 @@ extension UIImage {
         image.accessibilityIdentifier = systemName
         return image
     }
-    
 }

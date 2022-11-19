@@ -18,7 +18,7 @@ extension UIViewController {
         let okayAction = UIAlertAction(title: "확인", style: .default, handler: okayAction)
         alertViewController.addAction(okayAction)
         
-        self.present(alertViewController, animated: true, completion: completion)
+        present(alertViewController, animated: true, completion: completion)
     }
     
     func makeRequestAlert(title: String,
@@ -41,11 +41,11 @@ extension UIViewController {
         alertViewController.addAction(cancelAction)
         
         let okayAction = UIAlertAction(title: okTitle,
-                                     style: .destructive,
-                                     handler: okayAction)
+                                       style: .destructive,
+                                       handler: okayAction)
         alertViewController.addAction(okayAction)
         
-        self.present(alertViewController, animated: true, completion: completion)
+        present(alertViewController, animated: true, completion: completion)
     }
     
     func makeActionSheet(title: String? = nil,
@@ -64,6 +64,6 @@ extension UIViewController {
             alert.addAction(action)
         }
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }
