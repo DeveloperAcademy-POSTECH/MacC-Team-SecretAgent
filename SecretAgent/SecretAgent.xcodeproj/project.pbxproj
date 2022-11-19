@@ -30,6 +30,9 @@
 		35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD550B2925FF10008F96AC /* BaseCollectionViewCell.swift */; };
 		35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD550C2925FF10008F96AC /* BaseViewController.swift */; };
 		35BD551129260026008F96AC /* ImageLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551029260026008F96AC /* ImageLiteral.swift */; };
+		35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55162928AA62008F96AC /* SirenViewController.swift */; };
+		35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551A2928AA9F008F96AC /* ProgressBar.swift */; };
+		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,9 @@
 		35BD550B2925FF10008F96AC /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		35BD550C2925FF10008F96AC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		35BD551029260026008F96AC /* ImageLiteral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLiteral.swift; sourceTree = "<group>"; };
+		35BD55162928AA62008F96AC /* SirenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SirenViewController.swift; sourceTree = "<group>"; };
+		35BD551A2928AA9F008F96AC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,6 +282,7 @@
 		35BD54F72925F605008F96AC /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				35BD55152928AA55008F96AC /* Siren */,
 				35BD54F92925FBAE008F96AC /* Main */,
 			);
 			path = Screen;
@@ -311,6 +318,32 @@
 			children = (
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		35BD55152928AA55008F96AC /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+				35BD55182928AA8A008F96AC /* View */,
+				35BD55162928AA62008F96AC /* SirenViewController.swift */,
+				35BD551C2928AAAE008F96AC /* CountDownTimer.swift */,
+			);
+			path = Siren;
+			sourceTree = "<group>";
+		};
+		35BD55182928AA8A008F96AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35BD55192928AA92008F96AC /* Component */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		35BD55192928AA92008F96AC /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				35BD551A2928AA9F008F96AC /* ProgressBar.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -487,6 +520,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat . --lint --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat  . --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -496,9 +530,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				35BD55052925FED5008F96AC /* UICollectionView+Extension.swift in Sources */,
+				35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */,
 				35BD55032925FEC3008F96AC /* UIViewController+Extension.swift in Sources */,
 				35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */,
 				35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */,
+				35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */,
+				35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */,
 				35BD551129260026008F96AC /* ImageLiteral.swift in Sources */,
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
 				35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */,
