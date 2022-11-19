@@ -80,8 +80,8 @@ final class ProgressBar: UIView, CAAnimationDelegate {
     private func startAnimation() {
         resetAnimation()
         animation.keyPath = "strokeEnd"
-        animation.fromValue = Double(0.0)
-        animation.toValue = Double(1.0)
+        animation.fromValue = 0.0
+        animation.toValue = 1.0
         animation.duration = CFTimeInterval(timerDuration)
         animation.delegate = self
         animation.isRemovedOnCompletion = false
@@ -147,7 +147,7 @@ extension CAShapeLayer {
     func configProgressBar(strokeColor: CGColor, strokeEnd: Double) {
         self.strokeColor = strokeColor
         backgroundColor = UIColor.clear.cgColor
-        fillColor = nil
+        fillColor = UIColor.clear.cgColor
         lineWidth = 24.0
         strokeStart = 0.0
         self.strokeEnd = strokeEnd

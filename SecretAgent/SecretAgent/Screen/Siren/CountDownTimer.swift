@@ -37,7 +37,7 @@ final class CountDownTimer {
     }
 
     // 타이머 실행
-    private func runTimer() {
+    func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true) // 왜 0.01초로 했을까?
     }
 
@@ -56,11 +56,6 @@ final class CountDownTimer {
         timer.invalidate()
         duration = seconds
         delegate?.countdownTimerDone()
-    }
-
-    // 타이머 실행 버튼 클릭시
-    func start() {
-        runTimer()
     }
 
     // 타이머 일시정지 버튼 클릭시

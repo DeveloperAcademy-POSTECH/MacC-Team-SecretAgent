@@ -14,7 +14,7 @@ final class SirenViewController: BaseViewController {
     @IBOutlet var minutes: UILabel!
 
     @IBOutlet var seconds: UILabel!
-
+    // FIXME: - startButton은 임시코드
     @IBOutlet var startButton: UIButton!
     @IBOutlet var stopButton: UIButton!
     @IBOutlet var progressBar: ProgressBar!
@@ -97,7 +97,7 @@ final class SirenViewController: BaseViewController {
         stopButton.alpha = 1.0
 
         if !countdownTimerDidStart {
-            countdownTimer.start()
+            countdownTimer.runTimer()
             progressBar.start()
             countdownTimerDidStart = true
             startButton.setTitle("PAUSE", for: .normal)
