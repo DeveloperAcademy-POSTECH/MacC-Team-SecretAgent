@@ -1,0 +1,25 @@
+# workflow start
+name: Run Test
+
+on: [pull_request]
+
+jobs:
+  # test build success
+  Build:
+    # macos-latest still macos-12
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build Test
+      run: xcodebuild -project SecretAgent/SecretAgent.xcodeproj -scheme SecretAgent -destination 'platform=iOS Simulator,OS=latest,name=iPhone 13 Pro' -quiet clean build
+
+  # check build warnings
+  SwiftLint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: GitHub Action for SwiftLint (Only files changed in the PR) with --strict
+      uses: norio-nomura/action-swiftlint@3.2.1
+      # treat as error
+      # with:
+      #   args: --strict
