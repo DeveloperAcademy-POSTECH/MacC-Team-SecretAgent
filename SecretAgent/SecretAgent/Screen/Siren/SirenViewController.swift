@@ -10,7 +10,7 @@ import UIKit
 
 private enum Constants {
     static let progressBarSize = 300
-    static let selectedSeconds = 10
+    static let selectedSeconds = 30 * 60
 }
 
 final class SirenViewController: BaseViewController {
