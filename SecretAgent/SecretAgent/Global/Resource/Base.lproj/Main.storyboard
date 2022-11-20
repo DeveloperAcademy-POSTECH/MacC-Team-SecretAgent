@@ -56,14 +56,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfs-81-2qc" customClass="ProgressBar" customModule="SecretAgent" customModuleProvider="target">
-                                <rect key="frame" x="45" y="272" width="300" height="300"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Gav-vA-qad"/>
-                                    <constraint firstAttribute="width" constant="300" id="dso-FX-bQg"/>
-                                </constraints>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="03f-Yn-RXx" userLabel="CounterView">
                                 <rect key="frame" x="121.33333333333333" y="403" width="147.66666666666669" height="38.333333333333314"/>
                                 <subviews>
@@ -91,18 +83,15 @@
                         <viewLayoutGuide key="safeArea" id="2mc-Av-CN1"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="03f-Yn-RXx" firstAttribute="centerY" secondItem="pfs-81-2qc" secondAttribute="centerY" id="0Ap-cX-IMy"/>
                             <constraint firstItem="2mc-Av-CN1" firstAttribute="bottom" secondItem="2Qp-Qg-31P" secondAttribute="bottom" constant="26.670000000000002" id="2o4-hv-jKD"/>
                             <constraint firstItem="2Qp-Qg-31P" firstAttribute="centerX" secondItem="qwC-4y-5jr" secondAttribute="centerX" id="6ta-rJ-Sa5"/>
-                            <constraint firstItem="pfs-81-2qc" firstAttribute="centerY" secondItem="qwC-4y-5jr" secondAttribute="centerY" id="jGn-Os-CVo"/>
-                            <constraint firstItem="03f-Yn-RXx" firstAttribute="centerX" secondItem="qwC-4y-5jr" secondAttribute="centerX" id="u6A-0R-9Ng"/>
-                            <constraint firstItem="pfs-81-2qc" firstAttribute="centerX" secondItem="qwC-4y-5jr" secondAttribute="centerX" id="wKe-Rp-fmh"/>
+                            <constraint firstItem="03f-Yn-RXx" firstAttribute="centerY" secondItem="qwC-4y-5jr" secondAttribute="centerY" id="8a0-sb-BGp"/>
+                            <constraint firstItem="03f-Yn-RXx" firstAttribute="centerX" secondItem="qwC-4y-5jr" secondAttribute="centerX" id="cy7-Oe-wZ4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="counterView" destination="03f-Yn-RXx" id="udP-6C-MhU"/>
                         <outlet property="minutes" destination="K0f-PN-FfA" id="kA3-ns-ooH"/>
-                        <outlet property="progressBar" destination="pfs-81-2qc" id="EMQ-sF-zxn"/>
                         <outlet property="seconds" destination="qgZ-fM-v2N" id="5JT-BW-sAb"/>
                         <outlet property="startButton" destination="fsd-bO-9FO" id="3nE-mo-oQU"/>
                         <outlet property="stopButton" destination="aAT-u8-LGp" id="6EX-dX-e59"/>
