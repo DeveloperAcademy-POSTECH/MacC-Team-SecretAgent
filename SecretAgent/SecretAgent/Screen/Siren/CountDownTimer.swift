@@ -26,7 +26,6 @@ final class CountDownTimer {
 
     // 타이머 설정
     func setTimer(minutes: Int, seconds: Int) {
-
         let totalSeconds = minutes * 60 + seconds
         self.seconds = Double(totalSeconds)
         duration = Double(totalSeconds)
