@@ -26,12 +26,10 @@ final class CountDownTimer {
 
     // 타이머 설정
     func setTimer(minutes: Int, seconds: Int) {
-        let minutesToSeconds = minutes * 60
-        let secondsToSeconds = seconds
 
-        let seconds = secondsToSeconds + minutesToSeconds
-        self.seconds = Double(seconds)
-        duration = Double(seconds)
+        let totalSeconds = minutes * 60 + seconds
+        self.seconds = Double(totalSeconds)
+        duration = Double(totalSeconds)
 
         delegate?.countdownTime(time: timeString(time: TimeInterval(ceil(duration))))
     }

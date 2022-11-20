@@ -26,7 +26,7 @@ final class SirenViewController: BaseViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24.0,
                                        weight: UIFont.Weight.light)
-        label.textColor = UIColor.white
+        label.textColor = .white
         label.textAlignment = .center
         label.text = "Done!"
         return label
@@ -46,8 +46,7 @@ final class SirenViewController: BaseViewController {
     override func render() {
         view.addSubview(doneLabel)
         doneLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.center.equalToSuperview()
         }
     }
 

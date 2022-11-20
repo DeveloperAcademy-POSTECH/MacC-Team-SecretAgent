@@ -7,7 +7,7 @@
 
 import UIKit
 
-private enum Size {
+private enum ProgressBarSize {
     static let startAngle = Double(-Double.pi / 2)
     static let endAngle = Double(3 * Double.pi / 2)
 }
@@ -43,8 +43,8 @@ final class ProgressBar: UIView, CAAnimationDelegate {
         foregroundProgressLayer.path = UIBezierPath(
             arcCenter: centerPoint,
             radius: frame.width / 2 - 30.0,
-            startAngle: Size.startAngle,
-            endAngle: Size.endAngle,
+            startAngle: ProgressBarSize.startAngle,
+            endAngle: ProgressBarSize.endAngle,
             clockwise: true
         ).cgPath
         foregroundProgressLayer.configProgressBar(
@@ -58,8 +58,8 @@ final class ProgressBar: UIView, CAAnimationDelegate {
         backgroundProgressLayer.path = UIBezierPath(
             arcCenter: centerPoint,
             radius: frame.width / 2 - 30.0,
-            startAngle: Size.startAngle,
-            endAngle: Size.endAngle,
+            startAngle: ProgressBarSize.startAngle,
+            endAngle: ProgressBarSize.endAngle,
             clockwise: true
         ).cgPath
         backgroundProgressLayer.configProgressBar(
