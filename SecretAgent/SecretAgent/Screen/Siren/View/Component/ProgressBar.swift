@@ -23,8 +23,7 @@ final class ProgressBar: UIView, CAAnimationDelegate {
     private let foregroundProgressLayer: CAShapeLayer = .init()
     private let backgroundProgressLayer: CAShapeLayer = .init()
 
-    private lazy var centerPoint = CGPoint(x: frame.width / 2,
-                                           y: frame.height / 2)
+    private var centerPoint: CGPoint = .init(x: 0, y: 0)
 
     // MARK: - Init
 

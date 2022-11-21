@@ -50,7 +50,6 @@ final class SirenViewController: BaseViewController {
         view.addSubview(progressBar)
         progressBar.snp.makeConstraints { make in
             make.center.equalTo(view)
-            make.size.equalTo(Constants.progressBarSize)
         }
 
         view.addSubview(doneLabel)
