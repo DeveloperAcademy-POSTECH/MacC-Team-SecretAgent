@@ -10,7 +10,7 @@ import UIKit
 
 import SnapKit
 
-class TestSirenViewController: BaseViewController, AVAudioPlayerDelegate {
+class TestSirenViewController: BaseViewController {
     // MARK: - Properties
 
     private var sirenPlayer: AVAudioPlayer?
@@ -22,6 +22,8 @@ class TestSirenViewController: BaseViewController, AVAudioPlayerDelegate {
         return button
     }()
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,6 +34,8 @@ class TestSirenViewController: BaseViewController, AVAudioPlayerDelegate {
             make.center.equalToSuperview()
         }
     }
+
+    // MARK: - Func
 
     @objc func playSiren() {
         guard let path = Bundle.main.path(forResource: SoundLiteral.siren.fileName(), ofType: nil) else { return }
@@ -45,7 +49,11 @@ class TestSirenViewController: BaseViewController, AVAudioPlayerDelegate {
             print(error)
         }
     }
+}
 
+// MARK: AVAudioPlayerDelegate
+
+extension TestSirenViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         print(flag)
         // TODO: 타이머 화면 시작
