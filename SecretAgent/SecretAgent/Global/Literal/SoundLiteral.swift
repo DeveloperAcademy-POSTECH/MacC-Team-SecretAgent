@@ -10,11 +10,15 @@ import Foundation
 enum SoundLiteral: String {
     case siren
 
-    func fileName() -> String {
-        return rawValue + "." + MusicExtension.mp3.rawValue
+    func callAsFunction() -> String {
+        return rawValue
     }
 }
 
 enum MusicExtension: String {
     case mp3
+
+    func callAsFunction() -> String {
+        return rawValue
+    }
 }
