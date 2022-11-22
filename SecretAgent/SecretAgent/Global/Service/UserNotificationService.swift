@@ -9,7 +9,7 @@ import Foundation
 import UserNotifications
 
 struct UserNotificationManager {
-    private var center = UNUserNotificationCenter.current()
+    private let center = UNUserNotificationCenter.current()
 
     func grant(of options: UNAuthorizationOptions = [.alert, .sound, .badge]) {
         center.getNotificationSettings { setting in
@@ -19,60 +19,32 @@ struct UserNotificationManager {
         }
     }
 
-    func setOnce(after seconds: TimeInterval, title: String, body: String) {
-        center.getPendingNotificationRequests { requests in
-            for request in requests where request.content.title == title {
-                center.removePendingNotificationRequests(withIdentifiers: [request.identifier])
-            }
-            let content = UNMutableNotificationContent()
+    func setOnce(after seconds: TimeInterval, title: String, body: String, uuid: String) {
+        let content = UNMutableNotificationContent()
 
-            content.title = title
-            content.body = body
+        content.title = title
+        content.body = body
 
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
-            let uuidString = UUID().uuidString
-            let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
+        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
 
-            center.add(request)
-            // 추후에 사이렌 중지를 누르는 상황에서 불필요한 알림을 보내지 않기 위해 User Default에 저장해 놓았습니다.
-            saveToUserDefaults(of: uuidString)
-            removeUserDefaults(of: uuidString, after: seconds + 5)
-        }
+        center.add(request)
     }
 
-    func setEvery(at hour: Int, title: String, body: String) {
-        center.getPendingNotificationRequests { requests in
-            for request in requests where request.content.title == title {
-                return
-            }
-            let content = UNMutableNotificationContent()
+    func setEvery(at hour: Int, title: String, body: String, uuid: String) {
+        let content = UNMutableNotificationContent()
 
-            content.title = title
-            content.body = body
+        content.title = title
+        content.body = body
 
-            let dateComponents = DateComponents(calendar: Calendar.current, hour: hour)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            let uuidString = UUID().uuidString
-            let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        let dateComponents = DateComponents(calendar: Calendar.current, hour: hour)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
 
-            center.add(request)
-        }
+        center.add(request)
     }
 
     func cancel(at uuid: String) {
         center.removePendingNotificationRequests(withIdentifiers: [uuid])
-    }
-
-    private func saveToUserDefaults(of uuid: String) {
-        UserDefaults.standard.set(uuid, forKey: "pendingSirenUUID")
-    }
-
-    private func removeUserDefaults(of uuid: String, after seconds: Double) {
-        // 15분 이내에 새로운 사이렌이 등록되었으면 삭제하지 않음
-        DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + seconds) {
-            if let savedUUID = UserDefaults.standard.string(forKey: "pendingSirenUUID"), savedUUID == uuid {
-                UserDefaults.standard.removeObject(forKey: "pendingSirenUUID")
-            }
-        }
     }
 }
