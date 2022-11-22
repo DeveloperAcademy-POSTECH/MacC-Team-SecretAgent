@@ -5,7 +5,6 @@
 //  Created by DaeSeong on 2022/11/17.
 //
 
-import CoreML
 import UIKit
 
 class ViewController: UIViewController {
