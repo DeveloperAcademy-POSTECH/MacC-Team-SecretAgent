@@ -34,7 +34,8 @@ class TestSirenViewController: BaseViewController, AVAudioPlayerDelegate {
     }
 
     @objc func playSiren() {
-        guard let path = Bundle.main.path(forResource: "siren.mp3", ofType: nil) else { return }
+        print(SoundLiteral.siren.fileName())
+        guard let path = Bundle.main.path(forResource: SoundLiteral.siren.fileName(), ofType: nil) else { return }
         let url = URL(fileURLWithPath: path)
 
         do {
