@@ -13,7 +13,7 @@ import SnapKit
 class TestSirenViewController: BaseViewController {
     // MARK: - Properties
 
-    private var sirenPlayer: AVAudioPlayer?
+    private var sirenPlayer: AVAudioPlayer!
 
     private lazy var sirenButton: UIButton = {
         let button = UIButton()
@@ -26,6 +26,7 @@ class TestSirenViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSiren()
     }
 
     override func render() {
@@ -37,17 +38,21 @@ class TestSirenViewController: BaseViewController {
 
     // MARK: - Func
 
-    @objc func playSiren() {
+    func setupSiren() {
         guard let path = Bundle.main.path(forResource: SoundLiteral.siren(), ofType: MusicExtension.mp3()) else { return }
         let url = URL(fileURLWithPath: path)
 
         do {
             sirenPlayer = try AVAudioPlayer(contentsOf: url)
+            sirenPlayer?.prepareToPlay()
             sirenPlayer?.delegate = self
-            sirenPlayer?.play()
         } catch {
             print(error)
         }
+    }
+
+    @objc func playSiren() {
+        sirenPlayer?.play()
     }
 }
 
