@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */; };
+		212D1EAF292B580E0079ECF2 /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 212D1EAE292B580E0079ECF2 /* siren.mp3 */; };
 		35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A12925D497008F96AC /* AppDelegate.swift */; };
 		35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A32925D497008F96AC /* SceneDelegate.swift */; };
 		35BD54A62925D497008F96AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A52925D497008F96AC /* ViewController.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSirenViewController.swift; sourceTree = "<group>"; };
+		212D1EAE292B580E0079ECF2 /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
 		35BD549E2925D497008F96AC /* SecretAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BD54A12925D497008F96AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BD54A32925D497008F96AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		212D1EAD292B57EF0079ECF2 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				212D1EAE292B580E0079ECF2 /* siren.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		35BD54952925D497008F96AC = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +250,7 @@
 		35BD54E52925F5DC008F96AC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				212D1EAD292B57EF0079ECF2 /* Sound */,
 				35BD54A72925D497008F96AC /* Main.storyboard */,
 				35BD54AD2925D498008F96AC /* Assets.xcassets */,
 				35BD54AF2925D498008F96AC /* LaunchScreen.storyboard */,
@@ -325,6 +338,7 @@
 			children = (
 				35BD55182928AA8A008F96AC /* View */,
 				35BD55162928AA62008F96AC /* SirenViewController.swift */,
+				212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */,
 				35BD551C2928AAAE008F96AC /* CountDownTimer.swift */,
 			);
 			path = Siren;
@@ -462,6 +476,7 @@
 				35BD54D92925ED92008F96AC /* .swiftlint.yml in Resources */,
 				35BD54B12925D498008F96AC /* LaunchScreen.storyboard in Resources */,
 				35BD54AE2925D498008F96AC /* Assets.xcassets in Resources */,
+				212D1EAF292B580E0079ECF2 /* siren.mp3 in Resources */,
 				35BD54A92925D497008F96AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +559,7 @@
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
+				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
 				35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */,
 			);
