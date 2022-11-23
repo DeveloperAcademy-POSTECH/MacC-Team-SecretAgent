@@ -8,19 +8,22 @@
 import SnapKit
 import UIKit
 
+private enum Constants {
+    static let progressBarSize = 300
+    static let selectedSeconds = 30 * 60
+}
+
 final class SirenViewController: BaseViewController {
     // MARK: - Properties
 
     @IBOutlet var minutes: UILabel!
 
     @IBOutlet var seconds: UILabel!
-    // FIXME: - startButton은 임시코드
     @IBOutlet var startButton: UIButton!
     @IBOutlet var stopButton: UIButton!
-    @IBOutlet var progressBar: ProgressBar!
     @IBOutlet var counterView: UIStackView!
 
-    private let countdownTimer: CountDownTimer = .init()
+    private let countdownTimer: CountDownTimer = .init(totalSeconds: Constants.selectedSeconds)
 
     private let doneLabel: UILabel = {
         let label = UILabel()
@@ -33,7 +36,7 @@ final class SirenViewController: BaseViewController {
     }()
 
     private var countdownTimerDidStart = false
-    private let selectedSecs: Int = 30 * 60
+    private let progressBar: ProgressBar = .init(totalSeconds: Constants.selectedSeconds)
 
     // MARK: - Life Cycle
 
@@ -44,6 +47,11 @@ final class SirenViewController: BaseViewController {
     }
 
     override func render() {
+        view.addSubview(progressBar)
+        progressBar.snp.makeConstraints { make in
+            make.center.equalTo(view)
+        }
+
         view.addSubview(doneLabel)
         doneLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -52,15 +60,15 @@ final class SirenViewController: BaseViewController {
 
     override func configUI() {
         super.configUI()
-        countdownTimer.setTimer(minutes: 0, seconds: selectedSecs)
-        progressBar.setProgressBar(minutes: 0, seconds: selectedSecs)
+        countdownTimer.setTimer()
         stopButton.isEnabled = false
         stopButton.alpha = 0.5
         doneLabel.isHidden = true
         counterView.isHidden = false
-
-        minutes.text = String(format: "%02d", selectedSecs / 60 % 60)
-        seconds.text = String(format: "%02d", selectedSecs % 60)
+        minutes.text = String(format: "%02d",
+                              Constants.selectedSeconds / 60)
+        seconds.text = String(format: "%02d",
+                              Constants.selectedSeconds % 60)
     }
 
     // MARK: - Func
@@ -75,8 +83,8 @@ final class SirenViewController: BaseViewController {
 
     @objc func addBackgroundTime(_ notification: Notification) {
         if countdownTimerDidStart == true {
-            let time = notification.userInfo?["time"] as? Int ?? 0
-            countdownTimer.duration -= Double(time)
+            let time = notification.userInfo?["time"] as? Double ?? 0.0
+            countdownTimer.duration -= time
         }
     }
 
@@ -124,5 +132,6 @@ extension SirenViewController: CountdownTimerDelegate {
         stopButton.alpha = 0.5
         startButton.setTitle("START", for: .normal)
         countdownTimerDidStart = false
+        progressBar.stop()
     }
 }
