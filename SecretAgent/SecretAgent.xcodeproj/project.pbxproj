@@ -35,6 +35,7 @@
 		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
+		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 		35BD54F62925F5FD008F96AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE8B0B56292E097D002BF6EE /* BadgeManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
 				35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */,
 				35BD54A62925D497008F96AC /* ViewController.swift in Sources */,
+				CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */,
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
