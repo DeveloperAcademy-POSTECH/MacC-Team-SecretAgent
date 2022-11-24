@@ -10,23 +10,15 @@ import UIKit
 class CustomCollectionViewCell: UICollectionViewCell {
     static let identifier = "CustomCollectionViewCell"
 
-    private let label: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .bold)
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.text = "뱃지"
-        label.backgroundColor = .yellow
-        label.textColor = .black
-        return label
-    }()
+    let badgeImageView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(label)
-        label.snp.makeConstraints { make in
+        addSubview(badgeImageView)
+        badgeImageView.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
-            make.size.equalTo(90)
+            make.width.equalTo(BoardSize.badgeWidth)
+            make.height.equalTo(BoardSize.badgeHeight)
         }
     }
 

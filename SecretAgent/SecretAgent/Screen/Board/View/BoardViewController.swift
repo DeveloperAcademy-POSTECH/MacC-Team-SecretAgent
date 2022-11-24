@@ -7,34 +7,69 @@
 
 import UIKit
 
+enum BoardSize {
+    static let badgeWidth: Double = 90
+    static let badgeHeight: Double = 96.15
+    static let collectionViewInsets: UIEdgeInsets = .init(top: 52, left: 56, bottom: 52, right: 56)
+    static let collectionViewLineSpacing: Double = 25.85
+    static let upperBadgeInfoHeight: Double = 56
+}
+
 final class BoardViewController: BaseViewController {
     // MARK: - Properties
+
+    let totalBadgeNumber = 5 // MockData
+
+    private var fixedBadgeInformation: UIStackView = {
+        let stackView = UIStackView()
+        let dropdown = UIView()
+        let coinBadge = UIView()
+        let shieldBadge = UIView()
+        let starBadge = UIView()
+        [dropdown, coinBadge, shieldBadge, starBadge].forEach { subView in
+            stackView.addArrangedSubview(subView)
+            subView.backgroundColor = [.blue, .yellow, .orange, .red, .purple, .green, .systemTeal, .systemPink].randomElement()
+        }
+        stackView.distribution = .fillEqually
+        stackView.axis = .horizontal
+        stackView.backgroundColor = .gray
+        return stackView
+    }()
 
     private lazy var badgeCollectionFlowLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 20
-        layout.sectionInset = .init(top: 52, left: 56, bottom: 52, right: 56)
-        layout.itemSize = .init(width: view.frame.size.width, height: 90)
+        layout.minimumLineSpacing = BoardSize.collectionViewLineSpacing
+        layout.sectionInset = BoardSize.collectionViewInsets
+        layout.itemSize = .init(width: view.frame.size.width, height: BoardSize.badgeHeight)
 
         return layout
     }()
 
     private lazy var badgeCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: badgeCollectionFlowLayout)
-        collectionView.register(cell: CustomCollectionViewCell.self, forCellReuseIdentifier: "CustomCollectionViewCell")
-        collectionView.backgroundColor = .blue
+        collectionView.register(cell: CustomCollectionViewCell.self, forCellReuseIdentifier: CustomCollectionViewCell.identifier)
         return collectionView
     }()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
-        print("viewdidload")
         super.viewDidLoad()
-        view.backgroundColor = .purple
+        view.backgroundColor = .systemBackground
+
+        view.addSubview(fixedBadgeInformation)
+        fixedBadgeInformation.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(BoardSize.upperBadgeInfoHeight)
+        }
 
         view.addSubview(badgeCollectionView)
+        badgeCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(fixedBadgeInformation.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
         badgeCollectionView.delegate = self
         badgeCollectionView.dataSource = self
     }
@@ -48,25 +83,28 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as? CustomCollectionViewCell
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell
 
-        myCell?.frame.size.width = 90 * Double(indexPath.row % 4) + 10 * Double(indexPath.row % 4)
+        let activeCoin = UIImage(named: "activeCoin")
+        let inactiveCoin = UIImage(named: "inactiveCoin")
+
+        if indexPath.row < totalBadgeNumber {
+            myCell?.badgeImageView.image = activeCoin
+        } else {
+            myCell?.badgeImageView.image = inactiveCoin
+        }
 
         switch indexPath.row % 4 {
         case 0:
-            myCell?.frame.size.width = 90
+            myCell?.frame.size.width = BoardSize.badgeWidth + BoardSize.collectionViewInsets.left // 뱃지크기 + 여백
         case 1, 3:
-            myCell?.frame.size.width = view.frame.width / 2 + 45
+            myCell?.frame.size.width = Double(view.frame.width / 2) + Double(BoardSize.badgeWidth / 2) // 반 채우고 뱃지 크기 반 만큼
         case 2:
-            myCell?.frame.size.width = view.frame.width
+            myCell?.frame.size.width = view.frame.width - BoardSize.collectionViewInsets.right // 전체 너비 - 여백
         default:
-            myCell?.frame.size.width = 0
+            myCell?.frame.size.width = .zero
         }
 
-        return myCell ?? collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("User tapped on item \(indexPath.row)")
+        return myCell ?? collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath)
     }
 }
