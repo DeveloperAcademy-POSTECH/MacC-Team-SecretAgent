@@ -10,6 +10,7 @@ import UIKit
 
 enum ImageLiteral {
     // MARK: - Badges
+
     static var coin: UIImage { .load(named: "coin.activate") }
     static var shield: UIImage { .load(named: "shield.activate") }
     static var star: UIImage { .load(named: "star.activate") }
@@ -18,13 +19,16 @@ enum ImageLiteral {
     static var deactivateStar: UIImage { .load(named: "star.deactivate") }
 
     // MARK: - TabBar
+
     static var story: UIImage { .load(named: "story.activate") }
     static var deactivateStory: UIImage { .load(named: "story.deactivate") }
 
     // MARK: - NavigationBarButton
+
     static var agent: UIImage { .load(named: "agent") }
 
     // MARK: - Siren
+
     static var siren: UIImage { .load(named: "siren") }
     static var woongwoong: UIImage { .load(named: "woongwoong") }
 }
