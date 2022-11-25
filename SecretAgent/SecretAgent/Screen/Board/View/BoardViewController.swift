@@ -19,17 +19,34 @@ final class BoardViewController: BaseViewController {
     // MARK: - Properties
 
     let totalBadgeNumber = 5 // MockData
+    let coinBadgeNumber = 5
+    let shieldBadgeNumber = 1
+    let starBadgeNumber = 0
 
-    private var fixedBadgeInformation: UIStackView = {
+    private lazy var fixedBadgeInformation: UIStackView = {
         let stackView = UIStackView()
-        let dropdown = UIView()
-        let coinBadge = UIView()
-        let shieldBadge = UIView()
-        let starBadge = UIView()
+
+        // MARK: - 아래의 코드는 모두 임시 코드입니다.
+
+        let dropdown = UIButton()
+        dropdown.setTitle("드롭다운", for: .normal)
+        dropdown.addTarget(self, action: #selector(showDropdown), for: .touchUpInside)
+        let coinBadge = UILabel()
+        coinBadge.text = "코인뱃지: \(coinBadgeNumber)"
+        coinBadge.textAlignment = .center
+        let shieldBadge = UILabel()
+        shieldBadge.text = "방패뱃지: \(shieldBadgeNumber)"
+        shieldBadge.textAlignment = .center
+        let starBadge = UILabel()
+        starBadge.text = "스타뱃지: \(starBadgeNumber)"
+        starBadge.textAlignment = .center
         [dropdown, coinBadge, shieldBadge, starBadge].forEach { subView in
             stackView.addArrangedSubview(subView)
             subView.backgroundColor = [.blue, .yellow, .orange, .red, .purple, .green, .systemTeal, .systemPink].randomElement()
         }
+
+        // MARK: - 위의 코드는 모두 임시 코드입니다.
+
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
         stackView.backgroundColor = .gray
@@ -56,8 +73,10 @@ final class BoardViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        setDelegateAndDataSource()
+    }
 
+    override func render() {
         view.addSubview(fixedBadgeInformation)
         fixedBadgeInformation.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
@@ -70,6 +89,19 @@ final class BoardViewController: BaseViewController {
             make.top.equalTo(fixedBadgeInformation.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
+    }
+
+    override func configUI() {
+        view.backgroundColor = .systemBackground
+    }
+
+    // MARK: - Func
+
+    @objc func showDropdown() {
+        // TODO: - 드롭다운 보여주기
+    }
+
+    private func setDelegateAndDataSource() {
         badgeCollectionView.delegate = self
         badgeCollectionView.dataSource = self
     }
@@ -85,8 +117,8 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell
 
-        let activeCoin = UIImage(named: "activeCoin")
-        let inactiveCoin = UIImage(named: "inactiveCoin")
+        let activeCoin = ImageLiteral.activeCoin
+        let inactiveCoin = ImageLiteral.inactiveCoin
 
         if indexPath.row < totalBadgeNumber {
             myCell?.badgeImageView.image = activeCoin
