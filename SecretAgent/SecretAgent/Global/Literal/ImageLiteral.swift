@@ -14,14 +14,14 @@ enum ImageLiteral {
     static var coin: UIImage { .load(named: "coin.activate") }
     static var shield: UIImage { .load(named: "shield.activate") }
     static var star: UIImage { .load(named: "star.activate") }
-    static var deactivateCoin: UIImage { .load(named: "coin.deactivate") }
-    static var deactivateShield: UIImage { .load(named: "shield.deactivate") }
-    static var deactivateStar: UIImage { .load(named: "star.deactivate") }
+    static var inactiveCoin: UIImage { .load(named: "coin.deactivate") }
+    static var inactiveShield: UIImage { .load(named: "shield.deactivate") }
+    static var inactiveStar: UIImage { .load(named: "star.deactivate") }
 
     // MARK: - TabBar
 
     static var story: UIImage { .load(named: "story.activate") }
-    static var deactivateStory: UIImage { .load(named: "story.deactivate") }
+    static var inactiveStory: UIImage { .load(named: "story.deactivate") }
 
     // MARK: - NavigationBarButton
 
