@@ -236,6 +236,7 @@
 				35BD54F82925F8AC008F96AC /* Storage */,
 				35BD54E42925F5DC008F96AC /* .gitkeep */,
 				CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */,
+				CE8B0B56292E097D002BF6EE /* BadgeManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -280,7 +281,6 @@
 		35BD54F62925F5FD008F96AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE8B0B56292E097D002BF6EE /* BadgeManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
