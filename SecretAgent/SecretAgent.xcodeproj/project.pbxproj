@@ -37,6 +37,8 @@
 		35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551A2928AA9F008F96AC /* ProgressBar.swift */; };
 		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
+		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
+		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
 		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		35BD551A2928AA9F008F96AC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +252,8 @@
 			children = (
 				35BD54F82925F8AC008F96AC /* Storage */,
 				35BD54E42925F5DC008F96AC /* .gitkeep */,
+				CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */,
+				CE8B0B56292E097D002BF6EE /* BadgeManager.swift */,
 				B574F62E292B9C7300E8E268 /* UserNotificationService.swift */,
 			);
 			path = Service;
@@ -561,6 +567,7 @@
 				35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */,
 				B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */,
 				35BD54A62925D497008F96AC /* ViewController.swift in Sources */,
+				CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */,
 				21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */,
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
@@ -569,6 +576,7 @@
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
+				CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */,
 				35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
