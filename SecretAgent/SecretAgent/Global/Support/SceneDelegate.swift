@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
-        let interval = Int(Date().timeIntervalSince(start))
+        let interval = Double(Date().timeIntervalSince(start))
         NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time": interval])
     }
 

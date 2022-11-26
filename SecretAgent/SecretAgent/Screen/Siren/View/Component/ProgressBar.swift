@@ -10,6 +10,8 @@ import UIKit
 private enum ProgressBarSize {
     static let startAngle = Double(-Double.pi / 2)
     static let endAngle = Double(3 * Double.pi / 2)
+    static let width = 300
+    static let height = 300
 }
 
 final class ProgressBar: UIView, CAAnimationDelegate {
@@ -21,38 +23,20 @@ final class ProgressBar: UIView, CAAnimationDelegate {
     private let foregroundProgressLayer: CAShapeLayer = .init()
     private let backgroundProgressLayer: CAShapeLayer = .init()
 
-    private lazy var centerPoint = CGPoint(x: frame.width / 2,
-                                           y: frame.height / 2)
+    private var centerPoint: CGPoint = .init(x: 0, y: 0)
 
     // MARK: - Init
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    convenience init(totalSeconds: Int) {
+        self.init()
+        frame.size = .init(width: ProgressBarSize.width,
+                           height: ProgressBarSize.height)
+        timerDuration = totalSeconds
         loadBackgroundProgressBar()
         loadForegroundProgressBar()
     }
 
     // MARK: - Func
-
-    private func loadForegroundProgressBar() {
-        foregroundProgressLayer.path = UIBezierPath(
-            arcCenter: centerPoint,
-            radius: frame.width / 2 - 30.0,
-            startAngle: ProgressBarSize.startAngle,
-            endAngle: ProgressBarSize.endAngle,
-            clockwise: true
-        ).cgPath
-        foregroundProgressLayer.configProgressBar(
-            strokeColor: UIColor.blue.cgColor,
-            strokeEnd: 0.0
-        )
-        backgroundProgressLayer.addSublayer(foregroundProgressLayer)
-    }
 
     private func loadBackgroundProgressBar() {
         backgroundProgressLayer.path = UIBezierPath(
@@ -69,24 +53,28 @@ final class ProgressBar: UIView, CAAnimationDelegate {
         layer.addSublayer(backgroundProgressLayer)
     }
 
-    // 프로그래스바 설정
-    func setProgressBar(minutes: Int, seconds: Int) {
-        let minutesToSeconds = minutes * 60
-        let totalSeconds = seconds + minutesToSeconds
-        timerDuration = totalSeconds
+    private func loadForegroundProgressBar() {
+        foregroundProgressLayer.path = UIBezierPath(
+            arcCenter: centerPoint,
+            radius: frame.width / 2 - 30.0,
+            startAngle: ProgressBarSize.startAngle,
+            endAngle: ProgressBarSize.endAngle,
+            clockwise: true
+        ).cgPath
+        foregroundProgressLayer.configProgressBar(
+            strokeColor: UIColor.blue.cgColor,
+            strokeEnd: 0.0
+        )
+        backgroundProgressLayer.addSublayer(foregroundProgressLayer)
     }
 
     // 애니메이션 시작
     private func startAnimation() {
         resetAnimation()
         animation.keyPath = "strokeEnd"
-        animation.fromValue = 0.0
-        animation.toValue = 1.0
+        animation.fromValue = 1.0
+        animation.toValue = 0.0
         animation.duration = CFTimeInterval(timerDuration)
-        animation.delegate = self
-        animation.isRemovedOnCompletion = false
-        animation.isAdditive = true
-        animation.fillMode = CAMediaTimingFillMode.forwards
         foregroundProgressLayer.add(animation, forKey: "strokeEnd")
         animationDidStart = true
     }
@@ -143,7 +131,7 @@ final class ProgressBar: UIView, CAAnimationDelegate {
 
 // MARK: - CAShapeLayer
 
-extension CAShapeLayer {
+private extension CAShapeLayer {
     func configProgressBar(strokeColor: CGColor, strokeEnd: Double) {
         self.strokeColor = strokeColor
         backgroundColor = UIColor.clear.cgColor
