@@ -10,6 +10,13 @@ final class BadgeManger: CoreDataManager {
     
     override private init() {}
     
+    func fetchBadge() throws -> [Badge] {
+        let request = Badge.fetchRequest()
+        let results = try context.fetch(request)
+        
+        return results
+    }
+    
     // MARK: - CRUD Func
     
     func initBadge() {
@@ -22,144 +29,83 @@ final class BadgeManger: CoreDataManager {
             
             newBadge.coinsLeftForToday = 5
             newBadge.numberOfTotalCoins = 0
+            
             self.saveContext()
         }
     }
     
-    func decreaseTodaysBadge() {
-        let request = Badge.fetchRequest()
+    func decreaseTodaysBadge() throws {
+        let results = try fetchBadge()
+        let currentBadge = results.first
+        let todaysCoin = Int(currentBadge?.coinsLeftForToday ?? 5)
         
-        do {
-            let results = try context.fetch(request)
-            
-            guard let currentBadge = results.first else {
-                return
-            }
-            
-            let todaysCoin = Int(currentBadge.coinsLeftForToday)
-            
-            if todaysCoin > 0 {
-                currentBadge.setValue(todaysCoin - 1, forKey: "coinsLeftForToday")
-            } else {}
-            
-            saveContext()
-        } catch {
-            fatalError("\(error)")
+        if todaysCoin > 0 {
+            currentBadge?.setValue(todaysCoin - 1, forKey: "coinsLeftForToday")
         }
+        
+        saveContext()
     }
     
-    func updateTotalBadge() {
-        let request = Badge.fetchRequest()
+    func updateTotalBadge() throws {
+        let results = try fetchBadge()
+        let currentBadge = results.first
+        let todaysCoin = Int(currentBadge?.coinsLeftForToday ?? 5)
+        let totalCoin = Int(currentBadge?.numberOfTotalCoins ?? 0)
         
-        do {
-            let results = try context.fetch(request)
-            
-            guard let currentBadge = results.first else {
-                return
-            }
-            
-            let todaysCoin = Int(currentBadge.coinsLeftForToday)
-            let totalCoin = Int(currentBadge.numberOfTotalCoins)
-            
-            currentBadge.setValue(totalCoin + todaysCoin, forKey: "numberOfTotalCoins")
-            
-            saveContext()
-        } catch {
-            fatalError("\(error)")
-        }
+        currentBadge?.setValue(totalCoin + todaysCoin, forKey: "numberOfTotalCoins")
+        
+        saveContext()
     }
     
-    func resetTodaysBadge() {
-        let request = Badge.fetchRequest()
+    func resetTodaysBadge() throws {
+        let results = try fetchBadge()
+        let currentBadge = results.first
         
-        do {
-            let results = try context.fetch(request)
-            
-            guard let currentBadge = results.first else {
-                return
-            }
-            
-            currentBadge.setValue(5, forKey: "coinsLeftForToday")
-            
-            saveContext()
-        } catch {
-            fatalError("\(error)")
-        }
+        currentBadge?.setValue(5, forKey: "coinsLeftForToday")
+        
+        saveContext()
     }
     
-    func numberOfTotalCoins() -> (result: Int, error: Int) {
-        let request = Badge.fetchRequest()
-        
+    func numberOfTotalCoins() throws -> (result: Int, error: Int) {
+        let results = try fetchBadge()
         var totalCoins: Int!
+        let allBadges = results.first
         
-        do {
-            let results = try context.fetch(request)
-            
-            guard let allBadges = results.first else {
-                return (0, 0)
-            }
-            
-            totalCoins = Int(allBadges.numberOfTotalCoins)
-        } catch {
-            fatalError("\(error)")
-        }
+        totalCoins = Int(allBadges?.numberOfTotalCoins ?? 0)
         
         return (totalCoins, 1)
     }
     
-    func coinsLeftForToday() -> (result: Int, error: Int) {
-        let request = Badge.fetchRequest()
-        
+    func coinsLeftForToday() throws -> (result: Int, error: Int) {
+        let results = try fetchBadge()
         var todaysCoins: Int!
-        
-        do {
-            let results = try context.fetch(request)
-            
-            guard let allBadges = results.first else {
-                return (0, 0)
-            }
-            
-            todaysCoins = Int(allBadges.coinsLeftForToday)
-        } catch {
-            fatalError("\(error)")
-        }
+        let allBadges = results.first
+
+        todaysCoins = Int(allBadges?.coinsLeftForToday ?? 5)
         
         return (todaysCoins, 1)
     }
     
-    func allBadges() -> (result: (numberOfTotalCoins: Int, coinsLeftForToday: Int), error: Int) {
-        let request = Badge.fetchRequest()
-        
+    func allBadges() throws -> (result: (numberOfTotalCoins: Int, coinsLeftForToday: Int), error: Int) {
+        let results = try fetchBadge()
         var totalCoins: Int!
         var todaysCoins: Int!
+        let allBadges = results.first
         
-        do {
-            let results = try context.fetch(request)
-            
-            guard let allBadges = results.first else {
-                return ((0, 0), 0)
-            }
-            
-            totalCoins = Int(allBadges.numberOfTotalCoins)
-            todaysCoins = Int(allBadges.coinsLeftForToday)
-        } catch {
-            fatalError("\(error)")
-        }
+        totalCoins = Int(allBadges?.numberOfTotalCoins ?? 0)
+        todaysCoins = Int(allBadges?.coinsLeftForToday ?? 5)
         
         return ((totalCoins, todaysCoins), 1)
     }
     
-    func deleteBadges() {
-        let request = Badge.fetchRequest()
+    func deleteBadges() throws {
+        let results = try fetchBadge()
         
-        do {
-            let results = try context.fetch(request)
-            
-            for result in results {
-                context.delete(result)
-            }
-            
-            saveContext()
-        } catch {}
+        for result in results {
+            context.delete(result)
+        }
+        
+        saveContext()
     }
+
 }
