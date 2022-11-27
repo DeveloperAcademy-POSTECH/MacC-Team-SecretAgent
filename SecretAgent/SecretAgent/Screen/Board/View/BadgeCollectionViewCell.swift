@@ -1,5 +1,5 @@
 //
-//  CustomCollectionViewCell.swift
+//  BadgeCollectionViewCell.swift
 //  SecretAgent
 //
 //  Created by Minkyeong Ko on 2022/11/23.
@@ -7,8 +7,13 @@
 
 import UIKit
 
-class CustomCollectionViewCell: UICollectionViewCell {
-    static let identifier = "CustomCollectionViewCell"
+private enum BadgeSize {
+    static let badgeWidth: Double = 90
+    static let badgeHeight: Double = 96.15
+}
+
+class BadgeCollectionViewCell: UICollectionViewCell {
+    static let identifier = "BadgeCollectionViewCell"
 
     let badgeImageView = UIImageView()
 
@@ -16,9 +21,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         addSubview(badgeImageView)
         badgeImageView.snp.makeConstraints { make in
-            make.trailing.equalToSuperview()
-            make.width.equalTo(BoardSize.badgeWidth)
-            make.height.equalTo(BoardSize.badgeHeight)
+            make.top.trailing.equalToSuperview()
+            make.width.equalTo(BadgeSize.badgeWidth)
+            make.height.equalTo(BadgeSize.badgeHeight)
         }
     }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum BoardSize {
+private enum BoardSize {
     static let badgeWidth: Double = 90
     static let badgeHeight: Double = 96.15
     static let collectionViewInsets: UIEdgeInsets = .init(top: 52, left: 56, bottom: 52, right: 56)
@@ -64,8 +64,8 @@ final class BoardViewController: BaseViewController {
     }()
 
     private lazy var badgeCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: badgeCollectionFlowLayout)
-        collectionView.register(cell: CustomCollectionViewCell.self, forCellReuseIdentifier: CustomCollectionViewCell.identifier)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: badgeCollectionFlowLayout)
+        collectionView.register(cell: BadgeCollectionViewCell.self, forCellReuseIdentifier: BadgeCollectionViewCell.identifier)
         return collectionView
     }()
 
@@ -73,7 +73,7 @@ final class BoardViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDelegateAndDataSource()
+        setDelegation()
     }
 
     override func render() {
@@ -101,7 +101,7 @@ final class BoardViewController: BaseViewController {
         // TODO: - 드롭다운 보여주기
     }
 
-    private func setDelegateAndDataSource() {
+    private func setDelegation() {
         badgeCollectionView.delegate = self
         badgeCollectionView.dataSource = self
     }
@@ -115,15 +115,12 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell
-
-        let activeCoin = ImageLiteral.activeCoin
-        let inactiveCoin = ImageLiteral.inactiveCoin
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell
 
         if indexPath.row < totalBadgeNumber {
-            myCell?.badgeImageView.image = activeCoin
+            myCell?.badgeImageView.image = ImageLiteral.activeCoin
         } else {
-            myCell?.badgeImageView.image = inactiveCoin
+            myCell?.badgeImageView.image = ImageLiteral.inactiveCoin
         }
 
         switch indexPath.row % 4 {
@@ -137,6 +134,6 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
             myCell?.frame.size.width = .zero
         }
 
-        return myCell ?? collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath)
+        return myCell ?? collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath)
     }
 }
