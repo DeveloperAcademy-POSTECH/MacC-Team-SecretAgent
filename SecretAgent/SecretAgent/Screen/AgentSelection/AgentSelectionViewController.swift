@@ -40,10 +40,10 @@ class AgentSelectionViewController: BaseViewController {
     }()
     
     let agentStackViewCells: [AgentStackViewCell] = [
-        AgentStackViewCell(),
-        AgentStackViewCell(),
-        AgentStackViewCell(),
-        AgentStackViewCell()
+        AgentStackViewCell(agentID: 0),
+        AgentStackViewCell(agentID: 1),
+        AgentStackViewCell(agentID: 2),
+        AgentStackViewCell(agentID: 3)
     ]
     
     var agent1stHStack: UIStackView = {
@@ -148,7 +148,6 @@ class AgentSelectionViewController: BaseViewController {
                 agent2ndHStack.addArrangedSubview(agentStackViewCells[cellID])
             }
             
-            agentStackViewCells[cellID].setAgentImage(agentID: cellID)
             agentStackViewCells[cellID].addTarget(self, action: #selector(agentClicked), for: .touchUpInside)
         }
         

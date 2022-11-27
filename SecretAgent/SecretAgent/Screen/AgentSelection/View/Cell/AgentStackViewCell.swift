@@ -22,8 +22,10 @@ class AgentStackViewCell: UIButton {
     
     // MARK: - Init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(agentID: Int) {
+        super.init(frame: .zero)
+        tag = agentID
+        agentImageView.image = Agent.agentList[tag].basicImage
         render()
     }
     
@@ -46,11 +48,6 @@ class AgentStackViewCell: UIButton {
     }
     
     // MARK: - Func
-    
-    func setAgentImage(agentID: Int) {
-        tag = agentID
-        agentImageView.image = Agent.agentList[tag].basicImage
-    }
     
     func selectAgent() {
         agentImageView.image = Agent.agentList[tag].selectedImage
