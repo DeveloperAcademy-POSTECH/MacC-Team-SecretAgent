@@ -11,6 +11,8 @@ import UIKit
 enum ImageLiteral {
     // 예시
     static var sampleRoom: UIImage { .load(named: "SampleRoom") }
+    static var activeCoin: UIImage { .load(named: "activeCoin") }
+    static var inactiveCoin: UIImage { .load(named: "inactiveCoin") }
 }
 
 extension UIImage {
