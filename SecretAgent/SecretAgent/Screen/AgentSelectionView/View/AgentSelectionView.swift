@@ -14,14 +14,16 @@ private enum FontSize {
 }
 
 private enum ViewSize {
-    static let stackSpacing: Double = 14
-    static let informationLabelY: Double = 140
-    static let agentVStackTopOffset: Double = 33
-    static let agentVStackWidth: Double = 338
-    static let agentVStackHeight: Double = 328
-    static let selectedAgentNameLabelBottomInset: Double = 222
-    static let selectedAgentDescriptionLabelTopOffset: Double = 22
-    static let selectButtonBottomInset: Double = 74
+//    UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? 노치 : 홈
+    
+    static let stackSpacing: Double = UIScreen.main.bounds.width / 27.86
+    static let informationLabelY: Double = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.height / 6.03 : UIScreen.main.bounds.height / 8
+    static let agentVStackTopOffset: Double = UIScreen.main.bounds.width / 25.58
+    static let agentVStackWidth: Double = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.width / 1.15 : UIScreen.main.bounds.height / 2.57
+    static let agentVStackHeight: Double = UIScreen.main.bounds.height / 2.57
+    static let selectedAgentNameLabelBottomInset: Double = UIScreen.main.bounds.height / 3.80
+    static let selectedAgentDescriptionLabelTopOffset: Double = UIScreen.main.bounds.height / 38.36
+    static let selectButtonBottomInset: Double = UIScreen.main.bounds.height / 11.41
 }
 
 class AgentSelectionView: BaseViewController {

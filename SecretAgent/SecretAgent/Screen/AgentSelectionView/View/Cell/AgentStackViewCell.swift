@@ -8,8 +8,8 @@
 import UIKit
 
 private enum CellSize {
-    static let height: Double = 151
-    static let width: Double = 155
+    static let height: Double = UIScreen.main.bounds.height / 5.59
+    static let width: Double = UIScreen.main.bounds.width / 2.52
 }
 
 class AgentStackViewCell: UIButton {

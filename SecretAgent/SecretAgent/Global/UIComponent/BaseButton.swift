@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 
 private enum ButtonSize {
-    static let largeButtonWidth: Double = 350
-    static let smallButtonWidth: Double = 150
-    static let height: Double = 60
+    static let largeButtonWidth: Double = UIScreen.main.bounds.width / 1.11
+    static let smallButtonWidth: Double = UIScreen.main.bounds.width / 2.6
+    static let height: Double = UIScreen.main.bounds.height / 14.07
     static let borderWidth: Double = 1
     static let cornerRadius: Double = 18
 }
