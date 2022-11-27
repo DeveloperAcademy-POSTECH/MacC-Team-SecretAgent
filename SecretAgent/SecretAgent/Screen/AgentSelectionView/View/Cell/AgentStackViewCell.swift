@@ -13,29 +13,6 @@ private enum CellSize {
 }
 
 class AgentStackViewCell: UIButton {
-    // MARK: - Properties
-    
-    let agentBasicImageList: [UIImage] = [
-        ImageLiteral.agentPoyo,
-        ImageLiteral.agentBiyo,
-        ImageLiteral.agentKiyo,
-        ImageLiteral.agentMayo
-    ]
-    
-    let agentSelectedImageList: [UIImage] = [
-        ImageLiteral.agentPoyoSelected,
-        ImageLiteral.agentBiyoSelected,
-        ImageLiteral.agentKiyoSelected,
-        ImageLiteral.agentMayoSelected
-    ]
-    
-    let agentDisabledImageList: [UIImage] = [
-        ImageLiteral.agentPoyoDisabled,
-        ImageLiteral.agentBiyoDisabled,
-        ImageLiteral.agentKiyoDisabled,
-        ImageLiteral.agentMayoDisabled
-    ]
-    
     // MARK: - UI Properties
     
     let agentImageView: UIImageView = {
@@ -72,14 +49,14 @@ class AgentStackViewCell: UIButton {
     
     func setAgentImage(agentID: Int) {
         tag = agentID
-        agentImageView.image = agentBasicImageList[agentID]
+        agentImageView.image = Agent.agentList[tag].basicImage
     }
     
     func selectAgent() {
-        agentImageView.image = agentSelectedImageList[tag]
+        agentImageView.image = Agent.agentList[tag].selectedImage
     }
     
     func unselectAgent() {
-        agentImageView.image = agentDisabledImageList[tag]
+        agentImageView.image = Agent.agentList[tag].disabledImage
     }
 }
