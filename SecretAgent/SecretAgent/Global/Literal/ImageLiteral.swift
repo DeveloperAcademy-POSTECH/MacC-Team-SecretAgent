@@ -11,6 +11,21 @@ import UIKit
 enum ImageLiteral {
     // 예시
     static var sampleRoom: UIImage { .load(named: "SampleRoom") }
+
+    static var agentPoyo: UIImage { .load(named: "CharProfile-Poyo") }
+    static var agentBiyo: UIImage { .load(named: "CharProfile-Biyo") }
+    static var agentKiyo: UIImage { .load(named: "CharProfile-Kiyo") }
+    static var agentMayo: UIImage { .load(named: "CharProfile-Mayo") }
+
+    static var agentPoyoSelected: UIImage { .load(named: "CharProfile-Poyo-Selected") }
+    static var agentBiyoSelected: UIImage { .load(named: "CharProfile-Biyo-Selected") }
+    static var agentKiyoSelected: UIImage { .load(named: "CharProfile-Kiyo-Selected") }
+    static var agentMayoSelected: UIImage { .load(named: "CharProfile-Mayo-Selected") }
+
+    static var agentPoyoDisabled: UIImage { .load(named: "CharProfile-Poyo-Disabled") }
+    static var agentBiyoDisabled: UIImage { .load(named: "CharProfile-Biyo-Disabled") }
+    static var agentKiyoDisabled: UIImage { .load(named: "CharProfile-Kiyo-Disabled") }
+    static var agentMayoDisabled: UIImage { .load(named: "CharProfile-Mayo-Disabled") }
 }
 
 extension UIImage {
