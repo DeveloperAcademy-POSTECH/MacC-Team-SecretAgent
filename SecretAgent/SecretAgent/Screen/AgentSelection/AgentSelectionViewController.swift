@@ -7,8 +7,6 @@
 
 import UIKit
 
-import SnapKit
-
 private enum FontSize {
     static let largeTitle: Double = 30
 }
