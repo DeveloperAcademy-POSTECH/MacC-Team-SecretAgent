@@ -78,7 +78,7 @@ class AgentSelectionView: BaseViewController {
         return label
     }()
     
-    let selectedAgentDecriptionLabel: UILabel = {
+    let selectedAgentDescriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "OOO 요원 O요! "
         label.numberOfLines = 2
@@ -125,8 +125,8 @@ class AgentSelectionView: BaseViewController {
             make.bottom.equalToSuperview().inset(ViewSize.selectedAgentNameLabelBottomInset)
         }
         
-        view.addSubview(selectedAgentDecriptionLabel)
-        selectedAgentDecriptionLabel.snp.makeConstraints { make in
+        view.addSubview(selectedAgentDescriptionLabel)
+        selectedAgentDescriptionLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(selectedAgentNameLabel.snp.bottom).offset(ViewSize.selectedAgentDescriptionLabelTopOffset)
         }
@@ -164,10 +164,10 @@ class AgentSelectionView: BaseViewController {
         selectedAgentID = sender.tag
         
         selectedAgentNameLabel.text = Agent.agentList[selectedAgentID].name
-        selectedAgentDecriptionLabel.text = Agent.agentList[selectedAgentID].description
+        selectedAgentDescriptionLabel.text = Agent.agentList[selectedAgentID].description
         
         selectedAgentNameLabel.isHidden = false
-        selectedAgentDecriptionLabel.isHidden = false
+        selectedAgentDescriptionLabel.isHidden = false
         
         selectButton.setButtonColor(color: .orange)
         selectButton.isEnabled = true
