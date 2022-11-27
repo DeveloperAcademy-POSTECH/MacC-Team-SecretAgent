@@ -1,5 +1,5 @@
 //
-//  AgentSelectionView.swift
+//  AgentSelectionViewController.swift
 //  SecretAgent
 //
 //  Created by JiwKang on 2022/11/26.
@@ -24,7 +24,7 @@ private enum ViewSize {
     static let selectButtonBottomInset: Double = UIScreen.main.bounds.height / 11.41
 }
 
-class AgentSelectionView: BaseViewController {
+class AgentSelectionViewController: BaseViewController {
     // MARK: - Properties
     
     var selectedAgentID: Int = 0
