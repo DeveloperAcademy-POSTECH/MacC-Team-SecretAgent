@@ -14,8 +14,6 @@ private enum FontSize {
 }
 
 private enum ViewSize {
-//    UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? 노치 : 홈
-    
     static let stackSpacing: Double = UIScreen.main.bounds.width / 27.86
     static let informationLabelY: Double = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.height / 6.03 : UIScreen.main.bounds.height / 8
     static let agentVStackTopOffset: Double = UIScreen.main.bounds.width / 25.58
