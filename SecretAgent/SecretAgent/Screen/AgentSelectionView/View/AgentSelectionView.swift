@@ -42,10 +42,10 @@ class AgentSelectionView: BaseViewController {
     }()
     
     let agentStackViewCells: [AgentStackViewCell] = [
-        AgentStackViewCell(frame: .zero),
-        AgentStackViewCell(frame: .zero),
-        AgentStackViewCell(frame: .zero),
-        AgentStackViewCell(frame: .zero)
+        AgentStackViewCell(),
+        AgentStackViewCell(),
+        AgentStackViewCell(),
+        AgentStackViewCell()
     ]
     
     var agent1stHStack: UIStackView = {
