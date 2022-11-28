@@ -59,7 +59,7 @@ final class ProgressBar: UIView {
             clockwise: true
         ).cgPath
         backgroundProgressLayer.configProgressBar(
-            strokeColor: UIColor.blue.cgColor,
+            strokeColor: UIColor.systemOrange.cgColor,
             strokeEnd: 1.0
         )
         layer.addSublayer(backgroundProgressLayer)
