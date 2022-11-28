@@ -13,24 +13,49 @@ private enum BoardSize {
     static let collectionViewInsets: UIEdgeInsets = .init(top: 52, left: 56, bottom: 52, right: 56)
     static let collectionViewLineSpacing: Double = 25.85
     static let upperBadgeInfoHeight: Double = 56
+    static let tableViewRowHeight: Double = 50
+    static let tableViewRowWidth: Double = 193
+    static let safeAreaTopInset = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
 }
 
 final class BoardViewController: BaseViewController {
-    // MARK: - Properties
-
-    let totalBadgeNumber = 5 // MockData
+    // TODO: - 아래의 목데이터를 CoreData로 교체
+    let totalBadgeNumber = 5
     let coinBadgeNumber = 5
     let shieldBadgeNumber = 1
     let starBadgeNumber = 0
+
+    // MARK: - Properties
+
+    private lazy var dropdownBackgroundView: UIView = {
+        let testView = UIView()
+        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(removeDropdownBackgroundView))
+        testView.addGestureRecognizer(tapgesture)
+        return testView
+    }()
+
+    private let dropdownTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.rowHeight = BoardSize.tableViewRowHeight
+        tableView.layer.cornerRadius = 5
+        tableView.separatorInset = UIEdgeInsets.zero
+        return tableView
+    }()
+
+    private let tableViewDataSource = ["1스타", "2스타", "3스타", "4스타", "5스타"]
+
+    private lazy var dropdownButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("1스타", for: .normal)
+        button.addTarget(self, action: #selector(showDropdown), for: .touchUpInside)
+        return button
+    }()
 
     private lazy var fixedBadgeInformation: UIStackView = {
         let stackView = UIStackView()
 
         // MARK: - 아래의 코드는 모두 임시 코드입니다.
 
-        let dropdown = UIButton()
-        dropdown.setTitle("드롭다운", for: .normal)
-        dropdown.addTarget(self, action: #selector(showDropdown), for: .touchUpInside)
         let coinBadge = UILabel()
         coinBadge.text = "코인뱃지: \(coinBadgeNumber)"
         coinBadge.textAlignment = .center
@@ -40,7 +65,7 @@ final class BoardViewController: BaseViewController {
         let starBadge = UILabel()
         starBadge.text = "스타뱃지: \(starBadgeNumber)"
         starBadge.textAlignment = .center
-        [dropdown, coinBadge, shieldBadge, starBadge].forEach { subView in
+        [dropdownButton, coinBadge, shieldBadge, starBadge].forEach { subView in
             stackView.addArrangedSubview(subView)
             subView.backgroundColor = [.blue, .yellow, .orange, .red, .purple, .green, .systemTeal, .systemPink].randomElement()
         }
@@ -89,6 +114,9 @@ final class BoardViewController: BaseViewController {
             make.top.equalTo(fixedBadgeInformation.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
+
+        view.addSubview(dropdownBackgroundView)
+        view.addSubview(dropdownTableView)
     }
 
     override func configUI() {
@@ -97,13 +125,56 @@ final class BoardViewController: BaseViewController {
 
     // MARK: - Func
 
-    @objc func showDropdown() {
-        // TODO: - 드롭다운 보여주기
+    @objc func showDropdown(_ sender: UIButton) {
+        addDropdownBackgroundView(buttonFrame: sender.frame)
     }
 
     private func setDelegation() {
         badgeCollectionView.delegate = self
         badgeCollectionView.dataSource = self
+        dropdownTableView.delegate = self
+        dropdownTableView.dataSource = self
+    }
+
+    func addDropdownBackgroundView(buttonFrame: CGRect) {
+        dropdownBackgroundView.frame = view.frame
+        dropdownTableView.frame = CGRect(
+            x: buttonFrame.origin.x + 5,
+            y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset,
+            width: BoardSize.tableViewRowWidth,
+            height: 0
+        )
+
+        dropdownTableView.reloadData()
+
+        dropdownBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        dropdownBackgroundView.alpha = 0
+
+        UIView.animate(
+            withDuration: 0.4,
+            delay: 0.0,
+            usingSpringWithDamping: 1.0,
+            initialSpringVelocity: 1.0,
+            options: .curveEaseInOut,
+            animations: {
+                self.dropdownBackgroundView.alpha = 0.5
+                self.dropdownTableView.frame = CGRect(x: buttonFrame.origin.x + 5,
+                                                      y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset + Double(5),
+                                                      width: BoardSize.tableViewRowWidth,
+                                                      height: Double(self.tableViewDataSource.count) * BoardSize.tableViewRowHeight)
+            }, completion: nil
+        )
+    }
+
+    @objc func removeDropdownBackgroundView() {
+        let buttonFrame = dropdownButton.frame
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.dropdownBackgroundView.alpha = 0
+            self.dropdownTableView.frame = CGRect(x: buttonFrame.origin.x + 5,
+                                                  y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset,
+                                                  width: BoardSize.tableViewRowWidth,
+                                                  height: 0)
+        }, completion: nil)
     }
 }
 
@@ -135,5 +206,25 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
 
         return myCell ?? collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath)
+    }
+}
+
+// MARK: UITableViewDelegate, UITableViewDataSource
+
+extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "\(indexPath.row + 1)"
+        cell.textLabel?.textAlignment = .center
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dropdownButton.setTitle(tableViewDataSource[indexPath.row], for: .normal)
+        removeDropdownBackgroundView()
     }
 }
