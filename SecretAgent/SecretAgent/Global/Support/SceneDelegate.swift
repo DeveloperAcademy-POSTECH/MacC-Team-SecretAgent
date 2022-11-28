@@ -37,7 +37,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
-
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 }
