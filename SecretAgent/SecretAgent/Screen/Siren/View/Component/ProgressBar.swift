@@ -47,7 +47,7 @@ final class ProgressBar: UIView, CAAnimationDelegate {
             clockwise: true
         ).cgPath
         backgroundProgressLayer.configProgressBar(
-            strokeColor: UIColor.gray.cgColor,
+            strokeColor: UIColor.blue.cgColor,
             strokeEnd: 1.0
         )
         layer.addSublayer(backgroundProgressLayer)
@@ -62,7 +62,7 @@ final class ProgressBar: UIView, CAAnimationDelegate {
             clockwise: true
         ).cgPath
         foregroundProgressLayer.configProgressBar(
-            strokeColor: UIColor.blue.cgColor,
+            strokeColor: UIColor.gray.cgColor,
             strokeEnd: 0.0
         )
         backgroundProgressLayer.addSublayer(foregroundProgressLayer)
@@ -72,8 +72,8 @@ final class ProgressBar: UIView, CAAnimationDelegate {
     private func startAnimation() {
         resetAnimation()
         animation.keyPath = "strokeEnd"
-        animation.fromValue = 1.0
-        animation.toValue = 0.0
+        animation.fromValue = 0.0
+        animation.toValue = 1.0
         animation.duration = CFTimeInterval(timerDuration)
         foregroundProgressLayer.add(animation, forKey: "strokeEnd")
         animationDidStart = true
