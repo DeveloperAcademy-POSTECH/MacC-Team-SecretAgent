@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="1141.5384615384614" y="-34.123222748815166"/>
         </scene>
-        <!--Test Siren View Controller-->
+        <!--Board View Controller-->
         <scene sceneID="Ctv-ft-b8a">
             <objects>
-                <viewController id="MpF-KZ-1ax" customClass="TestSirenViewController" customModule="SecretAgent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MpF-KZ-1ax" customClass="BoardViewController" customModule="SecretAgent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1sd-Kf-L79">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
