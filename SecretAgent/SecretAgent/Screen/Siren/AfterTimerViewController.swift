@@ -70,6 +70,7 @@ class AfterTimerViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addAction()
     }
 
     override func render() {
@@ -102,6 +103,28 @@ class AfterTimerViewController: BaseViewController {
 
     override func configUI() {
         super.configUI()
+    }
+
+    // MARK: - Func
+
+    private func addAction() {
+
+        let successAction = UIAction { _ in
+            let afterTimerVC = AfterTimerDetailViewController(timerResult: .success)
+            afterTimerVC.modalPresentationStyle = .fullScreen
+            afterTimerVC.modalTransitionStyle = .crossDissolve
+            self.present(afterTimerVC, animated: true)
+        }
+        let failAction = UIAction { _ in
+            let afterTimerVC = AfterTimerDetailViewController(timerResult: .fail)
+            afterTimerVC.modalPresentationStyle = .fullScreen
+            afterTimerVC.modalTransitionStyle = .crossDissolve
+            self.present(afterTimerVC, animated: true)
+        }
+
+        successButton.addAction(successAction, for: .touchUpInside)
+        failButton.addAction(failAction, for: .touchUpInside)
+
     }
 
 }

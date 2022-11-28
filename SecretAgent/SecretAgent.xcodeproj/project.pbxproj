@@ -12,6 +12,7 @@
 		21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21882898292C935C00C9D94B /* SoundLiteral.swift */; };
 		2188289C292D0DB700C9D94B /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2188289B292D0DB700C9D94B /* siren.mp3 */; };
 		21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */; };
+		3518CAFA2934D3D30076C3E3 /* AfterTimerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */; };
 		35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A12925D497008F96AC /* AppDelegate.swift */; };
 		35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A32925D497008F96AC /* SceneDelegate.swift */; };
 		35BD54A62925D497008F96AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A52925D497008F96AC /* ViewController.swift */; };
@@ -68,6 +69,7 @@
 		21882898292C935C00C9D94B /* SoundLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLiteral.swift; sourceTree = "<group>"; };
 		2188289B292D0DB700C9D94B /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
 		21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterTimerDetailViewController.swift; sourceTree = "<group>"; };
 		35BD549E2925D497008F96AC /* SecretAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BD54A12925D497008F96AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BD54A32925D497008F96AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */,
 				35BD551C2928AAAE008F96AC /* CountDownTimer.swift */,
 				35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */,
+				3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */,
 			);
 			path = Siren;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
+				3518CAFA2934D3D30076C3E3 /* AfterTimerDetailViewController.swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
