@@ -10,7 +10,7 @@ import UIKit
 
 private enum Constants {
     static let progressBarSize = 300
-    static let selectedSeconds = 15 * 60
+    static let selectedSeconds = 5 * 1
 }
 
 final class SirenViewController: BaseViewController {
@@ -75,6 +75,7 @@ final class SirenViewController: BaseViewController {
 
     private func setDelegation() {
         countdownTimer.delegate = self
+        progressBar.delegate = self
     }
 
     private func setNotification() {
@@ -134,4 +135,16 @@ extension SirenViewController: CountdownTimerDelegate {
         countdownTimerDidStart = false
         progressBar.stop()
     }
+}
+
+extension SirenViewController: ProgressBarDelegate {
+    func progressFinished() {
+        let afterTimerViewController = AfterTimerViewController()
+        afterTimerViewController.modalTransitionStyle = .crossDissolve
+        afterTimerViewController.modalPresentationStyle = .fullScreen
+        self.present(afterTimerViewController, animated: true)
+    }
+
+
+    
 }
