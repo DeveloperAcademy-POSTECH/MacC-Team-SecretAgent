@@ -38,10 +38,13 @@
 		35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55162928AA62008F96AC /* SirenViewController.swift */; };
 		35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551A2928AA9F008F96AC /* ProgressBar.swift */; };
 		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
+		35DCD690293458FC00FAC021 /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DCD68F293458FC00FAC021 /* UnlockViewController.swift */; };
+		35DCD6932934633500FAC021 /* NumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DCD6922934633500FAC021 /* NumberCollectionViewCell.swift */; };
+		35DCD69529349E3500FAC021 /* CalculatorResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DCD69429349E3500FAC021 /* CalculatorResultView.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
+		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
-		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,10 +106,13 @@
 		35BD55162928AA62008F96AC /* SirenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SirenViewController.swift; sourceTree = "<group>"; };
 		35BD551A2928AA9F008F96AC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
+		35DCD68F293458FC00FAC021 /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
+		35DCD6922934633500FAC021 /* NumberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCollectionViewCell.swift; sourceTree = "<group>"; };
+		35DCD69429349E3500FAC021 /* CalculatorResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorResultView.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
-		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +380,7 @@
 				35BD55162928AA62008F96AC /* SirenViewController.swift */,
 				212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */,
 				35BD551C2928AAAE008F96AC /* CountDownTimer.swift */,
+				35DCD68F293458FC00FAC021 /* UnlockViewController.swift */,
 			);
 			path = Siren;
 			sourceTree = "<group>";
@@ -381,7 +388,9 @@
 		35BD55182928AA8A008F96AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35DCD6912934632500FAC021 /* Cell */,
 				35BD55192928AA92008F96AC /* Component */,
+				35DCD69429349E3500FAC021 /* CalculatorResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,6 +401,14 @@
 				35BD551A2928AA9F008F96AC /* ProgressBar.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		35DCD6912934632500FAC021 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				35DCD6922934633500FAC021 /* NumberCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,7 +585,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat . --lint --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -587,18 +605,21 @@
 				35BD551129260026008F96AC /* ImageLiteral.swift in Sources */,
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
 				35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */,
+				35DCD6932934633500FAC021 /* NumberCollectionViewCell.swift in Sources */,
 				B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */,
 				35BD54A62925D497008F96AC /* ViewController.swift in Sources */,
 				CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */,
 				21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */,
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
+				35DCD69529349E3500FAC021 /* CalculatorResultView.swift in Sources */,
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
+				35DCD690293458FC00FAC021 /* UnlockViewController.swift in Sources */,
 				CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */,
 				35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */,
 				21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */,
