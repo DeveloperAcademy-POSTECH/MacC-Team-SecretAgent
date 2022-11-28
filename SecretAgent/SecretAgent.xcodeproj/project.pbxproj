@@ -38,10 +38,11 @@
 		35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55162928AA62008F96AC /* SirenViewController.swift */; };
 		35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551A2928AA9F008F96AC /* ProgressBar.swift */; };
 		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
+		35DCD6972934CC2D00FAC021 /* AfterTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
+		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
-		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,10 +104,11 @@
 		35BD55162928AA62008F96AC /* SirenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SirenViewController.swift; sourceTree = "<group>"; };
 		35BD551A2928AA9F008F96AC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
+		35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterTimerViewController.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
-		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +376,7 @@
 				35BD55162928AA62008F96AC /* SirenViewController.swift */,
 				212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */,
 				35BD551C2928AAAE008F96AC /* CountDownTimer.swift */,
+				35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */,
 			);
 			path = Siren;
 			sourceTree = "<group>";
@@ -568,7 +571,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat . --lint --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -578,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35BD55052925FED5008F96AC /* UICollectionView+Extension.swift in Sources */,
+				35DCD6972934CC2D00FAC021 /* AfterTimerViewController.swift in Sources */,
 				35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */,
 				35BD55032925FEC3008F96AC /* UIViewController+Extension.swift in Sources */,
 				35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */,
