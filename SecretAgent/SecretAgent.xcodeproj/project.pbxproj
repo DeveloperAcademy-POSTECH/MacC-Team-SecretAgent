@@ -36,6 +36,9 @@
 		35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551A2928AA9F008F96AC /* ProgressBar.swift */; };
 		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
+		B5587A4C2934DD2700613B95 /* AgentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCard.swift */; };
+		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
+		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
 		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 		B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
 		B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
@@ -98,6 +101,9 @@
 		35BD551A2928AA9F008F96AC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		B5587A4B2934DD2700613B95 /* AgentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCard.swift; sourceTree = "<group>"; };
+		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
+		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		B576A1932930B2AD006F9E8F /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Extension.swift"; sourceTree = "<group>"; };
@@ -323,6 +329,7 @@
 			children = (
 				35BD54FA2925FBB1008F96AC /* View */,
 				B576A1932930B2AD006F9E8F /* MainTabViewController.swift */,
+				B5587A4F2934DED000613B95 /* BaseNavigationController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -330,6 +337,7 @@
 		35BD54FA2925FBB1008F96AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B5587A4A2934D90800613B95 /* Component */,
 				35BD54FB2925FBB5008F96AC /* Cell */,
 			);
 			path = View;
@@ -365,6 +373,15 @@
 			isa = PBXGroup;
 			children = (
 				35BD551A2928AA9F008F96AC /* ProgressBar.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCard.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -543,7 +560,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat . --lint --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat . --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -567,12 +584,15 @@
 				21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */,
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
+				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
 				B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */,
+				B5587A4C2934DD2700613B95 /* AgentCard.swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
+				B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */,
 				35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

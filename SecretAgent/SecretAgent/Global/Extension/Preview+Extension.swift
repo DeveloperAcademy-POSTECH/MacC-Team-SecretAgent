@@ -8,7 +8,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 extension UIViewController {
     private struct Preview: UIViewControllerRepresentable {
@@ -33,7 +32,7 @@ extension UIViewController {
     /// }
     /// ```
 
-    public func toPreview() -> some View {
+    func toPreview() -> some View {
         Preview(viewController: self)
     }
 }
@@ -61,7 +60,7 @@ extension UIView {
     /// }
     /// ```
 
-    public func toPreview() -> some View {
+    func toPreview() -> some View {
         Preview(view: self)
     }
 }
