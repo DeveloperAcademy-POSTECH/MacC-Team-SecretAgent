@@ -27,6 +27,8 @@ enum ImageLiteral {
     static var inactiveSirenTab: UIImage { .load(systemName: "light.beacon.max", color: .yoGray4) }
     static var storyTab: UIImage { .load(named: "story.activate", color: .yoYellow1) }
     static var inactiveStoryTab: UIImage { .load(named: "story.deactivate", color: .yoGray4) }
+    static var story: UIImage { .load(named: "story.activate") }
+    static var inactiveStory: UIImage { .load(named: "story.deactivate") }
 
     // MARK: - NavigationBarButton
 
