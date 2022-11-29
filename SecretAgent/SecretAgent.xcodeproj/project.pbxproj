@@ -14,7 +14,6 @@
 		21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */; };
 		35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A12925D497008F96AC /* AppDelegate.swift */; };
 		35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A32925D497008F96AC /* SceneDelegate.swift */; };
-		35BD54A62925D497008F96AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A52925D497008F96AC /* ViewController.swift */; };
 		35BD54A92925D497008F96AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BD54A72925D497008F96AC /* Main.storyboard */; };
 		35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54AA2925D497008F96AC /* SecretAgent.xcdatamodeld */; };
 		35BD54AE2925D498008F96AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35BD54AD2925D498008F96AC /* Assets.xcassets */; };
@@ -43,9 +42,14 @@
 		CE0A5C202931B97200695FEC /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C1F2931B97200695FEC /* Agent.swift */; };
 		CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */; };
 		CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C282931C45700695FEC /* BaseButton.swift */; };
+		B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
+		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
+		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
+		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
+		B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
+		B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
-		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +78,6 @@
 		35BD549E2925D497008F96AC /* SecretAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BD54A12925D497008F96AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BD54A32925D497008F96AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		35BD54A52925D497008F96AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		35BD54A82925D497008F96AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35BD54AB2925D497008F96AC /* SecretAgent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SecretAgent.xcdatamodel; sourceTree = "<group>"; };
 		35BD54AD2925D498008F96AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,9 +115,14 @@
 		CE0A5C1F2931B97200695FEC /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStackViewCell.swift; sourceTree = "<group>"; };
 		CE0A5C282931C45700695FEC /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardThumbnail.swift; sourceTree = "<group>"; };
+		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
+		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
+		B576A1932930B2AD006F9E8F /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Extension.swift"; sourceTree = "<group>"; };
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
-		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +262,7 @@
 				35BD55042925FED5008F96AC /* UICollectionView+Extension.swift */,
 				35BD55062925FEE0008F96AC /* UIViewController+Alert.swift */,
 				35BD55082925FEEA008F96AC /* UIFont+Extension.swift */,
+				B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -358,7 +367,8 @@
 			isa = PBXGroup;
 			children = (
 				35BD54FA2925FBB1008F96AC /* View */,
-				35BD54A52925D497008F96AC /* ViewController.swift */,
+				B576A1932930B2AD006F9E8F /* MainTabViewController.swift */,
+				B5587A4F2934DED000613B95 /* BaseNavigationController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -366,6 +376,7 @@
 		35BD54FA2925FBB1008F96AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B5587A4A2934D90800613B95 /* Component */,
 				35BD54FB2925FBB5008F96AC /* Cell */,
 			);
 			path = View;
@@ -428,6 +439,13 @@
 				CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */,
 			);
 			path = Cell;
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -620,6 +638,7 @@
 				35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */,
 				CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */,
 				35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */,
+				B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */,
 				35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */,
 				35BD551129260026008F96AC /* ImageLiteral.swift in Sources */,
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
@@ -633,12 +652,16 @@
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
 				CE0A5C202931B97200695FEC /* Agent.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
+				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
+				B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */,
+				B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
+				B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */,
 				CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */,
 				35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */,
 				21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */,
@@ -818,7 +841,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J85NQ6YL4V;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SecretAgent/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
