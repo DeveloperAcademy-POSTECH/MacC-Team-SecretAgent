@@ -314,7 +314,7 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dropdownButton.setTitle(tableViewDataSource[indexPath.row], for: .normal)
         removeDropdownBackgroundView()
-        
+
         // 선택된 단계 반영
         let decreaser = 25 * indexPath.row
         totalBadgeNumber = BoardSize.tempBadgeNumber - decreaser
