@@ -34,8 +34,17 @@ extension UIFont {
         guard let font = UIFont(name: "ONEMobilePOPOTFRegular", size: size) else {
             fatalError("ONEMobilePOPOTFRegular does not exist")
         }
-        return font
+        return UIFontMetrics.default.scaledFont(for: font)
     }
+
+    /// oneMobile - custom textStyle
+    static func oneMobile(textStyle: TextStyle) -> UIFont {
+        guard let font = UIFont(name: "ONEMobilePOPOTFRegular", size: UIFont.preferredFont(forTextStyle: textStyle).pointSize) else {
+            fatalError("ONEMobilePOPOTFRegular does not exist")
+        }
+        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: font)
+    }
+    ///
 }
 
 extension UIFont {
