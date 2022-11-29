@@ -46,14 +46,14 @@ final class AgentSelectionViewController: BaseViewController {
         AgentStackViewCell(agentID: 3)
     ]
     
-    private var agent1stHStack: UIStackView = {
+    private var agentUpperHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         stackView.spacing = ViewSize.stackSpacing
         return stackView
     }()
     
-    private var agent2ndHStack: UIStackView = {
+    private var agentLowerHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         stackView.spacing = ViewSize.stackSpacing
@@ -143,16 +143,16 @@ final class AgentSelectionViewController: BaseViewController {
     private func configStack() {
         for cellID in agentStackViewCells.indices {
             if cellID < 2 {
-                agent1stHStack.addArrangedSubview(agentStackViewCells[cellID])
+                agentUpperHStack.addArrangedSubview(agentStackViewCells[cellID])
             } else {
-                agent2ndHStack.addArrangedSubview(agentStackViewCells[cellID])
+                agentLowerHStack.addArrangedSubview(agentStackViewCells[cellID])
             }
             
             agentStackViewCells[cellID].addTarget(self, action: #selector(agentClicked), for: .touchUpInside)
         }
         
-        agentVStack.addArrangedSubview(agent1stHStack)
-        agentVStack.addArrangedSubview(agent2ndHStack)
+        agentVStack.addArrangedSubview(agentUpperHStack)
+        agentVStack.addArrangedSubview(agentLowerHStack)
     }
     
     // MARK: - Func
