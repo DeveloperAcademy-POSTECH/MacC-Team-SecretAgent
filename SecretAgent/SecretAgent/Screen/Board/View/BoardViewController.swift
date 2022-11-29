@@ -28,6 +28,28 @@ enum BadgeType {
     case coin
     case shield
     case star
+
+    var badgeActiveImage: UIImage {
+        switch self {
+        case .coin:
+            return ImageLiteral.coin
+        case .shield:
+            return ImageLiteral.shield
+        case .star:
+            return ImageLiteral.star
+        }
+    }
+
+    var badgeInactiveImage: UIImage {
+        switch self {
+        case .coin:
+            return ImageLiteral.inactiveCoin
+        case .shield:
+            return ImageLiteral.inactiveShield
+        case .star:
+            return ImageLiteral.inactiveStar
+        }
+    }
 }
 
 final class BoardViewController: BaseViewController {
@@ -41,8 +63,8 @@ final class BoardViewController: BaseViewController {
 
     private lazy var dropdownBackgroundView: UIView = {
         let testView = UIView()
-        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(removeDropdownBackgroundView))
-        testView.addGestureRecognizer(tapgesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(removeDropdownBackgroundView))
+        testView.addGestureRecognizer(tapGesture)
         return testView
     }()
 
@@ -100,7 +122,8 @@ final class BoardViewController: BaseViewController {
 
     private lazy var badgeCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: badgeCollectionFlowLayout)
-        collectionView.register(cell: BadgeCollectionViewCell.self, forCellReuseIdentifier: BadgeCollectionViewCell.identifier)
+//        collectionView.register(cell: BadgeCollectionViewCell.self, forCellReuseIdentifier: BadgeCollectionViewCell.identifier)
+        collectionView.register(cell: BadgeCollectionViewCell.self)
         return collectionView
     }()
 
@@ -170,35 +193,32 @@ final class BoardViewController: BaseViewController {
         dropdownBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         dropdownBackgroundView.alpha = 0
 
-        UIView.animate(
-            withDuration: 0.4,
-            delay: 0.0,
-            usingSpringWithDamping: 1.0,
-            initialSpringVelocity: 1.0,
-            options: .curveEaseInOut,
-            animations: {
-                self.dropdownBackgroundView.alpha = 0.5
-                self.dropdownTableView.frame = CGRect(x: buttonFrame.origin.x + 5,
-                                                      y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset + Double(5),
-                                                      width: BoardSize.tableViewRowWidth,
-                                                      height: Double(self.tableViewDataSource.count) * BoardSize.tableViewRowHeight)
-            }, completion: nil
-        )
+        animate { [weak self] in
+            self?.dropdownBackgroundView.alpha = 0.5
+            self?.dropdownTableView.frame = CGRect(
+                x: buttonFrame.origin.x + 5,
+                y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset + Double(5),
+                width: BoardSize.tableViewRowWidth,
+                height: Double(self?.tableViewDataSource.count ?? 0) * BoardSize.tableViewRowHeight
+            )
+        }
     }
 
     @objc func removeDropdownBackgroundView() {
         let buttonFrame = dropdownButton.frame
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.dropdownBackgroundView.alpha = 0
-            self.dropdownTableView.frame = CGRect(x: buttonFrame.origin.x + 5,
-                                                  y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset,
-                                                  width: BoardSize.tableViewRowWidth,
-                                                  height: 0)
-        }, completion: nil)
+        animate { [weak self] in
+            self?.dropdownBackgroundView.alpha = 0
+            self?.dropdownTableView.frame = CGRect(
+                x: buttonFrame.origin.x + 5,
+                y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset,
+                width: BoardSize.tableViewRowWidth,
+                height: 0
+            )
+        }
     }
 
     func addHideBadgeView() {
-        hideBadgeView.layer.zPosition = 0
+        hideBadgeView.isHidden = false
         hideBadgeView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         hideBadgeView.alpha = 0
 
@@ -215,10 +235,14 @@ final class BoardViewController: BaseViewController {
     }
 
     func removeHideBadgeView() {
-        hideBadgeView.layer.zPosition = -1
+        hideBadgeView.isHidden = true
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
             self.hideBadgeView.alpha = 0
         }, completion: nil)
+    }
+
+    private func animate(of animations: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: animations)
     }
 }
 
@@ -230,54 +254,55 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell
+//        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell
+        let myCell = collectionView.dequeueReusableCell(withType: BadgeCollectionViewCell.self, for: indexPath)
 
         let badgeIndex = indexPath.row
         let shieldNumber = Int(totalBadgeNumber / 5)
 
         // 뱃지 타입 할당
         if (badgeIndex + 1) % 6 == 0 {
-            myCell?.badgeType = .shield
+            myCell.badgeType = .shield
         } else {
-            myCell?.badgeType = .coin
+            myCell.badgeType = .coin
         }
         if badgeIndex == 30 {
-            myCell?.badgeType = .star
+            myCell.badgeType = .star
         }
 
         // 이미지 생성
         if badgeIndex < totalBadgeNumber + shieldNumber {
-            myCell?.generateActiveImage()
+            myCell.generateActiveImage()
         } else {
             if badgeIndex % 5 == 0, (badgeIndex / 5) == shieldNumber {
-                myCell?.generateActiveImage()
+                myCell.generateActiveImage()
             } else {
-                myCell?.generateInactiveImage()
+                myCell.generateInactiveImage()
             }
         }
 
         if badgeIndex == 30, badgeIndex == totalBadgeNumber + shieldNumber {
-            myCell?.generateActiveImage()
+            myCell.generateActiveImage()
         }
 
         switch badgeIndex % 4 {
         case 0:
-            myCell?.frame.size.width = Double(myCell?.getBadgeWidth() ?? 0) + 50 // 뱃지크기 + 여백
+            myCell.frame.size.width = Double(myCell.getBadgeWidth() + 50) // 뱃지크기 + 여백
         case 1, 3:
-            myCell?.frame.size.width = Double(view.frame.size.width / 2) + ((myCell?.getBadgeWidth() ?? 0) / 2) // 반 채우고 뱃지 크기 반 만큼
+            myCell.frame.size.width = Double(view.frame.size.width / 2) + (myCell.getBadgeWidth() / 2) // 반 채우고 뱃지 크기 반 만큼
         case 2:
-            myCell?.frame.size.width = view.frame.size.width - 50 // 전체 너비 - 여백
+            myCell.frame.size.width = view.frame.size.width - 50 // 전체 너비 - 여백
         default:
-            myCell?.frame.size.width = .zero
+            myCell.frame.size.width = .zero
         }
 
         if badgeIndex == 30 {
-            myCell?.frame.size.width = Double(view.frame.size.width / 2) + ((myCell?.getBadgeWidth() ?? 0) / 2)
+            myCell.frame.size.width = Double(view.frame.size.width / 2) + (myCell.getBadgeWidth() / 2)
         }
 
-        myCell?.setImageFrame()
+        myCell.setImageFrame()
 
-        return myCell ?? collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath)
+        return myCell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -316,8 +341,8 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
         removeDropdownBackgroundView()
 
         // 선택된 단계 반영
-        let decreaser = 25 * indexPath.row
-        totalBadgeNumber = BoardSize.tempBadgeNumber - decreaser
+        let decreaseAmount = 25 * indexPath.row
+        totalBadgeNumber = BoardSize.tempBadgeNumber - decreaseAmount
 
         if totalBadgeNumber <= 0 {
             addHideBadgeView()

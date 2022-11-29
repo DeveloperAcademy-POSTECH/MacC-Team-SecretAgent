@@ -16,38 +16,22 @@ private enum BadgeSize {
 class BadgeCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
 
-    static let identifier = "BadgeCollectionViewCell"
 
     var badgeType: BadgeType = .coin
 
-    var badgeImageView = UIImageView()
+    private let badgeImageView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(badgeImageView)
-        badgeImageView.frame.origin = .init(x: frame.origin.x + frame.size.width / 2, y: 0)
     }
 
     func generateActiveImage() {
-        switch badgeType {
-        case .coin:
-            badgeImageView.image = ImageLiteral.coin
-        case .shield:
-            badgeImageView.image = ImageLiteral.shield
-        case .star:
-            badgeImageView.image = ImageLiteral.star
-        }
+        badgeImageView.image = badgeType.badgeActiveImage
     }
 
     func generateInactiveImage() {
-        switch badgeType {
-        case .coin:
-            badgeImageView.image = ImageLiteral.inactiveCoin
-        case .shield:
-            badgeImageView.image = ImageLiteral.inactiveShield
-        case .star:
-            badgeImageView.image = ImageLiteral.inactiveStar
-        }
+        badgeImageView.image = badgeType.badgeInactiveImage
     }
 
     func setImageFrame() {
