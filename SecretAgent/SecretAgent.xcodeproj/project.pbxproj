@@ -38,12 +38,16 @@
 		35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551A2928AA9F008F96AC /* ProgressBar.swift */; };
 		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
-		B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
-		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
-		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
-		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
-		B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
-		B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
+		CE0A5C1E2931B92F00695FEC /* AgentSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C1D2931B92F00695FEC /* AgentSelectionViewController.swift */; };
+		CE0A5C202931B97200695FEC /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C1F2931B97200695FEC /* Agent.swift */; };
+		CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */; };
+		CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C282931C45700695FEC /* BaseButton.swift */; };
+        	B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
+        	B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
+        	B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
+        	B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
+        	B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
+        	B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +111,10 @@
 		35BD551A2928AA9F008F96AC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		CE0A5C1D2931B92F00695FEC /* AgentSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSelectionViewController.swift; sourceTree = "<group>"; };
+		CE0A5C1F2931B97200695FEC /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStackViewCell.swift; sourceTree = "<group>"; };
+		CE0A5C282931C45700695FEC /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardThumbnail.swift; sourceTree = "<group>"; };
 		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
 		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -315,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				35BD54EA2925F5DC008F96AC /* .gitkeep */,
+				CE0A5C282931C45700695FEC /* BaseButton.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 		35BD54F62925F5FD008F96AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE0A5C1F2931B97200695FEC /* Agent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +347,7 @@
 		35BD54F72925F605008F96AC /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CE0A5C1B2931B8EB00695FEC /* AgentSelection */,
 				213B6970292DC9880085C3B9 /* Board */,
 				35BD55152928AA55008F96AC /* Siren */,
 				35BD54F92925FBAE008F96AC /* Main */,
@@ -405,13 +416,38 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		B5587A4A2934D90800613B95 /* Component */ = {
+		CE0A5C1B2931B8EB00695FEC /* AgentSelection */ = {
 			isa = PBXGroup;
 			children = (
-				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
-				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+				CE0A5C1C2931B92700695FEC /* View */,
+				CE0A5C1D2931B92F00695FEC /* AgentSelectionViewController.swift */,
 			);
-			path = Component;
+			path = AgentSelection;
+			sourceTree = "<group>";
+		};
+		CE0A5C1C2931B92700695FEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE0A5C212931BEBD00695FEC /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE0A5C212931BEBD00695FEC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+		        isa = PBXGroup;
+		        children = (
+				 B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				 B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+		        );
+		        path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -602,6 +638,7 @@
 				35BD55032925FEC3008F96AC /* UIViewController+Extension.swift in Sources */,
 				35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */,
 				35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */,
+				CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */,
 				35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */,
 				B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */,
 				35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */,
@@ -609,9 +646,13 @@
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
 				35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */,
 				B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */,
+				CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */,
+				CE0A5C1E2931B92F00695FEC /* AgentSelectionViewController.swift in Sources */,
+				35BD54A62925D497008F96AC /* ViewController.swift in Sources */,
 				CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */,
 				21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */,
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
+				CE0A5C202931B97200695FEC /* Agent.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
 				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
