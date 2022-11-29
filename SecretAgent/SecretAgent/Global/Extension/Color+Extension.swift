@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIColor {
-    //  에셋 컬러 사용 예시\
+    //  에셋 컬러 사용 예시
     static let yoYellow1: UIColor = .init(hex: "#FFD541")
     static let yoYellow2: UIColor = .init(hex: "#FFD541").withAlphaComponent(0.5)
     static let yoYellow3: UIColor = .init(hex: "#FFD541").withAlphaComponent(0.2)
@@ -28,9 +28,6 @@ extension UIColor {
     static let yoGray4: UIColor = .init(hex: "#DCDCDC")
     static let yoGray5: UIColor = .init(hex: "#8D8D8D")
     static let yoGray6: UIColor = .init(hex: "#222222")
-
-
-
 }
 
 extension UIColor {
