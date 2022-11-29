@@ -21,14 +21,12 @@ extension UIColor {
     static let yoGreen: UIColor = .init(hex: "#07BB65")
     static let yoLightGreen: UIColor = .init(hex: "#90DB31")
 
-
     static let yoGray1: UIColor = .init(hex: "#FBFBFB")
     static let yoGray2: UIColor = .init(hex: "#F8F8F8")
     static let yoGray3: UIColor = .init(hex: "#F4F4F4")
     static let yoGray4: UIColor = .init(hex: "#DCDCDC")
     static let yoGray5: UIColor = .init(hex: "#8D8D8D")
     static let yoGray6: UIColor = .init(hex: "#222222")
-
 
 
 }

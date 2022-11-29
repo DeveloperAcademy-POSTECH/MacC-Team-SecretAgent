@@ -31,7 +31,7 @@ class CalculatorResultView: UIStackView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.text = "X"
-        label.textColor = .yellow
+        label.textColor = .yoYellow1
         return label
     }()
 
@@ -39,7 +39,7 @@ class CalculatorResultView: UIStackView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.text = "="
-        label.textColor = .yellow
+        label.textColor = .yoYellow1
         return label
     }()
 
@@ -89,7 +89,7 @@ class CalculatorResultView: UIStackView {
     func addBottomBorder() {
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: resultField.frame.size.height + 4, width: resultField.frame.size.width, height: 4)
-        bottomLine.backgroundColor = UIColor.yellow.cgColor
+        bottomLine.backgroundColor = UIColor.yoYellow1.cgColor
         resultField.layer.addSublayer(bottomLine)
     }
 

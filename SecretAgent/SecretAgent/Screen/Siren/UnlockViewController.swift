@@ -12,7 +12,7 @@ import SnapKit
 private enum Size {
     static let defaultOffset = 31
 }
-class UnlockViewController: BaseViewController {
+final class UnlockViewController: BaseViewController {
 
     // MARK: - Properties
 
@@ -68,7 +68,7 @@ class UnlockViewController: BaseViewController {
         button.setTitle("취소", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 18
-        button.backgroundColor = .gray
+        button.backgroundColor = .yoGray3
         return button
     }()
 
@@ -76,7 +76,7 @@ class UnlockViewController: BaseViewController {
         let button = UIButton()
         button.setTitle("잠금해제", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemYellow.withAlphaComponent(0.3)
+        button.backgroundColor = .yoYellow2
         button.layer.cornerRadius = 18
         button.tintColor = .white
         button.isEnabled = false
@@ -90,6 +90,16 @@ class UnlockViewController: BaseViewController {
         stackView.distribution = .fillEqually
         stackView.spacing = 28
         return stackView
+    }()
+
+    private let failLabel: UILabel = {
+        let label = UILabel()
+        label.text = "정답이 아닙니다. 다시 입력해주세요."
+        label.textAlignment = .center
+        label.textColor = .yoOrange
+        label.font = UIFont.systemFont(ofSize: 8, weight: .medium)
+        label.isHidden = true
+        return label
     }()
 
     private var firstOperand = 0
@@ -156,6 +166,13 @@ class UnlockViewController: BaseViewController {
             make.height.equalTo(160)
         }
 
+        view.addSubview(failLabel)
+        failLabel.snp.makeConstraints { make in
+            make.width.equalTo(resultView.resultField)
+            make.top.equalTo(resultView.resultField.snp.bottom).offset(8)
+            make.trailing.equalTo(resultView.resultField.snp.trailing)
+        }
+
     }
 
     override func configUI() {
@@ -174,9 +191,10 @@ class UnlockViewController: BaseViewController {
         let unlockAction = UIAction { [weak self] _ in
             guard let self else { return }
             if self.firstOperand * self.secondOperand == Int(self.resultText) {
-                print("정답")
+                print("정답") // 임시
             } else {
-                self.resultView.resultField.textColor = .red
+                self.resultView.resultField.textColor = .yoOrange
+                self.failLabel.isHidden = false
             }
         }
         unlockButton.addAction(unlockAction, for: .touchUpInside)
@@ -219,7 +237,7 @@ extension UnlockViewController: UICollectionViewDelegate {
             resultText += String((indexPath.row + 1) % 10)
             resultView.resultField.text = resultText
             unlockButton.isEnabled = true
-            unlockButton.backgroundColor = .systemYellow
+            unlockButton.backgroundColor = .yoYellow1
         }
     }
 
@@ -235,8 +253,9 @@ extension UnlockViewController: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         resultText = ""
         unlockButton.isEnabled = false
-        unlockButton.backgroundColor = .systemYellow.withAlphaComponent(0.3)
+        unlockButton.backgroundColor = .yoYellow2
         resultView.resultField.textColor = .black
+        failLabel.isHidden = true
         return true
     }
 
