@@ -141,7 +141,7 @@ final class AgentSelectionViewController: BaseViewController {
     }
     
     private func configStack() {
-        for cellID in 0 ..< 4 {
+        for cellID in agentStackViewCells.indices {
             if cellID < 2 {
                 agent1stHStack.addArrangedSubview(agentStackViewCells[cellID])
             } else {
