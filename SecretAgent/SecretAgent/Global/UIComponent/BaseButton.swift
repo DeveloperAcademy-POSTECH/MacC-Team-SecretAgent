@@ -14,7 +14,8 @@ private enum ButtonSize {
     static let smallButtonWidth: Double = UIScreen.main.bounds.width / 2.6
     static let height: Double = UIScreen.main.bounds.height / 14.07
     static let borderWidth: Double = 1
-    static let cornerRadius: Double = 18
+    static let cornerRadiusSmall: Double = 18
+    static let cornerRadiusLarge: Double = 16
 }
 
 class BaseButton: UIButton {
@@ -24,7 +25,7 @@ class BaseButton: UIButton {
         super.init(frame: frame)
         
         layer.masksToBounds = true
-        layer.cornerRadius = ButtonSize.cornerRadius
+        layer.cornerRadius = ButtonSize.cornerRadiusSmall
     }
     
     @available(*, unavailable)
@@ -54,6 +55,8 @@ class BaseButton: UIButton {
     }
     
     func makeButtonLarge() {
+        layer.cornerRadius = ButtonSize.cornerRadiusLarge
+        
         snp.makeConstraints { make in
             make.width.equalTo(ButtonSize.largeButtonWidth)
             make.height.equalTo(ButtonSize.height)
@@ -61,6 +64,8 @@ class BaseButton: UIButton {
     }
     
     func makeButtonSmall() {
+        layer.cornerRadius = ButtonSize.cornerRadiusSmall
+        
         snp.makeConstraints { make in
             make.width.equalTo(ButtonSize.smallButtonWidth)
             make.height.equalTo(ButtonSize.height)
