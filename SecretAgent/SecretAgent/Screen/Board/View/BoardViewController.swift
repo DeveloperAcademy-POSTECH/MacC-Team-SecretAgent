@@ -7,20 +7,30 @@
 
 import UIKit
 
+import SnapKit
+
 private enum BoardSize {
-    static let badgeWidth: Double = 90
-    static let badgeHeight: Double = 96.15
-    static let collectionViewInsets: UIEdgeInsets = .init(top: 52, left: 56, bottom: 52, right: 56)
+    static let collectionViewInsets: UIEdgeInsets = .init(top: 52, left: 0, bottom: 52, right: 0)
     static let collectionViewLineSpacing: Double = 25.85
     static let upperBadgeInfoHeight: Double = 56
     static let tableViewRowHeight: Double = 50
     static let tableViewRowWidth: Double = 193
     static let safeAreaTopInset = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
+
+    static let coinSize = CGSize(width: 90, height: 96.15)
+    static let shieldSize = CGSize(width: 96, height: 135.17)
+    static let starSize = CGSize(width: 163.0, height: 196.0)
+}
+
+enum BadgeType {
+    case coin
+    case shield
+    case star
 }
 
 final class BoardViewController: BaseViewController {
     // TODO: - 아래의 목데이터를 CoreData로 교체
-    let totalBadgeNumber = 5
+    let totalBadgeNumber = 15
     let coinBadgeNumber = 5
     let shieldBadgeNumber = 1
     let starBadgeNumber = 0
@@ -83,8 +93,6 @@ final class BoardViewController: BaseViewController {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = BoardSize.collectionViewLineSpacing
         layout.sectionInset = BoardSize.collectionViewInsets
-        layout.itemSize = .init(width: view.frame.size.width, height: BoardSize.badgeHeight)
-
         return layout
     }()
 
@@ -178,34 +186,73 @@ final class BoardViewController: BaseViewController {
     }
 }
 
-// MARK: UICollectionViewDelegate, UICollectionViewDataSource
+// MARK: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 
-extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 25
+        return 31
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell
 
-        if indexPath.row < totalBadgeNumber {
-            myCell?.badgeImageView.image = ImageLiteral.coin
+        let badgeIndex = indexPath.row
+
+        if (badgeIndex + 1) % 6 == 0 {
+            // 방패 뱃지
+            myCell?.badgeType = .shield
+
         } else {
-            myCell?.badgeImageView.image = ImageLiteral.inactiveCoin
+            // 코인 뱃지
+            myCell?.badgeType = .coin
         }
 
-        switch indexPath.row % 4 {
+        // 스타 뱃지
+        if badgeIndex == 30 {
+            myCell?.badgeType = .star
+        }
+
+        // 이미지 생성
+        if badgeIndex < totalBadgeNumber {
+            myCell?.generateActiveImage()
+        } else {
+            myCell?.generateInactiveImage()
+        }
+
+        switch badgeIndex % 4 {
         case 0:
-            myCell?.frame.size.width = BoardSize.badgeWidth + BoardSize.collectionViewInsets.left // 뱃지크기 + 여백
+            myCell?.frame.size.width = Double(myCell?.getBadgeWidth() ?? 0) + 50 // 뱃지크기 + 여백
         case 1, 3:
-            myCell?.frame.size.width = Double(view.frame.width / 2) + Double(BoardSize.badgeWidth / 2) // 반 채우고 뱃지 크기 반 만큼
+            myCell?.frame.size.width = Double(view.frame.size.width / 2) + ((myCell?.getBadgeWidth() ?? 0) / 2) // 반 채우고 뱃지 크기 반 만큼
         case 2:
-            myCell?.frame.size.width = view.frame.width - BoardSize.collectionViewInsets.right // 전체 너비 - 여백
+            myCell?.frame.size.width = view.frame.size.width - 50 // 전체 너비 - 여백
         default:
             myCell?.frame.size.width = .zero
         }
 
+        if badgeIndex == 30 {
+            myCell?.frame.size.width = Double(view.frame.size.width / 2) + ((myCell?.getBadgeWidth() ?? 0) / 2)
+        }
+
+        myCell?.setImageFrame()
+
         return myCell ?? collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var itemHeight: Double = 0
+
+        if (indexPath.row + 1) % 6 == 0 {
+            itemHeight = BoardSize.shieldSize.height
+        } else {
+            itemHeight = BoardSize.coinSize.height
+        }
+
+        if indexPath.row == 30 {
+            itemHeight = BoardSize.starSize.height
+        }
+
+        return CGSize(width: view.frame.size.width, height: itemHeight)
     }
 }
 
