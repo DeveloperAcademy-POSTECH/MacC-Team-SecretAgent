@@ -12,8 +12,8 @@ import SnapKit
 private enum Size {
     static let defaultOffset = 31
 }
-final class UnlockViewController: BaseViewController {
 
+final class UnlockViewController: BaseViewController {
     // MARK: - Properties
 
     private let dismissButton = {
@@ -54,7 +54,7 @@ final class UnlockViewController: BaseViewController {
         return layout
     }()
 
-    private lazy var  numberCollectionView: UICollectionView = {
+    private lazy var numberCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: flowLayout)
         collectionView.register(cell: NumberCollectionViewCell.self)
@@ -172,7 +172,6 @@ final class UnlockViewController: BaseViewController {
             make.top.equalTo(resultView.resultField.snp.bottom).offset(8)
             make.trailing.equalTo(resultView.resultField.snp.trailing)
         }
-
     }
 
     override func configUI() {
@@ -185,8 +184,8 @@ final class UnlockViewController: BaseViewController {
         numberCollectionView.delegate = self
         numberCollectionView.dataSource = self
         resultView.resultField.delegate = self
-
     }
+
     private func addActions() {
         let unlockAction = UIAction { [weak self] _ in
             guard let self else { return }
@@ -201,18 +200,17 @@ final class UnlockViewController: BaseViewController {
     }
 
     private func getRandomInt() {
-        firstOperand = Int.random(in: 1..<10)
-        secondOperand = Int.random(in: 1..<10)
-
+        firstOperand = Int.random(in: 1 ..< 10)
+        secondOperand = Int.random(in: 1 ..< 10)
     }
+
     private func configOperand() {
         resultView.firstOperand.text = String(firstOperand)
         resultView.secondOperand.text = String(secondOperand)
-
     }
 }
 
-// MARK: - UICollectionViewDataSource
+// MARK: UICollectionViewDataSource
 
 extension UnlockViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -225,13 +223,11 @@ extension UnlockViewController: UICollectionViewDataSource {
 
         return cell
     }
-
 }
 
-// MARK: - UICollectionViewDelegate
+// MARK: UICollectionViewDelegate
 
 extension UnlockViewController: UICollectionViewDelegate {
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if resultText.count < 2 {
             resultText += String((indexPath.row + 1) % 10)
@@ -240,10 +236,9 @@ extension UnlockViewController: UICollectionViewDelegate {
             unlockButton.backgroundColor = .yoYellow1
         }
     }
-
 }
 
-// MARK: - UITextFieldDelegate
+// MARK: UITextFieldDelegate
 
 extension UnlockViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -258,6 +253,4 @@ extension UnlockViewController: UITextFieldDelegate {
         failLabel.isHidden = true
         return true
     }
-
 }
-

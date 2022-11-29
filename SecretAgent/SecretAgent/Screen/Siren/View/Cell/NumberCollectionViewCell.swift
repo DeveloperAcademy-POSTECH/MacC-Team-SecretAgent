@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 class NumberCollectionViewCell: UICollectionViewCell {
-
     // MARK: - Properties
 
     private let titleLabel: UILabel = {
@@ -27,6 +26,7 @@ class NumberCollectionViewCell: UICollectionViewCell {
         configUI()
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

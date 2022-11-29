@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CalculatorResultView: UIStackView {
-
+final class CalculatorResultView: UIStackView {
     // MARK: - Properties
 
     let firstOperand: UILabel = {
@@ -16,7 +15,6 @@ class CalculatorResultView: UIStackView {
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.text = "1"
         label.textColor = .black
-        
         return label
     }()
 
@@ -27,6 +25,7 @@ class CalculatorResultView: UIStackView {
         label.textColor = .black
         return label
     }()
+
     private let multiplier: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
@@ -61,6 +60,7 @@ class CalculatorResultView: UIStackView {
         configUI()
     }
 
+    @available(*, unavailable)
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -92,6 +92,4 @@ class CalculatorResultView: UIStackView {
         bottomLine.backgroundColor = UIColor.yoYellow1.cgColor
         resultField.layer.addSublayer(bottomLine)
     }
-
 }
-
