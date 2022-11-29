@@ -8,20 +8,24 @@
 import UIKit
 
 extension UIColor {
-    //  에셋 컬러 사용 예시\
-    static let accent: UIColor = .init(hex: "2F2B2B")
-    static let boxBackground: UIColor = .secondarySystemBackground
-    static let primaryBlack: UIColor = .black
-    static let secondaryGray: UIColor = .secondaryLabel
+    static let yoYellow1: UIColor = .init(hex: "#FFD541")
+    static let yoYellow2: UIColor = .init(hex: "#FFD541").withAlphaComponent(0.5)
+    static let yoYellow3: UIColor = .init(hex: "#FFD541").withAlphaComponent(0.2)
+    static let yoYellow4: UIColor = .init(hex: "#FFD541").withAlphaComponent(0.1)
 
-    // MARK: - yo colors
+    static let yoOrange: UIColor = .init(hex: "FF7051")
+    static let yoBlue: UIColor = .init(hex: "#0087D3")
+    static let yoSand: UIColor = .init(hex: "#D2A053")
+    static let yoNavy: UIColor = .init(hex: "#0F487D")
+    static let yoGreen: UIColor = .init(hex: "#07BB65")
+    static let yoLightGreen: UIColor = .init(hex: "#90DB31")
 
-    static let yoYellow1: UIColor = .init(hex: "FFC531")
-    static let yoGray4: UIColor = .init(hex: "8D8D8D")
-    static let yoGreen: UIColor = .init(hex: "07BB65")
-
-    // 헥사코드 컬러 사용 예시
-    static let addedButtonGray: UIColor = .init(hex: "F5F5F5")
+    static let yoGray1: UIColor = .init(hex: "#FBFBFB")
+    static let yoGray2: UIColor = .init(hex: "#F8F8F8")
+    static let yoGray3: UIColor = .init(hex: "#F4F4F4")
+    static let yoGray4: UIColor = .init(hex: "#DCDCDC")
+    static let yoGray5: UIColor = .init(hex: "#8D8D8D")
+    static let yoGray6: UIColor = .init(hex: "#222222")
 }
 
 extension UIColor {
