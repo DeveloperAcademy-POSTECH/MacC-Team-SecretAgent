@@ -22,14 +22,14 @@ private enum ViewSize {
     static let selectButtonBottomInset: Double = UIScreen.main.bounds.height / 11.41
 }
 
-class AgentSelectionViewController: BaseViewController {
+final class AgentSelectionViewController: BaseViewController {
     // MARK: - Properties
     
-    var selectedAgentID: Int = 0
+    private var selectedAgentID: Int = 0
     
     // MARK: - UI Properties
     
-    let informationLabel: UILabel = {
+    private let informationLabel: UILabel = {
         let label = UILabel()
         label.text = "어떤 요원으로\n시작할까?"
         label.numberOfLines = 2
@@ -39,28 +39,28 @@ class AgentSelectionViewController: BaseViewController {
         return label
     }()
     
-    let agentStackViewCells: [AgentStackViewCell] = [
+    private let agentStackViewCells: [AgentStackViewCell] = [
         AgentStackViewCell(agentID: 0),
         AgentStackViewCell(agentID: 1),
         AgentStackViewCell(agentID: 2),
         AgentStackViewCell(agentID: 3)
     ]
     
-    var agent1stHStack: UIStackView = {
+    private var agent1stHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         stackView.spacing = ViewSize.stackSpacing
         return stackView
     }()
     
-    var agent2ndHStack: UIStackView = {
+    private var agent2ndHStack: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         stackView.spacing = ViewSize.stackSpacing
         return stackView
     }()
     
-    var agentVStack: UIStackView = {
+    private var agentVStack: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
         stackView.spacing = ViewSize.stackSpacing
@@ -68,7 +68,7 @@ class AgentSelectionViewController: BaseViewController {
         return stackView
     }()
     
-    let selectedAgentNameLabel: UILabel = {
+    private let selectedAgentNameLabel: UILabel = {
         let label = UILabel()
         label.text = "O요"
         label.isHidden = true
@@ -76,7 +76,7 @@ class AgentSelectionViewController: BaseViewController {
         return label
     }()
     
-    let selectedAgentDescriptionLabel: UILabel = {
+    private let selectedAgentDescriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "OOO 요원 O요! "
         label.numberOfLines = 2
@@ -85,7 +85,7 @@ class AgentSelectionViewController: BaseViewController {
         return label
     }()
     
-    lazy var selectButton: BaseButton = {
+    private lazy var selectButton: BaseButton = {
         let button = BaseButton()
         button.setButton(text: "선택완료!", color: .systemGray4)
         button.setButtonTextColor(color: .white)
@@ -157,7 +157,7 @@ class AgentSelectionViewController: BaseViewController {
     
     // MARK: - Func
     
-    @objc func agentClicked(sender: UIButton) {
+    @objc private func agentClicked(sender: UIButton) {
         selectedAgentID = sender.tag
         
         selectedAgentNameLabel.text = Agent.agentList[selectedAgentID].name
@@ -176,7 +176,7 @@ class AgentSelectionViewController: BaseViewController {
         }
     }
     
-    @objc func selectCompleteClicked(sender: UIButton) {
+    @objc private func selectCompleteClicked(sender: UIButton) {
         // TODO: - 완료 버튼 구현 예정
         print(Agent.agentList[selectedAgentID].name, "선택완료")
     }

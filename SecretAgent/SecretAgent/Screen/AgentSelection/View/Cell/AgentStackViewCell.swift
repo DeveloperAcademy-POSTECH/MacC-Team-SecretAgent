@@ -12,10 +12,10 @@ private enum CellSize {
     static let width: Double = UIScreen.main.bounds.width / 2.52
 }
 
-class AgentStackViewCell: UIButton {
+final class AgentStackViewCell: UIButton {
     // MARK: - UI Properties
     
-    let agentImageView: UIImageView = {
+    private let agentImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
@@ -34,7 +34,7 @@ class AgentStackViewCell: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func render() {
+    private func render() {
         snp.makeConstraints { make in
             make.width.equalTo(CellSize.width)
             make.height.equalTo(CellSize.height)
