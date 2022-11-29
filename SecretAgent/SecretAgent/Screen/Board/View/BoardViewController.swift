@@ -20,6 +20,8 @@ private enum BoardSize {
     static let coinSize = CGSize(width: 90, height: 96.15)
     static let shieldSize = CGSize(width: 96, height: 135.17)
     static let starSize = CGSize(width: 163.0, height: 196.0)
+
+    static let tempBadgeNumber = 54
 }
 
 enum BadgeType {
@@ -30,7 +32,7 @@ enum BadgeType {
 
 final class BoardViewController: BaseViewController {
     // TODO: - 아래의 목데이터를 CoreData로 교체
-    let totalBadgeNumber = 15
+    var totalBadgeNumber = BoardSize.tempBadgeNumber
     let coinBadgeNumber = 5
     let shieldBadgeNumber = 1
     let starBadgeNumber = 0
@@ -102,6 +104,8 @@ final class BoardViewController: BaseViewController {
         return collectionView
     }()
 
+    private let hideBadgeView = HideBadgeView()
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -123,12 +127,20 @@ final class BoardViewController: BaseViewController {
             make.leading.trailing.bottom.equalToSuperview()
         }
 
+        view.addSubview(hideBadgeView)
+        hideBadgeView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(BoardSize.upperBadgeInfoHeight)
+        }
+
         view.addSubview(dropdownBackgroundView)
         view.addSubview(dropdownTableView)
     }
 
     override func configUI() {
         view.backgroundColor = .systemBackground
+        hideBadgeView.backgroundColor = .black.withAlphaComponent(0.3)
+        hideBadgeView.alpha = 0.0
     }
 
     // MARK: - Func
@@ -184,6 +196,30 @@ final class BoardViewController: BaseViewController {
                                                   height: 0)
         }, completion: nil)
     }
+
+    func addHideBadgeView() {
+        hideBadgeView.layer.zPosition = 0
+        hideBadgeView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        hideBadgeView.alpha = 0
+
+        UIView.animate(
+            withDuration: 0.4,
+            delay: 0.0,
+            usingSpringWithDamping: 1.0,
+            initialSpringVelocity: 1.0,
+            options: .curveEaseInOut,
+            animations: {
+                self.hideBadgeView.alpha = 0.5
+            }, completion: nil
+        )
+    }
+
+    func removeHideBadgeView() {
+        hideBadgeView.layer.zPosition = -1
+        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.hideBadgeView.alpha = 0
+        }, completion: nil)
+    }
 }
 
 // MARK: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -197,26 +233,31 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell
 
         let badgeIndex = indexPath.row
+        let shieldNumber = Int(totalBadgeNumber / 5)
 
+        // 뱃지 타입 할당
         if (badgeIndex + 1) % 6 == 0 {
-            // 방패 뱃지
             myCell?.badgeType = .shield
-
         } else {
-            // 코인 뱃지
             myCell?.badgeType = .coin
         }
-
-        // 스타 뱃지
         if badgeIndex == 30 {
             myCell?.badgeType = .star
         }
 
         // 이미지 생성
-        if badgeIndex < totalBadgeNumber {
+        if badgeIndex < totalBadgeNumber + shieldNumber {
             myCell?.generateActiveImage()
         } else {
-            myCell?.generateInactiveImage()
+            if badgeIndex % 5 == 0, (badgeIndex / 5) == shieldNumber {
+                myCell?.generateActiveImage()
+            } else {
+                myCell?.generateInactiveImage()
+            }
+        }
+
+        if badgeIndex == 30, badgeIndex == totalBadgeNumber + shieldNumber {
+            myCell?.generateActiveImage()
         }
 
         switch badgeIndex % 4 {
@@ -273,5 +314,15 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dropdownButton.setTitle(tableViewDataSource[indexPath.row], for: .normal)
         removeDropdownBackgroundView()
+        let decreaser = 25 * indexPath.row
+        totalBadgeNumber = BoardSize.tempBadgeNumber - decreaser
+
+        if totalBadgeNumber <= 0 {
+            addHideBadgeView()
+        } else {
+            removeHideBadgeView()
+        }
+
+        badgeCollectionView.reloadData()
     }
 }
