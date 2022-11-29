@@ -10,7 +10,7 @@ import UIKit
 
 enum ImageLiteral {
     // MARK: - Agents
-    
+
     static var agentPoyo: UIImage { .load(named: "CharProfile-Poyo") }
     static var agentBiyo: UIImage { .load(named: "CharProfile-Biyo") }
     static var agentKiyo: UIImage { .load(named: "CharProfile-Kiyo") }
