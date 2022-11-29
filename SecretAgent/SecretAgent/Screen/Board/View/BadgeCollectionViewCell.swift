@@ -16,7 +16,6 @@ private enum BadgeSize {
 class BadgeCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
 
-
     var badgeType: BadgeType = .coin
 
     private let badgeImageView = UIImageView()

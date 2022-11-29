@@ -54,12 +54,22 @@ enum BadgeType {
 
 final class BoardViewController: BaseViewController {
     // TODO: - 아래의 목데이터를 CoreData로 교체
-    var totalBadgeNumber = BoardSize.tempBadgeNumber
-    let coinBadgeNumber = 5
-    let shieldBadgeNumber = 1
-    let starBadgeNumber = 0
 
     // MARK: - Properties
+
+    var totalBadgeNumber: Int = 0
+    var totalBadgeNumberFromCoreData: Int = 0
+    var curIndexPath = IndexPath(row: 0, section: 0)
+
+    // MARK: - UI Properties
+
+    private lazy var tempButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("뱃지 개수 증가", for: .normal)
+        button.backgroundColor = .orange
+        button.addTarget(self, action: #selector(countUpBadgeNumberWithCoreData), for: .touchUpInside)
+        return button
+    }()
 
     private lazy var dropdownBackgroundView: UIView = {
         let testView = UIView()
@@ -91,13 +101,10 @@ final class BoardViewController: BaseViewController {
         // MARK: - 아래의 코드는 모두 임시 코드입니다.
 
         let coinBadge = UILabel()
-        coinBadge.text = "코인뱃지: \(coinBadgeNumber)"
         coinBadge.textAlignment = .center
         let shieldBadge = UILabel()
-        shieldBadge.text = "방패뱃지: \(shieldBadgeNumber)"
         shieldBadge.textAlignment = .center
         let starBadge = UILabel()
-        starBadge.text = "스타뱃지: \(starBadgeNumber)"
         starBadge.textAlignment = .center
         [dropdownButton, coinBadge, shieldBadge, starBadge].forEach { subView in
             stackView.addArrangedSubview(subView)
@@ -122,7 +129,6 @@ final class BoardViewController: BaseViewController {
 
     private lazy var badgeCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: badgeCollectionFlowLayout)
-//        collectionView.register(cell: BadgeCollectionViewCell.self, forCellReuseIdentifier: BadgeCollectionViewCell.identifier)
         collectionView.register(cell: BadgeCollectionViewCell.self)
         return collectionView
     }()
@@ -133,6 +139,7 @@ final class BoardViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTotalBadgeFromCoreData()
         setDelegation()
     }
 
@@ -158,6 +165,12 @@ final class BoardViewController: BaseViewController {
 
         view.addSubview(dropdownBackgroundView)
         view.addSubview(dropdownTableView)
+
+        view.addSubview(tempButton)
+        tempButton.snp.makeConstraints { make in
+            make.bottom.trailing.equalToSuperview()
+            make.width.height.equalTo(100)
+        }
     }
 
     override func configUI() {
@@ -244,6 +257,36 @@ final class BoardViewController: BaseViewController {
     private func animate(of animations: @escaping () -> Void) {
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: animations)
     }
+
+    @objc func countUpBadgeNumberWithCoreData() {
+        updateTotalBadgeFromCoreData()
+        badgeCollectionView.reloadData()
+    }
+
+    private func updateBadgeInformation() {
+        let coin = fixedBadgeInformation.arrangedSubviews[1] as? UILabel
+        coin?.text = "코인뱃지: \(totalBadgeNumber)"
+        let shield = fixedBadgeInformation.arrangedSubviews[2] as? UILabel
+        shield?.text = "방패뱃지: \(totalBadgeNumber / 5)"
+        let star = fixedBadgeInformation.arrangedSubviews[3] as? UILabel
+        star?.text = "스타뱃지: \(totalBadgeNumber / 25)"
+    }
+
+    private func updateTotalBadgeFromCoreData() {
+        do {
+            try BadgeManager.shared.updateTotalBadge()
+            do {
+                let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
+                totalBadgeNumber = getBadgeNumberFromCoreData.result
+                totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
+                updateBadgeInformation()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
 }
 
 // MARK: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -254,8 +297,10 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell
         let myCell = collectionView.dequeueReusableCell(withType: BadgeCollectionViewCell.self, for: indexPath)
+
+        let decreaseAmount = 25 * curIndexPath.row
+        totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
 
         let badgeIndex = indexPath.row
         let shieldNumber = Int(totalBadgeNumber / 5)
@@ -274,7 +319,7 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if badgeIndex < totalBadgeNumber + shieldNumber {
             myCell.generateActiveImage()
         } else {
-            if badgeIndex % 5 == 0, (badgeIndex / 5) == shieldNumber {
+            if badgeIndex % 5 == 0, (badgeIndex / 5) == shieldNumber, badgeIndex > 0 {
                 myCell.generateActiveImage()
             } else {
                 myCell.generateInactiveImage()
@@ -340,11 +385,13 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
         dropdownButton.setTitle(tableViewDataSource[indexPath.row], for: .normal)
         removeDropdownBackgroundView()
 
+        curIndexPath = indexPath
+
         // 선택된 단계 반영
         let decreaseAmount = 25 * indexPath.row
-        totalBadgeNumber = BoardSize.tempBadgeNumber - decreaseAmount
+        totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
 
-        if totalBadgeNumber <= 0 {
+        if totalBadgeNumber <= 0, indexPath.row > 0 {
             addHideBadgeView()
         } else {
             removeHideBadgeView()
