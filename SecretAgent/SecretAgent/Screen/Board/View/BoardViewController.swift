@@ -118,7 +118,7 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeCollectionViewCell.identifier, for: indexPath) as? BadgeCollectionViewCell
 
         if indexPath.row < totalBadgeNumber {
-            myCell?.badgeImageView.image = ImageLiteral.coin
+            myCell?.badgeImageView.image = ImageLiteral.activeCoin
         } else {
             myCell?.badgeImageView.image = ImageLiteral.inactiveCoin
         }

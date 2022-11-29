@@ -10,8 +10,6 @@ import UIKit
 extension UIFont {
     /// regularCaption1 - 12px
     static let regularCaption1 = UIFont.font(.caption1, weight: .regular)
-    /// regularCaption2 - 11px
-    static let regularCaption2 = UIFont.font(.caption2, weight: .regular)
     /// regularFootnote - 13px
     static let regularFootnote = UIFont.font(.footnote, weight: .regular)
     /// regularSubheadline - 15px
