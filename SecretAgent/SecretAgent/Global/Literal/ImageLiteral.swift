@@ -9,10 +9,28 @@ import Foundation
 import UIKit
 
 enum ImageLiteral {
-    // 예시
-    static var sampleRoom: UIImage { .load(named: "SampleRoom") }
-    static var activeCoin: UIImage { .load(named: "activeCoin") }
-    static var inactiveCoin: UIImage { .load(named: "inactiveCoin") }
+    // MARK: - Badges
+
+    static var coin: UIImage { .load(named: "coin.activate") }
+    static var shield: UIImage { .load(named: "shield.activate") }
+    static var star: UIImage { .load(named: "star.activate") }
+    static var inactiveCoin: UIImage { .load(named: "coin.deactivate") }
+    static var inactiveShield: UIImage { .load(named: "shield.deactivate") }
+    static var inactiveStar: UIImage { .load(named: "star.deactivate") }
+
+    // MARK: - TabBar
+
+    static var story: UIImage { .load(named: "story.activate") }
+    static var inactiveStory: UIImage { .load(named: "story.deactivate") }
+
+    // MARK: - NavigationBarButton
+
+    static var agent: UIImage { .load(named: "agent") }
+
+    // MARK: - Siren
+
+    static var siren: UIImage { .load(named: "siren") }
+    static var woongwoong: UIImage { .load(named: "woongwoong") }
 }
 
 extension UIImage {
