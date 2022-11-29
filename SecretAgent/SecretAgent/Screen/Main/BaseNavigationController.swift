@@ -24,7 +24,7 @@ final class BaseNavigationController: UINavigationController {
     // MARK: - Properties
 
     private var todayBadge: TodayBadgeView!
-    private var agentCard: AgentCardView!
+    private var agentCard: AgentCardThumbnailView!
     private var navigationButtons: UIStackView!
     private var navigationBarHeader: UIView!
     private var navigationBarFooter: UIView!
@@ -115,7 +115,7 @@ final class BaseNavigationController: UINavigationController {
     }
 
     func appendAgentCard() {
-        agentCard = AgentCardView()
+        agentCard = AgentCardThumbnailView()
         navigationButtons.insertArrangedSubview(agentCard, at: 0)
     }
 }

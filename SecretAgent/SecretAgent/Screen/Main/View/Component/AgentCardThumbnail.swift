@@ -17,7 +17,7 @@ private enum Literal: String {
     }
 }
 
-final class AgentCardView: UIStackView {
+final class AgentCardThumbnailView: UIStackView {
     // MARK: - Properties
 
     let agentCardImageView = UIImageView(image: ImageLiteral.agent)
