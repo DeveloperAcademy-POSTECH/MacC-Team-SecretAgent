@@ -14,9 +14,12 @@ private enum BadgeSize {
 }
 
 class BadgeCollectionViewCell: UICollectionViewCell {
-    var badgeType: BadgeType = .coin
-
+    
+    // MARK: - Properties
+    
     static let identifier = "BadgeCollectionViewCell"
+    
+    var badgeType: BadgeType = .coin
 
     var badgeImageView = UIImageView()
 
@@ -49,22 +52,22 @@ class BadgeCollectionViewCell: UICollectionViewCell {
     }
 
     func setImageFrame() {
-        var badgeW = 0.0
+        var badgeWidth = 0.0
         switch badgeType {
         case .coin:
-            badgeW = BadgeSize.coinSize.width
+            badgeWidth = BadgeSize.coinSize.width
             badgeImageView.frame.size.width = BadgeSize.coinSize.width
             badgeImageView.frame.size.height = BadgeSize.coinSize.height
         case .shield:
-            badgeW = BadgeSize.shieldSize.width
+            badgeWidth = BadgeSize.shieldSize.width
             badgeImageView.frame.size.width = BadgeSize.shieldSize.width
             badgeImageView.frame.size.height = BadgeSize.shieldSize.height
         case .star:
-            badgeW = BadgeSize.starSize.width
+            badgeWidth = BadgeSize.starSize.width
             badgeImageView.frame.size.width = BadgeSize.starSize.width
             badgeImageView.frame.size.height = BadgeSize.starSize.height
         }
-        badgeImageView.frame.origin = .init(x: frame.origin.x + frame.size.width - badgeW, y: 0)
+        badgeImageView.frame.origin = .init(x: frame.origin.x + frame.size.width - badgeWidth, y: 0)
     }
 
     func getBadgeWidth() -> Double {

@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 final class HideBadgeView: UIView {
+    
     // MARK: - Properties
     
     private let lockImage: UIImageView = {
