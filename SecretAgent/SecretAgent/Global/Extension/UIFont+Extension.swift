@@ -29,6 +29,13 @@ extension UIFont {
     static let boldCallout = UIFont.font(.callout, weight: .bold)
     /// regularBody - 17px
     static let boldBody = UIFont.font(.body, weight: .bold)
+    /// oneMobile - custom size
+    static func oneMobile(size: Double) -> UIFont {
+        guard let font = UIFont(name: "ONEMobilePOPOTFRegular", size: size) else {
+            fatalError("ONEMobilePOPOTFRegular does not exist")
+        }
+        return font
+    }
 }
 
 extension UIFont {
