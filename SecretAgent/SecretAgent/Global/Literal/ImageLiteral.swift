@@ -45,6 +45,11 @@ enum ImageLiteral {
     static var inactiveKiyoStar: UIImage { .load(named: "star.kiyo.inactive") }
     static var inactiveMayoStar: UIImage { .load(named: "star.mayo.inactive") }
     static var inactiveAllStar: UIImage { .load(named: "star.all.inactive") }
+    static var poyoStarBackground: UIImage { .load(named: "bg.poyo") }
+    static var biyoStarBackground: UIImage { .load(named: "bg.biyo") }
+    static var kiyoStarBackground: UIImage { .load(named: "bg.kiyo") }
+    static var mayoStarBackground: UIImage { .load(named: "bg.mayo") }
+    static var allStarBackground: UIImage { .load(named: "bg.all") }
 
     // MARK: - TabBar
 
