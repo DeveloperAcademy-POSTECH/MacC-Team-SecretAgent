@@ -39,19 +39,23 @@
 		35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551A2928AA9F008F96AC /* ProgressBar.swift */; };
 		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
+		B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
+		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
+		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
 		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
+		B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
+		B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
 		CE0A5C1E2931B92F00695FEC /* AgentSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C1D2931B92F00695FEC /* AgentSelectionViewController.swift */; };
 		CE0A5C202931B97200695FEC /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C1F2931B97200695FEC /* Agent.swift */; };
 		CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */; };
 		CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C282931C45700695FEC /* BaseButton.swift */; };
-    B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
-    B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
-    B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
-    B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
-    B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
-    B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
+		CE990CF22936664900887913 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE990CF12936664900887913 /* OnBoardingViewController.swift */; };
+		CECB41B52936E5660000A3A6 /* onBoardingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */; };
+		CECB41B72936E61B0000A3A6 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B62936E61B0000A3A6 /* Guide.swift */; };
+		CECB41BA293725FF0000A3A6 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B9293725FF0000A3A6 /* Story.swift */; };
+		CECB41BC293726370000A3A6 /* StoryViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41BB293726370000A3A6 /* StoryViewController .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,19 +118,23 @@
 		35BD551A2928AA9F008F96AC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
-		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
-		CE0A5C1D2931B92F00695FEC /* AgentSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSelectionViewController.swift; sourceTree = "<group>"; };
-		CE0A5C1F2931B97200695FEC /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
-		CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStackViewCell.swift; sourceTree = "<group>"; };
-		CE0A5C282931C45700695FEC /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardThumbnail.swift; sourceTree = "<group>"; };
 		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
 		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		B576A1932930B2AD006F9E8F /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Extension.swift"; sourceTree = "<group>"; };
+		CE0A5C1D2931B92F00695FEC /* AgentSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentSelectionViewController.swift; sourceTree = "<group>"; };
+		CE0A5C1F2931B97200695FEC /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentStackViewCell.swift; sourceTree = "<group>"; };
+		CE0A5C282931C45700695FEC /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
+		CE990CF12936664900887913 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingTableViewCell.swift; sourceTree = "<group>"; };
+		CECB41B62936E61B0000A3A6 /* Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
+		CECB41B9293725FF0000A3A6 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		CECB41BB293726370000A3A6 /* StoryViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoryViewController .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +353,8 @@
 			isa = PBXGroup;
 			children = (
 				CE0A5C1F2931B97200695FEC /* Agent.swift */,
+				CECB41B62936E61B0000A3A6 /* Guide.swift */,
+				CECB41B9293725FF0000A3A6 /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +362,8 @@
 		35BD54F72925F605008F96AC /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CECB41B8293725D40000A3A6 /* Story */,
+				CE990CEE2936660D00887913 /* OnBoarding */,
 				CE0A5C1B2931B8EB00695FEC /* AgentSelection */,
 				213B6970292DC9880085C3B9 /* Board */,
 				35BD55152928AA55008F96AC /* Siren */,
@@ -421,6 +433,15 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		CE0A5C1B2931B8EB00695FEC /* AgentSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,13 +467,37 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		B5587A4A2934D90800613B95 /* Component */ = {
-		        isa = PBXGroup;
-		        children = (
-				 B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
-				 B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
-		        );
-		        path = Component;
+		CE990CEE2936660D00887913 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				CE990CEF2936662C00887913 /* View */,
+				CE990CF12936664900887913 /* OnBoardingViewController.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		CE990CEF2936662C00887913 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CECB41B32936E5540000A3A6 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CECB41B32936E5540000A3A6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CECB41B8293725D40000A3A6 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				CECB41BB293726370000A3A6 /* StoryViewController .swift */,
+			);
+			path = Story;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -644,21 +689,24 @@
 				35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */,
 				35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */,
 				CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */,
+				CECB41B52936E5660000A3A6 /* onBoardingTableViewCell.swift in Sources */,
 				35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */,
 				B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */,
 				35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */,
+				CE990CF22936664900887913 /* OnBoardingViewController.swift in Sources */,
 				35BD551129260026008F96AC /* ImageLiteral.swift in Sources */,
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
 				35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */,
 				B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */,
 				CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */,
 				CE0A5C1E2931B92F00695FEC /* AgentSelectionViewController.swift in Sources */,
-				35BD54A62925D497008F96AC /* ViewController.swift in Sources */,
 				CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */,
 				21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */,
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
 				CE0A5C202931B97200695FEC /* Agent.swift in Sources */,
+				CECB41BA293725FF0000A3A6 /* Story.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
+				CECB41B72936E61B0000A3A6 /* Guide.swift in Sources */,
 				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
@@ -666,6 +714,7 @@
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
 				B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */,
 				B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */,
+				CECB41BC293726370000A3A6 /* StoryViewController .swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,

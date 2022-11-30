@@ -106,6 +106,11 @@ final class AgentSelectionViewController: BaseViewController {
         configStack()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     override func render() {
         view.addSubview(informationLabel)
         informationLabel.snp.makeConstraints { make in
