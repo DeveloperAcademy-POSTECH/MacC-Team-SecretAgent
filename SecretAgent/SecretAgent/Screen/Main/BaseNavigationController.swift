@@ -116,7 +116,16 @@ final class BaseNavigationController: UINavigationController {
 
     func appendAgentCard() {
         agentCard = AgentCardThumbnailView()
+        agentCard.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(presentAgentCard))
+        agentCard.addGestureRecognizer(gesture)
         navigationButtons.insertArrangedSubview(agentCard, at: 0)
+    }
+
+    @objc func presentAgentCard() {
+        let agentCardViewController = AgentCardViewController()
+        agentCardViewController.modalPresentationStyle = .fullScreen
+        present(agentCardViewController, animated: true)
     }
 }
 

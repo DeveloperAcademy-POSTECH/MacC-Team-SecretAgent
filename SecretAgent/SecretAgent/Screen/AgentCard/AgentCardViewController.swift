@@ -69,6 +69,6 @@ class AgentCardViewController: BaseViewController {
 
     // TODO: - 함수 구현
     @objc func dismissModal() {
-        print("clicked")
+        dismiss(animated: true)
     }
 }
