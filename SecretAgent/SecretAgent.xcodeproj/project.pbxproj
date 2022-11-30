@@ -228,6 +228,8 @@
 				35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
 		35A801E129374CEF0052451A /* Story */ = {
 			isa = PBXGroup;
 			children = (
