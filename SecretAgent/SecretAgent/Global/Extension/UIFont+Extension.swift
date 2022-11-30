@@ -10,6 +10,8 @@ import UIKit
 extension UIFont {
     /// regularCaption1 - 12px
     static let regularCaption1 = UIFont.font(.caption1, weight: .regular)
+    /// regularCaption2 - 11px
+    static let regularCaption2 = UIFont.font(.caption2, weight: .regular)
     /// regularFootnote - 13px
     static let regularFootnote = UIFont.font(.footnote, weight: .regular)
     /// regularSubheadline - 15px
@@ -29,6 +31,23 @@ extension UIFont {
     static let boldCallout = UIFont.font(.callout, weight: .bold)
     /// regularBody - 17px
     static let boldBody = UIFont.font(.body, weight: .bold)
+
+    /// oneMobile - custom size
+    static func oneMobile(size: Double) -> UIFont {
+        guard let font = UIFont(name: "ONEMobilePOPOTFRegular", size: size) else {
+            fatalError("ONEMobilePOPOTFRegular does not exist")
+        }
+        return UIFontMetrics.default.scaledFont(for: font)
+    }
+
+    /// oneMobile - custom textStyle
+    static func oneMobile(textStyle: TextStyle) -> UIFont {
+        guard let font = UIFont(name: "ONEMobilePOPOTFRegular", size: UIFont.preferredFont(forTextStyle: textStyle).pointSize) else {
+            fatalError("ONEMobilePOPOTFRegular does not exist")
+        }
+        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: font)
+    }
+    ///
 }
 
 extension UIFont {
