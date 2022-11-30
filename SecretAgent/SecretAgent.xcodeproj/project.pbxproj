@@ -10,11 +10,27 @@
 		212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */; };
 		213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B6974292DD5D40085C3B9 /* BoardViewController.swift */; };
 		21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21882898292C935C00C9D94B /* SoundLiteral.swift */; };
-		2188289C292D0DB700C9D94B /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2188289B292D0DB700C9D94B /* siren.mp3 */; };
 		21BC09312935A04C0019572D /* HideBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC09302935A04C0019572D /* HideBadgeView.swift */; };
 		21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */; };
 		3518CAFA2934D3D30076C3E3 /* AfterTimerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */; };
 		35356FF82936CF1200B15F11 /* NumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */; };
+		35A801E629374D1E0052451A /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801E529374D1E0052451A /* siren.mp3 */; };
+		35A801E929374D2A0052451A /* failure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801E729374D2A0052451A /* failure.mp3 */; };
+		35A801EA29374D2A0052451A /* success.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801E829374D2A0052451A /* success.mp3 */; };
+		35A801F329374D5C0052451A /* scene2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801EB29374D5B0052451A /* scene2.mp3 */; };
+		35A801F429374D5C0052451A /* scene7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801EC29374D5B0052451A /* scene7.mp3 */; };
+		35A801F529374D5C0052451A /* scene3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801ED29374D5B0052451A /* scene3.mp3 */; };
+		35A801F629374D5C0052451A /* scene5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801EE29374D5B0052451A /* scene5.mp3 */; };
+		35A801F729374D5C0052451A /* scene6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801EF29374D5B0052451A /* scene6.mp3 */; };
+		35A801F829374D5C0052451A /* scene1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801F029374D5B0052451A /* scene1.mp3 */; };
+		35A801F929374D5C0052451A /* scene8to12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801F129374D5B0052451A /* scene8to12.mp3 */; };
+		35A801FA29374D5C0052451A /* scene4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801F229374D5C0052451A /* scene4.mp3 */; };
+		35A801FD29374D710052451A /* character.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801FB29374D700052451A /* character.mp3 */; };
+		35A801FE29374D710052451A /* choiceLikeGoOut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801FC29374D710052451A /* choiceLikeGoOut.mp3 */; };
+		35A8020029374D7E0052451A /* agentCard.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801FF29374D7E0052451A /* agentCard.mp3 */; };
+		35A8020329374D920052451A /* coinCheck.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A8020129374D920052451A /* coinCheck.mp3 */; };
+		35A8020429374D920052451A /* starBadgeGain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A8020229374D920052451A /* starBadgeGain.mp3 */; };
+		35A8020629374DDC0052451A /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8020529374DDC0052451A /* SoundManager.swift */; };
 		35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A12925D497008F96AC /* AppDelegate.swift */; };
 		35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A32925D497008F96AC /* SceneDelegate.swift */; };
 		35BD54A92925D497008F96AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BD54A72925D497008F96AC /* Main.storyboard */; };
@@ -47,6 +63,7 @@
 		B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
 		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
 		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
+		B5587A692936E59700613B95 /* ONE-Mobile-POP-OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */; };
 		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 		B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
 		B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
@@ -79,11 +96,27 @@
 		212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSirenViewController.swift; sourceTree = "<group>"; };
 		213B6974292DD5D40085C3B9 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		21882898292C935C00C9D94B /* SoundLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLiteral.swift; sourceTree = "<group>"; };
-		2188289B292D0DB700C9D94B /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
 		21BC09302935A04C0019572D /* HideBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideBadgeView.swift; sourceTree = "<group>"; };
 		21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterTimerDetailViewController.swift; sourceTree = "<group>"; };
 		35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCollectionViewCell.swift; sourceTree = "<group>"; };
+		35A801E529374D1E0052451A /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
+		35A801E729374D2A0052451A /* failure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = failure.mp3; sourceTree = "<group>"; };
+		35A801E829374D2A0052451A /* success.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = success.mp3; sourceTree = "<group>"; };
+		35A801EB29374D5B0052451A /* scene2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene2.mp3; sourceTree = "<group>"; };
+		35A801EC29374D5B0052451A /* scene7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene7.mp3; sourceTree = "<group>"; };
+		35A801ED29374D5B0052451A /* scene3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene3.mp3; sourceTree = "<group>"; };
+		35A801EE29374D5B0052451A /* scene5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene5.mp3; sourceTree = "<group>"; };
+		35A801EF29374D5B0052451A /* scene6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene6.mp3; sourceTree = "<group>"; };
+		35A801F029374D5B0052451A /* scene1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1.mp3; sourceTree = "<group>"; };
+		35A801F129374D5B0052451A /* scene8to12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene8to12.mp3; sourceTree = "<group>"; };
+		35A801F229374D5C0052451A /* scene4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene4.mp3; sourceTree = "<group>"; };
+		35A801FB29374D700052451A /* character.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = character.mp3; sourceTree = "<group>"; };
+		35A801FC29374D710052451A /* choiceLikeGoOut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = choiceLikeGoOut.mp3; sourceTree = "<group>"; };
+		35A801FF29374D7E0052451A /* agentCard.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = agentCard.mp3; sourceTree = "<group>"; };
+		35A8020129374D920052451A /* coinCheck.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coinCheck.mp3; sourceTree = "<group>"; };
+		35A8020229374D920052451A /* starBadgeGain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starBadgeGain.mp3; sourceTree = "<group>"; };
+		35A8020529374DDC0052451A /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		35BD549E2925D497008F96AC /* SecretAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BD54A12925D497008F96AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BD54A32925D497008F96AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +159,7 @@
 		B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardThumbnail.swift; sourceTree = "<group>"; };
 		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
 		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE-Mobile-POP-OTF.otf"; sourceTree = "<group>"; };
 		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		B576A1932930B2AD006F9E8F /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Extension.swift"; sourceTree = "<group>"; };
@@ -166,7 +200,10 @@
 		212D1EAD292B57EF0079ECF2 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				2188289B292D0DB700C9D94B /* siren.mp3 */,
+				35A801E129374CEF0052451A /* Story */,
+				35A801E229374CF40052451A /* OnBoarding */,
+				35A801E329374CFE0052451A /* Siren */,
+				35A801E429374D060052451A /* Badge */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -195,6 +232,50 @@
 				35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */,
 			);
 			path = Cell;
+      	sourceTree = "<group>";
+		};
+		35A801E129374CEF0052451A /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				35A801F029374D5B0052451A /* scene1.mp3 */,
+				35A801EB29374D5B0052451A /* scene2.mp3 */,
+				35A801ED29374D5B0052451A /* scene3.mp3 */,
+				35A801F229374D5C0052451A /* scene4.mp3 */,
+				35A801EE29374D5B0052451A /* scene5.mp3 */,
+				35A801EF29374D5B0052451A /* scene6.mp3 */,
+				35A801EC29374D5B0052451A /* scene7.mp3 */,
+				35A801F129374D5B0052451A /* scene8to12.mp3 */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		35A801E229374CF40052451A /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				35A801FB29374D700052451A /* character.mp3 */,
+				35A801FC29374D710052451A /* choiceLikeGoOut.mp3 */,
+				35A801FF29374D7E0052451A /* agentCard.mp3 */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		35A801E329374CFE0052451A /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+				35A801E529374D1E0052451A /* siren.mp3 */,
+				35A801E729374D2A0052451A /* failure.mp3 */,
+				35A801E829374D2A0052451A /* success.mp3 */,
+			);
+			path = Siren;
+			sourceTree = "<group>";
+		};
+		35A801E429374D060052451A /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				35A8020129374D920052451A /* coinCheck.mp3 */,
+				35A8020229374D920052451A /* starBadgeGain.mp3 */,
+			);
+			path = Badge;
 			sourceTree = "<group>";
 		};
 		35BD54952925D497008F96AC = {
@@ -314,6 +395,7 @@
 				CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */,
 				CE8B0B56292E097D002BF6EE /* BadgeManager.swift */,
 				B574F62E292B9C7300E8E268 /* UserNotificationService.swift */,
+				35A8020529374DDC0052451A /* SoundManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -321,6 +403,7 @@
 		35BD54E52925F5DC008F96AC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B5587A672936E58900613B95 /* Font */,
 				212D1EAD292B57EF0079ECF2 /* Sound */,
 				35BD54A72925D497008F96AC /* Main.storyboard */,
 				35BD54AD2925D498008F96AC /* Assets.xcassets */,
@@ -451,6 +534,24 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B5587A672936E58900613B95 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+
 		CE0A5C1B2931B8EB00695FEC /* AgentSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,11 +690,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				B523CB2729264FCD00E39C9E /* .swiftformat in Resources */,
+				35A8020029374D7E0052451A /* agentCard.mp3 in Resources */,
+				35A8020329374D920052451A /* coinCheck.mp3 in Resources */,
+				35A801FD29374D710052451A /* character.mp3 in Resources */,
+				35A801F529374D5C0052451A /* scene3.mp3 in Resources */,
+				35A8020429374D920052451A /* starBadgeGain.mp3 in Resources */,
+				35A801F929374D5C0052451A /* scene8to12.mp3 in Resources */,
+				35A801E929374D2A0052451A /* failure.mp3 in Resources */,
+				35A801F829374D5C0052451A /* scene1.mp3 in Resources */,
+				35A801EA29374D2A0052451A /* success.mp3 in Resources */,
 				35BD54D92925ED92008F96AC /* .swiftlint.yml in Resources */,
 				35BD54B12925D498008F96AC /* LaunchScreen.storyboard in Resources */,
+				35A801F729374D5C0052451A /* scene6.mp3 in Resources */,
+				35A801F329374D5C0052451A /* scene2.mp3 in Resources */,
+				35A801FA29374D5C0052451A /* scene4.mp3 in Resources */,
+				B5587A692936E59700613B95 /* ONE-Mobile-POP-OTF.otf in Resources */,
 				35BD54AE2925D498008F96AC /* Assets.xcassets in Resources */,
-				2188289C292D0DB700C9D94B /* siren.mp3 in Resources */,
+				35A801F429374D5C0052451A /* scene7.mp3 in Resources */,
+				35A801E629374D1E0052451A /* siren.mp3 in Resources */,
 				35BD54A92925D497008F96AC /* Main.storyboard in Resources */,
+				35A801F629374D5C0052451A /* scene5.mp3 in Resources */,
+				35A801FE29374D710052451A /* choiceLikeGoOut.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +798,7 @@
 				21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */,
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
 				CE0A5C202931B97200695FEC /* Agent.swift in Sources */,
+				35A8020629374DDC0052451A /* SoundManager.swift in Sources */,
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
 				35C9129A2936CF7800A2EB3C /* CalculatorResultView.swift in Sources */,
 				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
