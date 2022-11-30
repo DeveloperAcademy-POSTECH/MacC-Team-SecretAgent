@@ -57,6 +57,17 @@ final class BadgeManager: CoreDataManager {
         saveContext()
     }
     
+    func testUpdateTotalBadge() throws {
+        let results = try fetchBadge()
+        let currentBadge = results.first
+        let todaysCoin = Int(currentBadge?.coinsLeftForToday ?? 5)
+        let totalCoin = Int(currentBadge?.numberOfTotalCoins ?? 0)
+        
+        currentBadge?.setValue(totalCoin - todaysCoin, forKey: "numberOfTotalCoins")
+        
+        saveContext()
+    }
+    
     func resetTodaysBadge() throws {
         let results = try fetchBadge()
         let currentBadge = results.first

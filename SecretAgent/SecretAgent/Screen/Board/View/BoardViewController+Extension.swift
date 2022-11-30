@@ -101,22 +101,6 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dropdownButton.setTitle("\(tableViewDataSource[indexPath.row]) ▼", for: .normal)
-        removeDropdownBackgroundView()
-
-        curTableViewIndexPath = indexPath
-
-        let decreaseAmount = 25 * indexPath.row
-        totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
-
-        if totalBadgeNumber < 0, indexPath.row > 0 {
-            addHideBadgeView(previous: indexPath.row > 0 ? tableViewDataSource[indexPath.row - 1] : nil)
-        } else {
-            removeHideBadgeView()
-        }
-
-        badgeCollectionView.reloadData()
-
-        scrollCollectionView()
+        refreshBoard(targetIndex: indexPath.row)
     }
 }

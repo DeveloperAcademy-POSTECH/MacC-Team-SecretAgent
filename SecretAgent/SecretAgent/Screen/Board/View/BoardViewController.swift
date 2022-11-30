@@ -32,12 +32,44 @@ final class BoardViewController: BaseViewController {
 
     // MARK: - UI Properties
 
-    private lazy var tempButton: UIButton = {
+    private lazy var testIncreaseBadge: UIButton = {
         let button = UIButton()
-        button.setTitle("테스트", for: .normal)
+        button.setTitle("뱃지늘리고 실제로 받는 버튼", for: .normal)
         button.backgroundColor = .systemTeal
-        button.addTarget(self, action: #selector(showCongratsModal), for: .touchUpInside)
+        button.addTarget(self, action: #selector(testIncreaseBadgeNumber), for: .touchUpInside)
         return button
+    }()
+
+    private lazy var testDecreaseBadge: UIButton = {
+        let button = UIButton()
+        button.setTitle("뱃지줄이는버튼", for: .normal)
+        button.backgroundColor = .systemTeal
+        button.addTarget(self, action: #selector(testDecreaseBadgeNumber), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var testStackView: UIStackView = {
+        let stackView = UIStackView()
+
+        [testIncreaseBadge, testDecreaseBadge].forEach { subView in
+            stackView.addArrangedSubview(subView)
+            subView.backgroundColor = .systemTeal
+            subView.frame.size = .init(width: 80, height: 10)
+            subView.layer.cornerRadius = 36 / 2
+            subView.snp.makeConstraints { make in
+                make.height.equalTo(36)
+            }
+        }
+
+        stackView.distribution = .fillEqually
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.backgroundColor = .orange
+        stackView.spacing = 10
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        stackView.isLayoutMarginsRelativeArrangement = true
+
+        return stackView
     }()
 
     private lazy var dropdownBackgroundView: UIView = {
@@ -144,10 +176,10 @@ final class BoardViewController: BaseViewController {
         view.addSubview(dropdownBackgroundView)
         view.addSubview(dropdownTableView)
 
-        view.addSubview(tempButton)
-        tempButton.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.bottom.trailing.equalToSuperview()
+        view.addSubview(testStackView)
+        testStackView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(80)
         }
     }
 
@@ -246,15 +278,10 @@ final class BoardViewController: BaseViewController {
 
     private func updateTotalBadgeFromCoreData() {
         do {
-            try BadgeManager.shared.updateTotalBadge()
-            do {
-                let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
-                totalBadgeNumber = getBadgeNumberFromCoreData.result
-                totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
-                updateBadgeInformation()
-            } catch {
-                print(error)
-            }
+            let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
+            totalBadgeNumber = getBadgeNumberFromCoreData.result
+            totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
+            updateBadgeInformation()
         } catch {
             print(error)
         }
@@ -280,5 +307,99 @@ final class BoardViewController: BaseViewController {
         congratsModal.modalPresentationStyle = .fullScreen
         congratsModal.badgeType = starBadgeTypes[curTableViewIndexPath.row]
         navigationController?.present(congratsModal, animated: true)
+    }
+
+    func refreshBoard(targetIndex: Int) {
+        dropdownButton.setTitle("\(tableViewDataSource[targetIndex]) ▼", for: .normal)
+        removeDropdownBackgroundView()
+
+        curTableViewIndexPath = IndexPath(row: targetIndex, section: 0)
+
+        let decreaseAmount = targetIndex
+        totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
+
+        if totalBadgeNumber < 0, targetIndex > 0 {
+            addHideBadgeView(previous: targetIndex > 0 ? tableViewDataSource[targetIndex - 1] : nil)
+        } else {
+            removeHideBadgeView()
+        }
+
+        badgeCollectionView.reloadData()
+
+        scrollCollectionView()
+    }
+
+    func recieveTodaysBadges() {
+        var updatedTotalBadge = 0
+        var todaysBadgeNumber = 0
+
+        // 코어데이터에 반영하기
+        do {
+            try BadgeManager.shared.resetTodaysBadge()
+            try BadgeManager.shared.updateTotalBadge()
+            do {
+                let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
+                totalBadgeNumber = getBadgeNumberFromCoreData.result
+                totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
+                updateBadgeInformation()
+                refreshBoard(targetIndex: min((totalBadgeNumberFromCoreData - 1) / 25, 4))
+
+                todaysBadgeNumber = try BadgeManager.shared.coinsLeftForToday().result
+                updatedTotalBadge = try BadgeManager.shared.numberOfTotalCoins().result
+            } catch {
+                print("error")
+            }
+        } catch {
+            print(error)
+        }
+
+        // 제일 최근 스타 단계로 이동
+        var latestStarIndex: Int = (updatedTotalBadge - 1) / 25
+        refreshBoard(targetIndex: min(latestStarIndex, 4))
+
+        // TODO: - 인터랙션 보여주기
+        showRecievedBadgesInteraction()
+
+        // alert 띄우기, Star 뱃지면 모달 띄우기
+        makeAlert(title: "획득한 보상뱃지 총 \(todaysBadgeNumber)개", message: "어제 임무완수의 결과입니다.\n아이와 함께 결과를 보고\n결과에 맞는 칭찬과 응원을 해주세요.", okayAction: { _ in
+            if todaysBadgeNumber == 0 {
+                return
+            }
+
+            if updatedTotalBadge % 25 == 0 {
+                self.showCongratsModal()
+            }
+        })
+
+        // TODO: - 임무 완료 메시지도 반영
+    }
+
+    @objc func testIncreaseBadgeNumber() {
+        recieveTodaysBadges()
+    }
+
+    @objc func testDecreaseBadgeNumber() {
+        do {
+            try BadgeManager.shared.testUpdateTotalBadge()
+            do {
+                let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
+                totalBadgeNumber = getBadgeNumberFromCoreData.result
+                totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
+                updateBadgeInformation()
+                refreshBoard(targetIndex: min(totalBadgeNumberFromCoreData / 25, 4))
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+
+    func showRecievedBadgesInteraction() {
+        print("showRecievedBadgesInteraction")
+    }
+
+    func showHiddenStarMessage() {
+        print("showHiddenStarMessage")
     }
 }
