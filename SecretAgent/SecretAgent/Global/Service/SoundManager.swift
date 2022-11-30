@@ -42,4 +42,10 @@ class SoundManager {
             player.play()
         }
     }
+
+    func stopSound() {
+        if let player {
+            player.stop()
+        }
+    }
 }
