@@ -58,6 +58,7 @@
 		B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
 		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
 		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
+		B5587A692936E59700613B95 /* ONE-Mobile-POP-OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */; };
 		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 		B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
 		B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
@@ -148,6 +149,7 @@
 		B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardThumbnail.swift; sourceTree = "<group>"; };
 		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
 		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE-Mobile-POP-OTF.otf"; sourceTree = "<group>"; };
 		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		B576A1932930B2AD006F9E8F /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Extension.swift"; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		35BD54E52925F5DC008F96AC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B5587A672936E58900613B95 /* Font */,
 				212D1EAD292B57EF0079ECF2 /* Sound */,
 				35BD54A72925D497008F96AC /* Main.storyboard */,
 				35BD54AD2925D498008F96AC /* Assets.xcassets */,
@@ -508,6 +511,15 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B5587A672936E58900613B95 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+
 		CE0A5C1B2931B8EB00695FEC /* AgentSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +672,7 @@
 				35A801F729374D5C0052451A /* scene6.mp3 in Resources */,
 				35A801F329374D5C0052451A /* scene2.mp3 in Resources */,
 				35A801FA29374D5C0052451A /* scene4.mp3 in Resources */,
+				B5587A692936E59700613B95 /* ONE-Mobile-POP-OTF.otf in Resources */,
 				35BD54AE2925D498008F96AC /* Assets.xcassets in Resources */,
 				35A801F429374D5C0052451A /* scene7.mp3 in Resources */,
 				35A801E629374D1E0052451A /* siren.mp3 in Resources */,
