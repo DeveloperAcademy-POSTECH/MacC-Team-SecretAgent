@@ -7,6 +7,29 @@
 
 import UIKit
 
+enum TimerResult {
+    case success
+    case fail
+
+    var mainLabel: String {
+        switch self {
+        case .success:
+            return "임무 수행 성공!"
+        case .fail:
+            return "임무 수행 실패.."
+        }
+    }
+    var subLabel: String {
+        switch self {
+        case .success:
+            return "웅웅외계인은 허탈하게 포기하고 돌아갔다,,,"
+        case .fail:
+            return "앗 아앗..다행히 기지가 노출되진 않았지만 다시 찾아올 것 같다.."
+
+        }
+    }
+}
+
 class AfterTimerViewController: BaseViewController {
 
     // MARK: - Properties
@@ -36,24 +59,22 @@ class AfterTimerViewController: BaseViewController {
         return stackView
     }()
 
-    private let successButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("성공! (일일획득코인 유지)", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemGreen
+    private let successButton: BaseButton = {
+        let button = BaseButton()
+        button.setButton(text: "성공! (일일획득코인 유지)", color: .yoGreen)
+        button.setButtonTextColor(color: .white)
+        button.makeButtonLarge()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        button.layer.cornerRadius = 16
         return button
     }()
 
-    private let failButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("실패! (일일획득코인 1 차감)", for: .normal)
-        button.setTitleColor(.orange, for: .normal)
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.orange.cgColor
+    private let failButton: BaseButton = {
+        let button = BaseButton()
+        button.setButton(text: "실패! (일일획득코인 1 차감)", color: .white)
+        button.setButtonTextColor(color: .orange)
+        button.setButtonBorder(color: UIColor.yoOrange.cgColor)
+        button.makeButtonLarge()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        button.layer.cornerRadius = 16
         return button
     }()
 
@@ -84,15 +105,7 @@ class AfterTimerViewController: BaseViewController {
         }
 
         buttonVStackView.addArrangedSubview(successButton)
-        successButton.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(61)
-        }
         buttonVStackView.addArrangedSubview(failButton)
-        failButton.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
-            make.height.equalTo(61)
-        }
         view.addSubview(buttonVStackView)
 
         buttonVStackView.snp.makeConstraints { make in
