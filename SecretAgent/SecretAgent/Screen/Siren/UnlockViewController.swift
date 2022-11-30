@@ -186,6 +186,13 @@ final class UnlockViewController: BaseViewController {
             }
         }
         unlockButton.addAction(unlockAction, for: .touchUpInside)
+
+        let dismissAction = UIAction { [weak self] _ in
+            guard let self else { return }
+            self.dismiss(animated: true)
+        }
+        dismissButton.addAction(dismissAction, for: .touchUpInside)
+        cancelButton.addAction(dismissAction, for: .touchUpInside)
     }
 
     private func getRandomInt() {
