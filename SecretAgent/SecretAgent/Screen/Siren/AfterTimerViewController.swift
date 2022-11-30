@@ -19,19 +19,18 @@ enum TimerResult {
             return "임무 수행 실패.."
         }
     }
+
     var subLabel: String {
         switch self {
         case .success:
             return "웅웅외계인은 허탈하게 포기하고 돌아갔다,,,"
         case .fail:
             return "앗 아앗..다행히 기지가 노출되진 않았지만 다시 찾아올 것 같다.."
-
         }
     }
 }
 
 class AfterTimerViewController: BaseViewController {
-
     // MARK: - Properties
 
     private let mainLabel = {
@@ -88,7 +87,7 @@ class AfterTimerViewController: BaseViewController {
     }()
 
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addAction()
@@ -121,7 +120,6 @@ class AfterTimerViewController: BaseViewController {
     // MARK: - Func
 
     private func addAction() {
-
         let successAction = UIAction { _ in
             let afterTimerVC = AfterTimerDetailViewController(timerResult: .success)
             afterTimerVC.modalPresentationStyle = .fullScreen
@@ -137,7 +135,5 @@ class AfterTimerViewController: BaseViewController {
 
         successButton.addAction(successAction, for: .touchUpInside)
         failButton.addAction(failAction, for: .touchUpInside)
-
     }
-
 }

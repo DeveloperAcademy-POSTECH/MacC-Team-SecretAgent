@@ -118,13 +118,13 @@ extension SirenViewController: CountdownTimerDelegate {
     }
 }
 
-// MARK: - ProgressBarDelegate
+// MARK: ProgressBarDelegate
 
 extension SirenViewController: ProgressBarDelegate {
     func progressFinished() {
         let afterTimerViewController = AfterTimerViewController()
         afterTimerViewController.modalTransitionStyle = .crossDissolve
         afterTimerViewController.modalPresentationStyle = .fullScreen
-        self.present(afterTimerViewController, animated: true)
+        present(afterTimerViewController, animated: true)
     }
 }

@@ -8,8 +8,8 @@
 import UIKit
 
 import SnapKit
-class AfterTimerDetailViewController: BaseViewController {
 
+class AfterTimerDetailViewController: BaseViewController {
     // MARK: - Properties
 
     private let dismissButton = {
@@ -42,13 +42,12 @@ class AfterTimerDetailViewController: BaseViewController {
         return stackView
     }()
 
-    private let confirmButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("확인", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor.black
+    private let confirmButton: BaseButton = {
+        let button = BaseButton()
+        button.setButton(text: "확인", color: .black)
+        button.setButtonTextColor(color: .white)
+        button.makeButtonLarge()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        button.layer.cornerRadius = 16
         return button
     }()
 
@@ -56,14 +55,16 @@ class AfterTimerDetailViewController: BaseViewController {
 
     // MARK: - Init
 
-    init(timerResult: TimerResult ) {
+    init(timerResult: TimerResult) {
         self.timerResult = timerResult
         super.init(nibName: nil, bundle: nil)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -92,16 +93,13 @@ class AfterTimerDetailViewController: BaseViewController {
         confirmButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(84)
-            make.height.equalTo(61)
         }
-
     }
 
     override func configUI() {
         super.configUI()
         mainLabel.text = timerResult.mainLabel
         subLabel.text = timerResult.subLabel
-
     }
 
     // MARK: - Func
@@ -113,4 +111,3 @@ class AfterTimerDetailViewController: BaseViewController {
         dismissButton.addAction(dismissAction, for: .touchUpInside)
     }
 }
-

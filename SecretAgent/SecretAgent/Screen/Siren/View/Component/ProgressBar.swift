@@ -32,6 +32,7 @@ final class ProgressBar: UIView {
     var delegate: ProgressBarDelegate?
 
     var isProgressDone = false
+
     // MARK: - Init
 
     convenience init(totalSeconds: Int) {
@@ -89,7 +90,6 @@ final class ProgressBar: UIView {
         animation.duration = CFTimeInterval(timerDuration)
         foregroundProgressLayer.add(animation, forKey: "strokeEnd")
         animationDidStart = true
-
     }
 
     // 애니메이션 초기화
@@ -103,7 +103,6 @@ final class ProgressBar: UIView {
         foregroundProgressLayer.configForAnimation()
         foregroundProgressLayer.removeAllAnimations()
         animationDidStart = false
-
     }
 
     // 애니메이션 일시정지
@@ -143,6 +142,8 @@ final class ProgressBar: UIView {
     }
 }
 
+// MARK: CAAnimationDelegate
+
 extension ProgressBar: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if flag {
@@ -150,6 +151,7 @@ extension ProgressBar: CAAnimationDelegate {
         }
     }
 }
+
 // MARK: - CAShapeLayer
 
 private extension CAShapeLayer {
@@ -169,4 +171,3 @@ private extension CAShapeLayer {
         strokeEnd = 0.0
     }
 }
-
