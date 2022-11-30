@@ -62,7 +62,7 @@ class OnBoardingTableViewCell: UITableViewCell {
         titleLabel.text = titleText
         contentLabel.text = content
         
-        let newSize = contentLabel.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 2 * ViewSize.leadingInset, height: CGFloat.greatestFiniteMagnitude))
+        let newSize = contentLabel.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 2 * ViewSize.leadingInset, height: Double.greatestFiniteMagnitude))
         contentLabel.snp.makeConstraints { make in
             make.height.equalTo(newSize.height)
         }

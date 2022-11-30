@@ -194,7 +194,7 @@ class OnBoardingViewController: BaseViewController {
             make.height.equalTo(tableView.contentSize.height)
         }
         
-        let newSize = tipBody.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 2 * ViewSize.leadingInset, height: CGFloat.greatestFiniteMagnitude))
+        let newSize = tipBody.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 2 * ViewSize.leadingInset, height: Double.greatestFiniteMagnitude))
         
         tipBody.snp.makeConstraints { make in
             make.height.equalTo(newSize.height)
