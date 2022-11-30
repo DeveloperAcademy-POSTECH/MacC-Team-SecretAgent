@@ -34,7 +34,7 @@ enum ImageLiteral {
     // MARK: - Badges
 
     static var coin: UIImage { .load(named: "coin.activate") }
-    static var strokedCoin: UIImage { .load(named: "coin.stroke") }
+    static var smallCoin: UIImage { .load(named: "coin.small") }
     static var shield: UIImage { .load(named: "shield.activate") }
     static var star: UIImage { .load(named: "star.activate") }
     static var inactiveCoin: UIImage { .load(named: "coin.deactivate") }

@@ -17,6 +17,10 @@ private enum Literal: String {
     }
 }
 
+private enum Size {
+    static let agentCard = 24
+}
+
 final class AgentCardThumbnailView: UIStackView {
     // MARK: - Properties
 
@@ -27,6 +31,8 @@ final class AgentCardThumbnailView: UIStackView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setAgentCard()
+        render()
         configUI()
     }
 
@@ -36,14 +42,21 @@ final class AgentCardThumbnailView: UIStackView {
     }
 
     private func configUI() {
-        setAgentCard()
         axis = .vertical
         distribution = .equalSpacing
     }
 
+    private func render() {
+        agentCardImageView.snp.makeConstraints { make in
+            make.size.equalTo(Size.agentCard)
+        }
+        agentCardImageView.contentMode = .scaleAspectFit
+    }
+
     private func setAgentCard() {
         agentCardLabel.text = Literal.agentCard()
-        agentCardLabel.font = .regularCaption2
+        agentCardLabel.font = .oneMobile(size: 11)
+        agentCardLabel.textColor = .yoGray5
         agentCardLabel.textAlignment = .center
         [agentCardImageView, agentCardLabel].forEach { subView in
             addArrangedSubview(subView)
