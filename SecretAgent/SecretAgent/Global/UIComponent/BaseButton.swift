@@ -27,10 +27,13 @@ class BaseButton: UIButton {
         layer.masksToBounds = true
         layer.cornerRadius = ButtonSize.cornerRadiusSmall
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+
+        layer.masksToBounds = true
+        layer.cornerRadius = ButtonSize.cornerRadiusSmall
     }
     
     // MARK: - Func

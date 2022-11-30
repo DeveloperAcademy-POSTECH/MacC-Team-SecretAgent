@@ -53,8 +53,9 @@ enum ImageLiteral {
 
     // MARK: - Siren
 
-    static var siren: UIImage { .load(named: "siren") }
+    static var siren: UIImage { .load(named: "sirenImage") }
     static var woongwoong: UIImage { .load(named: "woongwoong") }
+    static var speech: UIImage { .load(named: "speechImage") }
 
     // MARK: - Timer
 
