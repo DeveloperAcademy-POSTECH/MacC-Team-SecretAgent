@@ -20,7 +20,7 @@ class SoundManager {
 
     // MARK: - Func
 
-    func setupSound(soundOption: SoundLiteral, repeated: Bool) {
+    func setupSound(soundOption: SoundLiteral, repeated: Bool = true) {
         guard let url = Bundle.main.url(forResource: soundOption(), withExtension: MusicExtension.mp3()) else { return }
 
         do {
@@ -28,8 +28,6 @@ class SoundManager {
             guard let sound = player else { return }
             if repeated {
                 sound.numberOfLoops = -1
-            } else {
-                sound.numberOfLoops = 0
             }
             sound.prepareToPlay()
         } catch {
@@ -46,6 +44,12 @@ class SoundManager {
     func stopSound() {
         if let player {
             player.stop()
+        }
+    }
+
+    func pauseSound() {
+        if let player {
+            player.pause()
         }
     }
 }
