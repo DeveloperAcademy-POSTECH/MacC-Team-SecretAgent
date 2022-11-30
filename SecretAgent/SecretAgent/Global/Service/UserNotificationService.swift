@@ -11,6 +11,10 @@ import UserNotifications
 struct UserNotificationManager {
     private let center = UNUserNotificationCenter.current()
 
+    static let shared = UserNotificationManager()
+
+    private init() {}
+
     func grant(of options: UNAuthorizationOptions = [.alert, .sound, .badge]) {
         center.getNotificationSettings { setting in
             guard setting.authorizationStatus == .notDetermined else { return }
