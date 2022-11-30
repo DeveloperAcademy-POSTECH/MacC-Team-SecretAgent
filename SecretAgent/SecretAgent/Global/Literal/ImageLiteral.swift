@@ -26,6 +26,13 @@ enum ImageLiteral {
     static var agentKiyoDisabled: UIImage { .load(named: "CharProfile-Kiyo-Disabled") }
     static var agentMayoDisabled: UIImage { .load(named: "CharProfile-Mayo-Disabled") }
 
+    static var primaryButtonBackground: UIImage { .load(named: "primaryButtonBackground") }
+    static var skipButtonImage: UIImage { .load(named: "skipButtonImage") }
+    static var storySkipButton: UIImage { .load(named: "storySkipButton") }
+    static var preButton: UIImage { .load(named: "preButton") }
+    static var nextButton: UIImage { .load(named: "nextButton") }
+    static var storyLinesBackground: UIImage { .load(named: "storyLinesBackground") }
+
     // MARK: - Badges
 
     static var coin: UIImage { .load(named: "coin.activate") }
@@ -55,6 +62,21 @@ enum ImageLiteral {
 
     static var siren: UIImage { .load(named: "siren") }
     static var woongwoong: UIImage { .load(named: "woongwoong") }
+
+    // MARK: - Secene
+
+    static var scene1: UIImage { .load(named: "Scene1") }
+    static var scene2: UIImage { .load(named: "Scene2") }
+    static var scene3: UIImage { .load(named: "Scene3") }
+    static var scene4: UIImage { .load(named: "Scene4") }
+    static var scene5: UIImage { .load(named: "Scene5") }
+    static var scene6: UIImage { .load(named: "Scene6") }
+    static var scene7: UIImage { .load(named: "Scene7") }
+    static var scene8: UIImage { .load(named: "Scene8") }
+    static var scene9: UIImage { .load(named: "Scene9") }
+    static var scene10: UIImage { .load(named: "Scene10") }
+    static var scene11: UIImage { .load(named: "Scene11") }
+    static var scene12: UIImage { .load(named: "Scene12") }
 }
 
 extension UIImage {
