@@ -139,7 +139,7 @@ class AfterTimerDetailViewController: BaseViewController {
         }
         let confirmAction = UIAction { _ in
             guard let mainTabBarVC = self.presentingViewController?.presentingViewController as? UITabBarController else { return }
-            mainTabBarVC.dismiss(animated: true) // present를 해준 뷰컨을 dismiss하면 그 뷰컨이 꺼져야되는 것으로 알고 있는데 왜 presented된 뷰컨이 꺼지는 지 의문
+            mainTabBarVC.dismiss(animated: true) // 의문
         }
         dismissButton.addAction(dismissAction, for: .touchUpInside)
         confirmButton.addAction(confirmAction, for: .touchUpInside)
