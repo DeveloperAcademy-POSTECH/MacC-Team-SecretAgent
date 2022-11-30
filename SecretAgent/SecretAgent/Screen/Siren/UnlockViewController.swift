@@ -102,6 +102,8 @@ final class UnlockViewController: BaseViewController {
     private var secondOperand = 0
     private var resultText = ""
 
+    var delegate: UnlockViewDelegate?
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -179,7 +181,8 @@ final class UnlockViewController: BaseViewController {
         let unlockAction = UIAction { [weak self] _ in
             guard let self else { return }
             if self.firstOperand * self.secondOperand == Int(self.resultText) {
-                print("정답") // 임시
+                self.delegate?.unlockSiren()
+                self.dismiss(animated: true)
             } else {
                 self.resultView.resultField.textColor = .yoOrange
                 self.failLabel.isHidden = false
@@ -249,4 +252,8 @@ extension UnlockViewController: UITextFieldDelegate {
         failLabel.isHidden = true
         return true
     }
+}
+
+protocol UnlockViewDelegate: AnyObject {
+    func unlockSiren()
 }

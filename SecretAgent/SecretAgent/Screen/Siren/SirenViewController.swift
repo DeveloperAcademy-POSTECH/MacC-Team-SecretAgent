@@ -10,7 +10,7 @@ import UIKit
 
 private enum Constants {
     static let progressBarSize = 300
-    static let selectedSeconds = 5 * 1
+    static let selectedSeconds = 3 * 1 // 임시
     static let timeHStackViewHorizontalOffset = UIScreen.main.bounds.width / 2.48
     static let buttonHStackViewBottomOffset = UIScreen.main.bounds.height / 5.20
     static let defaultOffset = 20
@@ -229,7 +229,8 @@ final class SirenViewController: BaseViewController {
     @objc private func showUnlock() {
         let unlockVC = UnlockViewController()
         unlockVC.modalPresentationStyle = .fullScreen
-        present(unlockVC, animated: true)
+        unlockVC.delegate = self
+        navigationController?.present(unlockVC, animated: true)
     }
 
     @objc private func stopTimer() {
@@ -239,6 +240,7 @@ final class SirenViewController: BaseViewController {
         stopButton.isEnabled = false
         stopButton.alpha = 0.8
         startButton.setTitle("시작", for: .normal)
+        sirenBackgroundView.isHidden = false
     }
 
     @objc private func startTimer() {
@@ -271,7 +273,6 @@ extension SirenViewController: CountdownTimerDelegate {
     }
 
     func countdownTimerDone() {
-//        counterView.isHidden = true
         stopButton.isEnabled = false
         stopButton.alpha = 0.8
         startButton.setTitle("시작", for: .normal)
@@ -284,9 +285,18 @@ extension SirenViewController: CountdownTimerDelegate {
 
 extension SirenViewController: ProgressBarDelegate {
     func progressFinished() {
+        tabBarController?.selectedIndex = 0
         let afterTimerViewController = AfterTimerViewController()
         afterTimerViewController.modalTransitionStyle = .crossDissolve
         afterTimerViewController.modalPresentationStyle = .fullScreen
         present(afterTimerViewController, animated: true)
+    }
+}
+
+// MARK: UnlockViewDelegate
+
+extension SirenViewController: UnlockViewDelegate {
+    func unlockSiren() {
+        sirenBackgroundView.isHidden = true
     }
 }

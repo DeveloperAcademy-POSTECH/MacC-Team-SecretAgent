@@ -156,16 +156,16 @@ class AfterTimerViewController: BaseViewController {
 
     private func addAction() {
         let successAction = UIAction { _ in
-            let afterTimerVC = AfterTimerDetailViewController(timerResult: .success)
-            afterTimerVC.modalPresentationStyle = .fullScreen
-            afterTimerVC.modalTransitionStyle = .crossDissolve
-            self.present(afterTimerVC, animated: true)
+            let afterTimerDetailVC = AfterTimerDetailViewController(timerResult: .success)
+            afterTimerDetailVC.modalPresentationStyle = .fullScreen
+            afterTimerDetailVC.modalTransitionStyle = .coverVertical
+            self.present(afterTimerDetailVC, animated: true)
         }
         let failAction = UIAction { _ in
-            let afterTimerVC = AfterTimerDetailViewController(timerResult: .fail)
-            afterTimerVC.modalPresentationStyle = .fullScreen
-            afterTimerVC.modalTransitionStyle = .crossDissolve
-            self.present(afterTimerVC, animated: true)
+            let afterTimerDetailVC = AfterTimerDetailViewController(timerResult: .fail)
+            afterTimerDetailVC.modalPresentationStyle = .fullScreen
+            afterTimerDetailVC.modalTransitionStyle = .coverVertical
+            self.present(afterTimerDetailVC, animated: true)
         }
 
         successButton.addAction(successAction, for: .touchUpInside)
