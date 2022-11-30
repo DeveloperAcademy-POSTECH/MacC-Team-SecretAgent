@@ -83,6 +83,9 @@ class StoryViewController: BaseViewController {
         storyImageView.image = Story.stories[sceneNo].sceneImage
         linesLabel.isHidden = true
         preButton.isHidden = true
+        
+        SoundManager.shared.setupSound(soundOption: SoundLiteral.scene1)
+        SoundManager.shared.playSound()
     }
     
     override func viewDidLoad() {
@@ -92,6 +95,7 @@ class StoryViewController: BaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         AppDelegate.AppUtility.changeOrientation(UIInterfaceOrientationMask.portrait)
+        SoundManager.shared.stopSound()
     }
     
     override func render() {
@@ -140,44 +144,70 @@ class StoryViewController: BaseViewController {
         nextButton.addTarget(self, action: #selector(nextStory), for: .touchUpInside)
     }
     
+    private func playSound(_ sound: SoundLiteral?, _ repeated: Bool = true) {
+        SoundManager.shared.setupSound(soundOption: sound ?? .choiceLikeGoOut, repeated: repeated)
+        SoundManager.shared.playSound()
+    }
+    
     private func nextSceneNoSet() {
-        if (Story.stories[sceneNo].lines?.count ?? 0) - 1 > linesNo {
+        if sceneNo >= Story.stories.count, linesNo + 1 >= Story.stories.last?.lines.count ?? 0 {
+            return
+        }
+        
+        if (Story.stories[sceneNo].lines.count) - 1 > linesNo {
             linesNo += 1
         } else {
             sceneNo += 1
             linesNo = 0
+            playSceneSound()
         }
     }
     
     private func preSceneNoSet() {
         if sceneNo > 0, linesNo <= 0 {
             sceneNo -= 1
-            linesNo = (Story.stories[sceneNo].lines?.count ?? 1) - 1
+            linesNo = (Story.stories[sceneNo].lines.count) - 1
+            playSceneSound()
         } else if linesNo > 0 {
             linesNo -= 1
         }
     }
     
     private func drawStory() {
-        let lines: String = Story.stories[sceneNo].lines?[linesNo] ?? ""
+        let lines: String = linesNo >= 0 ? Story.stories[sceneNo].lines[linesNo] : ""
         if lines == "" {
             linesLabel.isHidden = true
         } else {
             linesLabel.isHidden = false
         }
+        
+        if sceneNo == 0, linesNo < 0 {
+            preButton.isHidden = true
+        } else {
+            preButton.isHidden = false
+        }
+        
         storyImageView.image = Story.stories[sceneNo].sceneImage
         linesLabel.text = lines
+    }
+
+    private func playSceneSound() {
+        if sceneNo < 7 {
+            SoundManager.shared.stopSound()
+            if Story.stories[sceneNo].backgroundSound != nil {
+                playSound(Story.stories[sceneNo].backgroundSound, false)
+            }
+        } else if sceneNo == 7 {
+            SoundManager.shared.stopSound()
+            if Story.stories[sceneNo].backgroundSound != nil {
+                playSound(Story.stories[sceneNo].backgroundSound)
+            }
+        }
     }
     
     @objc func preStory() {
         preSceneNoSet()
         drawStory()
-        
-        if sceneNo == 0, linesNo == 0 {
-            preButton.isHidden = true
-        } else {
-            preButton.isHidden = false
-        }
     }
     
     @objc func nextStory() {
@@ -185,7 +215,7 @@ class StoryViewController: BaseViewController {
         nextSceneNoSet()
         
         if sceneNo
-            >= Story.stories.count, linesNo + 1 >= Story.stories[sceneNo - 1].lines?.count ?? 0 {
+            >= Story.stories.count, linesNo + 1 >= Story.stories.last?.lines.count ?? 0 {
             navigationController?.pushViewController(AgentSelectionViewController(), animated: true)
             return
         }
