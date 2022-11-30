@@ -14,22 +14,33 @@ final class HideBadgeView: UIView {
     
     private let lockImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = ImageLiteral.agent
+        imageView.image = UIImage(systemName: "lock.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20)))
+        imageView.tintColor = .white
         return imageView
     }()
     
-    private let infoLabel: UILabel = {
+    let infoLabel: UILabel = {
         let label = UILabel()
         label.text = "이전 스타뱃지를 \n 획득해야 시작할 수 있어요!"
+        label.font = UIFont.oneMobile(size: 23)
+        label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 2
         return label
     }()
     
+    private let backgroundView = UIView()
+    
     // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        backgroundView.backgroundColor = .yoGray6.withAlphaComponent(0.3)
+        addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         addSubview(infoLabel)
         infoLabel.snp.makeConstraints { make in
@@ -38,9 +49,9 @@ final class HideBadgeView: UIView {
         
         addSubview(lockImage)
         lockImage.snp.makeConstraints { make in
-            make.bottom.equalTo(infoLabel.snp.top).inset(20)
-            make.centerX.equalTo(infoLabel)
-        }
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(infoLabel.snp.top).offset(-20)
+        }   
     }
     
     @available(*, unavailable)
