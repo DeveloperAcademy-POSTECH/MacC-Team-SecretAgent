@@ -9,6 +9,9 @@ import UIKit
 
 import SnapKit
 
+// TODO: - 125개 넘어가지 않게
+// TODO: - 보드에 쓰이는 스타 이미지 추가 및 적용
+
 private enum BoardSize {
     static let collectionViewInsets: UIEdgeInsets = .init(top: 52, left: 0, bottom: 52, right: 0)
     static let collectionViewLineSpacing: Double = 25.85
@@ -270,7 +273,7 @@ final class BoardViewController: BaseViewController {
     private func updateBadgeInformation() {
         let coin = fixedBadgeInformation.arrangedSubviews[1]
         let coinLabel = coin.subviews.first as? UILabel
-        coinLabel?.text = "\(totalBadgeNumber)"
+        coinLabel?.text = "\(min(totalBadgeNumber, 125))"
         let shield = fixedBadgeInformation.arrangedSubviews[2]
         let shieldLabel = shield.subviews.first as? UILabel
         shieldLabel?.text = "\(totalBadgeNumber / 5)"
