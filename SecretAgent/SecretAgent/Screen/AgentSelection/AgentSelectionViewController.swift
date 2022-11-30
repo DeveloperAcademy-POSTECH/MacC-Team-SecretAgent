@@ -14,7 +14,7 @@ private enum FontSize {
 private enum ViewSize {
     static let screenHeight = UIScreen.main.bounds.height
     static let screenWidth = UIScreen.main.bounds.width
-    static let isLandscapeToPortrait = UIScreen.main.bounds.height < UIScreen.main.bounds.width
+    static let isLandscapeToPortrait = UIScreen.main.bounds.height > UIScreen.main.bounds.width
     
     static let stackSpacing: Double = isLandscapeToPortrait ? screenWidth / 27.86 : screenHeight / 27.86
     static let informationLabelY: Double = isLandscapeToPortrait ? (screenHeight / screenWidth > 2 ? screenHeight / 6.03 : screenHeight / 8) : (screenWidth / screenHeight > 2 ? screenWidth / 6.03 : screenWidth / 8)
