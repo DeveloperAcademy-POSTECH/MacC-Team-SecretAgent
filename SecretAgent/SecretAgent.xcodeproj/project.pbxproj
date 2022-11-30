@@ -43,6 +43,8 @@
 		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
 		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
 		B5587A692936E59700613B95 /* ONE-Mobile-POP-OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */; };
+		B5587A702936F2B000613B95 /* AgentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A6F2936F2B000613B95 /* AgentCardView.swift */; };
+		B5587A72293713A900613B95 /* AgentCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A71293713A800613B95 /* AgentCardViewController.swift */; };
 		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 		B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
 		B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
@@ -118,6 +120,8 @@
 		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
 		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE-Mobile-POP-OTF.otf"; sourceTree = "<group>"; };
+		B5587A6F2936F2B000613B95 /* AgentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardView.swift; sourceTree = "<group>"; };
+		B5587A71293713A800613B95 /* AgentCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardViewController.swift; sourceTree = "<group>"; };
 		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		B576A1932930B2AD006F9E8F /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Extension.swift"; sourceTree = "<group>"; };
@@ -353,6 +357,7 @@
 		35BD54F72925F605008F96AC /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B5587A6D2936F29E00613B95 /* AgentCard */,
 				CE0A5C1B2931B8EB00695FEC /* AgentSelection */,
 				213B6970292DC9880085C3B9 /* Board */,
 				35BD55152928AA55008F96AC /* Siren */,
@@ -437,6 +442,23 @@
 				B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		B5587A6D2936F29E00613B95 /* AgentCard */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A6E2936F2A800613B95 /* View */,
+				B5587A71293713A800613B95 /* AgentCardViewController.swift */,
+			);
+			path = AgentCard;
+			sourceTree = "<group>";
+		};
+		B5587A6E2936F2A800613B95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A6F2936F2B000613B95 /* AgentCardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CE0A5C1B2931B8EB00695FEC /* AgentSelection */ = {
@@ -652,6 +674,7 @@
 				35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */,
 				35BD55032925FEC3008F96AC /* UIViewController+Extension.swift in Sources */,
 				35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */,
+				B5587A702936F2B000613B95 /* AgentCardView.swift in Sources */,
 				35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */,
 				CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */,
 				35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */,
@@ -675,6 +698,7 @@
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
 				B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */,
 				B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */,
+				B5587A72293713A900613B95 /* AgentCardViewController.swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
