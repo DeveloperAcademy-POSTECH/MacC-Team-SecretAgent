@@ -12,14 +12,18 @@ private enum FontSize {
 }
 
 private enum ViewSize {
-    static let stackSpacing: Double = UIScreen.main.bounds.width / 27.86
-    static let informationLabelY: Double = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.height / 6.03 : UIScreen.main.bounds.height / 8
-    static let agentVStackTopOffset: Double = UIScreen.main.bounds.width / 25.58
-    static let agentVStackWidth: Double = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.width / 1.15 : UIScreen.main.bounds.height / 2.57
-    static let agentVStackHeight: Double = UIScreen.main.bounds.height / 2.57
-    static let selectedAgentNameLabelBottomInset: Double = UIScreen.main.bounds.height / 3.80
-    static let selectedAgentDescriptionLabelTopOffset: Double = UIScreen.main.bounds.height / 38.36
-    static let selectButtonBottomInset: Double = UIScreen.main.bounds.height / 11.41
+    static let screenHeight = UIScreen.main.bounds.height
+    static let screenWidth = UIScreen.main.bounds.width
+    static let isLandscapeToPortrait = UIScreen.main.bounds.height < UIScreen.main.bounds.width
+    
+    static let stackSpacing: Double = isLandscapeToPortrait ? screenWidth / 27.86 : screenHeight / 27.86
+    static let informationLabelY: Double = isLandscapeToPortrait ? (screenHeight / screenWidth > 2 ? screenHeight / 6.03 : screenHeight / 8) : (screenWidth / screenHeight > 2 ? screenWidth / 6.03 : screenWidth / 8)
+    static let agentVStackTopOffset: Double = isLandscapeToPortrait ? screenWidth / 25.58 : screenHeight / 25.58
+    static let agentVStackWidth: Double = isLandscapeToPortrait ? (screenHeight / screenWidth > 2 ? screenWidth / 1.15 : screenHeight / 2.57) : (screenWidth / screenHeight > 2 ? screenHeight / 1.15 : screenWidth / 2.57)
+    static let agentVStackHeight: Double = isLandscapeToPortrait ? screenHeight / 2.57 : screenWidth / 2.57
+    static let selectedAgentNameLabelBottomInset: Double = isLandscapeToPortrait ? screenHeight / 3.80 : screenWidth / 3.80
+    static let selectedAgentDescriptionLabelTopOffset: Double = isLandscapeToPortrait ? screenHeight / 38.36 : screenWidth / 38.36
+    static let selectButtonBottomInset: Double = isLandscapeToPortrait ? screenHeight / 11.41 : screenWidth / 11.41
 }
 
 final class AgentSelectionViewController: BaseViewController {

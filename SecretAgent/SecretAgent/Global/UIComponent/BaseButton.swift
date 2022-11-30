@@ -10,9 +10,13 @@ import UIKit
 import SnapKit
 
 private enum ButtonSize {
-    static let largeButtonWidth: Double = UIScreen.main.bounds.width / 1.11
-    static let smallButtonWidth: Double = UIScreen.main.bounds.width / 2.6
-    static let height: Double = UIScreen.main.bounds.height / 14.07
+    static let screenHeight = UIScreen.main.bounds.height
+    static let screenWidth = UIScreen.main.bounds.width
+    static let isPortrait = UIScreen.main.bounds.height > UIScreen.main.bounds.width
+    
+    static let largeButtonWidth = isPortrait ? screenWidth / 1.11 : screenHeight / 1.11
+    static let smallButtonWidth = isPortrait ? screenWidth / 2.6 : screenHeight / 2.6
+    static let height = isPortrait ? screenHeight / 14.07 : screenWidth / 14.07
     static let borderWidth: Double = 1
     static let cornerRadiusSmall: Double = 18
     static let cornerRadiusLarge: Double = 16
