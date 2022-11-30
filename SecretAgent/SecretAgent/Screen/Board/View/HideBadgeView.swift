@@ -14,7 +14,10 @@ final class HideBadgeView: UIView {
     
     private let lockImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "lock.fill", withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20)))
+        imageView.image = UIImage(
+            systemName: "lock.fill",
+            withConfiguration: UIImage.SymbolConfiguration(font: .systemFont(ofSize: 20))
+        )
         imageView.tintColor = .white
         return imageView
     }()
@@ -36,7 +39,18 @@ final class HideBadgeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        render()
         backgroundView.backgroundColor = .yoGray6.withAlphaComponent(0.3)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Func
+
+    private func render() {
         addSubview(backgroundView)
         backgroundView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -51,11 +65,6 @@ final class HideBadgeView: UIView {
         lockImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(infoLabel.snp.top).offset(-20)
-        }   
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        }
     }
 }

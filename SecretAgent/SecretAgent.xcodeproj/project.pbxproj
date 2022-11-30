@@ -11,6 +11,7 @@
 		213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B6974292DD5D40085C3B9 /* BoardViewController.swift */; };
 		21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21882898292C935C00C9D94B /* SoundLiteral.swift */; };
 		2188289C292D0DB700C9D94B /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2188289B292D0DB700C9D94B /* siren.mp3 */; };
+		21B6F7C329373F5C001FAD5F /* CommonBadgeInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */; };
 		21BC09312935A04C0019572D /* HideBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC09302935A04C0019572D /* HideBadgeView.swift */; };
 		21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */; };
 		35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD54A12925D497008F96AC /* AppDelegate.swift */; };
@@ -76,6 +77,7 @@
 		213B6974292DD5D40085C3B9 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		21882898292C935C00C9D94B /* SoundLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLiteral.swift; sourceTree = "<group>"; };
 		2188289B292D0DB700C9D94B /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
+		21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBadgeInfoComponent.swift; sourceTree = "<group>"; };
 		21BC09302935A04C0019572D /* HideBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideBadgeView.swift; sourceTree = "<group>"; };
 		21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		35BD549E2925D497008F96AC /* SecretAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 				213B6974292DD5D40085C3B9 /* BoardViewController.swift */,
 				21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */,
 				21BC09302935A04C0019572D /* HideBadgeView.swift */,
+				21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
+				21B6F7C329373F5C001FAD5F /* CommonBadgeInfoComponent.swift in Sources */,
 				B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */,
 				CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */,
 				35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */,
