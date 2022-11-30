@@ -25,6 +25,11 @@ enum BadgeType {
     case coin
     case shield
     case star
+    case poyoStar
+    case biyoStar
+    case kiyoStar
+    case mayoStar
+    case allStar
 
     var badgeActiveImage: UIImage {
         switch self {
@@ -34,6 +39,16 @@ enum BadgeType {
             return ImageLiteral.shield
         case .star:
             return ImageLiteral.star
+        case .poyoStar:
+            return ImageLiteral.poyoStar
+        case .biyoStar:
+            return ImageLiteral.biyoStar
+        case .kiyoStar:
+            return ImageLiteral.kiyoStar
+        case .mayoStar:
+            return ImageLiteral.mayoStar
+        case .allStar:
+            return ImageLiteral.allStar
         }
     }
 
@@ -45,6 +60,16 @@ enum BadgeType {
             return ImageLiteral.inactiveShield
         case .star:
             return ImageLiteral.inactiveStar
+        case .poyoStar:
+            return ImageLiteral.inactivePoyoStar
+        case .biyoStar:
+            return ImageLiteral.inactiveBiyoStar
+        case .kiyoStar:
+            return ImageLiteral.inactiveKiyoStar
+        case .mayoStar:
+            return ImageLiteral.inactiveMayoStar
+        case .allStar:
+            return ImageLiteral.inactiveAllStar
         }
     }
 }
@@ -56,6 +81,7 @@ final class BoardViewController: BaseViewController {
     private var totalBadgeNumberFromCoreData: Int = 0
     private var curIndexPath = IndexPath(row: 0, section: 0)
     private let tableViewDataSource = ["포요스타", "비요스타", "키요스타", "마요스타", "모두스타"]
+    private let starBadgeTypes: [BadgeType] = [.poyoStar, .biyoStar, .kiyoStar, .mayoStar, .allStar]
 
     // MARK: - UI Properties
 
@@ -293,7 +319,7 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
             myCell.badgeType = .coin
         }
         if badgeIndex == 30 {
-            myCell.badgeType = .star
+            myCell.badgeType = starBadgeTypes[curIndexPath.row]
         }
 
         // 이미지 생성
