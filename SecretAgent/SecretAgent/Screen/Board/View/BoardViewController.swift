@@ -21,59 +21,6 @@ private enum BoardSize {
     static let starSize = CGSize(width: 163.0, height: 196.0)
 }
 
-enum BadgeType {
-    case coin
-    case shield
-    case star
-    case poyoStar
-    case biyoStar
-    case kiyoStar
-    case mayoStar
-    case allStar
-
-    var badgeActiveImage: UIImage {
-        switch self {
-        case .coin:
-            return ImageLiteral.coin
-        case .shield:
-            return ImageLiteral.shield
-        case .star:
-            return ImageLiteral.star
-        case .poyoStar:
-            return ImageLiteral.poyoStar
-        case .biyoStar:
-            return ImageLiteral.biyoStar
-        case .kiyoStar:
-            return ImageLiteral.kiyoStar
-        case .mayoStar:
-            return ImageLiteral.mayoStar
-        case .allStar:
-            return ImageLiteral.allStar
-        }
-    }
-
-    var badgeInactiveImage: UIImage {
-        switch self {
-        case .coin:
-            return ImageLiteral.inactiveCoin
-        case .shield:
-            return ImageLiteral.inactiveShield
-        case .star:
-            return ImageLiteral.inactiveStar
-        case .poyoStar:
-            return ImageLiteral.inactivePoyoStar
-        case .biyoStar:
-            return ImageLiteral.inactiveBiyoStar
-        case .kiyoStar:
-            return ImageLiteral.inactiveKiyoStar
-        case .mayoStar:
-            return ImageLiteral.inactiveMayoStar
-        case .allStar:
-            return ImageLiteral.inactiveAllStar
-        }
-    }
-}
-
 final class BoardViewController: BaseViewController {
     // MARK: - Properties
 
@@ -84,6 +31,14 @@ final class BoardViewController: BaseViewController {
     private let starBadgeTypes: [BadgeType] = [.poyoStar, .biyoStar, .kiyoStar, .mayoStar, .allStar]
 
     // MARK: - UI Properties
+
+    private lazy var tempButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("테스트", for: .normal)
+        button.backgroundColor = .systemTeal
+        button.addTarget(self, action: #selector(showCongratsModal), for: .touchUpInside)
+        return button
+    }()
 
     private lazy var dropdownBackgroundView: UIView = {
         let testView = UIView()
@@ -188,6 +143,12 @@ final class BoardViewController: BaseViewController {
 
         view.addSubview(dropdownBackgroundView)
         view.addSubview(dropdownTableView)
+
+        view.addSubview(tempButton)
+        tempButton.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.bottom.trailing.equalToSuperview()
+        }
     }
 
     override func configUI() {
@@ -312,6 +273,13 @@ final class BoardViewController: BaseViewController {
             let shieldNumber = badgeNumber / 5
             badgeCollectionView.scrollToItem(at: IndexPath(row: badgeNumber + shieldNumber, section: 0), at: .centeredVertically, animated: true)
         }
+    }
+
+    @objc private func showCongratsModal() {
+        let congratsModal = StarCollectCongratsViewController()
+        congratsModal.modalPresentationStyle = .fullScreen
+        congratsModal.badgeType = starBadgeTypes[curTableViewIndexPath.row]
+        navigationController?.present(congratsModal, animated: true)
     }
 }
 

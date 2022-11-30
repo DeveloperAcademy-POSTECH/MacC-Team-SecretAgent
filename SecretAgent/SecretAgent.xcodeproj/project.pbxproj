@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */; };
 		213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B6974292DD5D40085C3B9 /* BoardViewController.swift */; };
+		217D3F7429376E2800D810A5 /* StarCollectCongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */; };
+		217D3F76293771F700D810A5 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F75293771F700D810A5 /* Badge.swift */; };
 		21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21882898292C935C00C9D94B /* SoundLiteral.swift */; };
 		2188289C292D0DB700C9D94B /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2188289B292D0DB700C9D94B /* siren.mp3 */; };
 		21B6F7C329373F5C001FAD5F /* CommonBadgeInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */; };
@@ -75,6 +77,8 @@
 /* Begin PBXFileReference section */
 		212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSirenViewController.swift; sourceTree = "<group>"; };
 		213B6974292DD5D40085C3B9 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCollectCongratsViewController.swift; sourceTree = "<group>"; };
+		217D3F75293771F700D810A5 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		21882898292C935C00C9D94B /* SoundLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLiteral.swift; sourceTree = "<group>"; };
 		2188289B292D0DB700C9D94B /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
 		21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBadgeInfoComponent.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 				21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */,
 				21BC09302935A04C0019572D /* HideBadgeView.swift */,
 				21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */,
+				217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0A5C1F2931B97200695FEC /* Agent.swift */,
+				217D3F75293771F700D810A5 /* Badge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -655,6 +661,7 @@
 				35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */,
 				35BD55032925FEC3008F96AC /* UIViewController+Extension.swift in Sources */,
 				35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */,
+				217D3F7429376E2800D810A5 /* StarCollectCongratsViewController.swift in Sources */,
 				35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */,
 				CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */,
 				35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */,
@@ -674,6 +681,7 @@
 				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
+				217D3F76293771F700D810A5 /* Badge.swift in Sources */,
 				21BC09312935A04C0019572D /* HideBadgeView.swift in Sources */,
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
 				B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */,
