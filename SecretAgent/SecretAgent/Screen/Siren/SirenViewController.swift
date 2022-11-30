@@ -210,6 +210,7 @@ final class SirenViewController: BaseViewController {
     }
 
     private func addTargets() {
+        sirenButton.addTarget(self, action: #selector(showUnlock), for: .touchUpInside)
         startButton.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
         stopButton.addTarget(self, action: #selector(stopTimer), for: .touchUpInside)
     }
@@ -223,6 +224,12 @@ final class SirenViewController: BaseViewController {
             let time = notification.userInfo?["time"] as? Double ?? 0.0
             countdownTimer.duration -= time
         }
+    }
+
+    @objc private func showUnlock() {
+        let unlockVC = UnlockViewController()
+        unlockVC.modalPresentationStyle = .fullScreen
+        present(unlockVC, animated: true)
     }
 
     @objc private func stopTimer() {

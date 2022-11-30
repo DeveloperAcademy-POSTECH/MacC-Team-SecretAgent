@@ -41,7 +41,7 @@ class NumberCollectionViewCell: UICollectionViewCell {
     }
 
     private func configUI() {
-        contentView.backgroundColor = .systemGray3
+        contentView.backgroundColor = .yoGray2
         contentView.layer.cornerRadius = 10
     }
 
