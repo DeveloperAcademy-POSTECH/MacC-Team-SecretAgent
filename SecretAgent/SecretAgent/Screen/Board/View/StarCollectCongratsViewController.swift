@@ -9,6 +9,17 @@ import UIKit
 
 import SnapKit
 
+// TODO: - 상수 값 enum으로 빼기
+
+private enum CongratsViewSize {
+    static let mainLabelFontSize: Double = 40
+    static let xButtonTopInset = 60
+    static let xButtonTrailingInset = 30
+    static let mainLabelTopInset = 125
+    static let subLabelTopOffset = 25
+    static let lowerButtonBottomInset = 90
+}
+
 final class StarCollectCongratsViewController: BaseViewController {
     // MARK: - Properties
     
@@ -34,7 +45,7 @@ final class StarCollectCongratsViewController: BaseViewController {
     private let mainLabel: UILabel = {
         let label = UILabel()
         label.text = "OO스타 획득!"
-        label.font = UIFont.oneMobile(size: 40)
+        label.font = UIFont.oneMobile(size: CongratsViewSize.mainLabelFontSize)
         return label
     }()
     
@@ -51,7 +62,7 @@ final class StarCollectCongratsViewController: BaseViewController {
         let button = BaseButton()
         button.setButton(text: "확인", color: UIColor.yoGray6)
         button.setButtonTextColor(color: .white)
-        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
         button.makeButtonLarge()
         button.addTarget(self, action: #selector(closeModal), for: .touchUpInside)
         return button
@@ -71,23 +82,23 @@ final class StarCollectCongratsViewController: BaseViewController {
         }
         view.addSubview(closeButton)
         closeButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(60)
-            make.trailing.equalToSuperview().inset(30)
+            make.top.equalToSuperview().inset(CongratsViewSize.xButtonTopInset)
+            make.trailing.equalToSuperview().inset(CongratsViewSize.xButtonTrailingInset)
         }
         view.addSubview(mainLabel)
         mainLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(125)
+            make.top.equalToSuperview().inset(CongratsViewSize.mainLabelTopInset)
             make.centerX.equalToSuperview()
         }
         view.addSubview(subLabel)
         subLabel.snp.makeConstraints { make in
-            make.top.equalTo(mainLabel.snp.bottom).offset(25)
+            make.top.equalTo(mainLabel.snp.bottom).offset(CongratsViewSize.subLabelTopOffset)
             make.centerX.equalToSuperview()
         }
         
         view.addSubview(collectButton)
         collectButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(90)
+            make.bottom.equalToSuperview().inset(CongratsViewSize.lowerButtonBottomInset)
             make.centerX.equalToSuperview()
         }
     }
@@ -105,7 +116,6 @@ final class StarCollectCongratsViewController: BaseViewController {
     }
     
     @objc func closeModal() {
-        print("dismiss")
         dismiss(animated: true)
     }
 }
