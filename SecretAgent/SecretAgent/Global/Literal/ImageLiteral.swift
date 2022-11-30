@@ -55,6 +55,12 @@ enum ImageLiteral {
 
     static var siren: UIImage { .load(named: "siren") }
     static var woongwoong: UIImage { .load(named: "woongwoong") }
+
+    // MARK: - Timer
+
+    static var timerFail: UIImage { .load(named: "timerFail") }
+    static var timerSuccess: UIImage { .load(named: "timerSuccess") }
+    static var timerTimeOut: UIImage { .load(named: "timerTimeOut") }
 }
 
 extension UIImage {

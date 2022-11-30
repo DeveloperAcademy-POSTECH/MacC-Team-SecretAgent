@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 enum TimerResult {
     case success
     case fail
@@ -23,11 +25,29 @@ enum TimerResult {
     var subLabel: String {
         switch self {
         case .success:
-            return "웅웅외계인은 허탈하게 포기하고 돌아갔다,,,"
+            return "웅웅외계인은 허탈하게 \n포기하고 돌아갔다,,,"
         case .fail:
-            return "앗 아앗..다행히 기지가 노출되진 않았지만 다시 찾아올 것 같다.."
+            return "웅웅외계인이 폭식을 하고 돌아갔다..\n다음에 또 기지로 찾아오면 위험할거야!"
         }
     }
+
+    var image: UIImage {
+        switch self {
+        case .success:
+            return ImageLiteral.timerSuccess
+        case .fail:
+            return ImageLiteral.timerFail
+        }
+    }
+}
+
+private enum Size {
+    static let labelVStackViewTopOffset = UIScreen.main.bounds.height / 5.86
+    static let imageTopOffset = UIScreen.main.bounds.height / 30.14
+    static let imageWidth = UIScreen.main.bounds.width / 1.30
+    static let imageHeight = UIScreen.main.bounds.height / 2.81
+    static let buttonVStackViewBottomOffset = UIScreen.main.bounds.height / 8.70
+    static let defaultOffset = 20
 }
 
 class AfterTimerViewController: BaseViewController {
@@ -42,7 +62,7 @@ class AfterTimerViewController: BaseViewController {
 
     private let subLabel = {
         let label = UILabel()
-        label.text = "꼬마요원이 15분동안 조용히 기지를 잘 지켰나요?"
+        label.text = "꼬마요원이 15분동안 \n조용히 기지를 잘 지켰나요?"
         label.font = .regularBody
         label.numberOfLines = 2
         label.textAlignment = .center
@@ -56,6 +76,14 @@ class AfterTimerViewController: BaseViewController {
         stackView.distribution = .fillEqually
         stackView.spacing = 20
         return stackView
+    }()
+
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = ImageLiteral.timerTimeOut
+        return imageView
     }()
 
     private let successButton: BaseButton = {
@@ -99,8 +127,15 @@ class AfterTimerViewController: BaseViewController {
         view.addSubview(labelVStackView)
 
         labelVStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(71)
-            make.top.equalToSuperview().offset(144)
+            make.leading.trailing.equalToSuperview().inset(Size.defaultOffset)
+            make.top.equalToSuperview().offset(Size.labelVStackViewTopOffset)
+        }
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(labelVStackView.snp.bottom).offset(Size.imageTopOffset)
+            make.horizontalEdges.equalToSuperview().inset(Size.defaultOffset)
+            make.width.equalTo(Size.imageWidth)
+            make.height.equalTo(Size.imageHeight)
         }
 
         buttonVStackView.addArrangedSubview(successButton)
@@ -108,8 +143,8 @@ class AfterTimerViewController: BaseViewController {
         view.addSubview(buttonVStackView)
 
         buttonVStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(84)
+            make.leading.trailing.equalToSuperview().inset(Size.defaultOffset)
+            make.bottom.equalToSuperview().inset(Size.buttonVStackViewBottomOffset)
         }
     }
 

@@ -9,6 +9,19 @@ import UIKit
 
 import SnapKit
 
+private enum Size {
+    static let defaultOffset = 20
+    static let dismissButtonSize = 36
+    static let dismissButtonTopOffset = UIScreen.main.bounds.height / 11.40
+    static let dismissButtonTrailingOffset = UIScreen.main.bounds.width / 13.44
+
+    static let imageTopOffset = UIScreen.main.bounds.height / 14.06
+    static let imageWidth = UIScreen.main.bounds.width / 1.30
+    static let imageHeight = UIScreen.main.bounds.height / 2.81
+    static let confirmButtonBottomOffset = UIScreen.main.bounds.height / 8.70
+    static let labelVStackViewTopOffset = UIScreen.main.bounds.height / 20.58
+}
+
 class AfterTimerDetailViewController: BaseViewController {
     // MARK: - Properties
 
@@ -28,7 +41,7 @@ class AfterTimerDetailViewController: BaseViewController {
     private let subLabel = {
         let label = UILabel()
         label.font = .regularBody
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.textAlignment = .center
         return label
     }()
@@ -40,6 +53,14 @@ class AfterTimerDetailViewController: BaseViewController {
         stackView.distribution = .fillEqually
         stackView.spacing = 20
         return stackView
+    }()
+
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = timerResult.image
+        return imageView
     }()
 
     private let confirmButton: BaseButton = {
@@ -75,9 +96,9 @@ class AfterTimerDetailViewController: BaseViewController {
     override func render() {
         view.addSubview(dismissButton)
         dismissButton.snp.makeConstraints { make in
-            make.size.equalTo(36)
-            make.top.equalToSuperview().offset(74)
-            make.trailing.equalToSuperview().inset(29)
+            make.size.equalTo(Size.dismissButtonSize)
+            make.top.equalToSuperview().offset(Size.dismissButtonTopOffset)
+            make.trailing.equalToSuperview().inset(Size.dismissButtonTrailingOffset)
         }
 
         labelVStackView.addArrangedSubview(mainLabel)
@@ -85,14 +106,22 @@ class AfterTimerDetailViewController: BaseViewController {
         view.addSubview(labelVStackView)
 
         labelVStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(71)
-            make.top.equalTo(dismissButton.snp.bottom).offset(41)
+            make.leading.trailing.equalToSuperview().inset(Size.defaultOffset)
+            make.top.equalTo(dismissButton.snp.bottom).offset(Size.labelVStackViewTopOffset)
+        }
+
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(Size.defaultOffset)
+            make.top.equalTo(labelVStackView.snp.bottom).offset(Size.imageTopOffset)
+            make.width.equalTo(Size.imageWidth)
+            make.width.equalTo(Size.imageHeight)
         }
 
         view.addSubview(confirmButton)
         confirmButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalToSuperview().inset(84)
+            make.leading.trailing.equalToSuperview().inset(Size.defaultOffset)
+            make.bottom.equalToSuperview().inset(Size.confirmButtonBottomOffset)
         }
     }
 
