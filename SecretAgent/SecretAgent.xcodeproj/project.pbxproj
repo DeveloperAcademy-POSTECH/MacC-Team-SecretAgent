@@ -11,6 +11,7 @@
 		213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B6974292DD5D40085C3B9 /* BoardViewController.swift */; };
 		217D3F7429376E2800D810A5 /* StarCollectCongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */; };
 		217D3F76293771F700D810A5 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F75293771F700D810A5 /* Badge.swift */; };
+		217D3F78293785CA00D810A5 /* BoardViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F77293785CA00D810A5 /* BoardViewController+Extension.swift */; };
 		21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21882898292C935C00C9D94B /* SoundLiteral.swift */; };
 		2188289C292D0DB700C9D94B /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2188289B292D0DB700C9D94B /* siren.mp3 */; };
 		21B6F7C329373F5C001FAD5F /* CommonBadgeInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */; };
@@ -79,6 +80,7 @@
 		213B6974292DD5D40085C3B9 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCollectCongratsViewController.swift; sourceTree = "<group>"; };
 		217D3F75293771F700D810A5 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		217D3F77293785CA00D810A5 /* BoardViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+Extension.swift"; sourceTree = "<group>"; };
 		21882898292C935C00C9D94B /* SoundLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLiteral.swift; sourceTree = "<group>"; };
 		2188289B292D0DB700C9D94B /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
 		21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBadgeInfoComponent.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				21BC09302935A04C0019572D /* HideBadgeView.swift */,
 				21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */,
 				217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */,
+				217D3F77293785CA00D810A5 /* BoardViewController+Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -648,7 +651,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat . --lint --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat . --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -666,6 +669,7 @@
 				CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */,
 				35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */,
 				B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */,
+				217D3F78293785CA00D810A5 /* BoardViewController+Extension.swift in Sources */,
 				35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */,
 				35BD551129260026008F96AC /* ImageLiteral.swift in Sources */,
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
