@@ -9,16 +9,16 @@ import UIKit
 
 struct Story {
     let sceneNo: Int
-    let lines: [String]?
+    let lines: [String]
     let sceneImage: UIImage
-    let backgroundSound: String?
+    let backgroundSound: SoundLiteral?
     let animation: Any?
     
     static let stories: [Story] = [
         Story(sceneNo: 1,
-              lines: nil,
+              lines: [],
               sceneImage: ImageLiteral.scene1,
-              backgroundSound: "",
+              backgroundSound: SoundLiteral.scene1,
               animation: nil),
         
         Story(sceneNo: 2,
@@ -27,32 +27,32 @@ struct Story {
                       "나는 고요지구연구소의 소장 고요한이라고 해.\n다름이 아니라..",
                       "지구가 위험해!!!!!!!!!"],
               sceneImage: ImageLiteral.scene2,
-              backgroundSound: "",
+              backgroundSound: SoundLiteral.scene2,
               animation: nil),
         
         Story(sceneNo: 3,
               lines: ["며칠 전 지구에 ‘웅웅행성' 외계인들이 지구에 왔어!"],
               sceneImage: ImageLiteral.scene3,
-              backgroundSound: "",
+              backgroundSound: SoundLiteral.scene3,
               animation: nil),
         
         Story(sceneNo: 4,
               lines: ["그것도 여기.  우리가 살고 있는 한국에 도착했다네"],
               sceneImage: ImageLiteral.scene4,
-              backgroundSound: "",
+              backgroundSound: SoundLiteral.scene4,
               animation: nil),
         
         Story(sceneNo: 5,
               lines: ["녀석들은 집에서 뛰면 나는 소리를 먹고 살아.",
                       "쿵. 쾅! 한 번이 녀석들에겐 맛있는 사탕 한 입인거야."],
               sceneImage: ImageLiteral.scene5,
-              backgroundSound: "",
+              backgroundSound: SoundLiteral.scene5,
               animation: nil),
         
         Story(sceneNo: 6,
               lines: ["집에서 뛰는 소리가 약간이라도 나면, 아주 큰 귀로 어디서 난 소린지 찾아가.", "녀석들을 가만두면 안돼"],
               sceneImage: ImageLiteral.scene6,
-              backgroundSound: "",
+              backgroundSound: SoundLiteral.scene6,
               animation: nil),
         
         Story(sceneNo: 7,
@@ -60,7 +60,7 @@ struct Story {
                       "만약 그렇게 되면 우리 지구가 웅웅외계인에게 정복당하는건 시간 문제야.",
                       "녀석들이 더 커져버리기 전에.. 지구에서 쫓아내야해!"],
               sceneImage: ImageLiteral.scene7,
-              backgroundSound: "",
+              backgroundSound: SoundLiteral.scene7,
               animation: nil),
         
         Story(sceneNo: 8,
@@ -68,7 +68,7 @@ struct Story {
                       "웅웅외계인으로부터 지구를 지키고 녀석들과 함꼐 싸워주게나!",
                       "이건 자네밖에 못하는 일이라네 부탁이야."],
               sceneImage: ImageLiteral.scene8,
-              backgroundSound: "",
+              backgroundSound: SoundLiteral.scene8to12,
               animation: nil),
         
         Story(sceneNo: 9,
