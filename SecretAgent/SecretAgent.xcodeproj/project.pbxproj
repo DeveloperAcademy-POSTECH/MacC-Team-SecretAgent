@@ -548,6 +548,24 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		B5587A672936E58900613B95 /* Font */ = {
 			isa = PBXGroup;
 			children = (

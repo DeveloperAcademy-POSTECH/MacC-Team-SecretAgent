@@ -137,6 +137,11 @@ class AfterTimerDetailViewController: BaseViewController {
         let dismissAction = UIAction { _ in
             self.dismiss(animated: true)
         }
+        let confirmAction = UIAction { _ in
+            guard let mainTabBarVC = self.presentingViewController?.presentingViewController as? UITabBarController else { return }
+            mainTabBarVC.dismiss(animated: true) // 의문
+        }
         dismissButton.addAction(dismissAction, for: .touchUpInside)
+        confirmButton.addAction(confirmAction, for: .touchUpInside)
     }
 }
