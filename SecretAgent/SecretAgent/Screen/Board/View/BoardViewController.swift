@@ -36,49 +36,7 @@ final class BoardViewController: BaseViewController {
     let starBadgeTypes: [BadgeType] = [.poyoStar, .kiyoStar, .biyoStar, .mayoStar, .allStar]
 
     // MARK: - UI Properties
-
-    // 테스트 용 UI
-    private lazy var testIncreaseBadge: UIButton = {
-        let button = UIButton()
-        button.setTitle("뱃지늘리고 실제로 받는 버튼", for: .normal)
-        button.backgroundColor = .systemTeal
-        button.addTarget(self, action: #selector(testIncreaseBadgeNumber), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var testDecreaseBadge: UIButton = {
-        let button = UIButton()
-        button.setTitle("뱃지줄이는버튼", for: .normal)
-        button.backgroundColor = .systemTeal
-        button.addTarget(self, action: #selector(testDecreaseBadgeNumber), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var testStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.isHidden = true
-
-        [testIncreaseBadge, testDecreaseBadge].forEach { subView in
-            stackView.addArrangedSubview(subView)
-            subView.backgroundColor = .systemTeal
-            subView.frame.size = .init(width: 80, height: 10)
-            subView.layer.cornerRadius = 36 / 2
-            subView.snp.makeConstraints { make in
-                make.height.equalTo(36)
-            }
-        }
-
-        stackView.distribution = .fillEqually
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.backgroundColor = .orange
-        stackView.spacing = 10
-        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        stackView.isLayoutMarginsRelativeArrangement = true
-
-        return stackView
-    }()
-
+    
     // 드롭다운 관련
     private lazy var dropdownBackgroundView: UIView = {
         let testView = UIView()
@@ -196,12 +154,6 @@ final class BoardViewController: BaseViewController {
 
         view.addSubview(dropdownBackgroundView)
         view.addSubview(dropdownTableView)
-
-        view.addSubview(testStackView)
-        testStackView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(80)
-        }
     }
 
     override func configUI() {
@@ -412,22 +364,6 @@ final class BoardViewController: BaseViewController {
                 self.showCongratsModal(goToNewPage: self.totalBadgeNumberFromCoreData % 25 != 0 && self.totalBadgeNumberFromCoreData < 125)
             }
         })
-    }
-
-    @objc func testIncreaseBadgeNumber() {
-        receiveTodaysBadges()
-    }
-
-    @objc func testDecreaseBadgeNumber() {
-        do {
-            let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
-            totalBadgeNumber = getBadgeNumberFromCoreData.result
-            totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
-            updateBadgeInformation()
-            refreshBoard(targetIndex: min(totalBadgeNumberFromCoreData / 25, 4))
-        } catch {
-            print(error)
-        }
     }
 
     func showReceivedBadgesInteraction() {
