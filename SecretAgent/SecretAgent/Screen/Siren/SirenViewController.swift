@@ -196,7 +196,6 @@ final class SirenViewController: BaseViewController {
         countdownTimer.setTimer()
         stopButton.isEnabled = false
         stopButton.alpha = 0.5
-//        counterView.isHidden = false
         minutesLabel.text = String(format: "%02d",
                                    Constants.selectedSeconds / 60)
         secondsLabel.text = String(format: "%02d",

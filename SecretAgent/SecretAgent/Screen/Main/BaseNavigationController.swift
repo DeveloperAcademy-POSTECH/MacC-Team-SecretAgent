@@ -156,7 +156,9 @@ final class BaseNavigationController: UINavigationController {
 
         navigationBar.tintColor = .white
         navigationBar.largeTitleTextAttributes =
-        [NSAttributedString.Key.font: UIFont.oneMobile(size: 30)]
+        [NSAttributedString.Key.font: UIFont.oneMobile(size: 30),
+         NSAttributedString.Key.foregroundColor: UIColor.white]
+        todayBadge.setChildLabelColor(to: .white)
     }
 
     func appendAgentCard() {

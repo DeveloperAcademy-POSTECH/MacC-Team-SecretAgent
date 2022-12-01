@@ -26,7 +26,8 @@ struct UserNotificationManager {
     func setOnce(after seconds: TimeInterval, title: String, body: String, uuid: String) {
         let content = UNMutableNotificationContent()
 
-        content.title = title
+        content.title = "꼬요한 집"
+        content.subtitle = title
         content.body = body
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
@@ -38,7 +39,8 @@ struct UserNotificationManager {
     func setEvery(at hour: Int, title: String, body: String, uuid: String) {
         let content = UNMutableNotificationContent()
 
-        content.title = title
+        content.title = "꼬요한 집"
+        content.subtitle = title
         content.body = body
 
         let dateComponents = DateComponents(calendar: Calendar.current, hour: hour)

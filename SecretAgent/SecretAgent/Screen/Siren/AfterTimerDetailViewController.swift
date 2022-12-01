@@ -145,9 +145,14 @@ class AfterTimerDetailViewController: BaseViewController {
                     print("오늘뱃지를 감소시키는 작업이 실패하였습니다.")
                 }
             }
-            guard let mainTabBarVC = self.presentingViewController?.presentingViewController as? UITabBarController else { return }
-            mainTabBarVC.dismiss(animated: true) // 의문
         }
+
+        // FIXME: - 일단안됨
+        guard let mainTabBarVC = self.presentingViewController?.presentingViewController as? UITabBarController else { return }
+        mainTabBarVC.dismiss(animated: true) // 의문
+        guard let (numberOfTodayBadge, error) = try? BadgeManager.shared.coinsLeftForToday() else { return }
+
+        UserNotificationManager.shared.setEvery(at: 6, title: "획득한 보상 뱃지 총 \(numberOfTodayBadge)개", body: "아이와 함께 획득한 뱃지를 확인해 보세요!", uuid: "badge")
         dismissButton.addAction(dismissAction, for: .touchUpInside)
         confirmButton.addAction(confirmAction, for: .touchUpInside)
     }
