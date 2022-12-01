@@ -26,6 +26,10 @@ enum ImageLiteral {
     static var agentKiyoDisabled: UIImage { .load(named: "CharProfile-Kiyo-Disabled") }
     static var agentMayoDisabled: UIImage { .load(named: "CharProfile-Mayo-Disabled") }
 
+    static var yohanKo: UIImage { .load(named: "yohanKo") }
+
+    static var primaryButtonBackground: UIImage { .load(named: "primaryButtonBackground") }
+
     // MARK: - Badges
 
     static var coin: UIImage { .load(named: "coin.activate") }
