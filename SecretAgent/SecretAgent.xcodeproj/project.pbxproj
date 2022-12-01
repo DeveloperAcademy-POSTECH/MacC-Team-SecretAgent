@@ -70,6 +70,7 @@
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
 		CE990CF22936664900887913 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE990CF12936664900887913 /* OnBoardingViewController.swift */; };
 		CEBA0D6C293827B10015C29C /* StoryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */; };
+		CEBA0D6F2938321E0015C29C /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA0D6E2938321E0015C29C /* StoryCell.swift */; };
 		CECB41B52936E5660000A3A6 /* onBoardingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */; };
 		CECB41B72936E61B0000A3A6 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B62936E61B0000A3A6 /* Guide.swift */; };
 		CECB41BA293725FF0000A3A6 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B9293725FF0000A3A6 /* Story.swift */; };
@@ -167,6 +168,7 @@
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 		CE990CF12936664900887913 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTabViewController.swift; sourceTree = "<group>"; };
+		CEBA0D6E2938321E0015C29C /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingTableViewCell.swift; sourceTree = "<group>"; };
 		CECB41B62936E61B0000A3A6 /* Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
 		CECB41B9293725FF0000A3A6 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
@@ -582,9 +584,18 @@
 		CEBA0D6A293827970015C29C /* StoryTab */ = {
 			isa = PBXGroup;
 			children = (
+				CEBA0D6D293831EF0015C29C /* View */,
 				CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */,
 			);
 			path = StoryTab;
+			sourceTree = "<group>";
+		};
+		CEBA0D6D293831EF0015C29C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA0D6E2938321E0015C29C /* StoryCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CECB41B32936E5540000A3A6 /* Cell */ = {
@@ -819,6 +830,7 @@
 				B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */,
 				CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */,
 				CE0A5C1E2931B92F00695FEC /* AgentSelectionViewController.swift in Sources */,
+				CEBA0D6F2938321E0015C29C /* StoryCell.swift in Sources */,
 				CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */,
 				21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */,
 				35BD55072925FEE0008F96AC /* UIViewController+Alert.swift in Sources */,
