@@ -403,7 +403,7 @@ final class BoardViewController: BaseViewController {
     func showBadgeCollectedAlert(todaysBadgeNumber: Int, didGetStarBadge: Bool) {
         makeAlert(title: "획득한 보상뱃지 총 \(todaysBadgeNumber)개", message: "어제 임무완수의 결과입니다.\n아이와 함께 결과를 보고\n결과에 맞는 칭찬과 응원을 해주세요.", okayAction: { _ in
             if didGetStarBadge {
-                self.showCongratsModal(goToNewPage: todaysBadgeNumber % 25 != 0 && self.totalBadgeNumberFromCoreData < 125)
+                self.showCongratsModal(goToNewPage: self.totalBadgeNumberFromCoreData % 25 != 0 && self.totalBadgeNumberFromCoreData < 125)
             }
         })
     }
