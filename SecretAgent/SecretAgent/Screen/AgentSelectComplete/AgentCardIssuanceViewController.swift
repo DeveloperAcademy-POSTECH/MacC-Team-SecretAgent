@@ -54,7 +54,7 @@ class AgentCardIssuanceViewController: BaseViewController {
     let actionButton: BaseButton = {
         let button = BaseButton()
         button.makeButtonLarge()
-        button.setButton(text: "출동하기", color: .yoBlack)
+        button.setButton(text: "출동하기", color: .clear)
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         return button
     }()
@@ -63,6 +63,7 @@ class AgentCardIssuanceViewController: BaseViewController {
 
     init(agentName: String) {
         self.agentName = agentName
+        topLabel.text = "요원 \(agentName)\n출동!"
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -101,7 +102,6 @@ class AgentCardIssuanceViewController: BaseViewController {
     
     override func configUI() {
         super.configUI()
-        guard let agentName = UserDefaults.standard.string(forKey: "agentName") else { return }
         topLabel.text = "요원 \(agentName)\n출동!"
         self.navigationController?.navigationBar.tintColor = .yoBlack
         self.navigationController?.navigationBar.topItem?.title = ""
@@ -112,9 +112,6 @@ class AgentCardIssuanceViewController: BaseViewController {
     }
 
     @objc private func actionButtonTapped() {
-        UserDefaults.standard.set(agentName, forKey: "agentName")
-        UserDefaults.standard.set(Date(), forKey: "createdDate")
-
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         guard let delegate = sceneDelegate else { return }
         let mainTabVC = MainTabViewController()

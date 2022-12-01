@@ -16,6 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        
+        UserDefaults.standard.setValue("", forKey: "agentName")
+        
         if UserDefaults.standard.string(forKey: "agentName") ?? "" == "" {
             window?.rootViewController = UINavigationController(rootViewController: OnBoardingViewController())
         } else {

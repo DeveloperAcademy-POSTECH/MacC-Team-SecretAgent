@@ -56,6 +56,7 @@ final class BoardViewController: BaseViewController {
 
     private lazy var testStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.isHidden = true
 
         [testIncreaseBadge, testDecreaseBadge].forEach { subView in
             stackView.addArrangedSubview(subView)
