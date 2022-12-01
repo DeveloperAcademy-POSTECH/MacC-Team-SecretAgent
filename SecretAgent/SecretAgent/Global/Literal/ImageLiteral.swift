@@ -26,6 +26,11 @@ enum ImageLiteral {
     static var agentKiyoDisabled: UIImage { .load(named: "CharProfile-Kiyo-Disabled") }
     static var agentMayoDisabled: UIImage { .load(named: "CharProfile-Mayo-Disabled") }
 
+    static var agentPoyoCircleProfile: UIImage { .load(named: "CharProfile-Poyo-Circle-Profile") }
+    static var agentBiyoCircleProfile: UIImage { .load(named: "CharProfile-Biyo-Circle-Profile") }
+    static var agentKiyoCircleProfile: UIImage { .load(named: "CharProfile-Kiyo-Circle-Profile") }
+    static var agentMayoCircleProfile: UIImage { .load(named: "CharProfile-Mayo-Circle-Profile") }
+    
     static var yohanKo: UIImage { .load(named: "yohanKo") }
 
     static var primaryButtonBackground: UIImage { .load(named: "primaryButtonBackground") }
@@ -33,7 +38,7 @@ enum ImageLiteral {
     // MARK: - Badges
 
     static var coin: UIImage { .load(named: "coin.activate") }
-    static var strokedCoin: UIImage { .load(named: "coin.stroke") }
+    static var smallCoin: UIImage { .load(named: "coin.small") }
     static var shield: UIImage { .load(named: "shield.activate") }
     static var star: UIImage { .load(named: "star.activate") }
     static var inactiveCoin: UIImage { .load(named: "coin.deactivate") }
@@ -59,6 +64,13 @@ enum ImageLiteral {
 
     static var siren: UIImage { .load(named: "sirenImage") }
     static var woongwoong: UIImage { .load(named: "woongwoong") }
+
+    // MARK: - AgentCard
+
+    static var ggoyosLogo: UIImage { .load(named: "ggoyos.logo") }
+    static var divider: UIImage { .load(named: "divider") }
+    static var cancelWhite: UIImage { .load(named: "x.white") }
+    static var agentCardBackground: UIImage { .load(named: "agentCard.background") }
     static var speech: UIImage { .load(named: "speechImage") }
 
     // MARK: - Timer
