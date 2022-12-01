@@ -20,7 +20,8 @@ extension UIFont {
     static let regularCallout = UIFont.font(.callout, weight: .regular)
     /// regularBody - 17px
     static let regularBody = UIFont.font(.body, weight: .regular)
-
+    /// regularTitle3 - 20px
+    static let regularTitle3 = UIFont.font(.title3, weight: .regular)
     /// regularCaption1 - 12px
     static let boldCaption1 = UIFont.font(.caption1, weight: .bold)
     /// regularFootnote - 13px
@@ -36,6 +37,12 @@ extension UIFont {
     /// boldTitle3 - ?px
     static let boldTitle3 = UIFont.font(.title3, weight: .bold)
 
+    /// semiBoldTitle3 - 20px
+    static let semiBoldTitle3 = UIFont.font(.body, weight: .semibold)
+    /// semiBoldHeadline - 17px
+    static let semiBoldHeadline = UIFont.font(.headline, weight: .semibold)
+    /// boldLargeTitle - 34px
+    static let boldLargeTitle = UIFont.font(.largeTitle, weight: .bold)
     /// oneMobile - custom size
     static func oneMobile(size: Double) -> UIFont {
         guard let font = UIFont(name: "ONEMobilePOPOTFRegular", size: size) else {
