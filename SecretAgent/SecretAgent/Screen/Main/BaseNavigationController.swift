@@ -82,10 +82,9 @@ final class BaseNavigationController: UINavigationController {
             make.width.equalTo(Size.buttonWidth)
         }
 
-        view.addSubview(navigationButtons)
-
+        navigationBar.addSubview(navigationButtons)
         navigationButtons.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(Size.navigationBarHeight)
+            make.top.equalTo(navigationBar.snp.top).offset(Size.navigationBarHeight)
             make.height.equalTo(Size.buttonHeight)
             make.trailing.equalToSuperview().inset(Size.buttonTrailing)
         }
