@@ -35,11 +35,12 @@ final class AgentSelectionViewController: BaseViewController {
     
     private let informationLabel: UILabel = {
         let label = UILabel()
-        label.text = "어떤 요원으로\n시작할까?"
+        label.text = "어떤 요원으로\n시작할까요?"
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: FontSize.largeTitle)
+        label.font = .oneMobile(size: 30)
+        
         return label
     }()
     
@@ -76,7 +77,7 @@ final class AgentSelectionViewController: BaseViewController {
         let label = UILabel()
         label.text = "O요"
         label.isHidden = true
-        label.font = UIFont.boldSystemFont(ofSize: FontSize.largeTitle)
+        label.font = .oneMobile(size: 30)
         return label
     }()
     
@@ -86,12 +87,13 @@ final class AgentSelectionViewController: BaseViewController {
         label.numberOfLines = 2
         label.isHidden = true
         label.textAlignment = .center
+        label.textColor = .yoGray5
         return label
     }()
     
     private lazy var selectButton: BaseButton = {
         let button = BaseButton()
-        button.setButton(text: "선택완료!", color: .systemGray4)
+        button.setButton(text: "선택완료!", color: .yoGray4)
         button.setButtonTextColor(color: .white)
         button.makeButtonSmall()
         button.isEnabled = false
@@ -182,7 +184,7 @@ final class AgentSelectionViewController: BaseViewController {
         selectedAgentNameLabel.isHidden = false
         selectedAgentDescriptionLabel.isHidden = false
         
-        selectButton.setButtonColor(color: .orange)
+        selectButton.setButtonColor(color: .yoYellow1)
         selectButton.isEnabled = true
         
         agentStackViewCells[selectedAgentID].selectAgent()
