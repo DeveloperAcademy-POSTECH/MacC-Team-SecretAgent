@@ -187,6 +187,12 @@ final class BoardViewController: BaseViewController {
 
         view.addSubview(dropdownBackgroundView)
         view.addSubview(dropdownTableView)
+
+        view.addSubview(tempButton)
+        tempButton.snp.makeConstraints { make in
+            make.bottom.trailing.equalToSuperview()
+            make.width.height.equalTo(100)
+        }
     }
 
     override func configUI() {
