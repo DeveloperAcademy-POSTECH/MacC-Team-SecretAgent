@@ -167,6 +167,11 @@ final class BoardViewController: BaseViewController {
             allStarsCollected = true
         }
         refreshBoard(targetIndex: getLatestTableViewIndex())
+        
+        if UserDefaults.standard.integer(forKey: "todaysFirstVisit") == 1 {
+            receiveTodaysBadges()
+            UserDefaults.standard.setValue(0, forKey: "todaysFirstVisit")
+        }
     }
 
     override func render() {
@@ -365,7 +370,6 @@ final class BoardViewController: BaseViewController {
 
         // 코어데이터에 반영하기
         do {
-            try BadgeManager.shared.resetTodaysBadge()
             try BadgeManager.shared.updateTotalBadge()
             do {
                 let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
@@ -379,6 +383,8 @@ final class BoardViewController: BaseViewController {
 
                 todaysBadgeNumber = try BadgeManager.shared.coinsLeftForToday().result
                 updatedTotalBadge = try BadgeManager.shared.numberOfTotalCoins().result
+                
+                try BadgeManager.shared.resetTodaysBadge()
             } catch {
                 print("error")
             }
