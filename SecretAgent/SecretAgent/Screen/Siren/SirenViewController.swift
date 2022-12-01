@@ -10,7 +10,7 @@ import UIKit
 
 private enum Constants {
     static let progressBarSize = 300
-    static let selectedSeconds = 5 * 1 // 임시
+    static let selectedSeconds = 5 * 7 // 임시
     static let timeHStackViewHorizontalOffset = UIScreen.main.bounds.width / 2.48
     static let buttonHStackViewBottomOffset = UIScreen.main.bounds.height / 5.20
     static let defaultOffset = 20
@@ -313,6 +313,13 @@ extension SirenViewController: CountdownTimerDelegate {
         startButton.setTitle("시작", for: .normal)
         countdownTimerDidStart = false
         progressBar.stop()
+        speechImageView.image = ImageLiteral.speech
+    }
+
+    func countdownThirtySecond() {
+        if speechImageView.image == ImageLiteral.speech {
+            speechImageView.image = ImageLiteral.speech2
+        }
     }
 }
 
@@ -327,6 +334,7 @@ extension SirenViewController: ProgressBarDelegate {
         afterTimerViewController.modalPresentationStyle = .fullScreen
         present(afterTimerViewController, animated: true)
     }
+    
 }
 
 // MARK: UnlockViewDelegate

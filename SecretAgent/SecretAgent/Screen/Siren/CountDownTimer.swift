@@ -10,6 +10,8 @@ import UIKit
 protocol CountdownTimerDelegate: AnyObject {
     func countdownTimerDone()
     func countdownTime(time: (minutes: String, seconds: String))
+    func countdownThirtySecond()
+    
 }
 
 final class CountDownTimer {
@@ -48,6 +50,10 @@ final class CountDownTimer {
         } else {
             duration -= 0.01
             delegate?.countdownTime(time: timeString(time: TimeInterval(ceil(duration))))
+
+            if ceil(duration) == 30 {
+                delegate?.countdownThirtySecond()
+            }
         }
     }
 

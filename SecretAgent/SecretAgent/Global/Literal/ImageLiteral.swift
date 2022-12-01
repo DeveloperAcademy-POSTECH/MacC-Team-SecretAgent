@@ -113,6 +113,7 @@ enum ImageLiteral {
     static var cancelWhite: UIImage { .load(named: "x.white") }
     static var agentCardBackground: UIImage { .load(named: "agentCard.background") }
     static var speech: UIImage { .load(named: "speechImage") }
+    static var speech2: UIImage { .load(named: "speechImage2") }
 
     // MARK: - Timer
 
