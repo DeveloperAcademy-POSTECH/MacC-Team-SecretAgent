@@ -35,7 +35,6 @@ final class TodayBadgeView: UIStackView {
     private let numberLabel: UILabel = {
         let label = UILabel()
 
-        label.text = "5"
         label.font = .oneMobile(size: 18)
         label.textColor = .yoGray6
 
@@ -68,6 +67,7 @@ final class TodayBadgeView: UIStackView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        fetchCoinNumber()
         configUI()
         render()
     }
@@ -75,6 +75,11 @@ final class TodayBadgeView: UIStackView {
     @available(*, unavailable)
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func fetchCoinNumber() {
+        guard let (numberOfCoins, _) = try? BadgeManager.shared.coinsLeftForToday() else { return }
+        numberLabel.text = "\(numberOfCoins)"
     }
 
     private func configUI() {
@@ -98,5 +103,9 @@ final class TodayBadgeView: UIStackView {
 
         addArrangedSubview(coinAndNumber)
         addArrangedSubview(textLabel)
+    }
+
+    func updateNumberOfCoins(to number: Int) {
+        fetchCoinNumber(number)
     }
 }

@@ -65,6 +65,7 @@
 		35C9129C2936CFB000A2EB3C /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9129B2936CFB000A2EB3C /* UnlockViewController.swift */; };
 		35DCD6972934CC2D00FAC021 /* AfterTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
+		B53CB6B529377351008202DE /* TodayCoinModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53CB6B429377351008202DE /* TodayCoinModal.swift */; };
 		B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
 		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
 		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
@@ -175,6 +176,7 @@
 		35C9129B2936CFB000A2EB3C /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
 		35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterTimerViewController.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		B53CB6B429377351008202DE /* TodayCoinModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCoinModal.swift; sourceTree = "<group>"; };
 		B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardThumbnail.swift; sourceTree = "<group>"; };
 		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
 		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		213B6971292DC98C0085C3B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B53CB6B32937733C008202DE /* Components */,
 				213B6974292DD5D40085C3B9 /* BoardViewController.swift */,
 				21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */,
 				21BC09302935A04C0019572D /* HideBadgeView.swift */,
@@ -679,6 +682,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B53CB6B32937733C008202DE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B53CB6B429377351008202DE /* TodayCoinModal.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B5587A4A2934D90800613B95 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,7 +798,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35BD54CB2925D498008F96AC /* Build configuration list for PBXNativeTarget "SecretAgent" */;
 			buildPhases = (
-				B523CB2529264DD200E39C9E /* Run SwiftFormat */,
 				35BD549A2925D497008F96AC /* Sources */,
 				35BD549B2925D497008F96AC /* Frameworks */,
 				35BD549C2925D497008F96AC /* Resources */,
@@ -998,6 +1008,7 @@
 				CE990CF22936664900887913 /* OnBoardingViewController.swift in Sources */,
 				35BD551129260026008F96AC /* ImageLiteral.swift in Sources */,
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
+				B53CB6B529377351008202DE /* TodayCoinModal.swift in Sources */,
 				35BD550F2925FF10008F96AC /* BaseViewController.swift in Sources */,
 				B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */,
 				CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */,
