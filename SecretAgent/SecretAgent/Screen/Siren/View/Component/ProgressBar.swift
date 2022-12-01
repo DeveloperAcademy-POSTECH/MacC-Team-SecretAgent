@@ -87,6 +87,9 @@ final class ProgressBar: UIView {
         animation.keyPath = "strokeEnd"
         animation.fromValue = 0.0
         animation.toValue = 1.0
+        animation.isRemovedOnCompletion = false
+        animation.isAdditive = true
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.duration = CFTimeInterval(timerDuration)
         foregroundProgressLayer.add(animation, forKey: "strokeEnd")
         animationDidStart = true
