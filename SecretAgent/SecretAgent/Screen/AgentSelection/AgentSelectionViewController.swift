@@ -17,8 +17,8 @@ private enum ViewSize {
     static let isLandscapeToPortrait = UIScreen.main.bounds.height > UIScreen.main.bounds.width
     
     static let stackSpacing: Double = isLandscapeToPortrait ? screenWidth / 27.86 : screenHeight / 27.86
-    static let informationLabelY: Double = isLandscapeToPortrait ? (screenHeight / screenWidth > 2 ? screenHeight / 6.03 : screenHeight / 8) : (screenWidth / screenHeight > 2 ? screenWidth / 6.03 : screenWidth / 8)
-    static let agentVStackTopOffset: Double = isLandscapeToPortrait ? screenWidth / 25.58 : screenHeight / 25.58
+    static let informationLabelY: Double = isLandscapeToPortrait ? (screenHeight / screenWidth > 2 ? screenHeight / 6.81 : screenHeight / 8) : (screenWidth / screenHeight > 2 ? screenWidth / 6.81 : screenWidth / 8)
+    static let agentVStackTopOffset: Double = isLandscapeToPortrait ? screenHeight / 19.63 : screenWidth / 19.63
     static let agentVStackWidth: Double = isLandscapeToPortrait ? (screenHeight / screenWidth > 2 ? screenWidth / 1.15 : screenHeight / 2.57) : (screenWidth / screenHeight > 2 ? screenHeight / 1.15 : screenWidth / 2.57)
     static let agentVStackHeight: Double = isLandscapeToPortrait ? screenHeight / 2.57 : screenWidth / 2.57
     static let selectedAgentNameLabelBottomInset: Double = isLandscapeToPortrait ? screenHeight / 3.80 : screenWidth / 3.80
