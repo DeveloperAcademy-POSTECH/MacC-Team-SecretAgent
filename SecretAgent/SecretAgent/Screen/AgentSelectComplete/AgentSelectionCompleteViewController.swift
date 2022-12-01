@@ -25,7 +25,7 @@ private enum ViewSize {
 final class AgentSelectionCompleteViewController: BaseViewController {
     // MARK: - Properties
     
-    let agentName: String = "O요"
+    private let agentName: String 
     
     // MARK: - UI Properties
     
@@ -63,11 +63,23 @@ final class AgentSelectionCompleteViewController: BaseViewController {
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         return button
     }()
-    
+
+    // MARK: - Init
+
+    init(agentName: String) {
+        self.agentName = agentName
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addTargets()
     }
     
     override func render() {
@@ -99,6 +111,19 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     }
     
     override func configUI() {
+        super.configUI()
         topLabel.text = "요원 \(agentName)에게"
+
+        navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.tintColor = .yoBlack
+    }
+
+    private func addTargets() {
+        goodButton.addTarget(self, action: #selector(goodButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func goodButtonTapped() {
+        let agentCardIssuanceVC = AgentCardIssuanceViewController(agentName: agentName)
+        navigationController?.pushViewController(agentCardIssuanceVC, animated: true)
     }
 }
