@@ -34,12 +34,26 @@ class OnBoardingViewController: BaseViewController {
     
     let scrollView = UIScrollView()
     
+    let headerView: UIStackView = {
+        let hStackView = UIStackView()
+        hStackView.distribution = .equalCentering
+        hStackView.alignment = .center
+        return hStackView
+    }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "앱 사용 설명서"
         label.textColor = .black
         label.font = .regularSubheadline
         return label
+    }()
+    
+    let topXmarkButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "x")?.withTintColor(.yoBlack), for: .normal)
+        button.isHidden = true
+        return button
     }()
     
     let topLabel: UILabel = {
@@ -129,10 +143,7 @@ class OnBoardingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configStack()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+        addTargets()
     }
     
     override func render() {
@@ -142,10 +153,11 @@ class OnBoardingViewController: BaseViewController {
             make.leading.trailing.bottom.equalToSuperview()
         }
         
-        scrollView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(ViewSize.leadingInset)
+        scrollView.addSubview(headerView)
+        headerView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(ViewSize.titleLabelTopInset)
+            make.width.equalTo(ViewSize.topHStackViewWidth)
         }
         
         scrollView.addSubview(topHStackView)
@@ -206,16 +218,47 @@ class OnBoardingViewController: BaseViewController {
     }
     
     override func configUI() {
+        view.backgroundColor = .white
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
     
     func configStack() {
+        headerView.addArrangedSubview(titleLabel)
+        headerView.addArrangedSubview(topXmarkButton)
+        
         topHStackView.addArrangedSubview(topLabel)
         topHStackView.addArrangedSubview(topNextButton)
         
         tipVStackView.addArrangedSubview(tipTitle)
         tipVStackView.addArrangedSubview(tipBody)
+    }
+    
+    // MARK: - Func
+    
+    func showAgain() {
+        topXmarkButton.isHidden = false
+        topNextButton.isHidden = true
+        showStoryButton.snp.makeConstraints { make in
+            make.height.equalTo(0)
+        }
+    }
+    
+    private func addTargets() {
+        topXmarkButton.addTarget(self, action: #selector(dismissOnBoard), for: .touchUpInside)
+        topNextButton.addTarget(self, action: #selector(showStory), for: .touchUpInside)
+        showStoryButton.addTarget(self, action: #selector(showStory), for: .touchUpInside)
+    }
+    
+    @objc func showStory() {
+        var controller = StoryViewController()
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    @objc func dismissOnBoard() {
+        dismiss(animated: true)
     }
 }
 

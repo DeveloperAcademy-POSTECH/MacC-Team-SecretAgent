@@ -28,7 +28,7 @@ final class BaseNavigationController: UINavigationController {
     private var numberOfCoins = 5
     private var todayBadge: TodayBadgeView!
     private var agentCard: AgentCardThumbnailView!
-    private var navigationButtons: UIStackView!
+    var navigationButtons: UIStackView!
     private var navigationBarHeader: UIView!
     private var navigationBarFooter: UIView!
     private lazy var todayCoinModal: TodayCoinModal = {

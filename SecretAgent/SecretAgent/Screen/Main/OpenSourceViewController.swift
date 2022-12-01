@@ -48,6 +48,7 @@ class OpenSourceViewController: BaseViewController {
     override func configUI() {
         super.configUI()
         navigationItem.title = "오픈소스 라이선스"
+        navigationController?.navigationBar.tintColor = .black
     }
 
     // MARK: - Func
