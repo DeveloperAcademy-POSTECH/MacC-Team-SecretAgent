@@ -78,6 +78,10 @@ final class StarCollectCongratsViewController: BaseViewController {
         setStarName()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        playStarBadgeSound()
+    }
+    
     override func render() {
         view.addSubview(backgroundImage)
         backgroundImage.snp.makeConstraints { make in
@@ -116,5 +120,15 @@ final class StarCollectCongratsViewController: BaseViewController {
     @objc func closeModal() {
         dismiss(animated: true)
         delegate?.whatToDoAfterStarModal()
+        stopStarBadgeSound()
+    }
+    
+    private func playStarBadgeSound() {
+        SoundManager.shared.setupSound(soundOption: .starBadgeGain, repeated: false)
+        SoundManager.shared.playSound()
+    }
+
+    private func stopStarBadgeSound() {
+        SoundManager.shared.stopSound()
     }
 }

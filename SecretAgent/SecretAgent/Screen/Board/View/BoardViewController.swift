@@ -373,6 +373,7 @@ final class BoardViewController: BaseViewController {
                 totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
 
                 // 가장 최근 뱃지로 이동
+                playCoinCheckSound()
                 updateBadgeInformation()
                 refreshBoard(targetIndex: min((totalBadgeNumberFromCoreData - 1) / 25, 4))
 
@@ -440,6 +441,15 @@ final class BoardViewController: BaseViewController {
     // 공통적으로 쓰이는 animate 함수
     private func animate(of animations: @escaping () -> Void) {
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: animations)
+    }
+    
+    private func playCoinCheckSound() {
+        SoundManager.shared.setupSound(soundOption: .coinCheck, repeated: false)
+        SoundManager.shared.playSound()
+    }
+
+    private func stopCoinCheckSound() {
+        SoundManager.shared.stopSound()
     }
 }
 
