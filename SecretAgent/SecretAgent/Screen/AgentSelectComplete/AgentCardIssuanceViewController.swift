@@ -22,7 +22,7 @@ private enum ViewSize {
 class AgentCardIssuanceViewController: BaseViewController {
     // MARK: - Properties
     
-    let agentName: String = "키요"
+    let agentName: String
     
     // MARK: - UI Properties
     
@@ -44,7 +44,7 @@ class AgentCardIssuanceViewController: BaseViewController {
         view.addSubview(imageView)
         return view
     }()
-    
+
     let actionButton: BaseButton = {
         let button = BaseButton()
         button.makeButtonLarge()
@@ -52,9 +52,25 @@ class AgentCardIssuanceViewController: BaseViewController {
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         return button
     }()
+
+    // MARK: - Init
+
+    init(agentName: String) {
+        self.agentName = agentName
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life Cycle
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addTargets()
+    }
+
     override func render() {
         view.addSubview(topLabel)
         topLabel.snp.makeConstraints { make in
@@ -78,6 +94,25 @@ class AgentCardIssuanceViewController: BaseViewController {
     }
     
     override func configUI() {
+        super.configUI()
         topLabel.text = "요원 \(agentName)\n출동!"
+        self.navigationController?.navigationBar.tintColor = .yoBlack
+        self.navigationController?.navigationBar.topItem?.title = ""
+
+    }
+
+    private func addTargets() {
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+    }
+
+    @objc private func actionButtonTapped() {
+        UserDefaults.standard.set(agentName, forKey: "agentName")
+        UserDefaults.standard.set(Date(), forKey: "createdDate")
+
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        guard let delegate = sceneDelegate else { return }
+        let mainTabVC = MainTabViewController()
+        mainTabVC.selectedIndex = 2
+        delegate.window?.rootViewController = mainTabVC
     }
 }
