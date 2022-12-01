@@ -32,7 +32,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     let topLabel: UILabel = {
         let label = UILabel()
         label.text = "요원 O요에게"
-        label.font = UIFont.boldSystemFont(ofSize: FontSize.largeTitle)
+        label.font = .oneMobile(size: 30)
         return label
     }()
 
@@ -50,7 +50,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
         label.textAlignment = .center
         label.font = UIFont.regularFootnote
         label.numberOfLines = 2
-        label.backgroundColor = UIColor(hex: "CAD8FC")
+        label.backgroundColor = .yoMildBlue
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         return label
