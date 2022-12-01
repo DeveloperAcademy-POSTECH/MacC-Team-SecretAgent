@@ -376,15 +376,15 @@ final class BoardViewController: BaseViewController {
                 totalBadgeNumber = getBadgeNumberFromCoreData.result
                 totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
 
-                // 가장 최근 뱃지로 이동
-                playCoinCheckSound()
-                updateBadgeInformation()
-                refreshBoard(targetIndex: min((totalBadgeNumberFromCoreData - 1) / 25, 4))
-
                 todaysBadgeNumber = try BadgeManager.shared.coinsLeftForToday().result
                 updatedTotalBadge = try BadgeManager.shared.numberOfTotalCoins().result
                 
                 try BadgeManager.shared.resetTodaysBadge()
+                
+                // 가장 최근 뱃지로 이동
+                playCoinCheckSound()
+                updateBadgeInformation()
+                refreshBoard(targetIndex: min((totalBadgeNumberFromCoreData - 1) / 25, 4))
             } catch {
                 print("error")
             }

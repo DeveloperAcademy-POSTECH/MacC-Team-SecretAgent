@@ -24,8 +24,9 @@ class SoundManager {
         guard let url = Bundle.main.url(forResource: soundOption(), withExtension: MusicExtension.mp3()) else { return }
 
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback)
-            try AVAudioSession.sharedInstance().setActive(true)
+            // MARK: - 나중에 무음모드에도 소리를 재생하고 싶으면 아래 코드를 주석해제하세요
+//            try AVAudioSession.sharedInstance().setCategory(.playback)
+//            try AVAudioSession.sharedInstance().setActive(true)
 
             player = try AVAudioPlayer(contentsOf: url)
             guard let sound = player else { return }
