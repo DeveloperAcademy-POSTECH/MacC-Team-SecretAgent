@@ -73,6 +73,8 @@
 		CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C282931C45700695FEC /* BaseButton.swift */; };
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
+		CEFBA37629365EFA002FF1DC /* AgentSelectionCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA37529365EFA002FF1DC /* AgentSelectionCompleteViewController.swift */; };
+		CEFBA37829365EFE002FF1DC /* AgentCardIssuanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA37729365EFE002FF1DC /* AgentCardIssuanceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +171,8 @@
 		CE0A5C282931C45700695FEC /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
+		CEFBA37529365EFA002FF1DC /* AgentSelectionCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentSelectionCompleteViewController.swift; sourceTree = "<group>"; };
+		CEFBA37729365EFE002FF1DC /* AgentCardIssuanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentCardIssuanceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +455,7 @@
 		35BD54F72925F605008F96AC /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CEFBA37429365EE9002FF1DC /* AgentSelectComplete */,
 				CE0A5C1B2931B8EB00695FEC /* AgentSelection */,
 				213B6970292DC9880085C3B9 /* Board */,
 				35BD55152928AA55008F96AC /* Siren */,
@@ -552,6 +557,15 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		B5587A672936E58900613B95 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +598,15 @@
 				CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CEFBA37429365EE9002FF1DC /* AgentSelectComplete */ = {
+			isa = PBXGroup;
+			children = (
+				CEFBA37529365EFA002FF1DC /* AgentSelectionCompleteViewController.swift */,
+				CEFBA37729365EFE002FF1DC /* AgentCardIssuanceViewController.swift */,
+			);
+			path = AgentSelectComplete;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -820,6 +843,8 @@
 				B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
+				CEFBA37829365EFE002FF1DC /* AgentCardIssuanceViewController.swift in Sources */,
+				CEFBA37629365EFA002FF1DC /* AgentSelectionCompleteViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
 				B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */,
 				CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */,
