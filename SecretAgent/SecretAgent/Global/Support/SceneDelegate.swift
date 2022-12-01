@@ -16,9 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UNUserNotificationCenter.current().delegate = self
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-
-        if UserDefaults.standard.string(forKey: "isVisited") == nil {
-            window?.rootViewController = UINavigationController(rootViewController: StoryViewController())
+        if UserDefaults.standard.string(forKey: "agentName") ?? "" == "" {
+            window?.rootViewController = UINavigationController(rootViewController: OnBoardingViewController())
         } else {
             window?.rootViewController = MainTabViewController()
         }
