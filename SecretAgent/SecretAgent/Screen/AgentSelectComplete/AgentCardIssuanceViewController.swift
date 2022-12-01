@@ -110,6 +110,11 @@ class AgentCardIssuanceViewController: BaseViewController {
     private func addTargets() {
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
+    
+    private func playSound(_ sound: SoundLiteral, _ repeated: Bool = false) {
+        SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
+        SoundManager.shared.playSound()
+    }
 
     @objc private func actionButtonTapped() {
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
@@ -117,5 +122,6 @@ class AgentCardIssuanceViewController: BaseViewController {
         let mainTabVC = MainTabViewController()
         mainTabVC.selectedIndex = 2
         delegate.window?.rootViewController = mainTabVC
+        playSound(.choiceLikeGoOut)
     }
 }

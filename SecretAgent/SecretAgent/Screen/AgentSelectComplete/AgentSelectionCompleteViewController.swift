@@ -121,9 +121,16 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     private func addTargets() {
         goodButton.addTarget(self, action: #selector(goodButtonTapped), for: .touchUpInside)
     }
+    
+    private func playSound(_ sound: SoundLiteral, _ repeated: Bool = false) {
+        SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
+        SoundManager.shared.playSound()
+    }
 
     @objc private func goodButtonTapped() {
         let agentCardIssuanceVC = AgentCardIssuanceViewController(agentName: agentName)
+        navigationItem.title = "캐릭터 선택"
         navigationController?.pushViewController(agentCardIssuanceVC, animated: true)
+        playSound(.choiceLikeGoOut)
     }
 }
