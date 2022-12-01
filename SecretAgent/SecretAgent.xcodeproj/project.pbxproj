@@ -79,6 +79,8 @@
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
 		CE990CF22936664900887913 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE990CF12936664900887913 /* OnBoardingViewController.swift */; };
+		CEBA0D6C293827B10015C29C /* StoryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */; };
+		CEBA0D6F2938321E0015C29C /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA0D6E2938321E0015C29C /* StoryCell.swift */; };
 		CEBA0D74293872410015C29C /* scene7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBA0D72293872410015C29C /* scene7.mp3 */; };
 		CEBA0D75293872410015C29C /* scene5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBA0D73293872410015C29C /* scene5.mp3 */; };
 		CECB41B52936E5660000A3A6 /* onBoardingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */; };
@@ -189,6 +191,8 @@
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 		CE990CF12936664900887913 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTabViewController.swift; sourceTree = "<group>"; };
+		CEBA0D6E2938321E0015C29C /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		CEBA0D72293872410015C29C /* scene7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene7.mp3; sourceTree = "<group>"; };
 		CEBA0D73293872410015C29C /* scene5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene5.mp3; sourceTree = "<group>"; };
 		CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingTableViewCell.swift; sourceTree = "<group>"; };
@@ -485,6 +489,7 @@
 		35BD54F72925F605008F96AC /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CEBA0D6A293827970015C29C /* StoryTab */,
 				CECB41B8293725D40000A3A6 /* Story */,
 				CE990CEE2936660D00887913 /* OnBoarding */,
 				B5587A6D2936F29E00613B95 /* AgentCard */,
@@ -636,6 +641,23 @@
 			isa = PBXGroup;
 			children = (
 				CECB41B32936E5540000A3A6 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEBA0D6A293827970015C29C /* StoryTab */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA0D6D293831EF0015C29C /* View */,
+				CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */,
+			);
+			path = StoryTab;
+			sourceTree = "<group>";
+		};
+		CEBA0D6D293831EF0015C29C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA0D6E2938321E0015C29C /* StoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -887,6 +909,7 @@
 				B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */,
 				CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */,
 				CE0A5C1E2931B92F00695FEC /* AgentSelectionViewController.swift in Sources */,
+				CEBA0D6F2938321E0015C29C /* StoryCell.swift in Sources */,
 				35356FF82936CF1200B15F11 /* NumberCollectionViewCell.swift in Sources */,
 				CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */,
 				21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */,
@@ -898,6 +921,7 @@
 				CECB41B72936E61B0000A3A6 /* Guide.swift in Sources */,
 				35C9129A2936CF7800A2EB3C /* CalculatorResultView.swift in Sources */,
 				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
+				CEBA0D6C293827B10015C29C /* StoryTabViewController.swift in Sources */,
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
 				217D3F76293771F700D810A5 /* Badge.swift in Sources */,
