@@ -420,16 +420,11 @@ final class BoardViewController: BaseViewController {
 
     @objc func testDecreaseBadgeNumber() {
         do {
-            try BadgeManager.shared.testUpdateTotalBadge()
-            do {
-                let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
-                totalBadgeNumber = getBadgeNumberFromCoreData.result
-                totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
-                updateBadgeInformation()
-                refreshBoard(targetIndex: min(totalBadgeNumberFromCoreData / 25, 4))
-            } catch {
-                print(error)
-            }
+            let getBadgeNumberFromCoreData = try BadgeManager.shared.numberOfTotalCoins()
+            totalBadgeNumber = getBadgeNumberFromCoreData.result
+            totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
+            updateBadgeInformation()
+            refreshBoard(targetIndex: min(totalBadgeNumberFromCoreData / 25, 4))
         } catch {
             print(error)
         }
