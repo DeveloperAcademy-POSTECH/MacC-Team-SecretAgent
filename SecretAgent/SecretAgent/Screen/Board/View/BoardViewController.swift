@@ -373,6 +373,7 @@ final class BoardViewController: BaseViewController {
                 totalBadgeNumberFromCoreData = getBadgeNumberFromCoreData.result
 
                 // 가장 최근 뱃지로 이동
+                playCoinCheckSound()
                 updateBadgeInformation()
                 refreshBoard(targetIndex: min((totalBadgeNumberFromCoreData - 1) / 25, 4))
 
@@ -402,7 +403,7 @@ final class BoardViewController: BaseViewController {
     func showBadgeCollectedAlert(todaysBadgeNumber: Int, didGetStarBadge: Bool) {
         makeAlert(title: "획득한 보상뱃지 총 \(todaysBadgeNumber)개", message: "어제 임무완수의 결과입니다.\n아이와 함께 결과를 보고\n결과에 맞는 칭찬과 응원을 해주세요.", okayAction: { _ in
             if didGetStarBadge {
-                self.showCongratsModal(goToNewPage: todaysBadgeNumber % 25 != 0 && self.totalBadgeNumberFromCoreData < 125)
+                self.showCongratsModal(goToNewPage: self.totalBadgeNumberFromCoreData % 25 != 0 && self.totalBadgeNumberFromCoreData < 125)
             }
         })
     }
@@ -440,6 +441,15 @@ final class BoardViewController: BaseViewController {
     // 공통적으로 쓰이는 animate 함수
     private func animate(of animations: @escaping () -> Void) {
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: animations)
+    }
+    
+    private func playCoinCheckSound() {
+        SoundManager.shared.setupSound(soundOption: .coinCheck, repeated: false)
+        SoundManager.shared.playSound()
+    }
+
+    private func stopCoinCheckSound() {
+        SoundManager.shared.stopSound()
     }
 }
 
