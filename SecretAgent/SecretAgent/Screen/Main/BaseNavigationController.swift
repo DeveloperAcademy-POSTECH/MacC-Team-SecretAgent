@@ -93,7 +93,7 @@ final class BaseNavigationController: UINavigationController {
     private func lazyRender() {
         tabBarController?.tabBar.addSubview(todayCoinModal)
         todayCoinModal.snp.makeConstraints { make in
-            make.top.equalTo(todayBadge.snp.bottom).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(93)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(Size.coinPromptHeight)
         }
