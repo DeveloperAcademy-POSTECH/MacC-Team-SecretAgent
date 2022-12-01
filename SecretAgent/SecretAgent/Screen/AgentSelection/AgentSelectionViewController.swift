@@ -166,7 +166,14 @@ final class AgentSelectionViewController: BaseViewController {
     
     // MARK: - Func
     
+    private func playSound(_ sound: SoundLiteral, _ repeated: Bool = true) {
+        SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
+        SoundManager.shared.playSound()
+    }
+    
     @objc private func agentClicked(sender: UIButton) {
+        playSound(.character, false)
+        
         selectedAgentID = sender.tag
         
         selectedAgentNameLabel.text = Agent.agentList[selectedAgentID].name
@@ -187,6 +194,7 @@ final class AgentSelectionViewController: BaseViewController {
     
     @objc private func selectCompleteClicked(sender: UIButton) {
         // TODO: - 완료 버튼 구현 예정
+        playSound(.choiceLikeGoOut, false)
         print(Agent.agentList[selectedAgentID].name, "선택완료")
     }
 }
