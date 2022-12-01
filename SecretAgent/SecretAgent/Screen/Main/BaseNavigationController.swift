@@ -104,6 +104,8 @@ final class BaseNavigationController: UINavigationController {
     private func configUI() {
         navigationBar.prefersLargeTitles = true
         navigationBar.layoutMargins.left = Size.navigationTitleLeading
+        navigationBar.largeTitleTextAttributes =
+        [NSAttributedString.Key.font: UIFont.oneMobile(size: 30)]
     }
 
     // MARK: - Func
@@ -151,8 +153,8 @@ final class BaseNavigationController: UINavigationController {
         setNavigationBarLayout()
 
         navigationBar.tintColor = .white
-        navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        todayBadge.setChildLabelColor(to: .white)
+        navigationBar.largeTitleTextAttributes =
+        [NSAttributedString.Key.font: UIFont.oneMobile(size: 30)]
     }
 
     func appendAgentCard() {
