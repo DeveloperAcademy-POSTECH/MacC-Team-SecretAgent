@@ -56,7 +56,7 @@ class AfterTimerViewController: BaseViewController {
     private let mainLabel = {
         let label = UILabel()
         label.text = "타임아웃!"
-        label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        label.font = UIFont.oneMobile(size: 40)
         return label
     }()
 
@@ -91,7 +91,7 @@ class AfterTimerViewController: BaseViewController {
         button.setButton(text: "성공! (일일획득코인 유지)", color: .yoGreen)
         button.setButtonTextColor(color: .white)
         button.makeButtonLarge()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        button.titleLabel?.font = UIFont.oneMobile(textStyle: .title3)
         return button
     }()
 
@@ -101,7 +101,7 @@ class AfterTimerViewController: BaseViewController {
         button.setButtonTextColor(color: .orange)
         button.setButtonBorder(color: UIColor.yoOrange.cgColor)
         button.makeButtonLarge()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        button.titleLabel?.font = UIFont.oneMobile(textStyle: .title3)
         return button
     }()
 
