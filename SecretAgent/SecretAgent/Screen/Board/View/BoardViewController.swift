@@ -351,7 +351,7 @@ final class BoardViewController: BaseViewController {
     }
 
     // 모았던 뱃지를 실제 CoreData에 저장하기
-    func recieveTodaysBadges() {
+    func receiveTodaysBadges() {
         var previousTotalBadge = 0
         do {
             previousTotalBadge = try BadgeManager.shared.numberOfTotalCoins().result
@@ -387,7 +387,7 @@ final class BoardViewController: BaseViewController {
         var latestStarIndex = getLatestTableViewIndex()
 
         // TODO: - 인터랙션 보여주기
-        showRecievedBadgesInteraction()
+        showReceivedBadgesInteraction()
 
         // alert 띄우기, Star 뱃지면 모달 띄우기
         let justGotStarBadge = updatedTotalBadge % 25 == 0
@@ -407,7 +407,7 @@ final class BoardViewController: BaseViewController {
     }
 
     @objc func testIncreaseBadgeNumber() {
-        recieveTodaysBadges()
+        receiveTodaysBadges()
     }
 
     @objc func testDecreaseBadgeNumber() {
@@ -427,9 +427,9 @@ final class BoardViewController: BaseViewController {
         }
     }
 
-    func showRecievedBadgesInteraction() {
+    func showReceivedBadgesInteraction() {
         // TODO: - 아마 다음 스프린트에..? 인터랙션 넣기
-        print("showRecievedBadgesInteraction")
+        print("showReceivedBadgesInteraction")
     }
 
     func getLatestTableViewIndex() -> Int {
