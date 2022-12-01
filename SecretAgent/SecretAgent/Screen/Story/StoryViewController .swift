@@ -37,6 +37,7 @@ class StoryViewController: BaseViewController {
     private let skipButton: UIButton = {
         let button = UIButton()
         button.setTitle("건너뛰기", for: .normal)
+        button.titleLabel?.font = .oneMobile(textStyle: .body)
         button.setTitleColor(.black, for: .normal)
         button.setBackgroundImage(ImageLiteral.storySkipButton, for: .normal)
         return button
@@ -48,7 +49,7 @@ class StoryViewController: BaseViewController {
         label.layer.cornerRadius = 20
         label.layer.masksToBounds = true
         label.backgroundColor = UIColor(hex: "FFFBEC")
-        label.font = UIFont.regularBody
+        label.font = .oneMobile(textStyle: .body)
         label.textColor = .black
         return label
     }()
@@ -144,8 +145,8 @@ class StoryViewController: BaseViewController {
         nextButton.addTarget(self, action: #selector(nextStory), for: .touchUpInside)
     }
     
-    private func playSound(_ sound: SoundLiteral?, _ repeated: Bool = true) {
-        SoundManager.shared.setupSound(soundOption: sound ?? .choiceLikeGoOut, repeated: repeated)
+    private func playSound(_ sound: SoundLiteral?) {
+        SoundManager.shared.setupSound(soundOption: sound ?? .choiceLikeGoOut)
         SoundManager.shared.playSound()
     }
     
@@ -195,7 +196,7 @@ class StoryViewController: BaseViewController {
         if sceneNo < 7 {
             SoundManager.shared.stopSound()
             if Story.stories[sceneNo].backgroundSound != nil {
-                playSound(Story.stories[sceneNo].backgroundSound, false)
+                playSound(Story.stories[sceneNo].backgroundSound)
             }
         } else if sceneNo == 7 {
             SoundManager.shared.stopSound()

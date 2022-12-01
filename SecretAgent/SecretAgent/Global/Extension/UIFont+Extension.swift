@@ -20,6 +20,8 @@ extension UIFont {
     static let regularCallout = UIFont.font(.callout, weight: .regular)
     /// regularBody - 17px
     static let regularBody = UIFont.font(.body, weight: .regular)
+    /// regularTitle2 - ?px
+    static let regularTitle2 = UIFont.font(.title2, weight: .regular)
     /// regularTitle3 - 20px
     static let regularTitle3 = UIFont.font(.title3, weight: .regular)
     /// regularCaption1 - 12px
@@ -32,6 +34,8 @@ extension UIFont {
     static let boldCallout = UIFont.font(.callout, weight: .bold)
     /// regularBody - 17px
     static let boldBody = UIFont.font(.body, weight: .bold)
+    /// boldTitle2 - ?px
+    static let boldTitle2 = UIFont.font(.title2, weight: .bold)
     /// boldTitle1 - ?px
     static let boldTitle1 = UIFont.font(.title1, weight: .bold)
     /// boldTitle3 - ?px
