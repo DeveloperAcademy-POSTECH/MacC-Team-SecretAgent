@@ -34,7 +34,7 @@ class AfterTimerDetailViewController: BaseViewController {
 
     private let mainLabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        label.font = UIFont.oneMobile(size: 40)
         return label
     }()
 
@@ -68,7 +68,7 @@ class AfterTimerDetailViewController: BaseViewController {
         button.setButton(text: "확인", color: .black)
         button.setButtonTextColor(color: .white)
         button.makeButtonLarge()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        button.titleLabel?.font = UIFont.oneMobile(textStyle: .title3)
         return button
     }()
 
