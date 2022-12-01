@@ -280,7 +280,7 @@ final class SirenViewController: BaseViewController {
     }
 
     private func sendLocalNotification() {
-        UserNotificationManager.shared.setOnce(after: TimeInterval(countdownTimer.duration), title: "타이머", body: "타이머 제한 시간이 끝났습니다.", uuid: "timer")
+        UserNotificationManager.shared.setOnce(after: TimeInterval(countdownTimer.duration), title: "15분 타이머 종료", body: "꼬마요원이 임무를 성공했는지 알려주세요.", uuid: "timer")
     }
 
     private func cancelLocalNotification() {
