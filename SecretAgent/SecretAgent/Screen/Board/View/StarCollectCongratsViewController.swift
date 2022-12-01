@@ -11,6 +11,10 @@ import SnapKit
 
 // TODO: - 상수 값 enum으로 빼기
 
+protocol StarCollectCongratsViewDelegate {
+    func whatToDoAfterStarModal()
+}
+
 private enum CongratsViewSize {
     static let mainLabelFontSize: Double = 40
     static let xButtonTopInset = 60
@@ -23,7 +27,14 @@ private enum CongratsViewSize {
 final class StarCollectCongratsViewController: BaseViewController {
     // MARK: - Properties
     
-    var badgeType: BadgeType = .poyoStar
+    var delegate: StarCollectCongratsViewDelegate?
+    
+    var badgeType: BadgeType = .poyoStar {
+        didSet {
+            setStarName()
+            setBackgroundImage()
+        }
+    }
     
     // MARK: - UI Properties
     
@@ -32,14 +43,6 @@ final class StarCollectCongratsViewController: BaseViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         return imageView
-    }()
-    
-    private lazy var closeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .largeTitle))), for: .normal)
-        button.imageView?.tintColor = .black
-        button.addTarget(self, action: #selector(closeModal), for: .touchUpInside)
-        return button
     }()
     
     private let mainLabel: UILabel = {
@@ -80,11 +83,6 @@ final class StarCollectCongratsViewController: BaseViewController {
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        view.addSubview(closeButton)
-        closeButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(CongratsViewSize.xButtonTopInset)
-            make.trailing.equalToSuperview().inset(CongratsViewSize.xButtonTrailingInset)
-        }
         view.addSubview(mainLabel)
         mainLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(CongratsViewSize.mainLabelTopInset)
@@ -117,5 +115,6 @@ final class StarCollectCongratsViewController: BaseViewController {
     
     @objc func closeModal() {
         dismiss(animated: true)
+        delegate?.whatToDoAfterStarModal()
     }
 }

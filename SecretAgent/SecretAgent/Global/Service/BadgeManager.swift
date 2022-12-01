@@ -49,10 +49,24 @@ final class BadgeManager: CoreDataManager {
     func updateTotalBadge() throws {
         let results = try fetchBadge()
         let currentBadge = results.first
-        let todaysCoin = Int(currentBadge?.coinsLeftForToday ?? 5)
+        let todaysCoin = Int(4) // 테스트를 하기 위한 코드입니다. 혹시나 하고 남겨요..
+//        let todaysCoin = Int(currentBadge?.coinsLeftForToday ?? 5)
         let totalCoin = Int(currentBadge?.numberOfTotalCoins ?? 0)
         
-        currentBadge?.setValue(totalCoin + todaysCoin, forKey: "numberOfTotalCoins")
+        currentBadge?.setValue(min(totalCoin + todaysCoin, 125), forKey: "numberOfTotalCoins")
+        
+        saveContext()
+    }
+    
+    // MARK: - 테스트를 하기 위해 임시로 추가한 코드입니다. 혹시나 하고 남겨요..
+
+    func testUpdateTotalBadge() throws {
+        let results = try fetchBadge()
+        let currentBadge = results.first
+        let todaysCoin = Int(5)
+        let totalCoin = Int(currentBadge?.numberOfTotalCoins ?? 0)
+        
+        currentBadge?.setValue(totalCoin - todaysCoin, forKey: "numberOfTotalCoins")
         
         saveContext()
     }

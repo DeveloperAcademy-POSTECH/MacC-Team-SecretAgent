@@ -80,10 +80,10 @@ enum BadgeType {
         switch self {
         case .poyoStar:
             return "포요"
-        case .biyoStar:
-            return "비요"
         case .kiyoStar:
             return "키요"
+        case .biyoStar:
+            return "비요"
         case .mayoStar:
             return "마요"
         case .allStar:

@@ -63,6 +63,8 @@ enum ImageLiteral {
     static var kiyoStarBackground: UIImage { .load(named: "bg.kiyo") }
     static var mayoStarBackground: UIImage { .load(named: "bg.mayo") }
     static var allStarBackground: UIImage { .load(named: "bg.all") }
+    static var allStarCompletedMent: UIImage { .load(named: "allStarCompleted") }
+    static var allStarCompletedMentTransparent: UIImage { .load(named: "allStarCompletedTransparent") }
 
     // MARK: - TabBar
 
