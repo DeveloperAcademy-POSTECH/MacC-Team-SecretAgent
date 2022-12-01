@@ -44,6 +44,7 @@ class BaseButton: UIButton {
     
     func setButton(text: String, color: UIColor) {
         setTitle(text, for: .normal)
+        titleLabel?.font = .oneMobile(textStyle: .body)
         backgroundColor = color
     }
     
