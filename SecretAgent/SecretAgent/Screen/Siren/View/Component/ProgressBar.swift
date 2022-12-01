@@ -14,11 +14,7 @@ private enum ProgressBarSize {
     static let height = 300
 }
 
-protocol ProgressBarDelegate: AnyObject {
-    func progressFinished()
-}
-
-final class ProgressBar: UIView {
+final class ProgressBar: UIView, CAAnimationDelegate {
     // MARK: - Properties
 
     private var animation = CABasicAnimation()
@@ -29,10 +25,6 @@ final class ProgressBar: UIView {
 
     private var centerPoint: CGPoint = .init(x: 0, y: 0)
 
-    var delegate: ProgressBarDelegate?
-
-    var isProgressDone = false
-
     // MARK: - Init
 
     convenience init(totalSeconds: Int) {
@@ -42,14 +34,9 @@ final class ProgressBar: UIView {
         timerDuration = totalSeconds
         loadBackgroundProgressBar()
         loadForegroundProgressBar()
-        setDelegation()
     }
 
     // MARK: - Func
-
-    private func setDelegation() {
-        animation.delegate = self
-    }
 
     private func loadBackgroundProgressBar() {
         backgroundProgressLayer.path = UIBezierPath(
@@ -60,7 +47,7 @@ final class ProgressBar: UIView {
             clockwise: true
         ).cgPath
         backgroundProgressLayer.configProgressBar(
-            strokeColor: UIColor.yoOrange.cgColor,
+            strokeColor: UIColor.gray.cgColor,
             strokeEnd: 1.0
         )
         layer.addSublayer(backgroundProgressLayer)
@@ -75,7 +62,7 @@ final class ProgressBar: UIView {
             clockwise: true
         ).cgPath
         foregroundProgressLayer.configProgressBar(
-            strokeColor: UIColor.yoGray3.cgColor,
+            strokeColor: UIColor.blue.cgColor,
             strokeEnd: 0.0
         )
         backgroundProgressLayer.addSublayer(foregroundProgressLayer)
@@ -85,8 +72,8 @@ final class ProgressBar: UIView {
     private func startAnimation() {
         resetAnimation()
         animation.keyPath = "strokeEnd"
-        animation.fromValue = 0.0
-        animation.toValue = 1.0
+        animation.fromValue = 1.0
+        animation.toValue = 0.0
         animation.duration = CFTimeInterval(timerDuration)
         foregroundProgressLayer.add(animation, forKey: "strokeEnd")
         animationDidStart = true
@@ -139,16 +126,6 @@ final class ProgressBar: UIView {
     // 멈춤 버튼 클릭시
     func stop() {
         stopAnimation()
-    }
-}
-
-// MARK: CAAnimationDelegate
-
-extension ProgressBar: CAAnimationDelegate {
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        if flag {
-            delegate?.progressFinished()
-        }
     }
 }
 

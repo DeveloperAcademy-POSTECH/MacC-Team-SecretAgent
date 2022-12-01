@@ -44,7 +44,7 @@ class BadgeCollectionViewCell: UICollectionViewCell {
             badgeWidth = BadgeSize.shieldSize.width
             badgeImageView.frame.size.width = BadgeSize.shieldSize.width
             badgeImageView.frame.size.height = BadgeSize.shieldSize.height
-        case .star, .poyoStar, .biyoStar, .kiyoStar, .mayoStar, .allStar:
+        case .star:
             badgeWidth = BadgeSize.starSize.width
             badgeImageView.frame.size.width = BadgeSize.starSize.width
             badgeImageView.frame.size.height = BadgeSize.starSize.height
@@ -58,7 +58,7 @@ class BadgeCollectionViewCell: UICollectionViewCell {
             return BadgeSize.coinSize.width
         case .shield:
             return BadgeSize.shieldSize.width
-        case .star, .poyoStar, .biyoStar, .kiyoStar, .mayoStar, .allStar:
+        case .star:
             return BadgeSize.starSize.width
         }
     }

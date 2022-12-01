@@ -16,8 +16,8 @@ private enum Literal: String {
 }
 
 private enum Size {
-    static let width = 24.0
-    static let height = 24.0
+    static let width = 28.0
+    static let height = 30.0
 }
 
 final class TodayBadgeView: UIStackView {
@@ -25,7 +25,7 @@ final class TodayBadgeView: UIStackView {
 
     // 좌상단
     private let coinImageView: UIImageView = {
-        let image = ImageLiteral.smallCoin
+        let image = ImageLiteral.strokedCoin
         let imageView = UIImageView(image: image)
 
         return imageView
@@ -36,8 +36,7 @@ final class TodayBadgeView: UIStackView {
         let label = UILabel()
 
         label.text = "5"
-        label.font = .oneMobile(size: 18)
-        label.textColor = .yoGray6
+        label.font = .boldBody
 
         return label
     }()
@@ -57,8 +56,7 @@ final class TodayBadgeView: UIStackView {
         let label = UILabel()
 
         label.text = Literal.todayBadges()
-        label.font = .oneMobile(size: 11)
-        label.textColor = .yoGray5
+        label.font = .regularCaption2
         label.textAlignment = .center
 
         return label

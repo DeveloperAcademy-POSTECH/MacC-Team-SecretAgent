@@ -14,11 +14,10 @@ private enum Size {
     static let coinHeight = 30.0
     static let navigationTitleLeading = 30.0
     static let buttonTrailing = 30.0
-    static let buttonWidth = 39.0
-    static let buttonHeight = 41.0
+    static let buttonWidth = 49.0
+    static let buttonHeight = 52.0
     static let buttonSpacing = 36.0
     static let navigationBarHeight = 44.0
-    static let agentCardWidth = 28.0
 }
 
 final class BaseNavigationController: UINavigationController {
@@ -45,9 +44,14 @@ final class BaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationButtons()
-        render()
         configUI()
+        render()
+    }
+
+    private func configUI() {
+        setNavigationButtons()
+        navigationBar.prefersLargeTitles = true
+        navigationBar.layoutMargins.left = Size.navigationTitleLeading
     }
 
     private func render() {
@@ -62,11 +66,6 @@ final class BaseNavigationController: UINavigationController {
             make.height.equalTo(Size.buttonHeight)
             make.trailing.equalToSuperview().inset(Size.buttonTrailing)
         }
-    }
-
-    private func configUI() {
-        navigationBar.prefersLargeTitles = true
-        navigationBar.layoutMargins.left = Size.navigationTitleLeading
     }
 
     // MARK: - Func
@@ -117,19 +116,7 @@ final class BaseNavigationController: UINavigationController {
 
     func appendAgentCard() {
         agentCard = AgentCardThumbnailView()
-        agentCard.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(presentAgentCard))
-        agentCard.addGestureRecognizer(gesture)
-        agentCard.snp.makeConstraints { make in
-            make.width.equalTo(Size.agentCardWidth)
-        }
         navigationButtons.insertArrangedSubview(agentCard, at: 0)
-    }
-
-    @objc func presentAgentCard() {
-        let agentCardViewController = AgentCardViewController()
-        agentCardViewController.modalPresentationStyle = .fullScreen
-        present(agentCardViewController, animated: true)
     }
 }
 

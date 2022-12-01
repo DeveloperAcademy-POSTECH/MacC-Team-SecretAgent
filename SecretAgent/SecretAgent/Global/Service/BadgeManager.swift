@@ -5,8 +5,8 @@
 //  Created by JiwKang on 2022/11/23.
 //
 
-final class BadgeManager: CoreDataManager {
-    static let shared = BadgeManager()
+final class BadgeManger: CoreDataManager {
+    static let shared = BadgeManger()
     
     override private init() {}
     

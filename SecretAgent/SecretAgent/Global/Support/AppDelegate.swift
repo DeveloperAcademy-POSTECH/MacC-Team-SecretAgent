@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // MARK: Core Data Init
 
-        BadgeManager.shared.initBadge()
+        BadgeManger.shared.initBadge()
         return true
     }
 
