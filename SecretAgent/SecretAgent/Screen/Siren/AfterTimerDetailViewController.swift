@@ -148,7 +148,7 @@ class AfterTimerDetailViewController: BaseViewController {
         }
 
         // FIXME: - 일단안됨
-        guard let mainTabBarVC = self.presentingViewController?.presentingViewController as? UITabBarController else { return }
+        guard let mainTabBarVC = presentingViewController?.presentingViewController as? UITabBarController else { return }
         mainTabBarVC.dismiss(animated: true) // 의문
         guard let (numberOfTodayBadge, error) = try? BadgeManager.shared.coinsLeftForToday() else { return }
 

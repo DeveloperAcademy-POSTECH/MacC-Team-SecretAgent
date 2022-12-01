@@ -441,7 +441,7 @@ final class BoardViewController: BaseViewController {
     private func animate(of animations: @escaping () -> Void) {
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: animations)
     }
-    
+
     private func playCoinCheckSound() {
         SoundManager.shared.setupSound(soundOption: .coinCheck, repeated: false)
         SoundManager.shared.playSound()

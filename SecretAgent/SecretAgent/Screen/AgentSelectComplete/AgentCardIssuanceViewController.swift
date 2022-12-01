@@ -23,11 +23,11 @@ private enum ViewSize {
 
 class AgentCardIssuanceViewController: BaseViewController {
     // MARK: - Properties
-    
+
     let agentName: String
-    
+
     // MARK: - UI Properties
-    
+
     let topLabel: UILabel = {
         let label = UILabel()
         label.font = .oneMobile(size: 30)
@@ -36,7 +36,7 @@ class AgentCardIssuanceViewController: BaseViewController {
         label.textAlignment = .center
         return label
     }()
-    
+
     // TODO: - 현재 예시로 이미지를 넣은 상태이며 요원증 뷰가 만들어지는대로 적용할 예정입니다.
 //    let agentCard: UIView = {
 //        let view = UIView()
@@ -66,10 +66,11 @@ class AgentCardIssuanceViewController: BaseViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -83,7 +84,7 @@ class AgentCardIssuanceViewController: BaseViewController {
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(ViewSize.topLabelTopInset)
         }
-        
+
         view.addSubview(agentCard)
         agentCard.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -91,20 +92,20 @@ class AgentCardIssuanceViewController: BaseViewController {
             make.width.equalToSuperview().multipliedBy(0.546)
             make.height.equalToSuperview().multipliedBy(0.49)
         }
-        
+
         view.addSubview(actionButton)
         actionButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(ViewSize.actionButtonBottomInset)
         }
     }
-    
+
     override func configUI() {
         super.configUI()
         guard let agentName = UserDefaults.standard.string(forKey: "agentName") else { return }
         topLabel.text = "요원 \(agentName)\n출동!"
-        self.navigationController?.navigationBar.tintColor = .yoBlack
-        self.navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.tintColor = .yoBlack
+        navigationController?.navigationBar.topItem?.title = ""
     }
 
     private func addTargets() {

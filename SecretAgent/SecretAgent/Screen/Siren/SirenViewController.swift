@@ -294,7 +294,6 @@ final class SirenViewController: BaseViewController {
 
     private func stopSirenSound() {
         SoundManager.shared.stopSound()
-
     }
 }
 

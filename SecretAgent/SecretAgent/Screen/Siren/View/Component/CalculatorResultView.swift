@@ -15,7 +15,7 @@ final class CalculatorResultView: UIStackView {
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.text = "1"
         label.textColor = .yoBlack
-        label.textAlignment = .right  // FIXME: - 추후 수정 필요
+        label.textAlignment = .right // FIXME: - 추후 수정 필요
         return label
     }()
 

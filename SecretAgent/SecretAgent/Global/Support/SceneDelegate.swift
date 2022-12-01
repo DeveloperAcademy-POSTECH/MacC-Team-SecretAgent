@@ -47,11 +47,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-// MARK: - UNUserNotificationCenterDelegate
+// MARK: UNUserNotificationCenterDelegate
 
 extension SceneDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-
         let identifier = response.notification.request.identifier
         guard let tabBarController = window?.rootViewController as? UITabBarController else {
             print("No TabBarController on SceneDelegate")
@@ -69,7 +68,7 @@ extension SceneDelegate: UNUserNotificationCenterDelegate {
             guard let boardViewController = tabBarController.selectedViewController as? BoardViewController else { return
             }
             tabBarController.selectedIndex = 0
-            boardViewController.recieveTodaysBadges()
+            boardViewController.receiveTodaysBadges()
         } else {
             print("없는 알람이지롱")
         }

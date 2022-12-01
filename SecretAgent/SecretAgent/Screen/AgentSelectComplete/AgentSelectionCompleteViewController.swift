@@ -24,11 +24,11 @@ private enum ViewSize {
 
 final class AgentSelectionCompleteViewController: BaseViewController {
     // MARK: - Properties
-    
+
     private let agentName: String 
-    
+
     // MARK: - UI Properties
-    
+
     let topLabel: UILabel = {
         let label = UILabel()
         label.text = "요원 O요에게"
@@ -43,7 +43,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
         imageView.layer.masksToBounds = true
         return imageView
     }()
-    
+
     let yohanLinesLabel: UILabel = {
         let label = UILabel()
         label.text = "축하하네, 자네도 이제 우리 요원이야!!\n잘부탁하며, 앞으로 좋은 요원이 되어주게나~"
@@ -55,7 +55,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
         label.layer.masksToBounds = true
         return label
     }()
-    
+
     let goodButton: BaseButton = {
         let button = BaseButton()
         button.setButton(text: "좋아요", color: .clear)
@@ -71,24 +71,25 @@ final class AgentSelectionCompleteViewController: BaseViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addTargets()
     }
-    
+
     override func render() {
         view.addSubview(topLabel)
         topLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(ViewSize.topLabelTopInset)
         }
-        
+
         view.addSubview(yohanImageView)
         yohanImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -102,20 +103,20 @@ final class AgentSelectionCompleteViewController: BaseViewController {
             make.width.equalTo(ViewSize.yohanLinesLabelWidth)
             make.height.equalTo(ViewSize.yohanLinesLabelHeight)
         }
-        
+
         view.addSubview(goodButton)
         goodButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(ViewSize.goodButtonBottomOffset)
         }
     }
-    
+
     override func configUI() {
         super.configUI()
         topLabel.text = "요원 \(agentName)에게"
 
         navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.tintColor = .yoBlack
+        navigationController?.navigationBar.tintColor = .yoBlack
     }
 
     private func addTargets() {

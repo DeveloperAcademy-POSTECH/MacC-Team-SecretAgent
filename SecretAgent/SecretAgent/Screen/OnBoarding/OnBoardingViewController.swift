@@ -254,7 +254,6 @@ class OnBoardingViewController: BaseViewController {
     @objc func showStory() {
         var controller = StoryViewController()
         navigationController?.pushViewController(controller, animated: true)
-        
     }
     
     @objc func dismissOnBoard() {

@@ -150,7 +150,6 @@ final class AgentSelectionViewController: BaseViewController {
     override func configUI() {
         super.configUI()
         navigationItem.title = "캐릭터 선택"
-
     }
     
     private func configStack() {
@@ -200,7 +199,7 @@ final class AgentSelectionViewController: BaseViewController {
         // TODO: - 완료 버튼 구현 예정
         playSound(.choiceLikeGoOut, false)
         print(Agent.agentList[selectedAgentID].name, "선택완료")
-        let agentSelectionCompletionVC =  AgentSelectionCompleteViewController(agentName: Agent.agentList[selectedAgentID].name)
-                navigationController?.pushViewController(agentSelectionCompletionVC, animated: true)
-        }
-        }
+        let agentSelectionCompletionVC = AgentSelectionCompleteViewController(agentName: Agent.agentList[selectedAgentID].name)
+        navigationController?.pushViewController(agentSelectionCompletionVC, animated: true)
+    }
+}
