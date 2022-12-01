@@ -17,6 +17,7 @@
 		21B6F7C329373F5C001FAD5F /* CommonBadgeInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */; };
 		21BC09312935A04C0019572D /* HideBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC09302935A04C0019572D /* HideBadgeView.swift */; };
 		21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */; };
+		35A8020829376FF50052451A /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8020729376FF50052451A /* OpenSourceViewController.swift */; };
 		3518CAFA2934D3D30076C3E3 /* AfterTimerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */; };
 		35356FF82936CF1200B15F11 /* NumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */; };
 		35A801E629374D1E0052451A /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801E529374D1E0052451A /* siren.mp3 */; };
@@ -112,6 +113,7 @@
 		21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBadgeInfoComponent.swift; sourceTree = "<group>"; };
 		21BC09302935A04C0019572D /* HideBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideBadgeView.swift; sourceTree = "<group>"; };
 		21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		35A8020729376FF50052451A /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterTimerDetailViewController.swift; sourceTree = "<group>"; };
 		35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCollectionViewCell.swift; sourceTree = "<group>"; };
 		35A801E529374D1E0052451A /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				35BD54FA2925FBB1008F96AC /* View */,
 				B576A1932930B2AD006F9E8F /* MainTabViewController.swift */,
 				B5587A4F2934DED000613B95 /* BaseNavigationController.swift */,
+				35A8020729376FF50052451A /* OpenSourceViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A8020829376FF50052451A /* OpenSourceViewController.swift in Sources */,
 				35BD55052925FED5008F96AC /* UICollectionView+Extension.swift in Sources */,
 				35DCD6972934CC2D00FAC021 /* AfterTimerViewController.swift in Sources */,
 				35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */,
