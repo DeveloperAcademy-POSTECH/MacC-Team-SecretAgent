@@ -39,8 +39,6 @@ enum ImageLiteral {
 
     static var yohanKo: UIImage { .load(named: "yohanKo") }
 
-    static var primaryButtonBackground: UIImage { .load(named: "primaryButtonBackground") }
-
     // MARK: - Badges
 
     static var coin: UIImage { .load(named: "coin.activate") }
