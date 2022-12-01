@@ -31,16 +31,20 @@ class BaseButton: UIButton {
         layer.masksToBounds = true
         layer.cornerRadius = ButtonSize.cornerRadiusSmall
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+
+        layer.masksToBounds = true
+        layer.cornerRadius = ButtonSize.cornerRadiusSmall
     }
     
     // MARK: - Func
     
     func setButton(text: String, color: UIColor) {
         setTitle(text, for: .normal)
+        titleLabel?.font = .oneMobile(textStyle: .body)
         backgroundColor = color
     }
     
