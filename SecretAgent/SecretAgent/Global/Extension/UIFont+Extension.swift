@@ -32,6 +32,11 @@ extension UIFont {
     static let boldCallout = UIFont.font(.callout, weight: .bold)
     /// regularBody - 17px
     static let boldBody = UIFont.font(.body, weight: .bold)
+    /// boldTitle1 - ?px
+    static let boldTitle1 = UIFont.font(.title1, weight: .bold)
+    /// boldTitle3 - ?px
+    static let boldTitle3 = UIFont.font(.title3, weight: .bold)
+
     /// semiBoldTitle3 - 20px
     static let semiBoldTitle3 = UIFont.font(.body, weight: .semibold)
     /// semiBoldHeadline - 17px

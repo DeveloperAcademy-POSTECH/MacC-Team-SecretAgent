@@ -7,11 +7,6 @@
 
 import UIKit
 
-private enum CellSize {
-    static let height: Double = UIScreen.main.bounds.height / 5.59
-    static let width: Double = UIScreen.main.bounds.width / 2.52
-}
-
 final class AgentStackViewCell: UIButton {
     // MARK: - UI Properties
     
@@ -35,11 +30,6 @@ final class AgentStackViewCell: UIButton {
     }
     
     private func render() {
-        snp.makeConstraints { make in
-            make.width.equalTo(CellSize.width)
-            make.height.equalTo(CellSize.height)
-        }
-        
         addSubview(agentImageView)
         
         agentImageView.snp.makeConstraints { make in
