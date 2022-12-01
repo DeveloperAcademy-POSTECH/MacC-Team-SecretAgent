@@ -37,6 +37,7 @@ class OnBoardingTableViewCell: UITableViewCell {
         label.textAlignment = .center
         label.layer.borderColor = UIColor.yoYellow1.cgColor
         label.layer.borderWidth = 1
+        label.font = .boldBody
         return label
     }()
     

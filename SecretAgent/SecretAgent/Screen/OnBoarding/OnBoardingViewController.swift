@@ -38,6 +38,7 @@ class OnBoardingViewController: BaseViewController {
         let label = UILabel()
         label.text = "앱 사용 설명서"
         label.textColor = .black
+        label.font = .regularSubheadline
         return label
     }()
     
@@ -45,7 +46,7 @@ class OnBoardingViewController: BaseViewController {
         let label = UILabel()
         label.text = "부모님,\n꼭 읽어주세요"
         label.numberOfLines = 2
-        label.font = UIFont.boldSystemFont(ofSize: FontSize.topLabelFontSize)
+        label.font = .boldTitle1
         return label
     }()
     
@@ -73,6 +74,7 @@ class OnBoardingViewController: BaseViewController {
         label.backgroundColor = UIColor(hex: "0087D3").withAlphaComponent(0.1)
         label.textColor = .yoNavy
         label.layer.zPosition = 2
+        label.font = .regularCallout
         return label
     }()
     
@@ -118,7 +120,7 @@ class OnBoardingViewController: BaseViewController {
         button.setButton(text: "Step 1 스토리보기 >", color: .clear)
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         button.setButtonTextColor(color: .black)
-        button.titleLabel?.font = UIFont.boldBody
+        button.titleLabel?.font = UIFont.boldTitle3
         return button
     }()
     
