@@ -248,6 +248,7 @@ final class SirenViewController: BaseViewController {
     @objc private func startTimer() {
         stopButton.isEnabled = true
         stopButton.alpha = 1.0
+        playSirenSound()
 
         if !countdownTimerDidStart {
             sendLocalNotification()
@@ -276,6 +277,11 @@ final class SirenViewController: BaseViewController {
 
     private func cancelLocalNotification() {
         UserNotificationManager.shared.cancel(at: "timer")
+    }
+
+    private func playSirenSound() {
+        SoundManager.shared.setupSound(soundOption: .siren, repeated: false)
+        SoundManager.shared.playSound()
     }
 }
 
