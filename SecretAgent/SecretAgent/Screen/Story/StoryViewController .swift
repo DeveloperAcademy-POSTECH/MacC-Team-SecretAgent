@@ -23,6 +23,8 @@ private enum ViewSize {
 class StoryViewController: BaseViewController {
     // MARK: - Properties
     
+    private let agentName: String = UserDefaults.standard.string(forKey: "") ?? "a"
+    
     private var sceneNo: Int = 0
     private var linesNo: Int = 0
     
@@ -97,6 +99,7 @@ class StoryViewController: BaseViewController {
     override func viewDidDisappear(_ animated: Bool) {
         AppDelegate.AppUtility.changeOrientation(UIInterfaceOrientationMask.portrait)
         SoundManager.shared.stopSound()
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func render() {
@@ -135,12 +138,21 @@ class StoryViewController: BaseViewController {
     
     override func configUI() {
         view.backgroundColor = .black
+        
+        if agentName != "" {
+            skipButton.setTitle("나가기", for: .normal)
+        }
     }
     
     // MARK: - Func
     
     private func addTargets() {
-        skipButton.addTarget(self, action: #selector(skipStory), for: .touchUpInside)
+        if agentName == "" {
+            skipButton.addTarget(self, action: #selector(skipStory), for: .touchUpInside)
+        } else {
+            skipButton.addTarget(self, action: #selector(moveToBackVC), for: .touchUpInside)
+        }
+        
         preButton.addTarget(self, action: #selector(preStory), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextStory), for: .touchUpInside)
     }
@@ -208,6 +220,11 @@ class StoryViewController: BaseViewController {
     
     @objc func preStory() {
         preSceneNoSet()
+        
+        if sceneNo != Story.stories.count - 1 || linesNo + 1 != Story.stories.last?.lines.count ?? 0 {
+            nextButton.isHidden = false
+        }
+        
         drawStory()
     }
     
@@ -217,14 +234,26 @@ class StoryViewController: BaseViewController {
         
         if sceneNo
             >= Story.stories.count, linesNo + 1 >= Story.stories.last?.lines.count ?? 0 {
-            navigationController?.pushViewController(AgentSelectionViewController(), animated: true)
+            if agentName == "" {
+                navigationController?.pushViewController(AgentSelectionViewController(), animated: true)
+            }
             return
+        }
+        
+        if sceneNo == Story.stories.count - 1 && linesNo + 1 == Story.stories.last?.lines.count ?? 0 {
+            nextButton.isHidden = true
         }
         
         drawStory()
     }
     
     @objc func skipStory() {
-        navigationController?.pushViewController(AgentSelectionViewController(), animated: true)
+        if agentName == "" {
+            navigationController?.pushViewController(AgentSelectionViewController(), animated: true)
+        }
+    }
+    
+    @objc func moveToBackVC() {
+        navigationController?.popViewController(animated: true)
     }
 }

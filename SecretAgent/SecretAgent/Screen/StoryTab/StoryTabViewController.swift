@@ -8,6 +8,7 @@
 import UIKit
 
 private enum ViewSize {
+    static let vStackViewTopInset = UIScreen.main.bounds.height / 4.85
     static var buttonSize = CGSize(width: 338, height: 201)
     static var stackViewSize = CGSize(width: 338, height: 426)
 }
@@ -31,10 +32,18 @@ class StoryTabViewController: BaseViewController {
         addTargets()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+        (navigationController as? BaseNavigationController)?.navigationButtons.isHidden = false
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func render() {
         view.addSubview(vStackView)
         vStackView.snp.makeConstraints { make in
-            make.top.centerX.equalTo(view.safeAreaLayoutGuide)
+            make.centerX.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(ViewSize.vStackViewTopInset)
             make.size.equalTo(ViewSize.stackViewSize)
         }
     }
@@ -61,10 +70,16 @@ class StoryTabViewController: BaseViewController {
     }
     
     @objc func viewStory() {
+        (navigationController as? BaseNavigationController)?.navigationButtons.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+        
         navigationController?.pushViewController(StoryViewController(), animated: true)
     }
     
     @objc func viewOnBoarding() {
-        navigationController?.pushViewController(OnBoardingViewController(), animated: true)
+        let onBoardingVC = OnBoardingViewController()
+        onBoardingVC.modalPresentationStyle = .fullScreen
+        onBoardingVC.showAgain()
+        navigationController?.present(onBoardingVC, animated: true)
     }
 }
