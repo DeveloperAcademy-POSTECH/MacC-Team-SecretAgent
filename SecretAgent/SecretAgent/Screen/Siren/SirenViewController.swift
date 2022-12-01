@@ -101,7 +101,7 @@ final class SirenViewController: BaseViewController {
         button.setButton(text: "시작", color: .yoGreen)
         button.setButtonTextColor(color: .white)
         button.makeButtonSmall()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        button.titleLabel?.font = UIFont.oneMobile(textStyle: .title3)
         return button
     }()
 
@@ -111,7 +111,7 @@ final class SirenViewController: BaseViewController {
         button.setButtonTextColor(color: .orange)
         button.setButtonBorder(color: UIColor.yoOrange.cgColor)
         button.makeButtonSmall()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        button.titleLabel?.font = UIFont.oneMobile(textStyle: .title3)
         return button
     }()
 
