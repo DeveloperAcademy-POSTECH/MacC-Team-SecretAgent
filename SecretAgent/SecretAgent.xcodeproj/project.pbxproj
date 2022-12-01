@@ -572,33 +572,6 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		B5587A4A2934D90800613B95 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
-				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
-		B5587A4A2934D90800613B95 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
-				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
-		B5587A4A2934D90800613B95 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
-				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
 		B53CB6B32937733C008202DE /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -897,25 +870,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		B523CB2529264DD200E39C9E /* Run SwiftFormat */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftFormat";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat .  --lint --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1156,7 +1110,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AJK25G55CT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SecretAgent/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1187,7 +1141,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AJK25G55CT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SecretAgent/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

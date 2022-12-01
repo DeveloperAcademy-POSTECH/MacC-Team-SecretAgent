@@ -157,16 +157,15 @@ final class BoardViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTotalBadgeFromCoreData()
         setDelegation()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        updateTotalBadgeFromCoreData()
         if totalBadgeNumberFromCoreData >= 125 {
             allStarsCollected = true
         }
         refreshBoard(targetIndex: getLatestTableViewIndex())
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        scrollCollectionView()
     }
 
     override func render() {
