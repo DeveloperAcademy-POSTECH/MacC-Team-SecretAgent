@@ -70,8 +70,8 @@ enum ImageLiteral {
 
     static var boardTab: UIImage { .load(systemName: "star.circle.fill", color: .yoYellow1) }
     static var inactiveBoardTab: UIImage { .load(systemName: "star.circle", color: .yoGray4) }
-    static var sirenTab: UIImage { .load(systemName: "light.beacon.max.fill", color: .yoYellow1) }
-    static var inactiveSirenTab: UIImage { .load(systemName: "light.beacon.max", color: .yoGray4) }
+    static var sirenTab: UIImage { .load(named: "beacon.max.fill") }
+    static var inactiveSirenTab: UIImage { .load(named: "beacon.max") }
     static var storyTab: UIImage { .load(named: "story.activate", color: .yoYellow1) }
     static var inactiveStoryTab: UIImage { .load(named: "story.deactivate", color: .yoGray4) }
     static var story: UIImage { .load(named: "story.activate") }
