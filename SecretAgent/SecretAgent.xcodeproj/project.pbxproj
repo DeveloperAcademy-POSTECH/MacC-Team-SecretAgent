@@ -13,7 +13,6 @@
 		217D3F76293771F700D810A5 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F75293771F700D810A5 /* Badge.swift */; };
 		217D3F78293785CA00D810A5 /* BoardViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F77293785CA00D810A5 /* BoardViewController+Extension.swift */; };
 		21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21882898292C935C00C9D94B /* SoundLiteral.swift */; };
-		2188289C292D0DB700C9D94B /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2188289B292D0DB700C9D94B /* siren.mp3 */; };
 		21B6F7C329373F5C001FAD5F /* CommonBadgeInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */; };
 		21BC09312935A04C0019572D /* HideBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC09302935A04C0019572D /* HideBadgeView.swift */; };
 		21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */; };
@@ -62,9 +61,9 @@
 		35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD55162928AA62008F96AC /* SirenViewController.swift */; };
 		35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551A2928AA9F008F96AC /* ProgressBar.swift */; };
 		35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BD551C2928AAAE008F96AC /* CountDownTimer.swift */; };
-		35DCD6972934CC2D00FAC021 /* AfterTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */; };
 		35C9129A2936CF7800A2EB3C /* CalculatorResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C912992936CF7800A2EB3C /* CalculatorResultView.swift */; };
 		35C9129C2936CFB000A2EB3C /* UnlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9129B2936CFB000A2EB3C /* UnlockViewController.swift */; };
+		35DCD6972934CC2D00FAC021 /* AfterTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */; };
 		B523CB2729264FCD00E39C9E /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = B523CB2629264FCD00E39C9E /* .swiftformat */; };
 		B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */; };
 		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
@@ -109,7 +108,6 @@
 		217D3F75293771F700D810A5 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		217D3F77293785CA00D810A5 /* BoardViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+Extension.swift"; sourceTree = "<group>"; };
 		21882898292C935C00C9D94B /* SoundLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLiteral.swift; sourceTree = "<group>"; };
-		2188289B292D0DB700C9D94B /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
 		21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBadgeInfoComponent.swift; sourceTree = "<group>"; };
 		21BC09302935A04C0019572D /* HideBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideBadgeView.swift; sourceTree = "<group>"; };
 		21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -168,9 +166,9 @@
 		35BD55162928AA62008F96AC /* SirenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SirenViewController.swift; sourceTree = "<group>"; };
 		35BD551A2928AA9F008F96AC /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		35BD551C2928AAAE008F96AC /* CountDownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownTimer.swift; sourceTree = "<group>"; };
-		35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterTimerViewController.swift; sourceTree = "<group>"; };
 		35C912992936CF7800A2EB3C /* CalculatorResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorResultView.swift; sourceTree = "<group>"; };
 		35C9129B2936CFB000A2EB3C /* UnlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockViewController.swift; sourceTree = "<group>"; };
+		35DCD6962934CC2D00FAC021 /* AfterTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterTimerViewController.swift; sourceTree = "<group>"; };
 		B523CB2629264FCD00E39C9E /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardThumbnail.swift; sourceTree = "<group>"; };
 		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
@@ -255,6 +253,50 @@
 				35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */,
 			);
 			path = Cell;
+      	sourceTree = "<group>";
+		};
+		35A801E129374CEF0052451A /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				35A801F029374D5B0052451A /* scene1.mp3 */,
+				35A801EB29374D5B0052451A /* scene2.mp3 */,
+				35A801ED29374D5B0052451A /* scene3.mp3 */,
+				35A801F229374D5C0052451A /* scene4.mp3 */,
+				35A801EE29374D5B0052451A /* scene5.mp3 */,
+				35A801EF29374D5B0052451A /* scene6.mp3 */,
+				35A801EC29374D5B0052451A /* scene7.mp3 */,
+				35A801F129374D5B0052451A /* scene8to12.mp3 */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		35A801E229374CF40052451A /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				35A801FB29374D700052451A /* character.mp3 */,
+				35A801FC29374D710052451A /* choiceLikeGoOut.mp3 */,
+				35A801FF29374D7E0052451A /* agentCard.mp3 */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		35A801E329374CFE0052451A /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+				35A801E529374D1E0052451A /* siren.mp3 */,
+				35A801E729374D2A0052451A /* failure.mp3 */,
+				35A801E829374D2A0052451A /* success.mp3 */,
+			);
+			path = Siren;
+			sourceTree = "<group>";
+		};
+		35A801E429374D060052451A /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				35A8020129374D920052451A /* coinCheck.mp3 */,
+				35A8020229374D920052451A /* starBadgeGain.mp3 */,
+			);
+			path = Badge;
 			sourceTree = "<group>";
 		};
 		35A801E129374CEF0052451A /* Story */ = {
@@ -837,7 +879,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat . --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat > /dev/null; then\n  swiftformat .  --lint --swiftversion 5.7\nelse\n  echo \"error: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1071,7 +1113,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y7G824SH3W;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SecretAgent/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1102,7 +1144,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J85NQ6YL4V;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SecretAgent/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
