@@ -9,6 +9,9 @@ import UIKit
 
 import SnapKit
 
+// TODO: - 125개 넘어가지 않게
+// TODO: - 보드에 쓰이는 스타 이미지 추가 및 적용
+
 private enum BoardSize {
     static let collectionViewInsets: UIEdgeInsets = .init(top: 52, left: 0, bottom: 52, right: 0)
     static let collectionViewLineSpacing: Double = 25.85
@@ -16,18 +19,20 @@ private enum BoardSize {
     static let tableViewRowHeight: Double = 50
     static let tableViewRowWidth: Double = 193
     static let safeAreaTopInset = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
-
     static let coinSize = CGSize(width: 90, height: 96.15)
     static let shieldSize = CGSize(width: 96, height: 135.17)
     static let starSize = CGSize(width: 163.0, height: 196.0)
-
-    static let tempBadgeNumber = 54
 }
 
 enum BadgeType {
     case coin
     case shield
     case star
+    case poyoStar
+    case biyoStar
+    case kiyoStar
+    case mayoStar
+    case allStar
 
     var badgeActiveImage: UIImage {
         switch self {
@@ -37,6 +42,16 @@ enum BadgeType {
             return ImageLiteral.shield
         case .star:
             return ImageLiteral.star
+        case .poyoStar:
+            return ImageLiteral.poyoStar
+        case .biyoStar:
+            return ImageLiteral.biyoStar
+        case .kiyoStar:
+            return ImageLiteral.kiyoStar
+        case .mayoStar:
+            return ImageLiteral.mayoStar
+        case .allStar:
+            return ImageLiteral.allStar
         }
     }
 
@@ -48,28 +63,30 @@ enum BadgeType {
             return ImageLiteral.inactiveShield
         case .star:
             return ImageLiteral.inactiveStar
+        case .poyoStar:
+            return ImageLiteral.inactivePoyoStar
+        case .biyoStar:
+            return ImageLiteral.inactiveBiyoStar
+        case .kiyoStar:
+            return ImageLiteral.inactiveKiyoStar
+        case .mayoStar:
+            return ImageLiteral.inactiveMayoStar
+        case .allStar:
+            return ImageLiteral.inactiveAllStar
         }
     }
 }
 
 final class BoardViewController: BaseViewController {
-    // TODO: - 아래의 목데이터를 CoreData로 교체
-
     // MARK: - Properties
 
-    var totalBadgeNumber: Int = 0
-    var totalBadgeNumberFromCoreData: Int = 0
-    var curIndexPath = IndexPath(row: 0, section: 0)
+    private var totalBadgeNumber: Int = 0
+    private var totalBadgeNumberFromCoreData: Int = 0
+    private var curIndexPath = IndexPath(row: 0, section: 0)
+    private let tableViewDataSource = ["포요스타", "비요스타", "키요스타", "마요스타", "모두스타"]
+    private let starBadgeTypes: [BadgeType] = [.poyoStar, .biyoStar, .kiyoStar, .mayoStar, .allStar]
 
     // MARK: - UI Properties
-
-    private lazy var tempButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("뱃지 개수 증가", for: .normal)
-        button.backgroundColor = .orange
-        button.addTarget(self, action: #selector(countUpBadgeNumberWithCoreData), for: .touchUpInside)
-        return button
-    }()
 
     private lazy var dropdownBackgroundView: UIView = {
         let testView = UIView()
@@ -86,36 +103,41 @@ final class BoardViewController: BaseViewController {
         return tableView
     }()
 
-    private let tableViewDataSource = ["1스타", "2스타", "3스타", "4스타", "5스타"]
-
     private lazy var dropdownButton: UIButton = {
         let button = UIButton()
-        button.setTitle("1스타", for: .normal)
+        button.setTitle("포요스타 ▼", for: .normal)
+        button.titleLabel?.font = UIFont.oneMobile(size: 12)
+        button.tintColor = .black
         button.addTarget(self, action: #selector(showDropdown), for: .touchUpInside)
+        button.setTitleColor(UIColor.black, for: .normal)
         return button
     }()
 
     private lazy var fixedBadgeInformation: UIStackView = {
         let stackView = UIStackView()
 
-        // MARK: - 아래의 코드는 모두 임시 코드입니다.
+        let coinBadge = CommonBadgeInfoComponent(image: ImageLiteral.coin)
+        let shieldBadge = CommonBadgeInfoComponent(image: ImageLiteral.shield)
+        let starBadge = CommonBadgeInfoComponent(image: ImageLiteral.star)
 
-        let coinBadge = UILabel()
-        coinBadge.textAlignment = .center
-        let shieldBadge = UILabel()
-        shieldBadge.textAlignment = .center
-        let starBadge = UILabel()
-        starBadge.textAlignment = .center
         [dropdownButton, coinBadge, shieldBadge, starBadge].forEach { subView in
             stackView.addArrangedSubview(subView)
-            subView.backgroundColor = [.blue, .yellow, .orange, .red, .purple, .green, .systemTeal, .systemPink].randomElement()
+            subView.backgroundColor = .white
+            subView.frame.size = .init(width: 80, height: 10)
+            subView.layer.cornerRadius = 36 / 2
+            subView.snp.makeConstraints { make in
+                make.height.equalTo(36)
+            }
         }
-
-        // MARK: - 위의 코드는 모두 임시 코드입니다.
 
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
-        stackView.backgroundColor = .gray
+        stackView.alignment = .center
+        stackView.backgroundColor = UIColor.yoGray2
+        stackView.spacing = 10
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        stackView.isLayoutMarginsRelativeArrangement = true
+
         return stackView
     }()
 
@@ -165,25 +187,14 @@ final class BoardViewController: BaseViewController {
 
         view.addSubview(dropdownBackgroundView)
         view.addSubview(dropdownTableView)
-
-        view.addSubview(tempButton)
-        tempButton.snp.makeConstraints { make in
-            make.bottom.trailing.equalToSuperview()
-            make.width.height.equalTo(100)
-        }
     }
 
     override func configUI() {
         view.backgroundColor = .systemBackground
-        hideBadgeView.backgroundColor = .black.withAlphaComponent(0.3)
         hideBadgeView.alpha = 0.0
     }
 
     // MARK: - Func
-
-    @objc func showDropdown(_ sender: UIButton) {
-        addDropdownBackgroundView(buttonFrame: sender.frame)
-    }
 
     private func setDelegation() {
         badgeCollectionView.delegate = self
@@ -192,7 +203,11 @@ final class BoardViewController: BaseViewController {
         dropdownTableView.dataSource = self
     }
 
-    func addDropdownBackgroundView(buttonFrame: CGRect) {
+    @objc func showDropdown(_ sender: UIButton) {
+        addDropdownBackgroundView(buttonFrame: sender.frame)
+    }
+
+    private func addDropdownBackgroundView(buttonFrame: CGRect) {
         dropdownBackgroundView.frame = view.frame
         dropdownTableView.frame = CGRect(
             x: buttonFrame.origin.x + 5,
@@ -230,10 +245,9 @@ final class BoardViewController: BaseViewController {
         }
     }
 
-    func addHideBadgeView() {
+    private func addHideBadgeView(previous: String?) {
         hideBadgeView.isHidden = false
-        hideBadgeView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        hideBadgeView.alpha = 0
+        hideBadgeView.infoLabel.text = "\(previous ?? "이전 스타")를 획득해야\n시작할 수 있어요!"
 
         UIView.animate(
             withDuration: 0.4,
@@ -242,34 +256,30 @@ final class BoardViewController: BaseViewController {
             initialSpringVelocity: 1.0,
             options: .curveEaseInOut,
             animations: {
-                self.hideBadgeView.alpha = 0.5
-            }, completion: nil
+                self.hideBadgeView.alpha = 1
+            }
         )
     }
 
-    func removeHideBadgeView() {
+    private func removeHideBadgeView() {
         hideBadgeView.isHidden = true
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.hideBadgeView.alpha = 0
-        }, completion: nil)
+        hideBadgeView.alpha = 0
     }
 
     private func animate(of animations: @escaping () -> Void) {
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: animations)
     }
 
-    @objc func countUpBadgeNumberWithCoreData() {
-        updateTotalBadgeFromCoreData()
-        badgeCollectionView.reloadData()
-    }
-
     private func updateBadgeInformation() {
-        let coin = fixedBadgeInformation.arrangedSubviews[1] as? UILabel
-        coin?.text = "코인뱃지: \(totalBadgeNumber)"
-        let shield = fixedBadgeInformation.arrangedSubviews[2] as? UILabel
-        shield?.text = "방패뱃지: \(totalBadgeNumber / 5)"
-        let star = fixedBadgeInformation.arrangedSubviews[3] as? UILabel
-        star?.text = "스타뱃지: \(totalBadgeNumber / 25)"
+        let coin = fixedBadgeInformation.arrangedSubviews[1]
+        let coinLabel = coin.subviews.first as? UILabel
+        coinLabel?.text = "\(min(totalBadgeNumber, 125))"
+        let shield = fixedBadgeInformation.arrangedSubviews[2]
+        let shieldLabel = shield.subviews.first as? UILabel
+        shieldLabel?.text = "\(totalBadgeNumber / 5)"
+        let star = fixedBadgeInformation.arrangedSubviews[3]
+        let starLabel = star.subviews.first as? UILabel
+        starLabel?.text = "\(totalBadgeNumber / 25)"
     }
 
     private func updateTotalBadgeFromCoreData() {
@@ -312,7 +322,7 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
             myCell.badgeType = .coin
         }
         if badgeIndex == 30 {
-            myCell.badgeType = .star
+            myCell.badgeType = starBadgeTypes[curIndexPath.row]
         }
 
         // 이미지 생성
@@ -376,23 +386,23 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "\(indexPath.row + 1)"
+        cell.textLabel?.text = "\(tableViewDataSource[indexPath.row])"
         cell.textLabel?.textAlignment = .center
+        cell.textLabel?.font = UIFont.boldBody
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dropdownButton.setTitle(tableViewDataSource[indexPath.row], for: .normal)
+        dropdownButton.setTitle("\(tableViewDataSource[indexPath.row]) ▼", for: .normal)
         removeDropdownBackgroundView()
 
         curIndexPath = indexPath
 
-        // 선택된 단계 반영
         let decreaseAmount = 25 * indexPath.row
         totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
 
         if totalBadgeNumber <= 0, indexPath.row > 0 {
-            addHideBadgeView()
+            addHideBadgeView(previous: indexPath.row > 0 ? tableViewDataSource[indexPath.row - 1] : nil)
         } else {
             removeHideBadgeView()
         }

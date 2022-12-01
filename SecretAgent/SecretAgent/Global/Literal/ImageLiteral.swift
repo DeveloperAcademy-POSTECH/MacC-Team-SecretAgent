@@ -44,6 +44,16 @@ enum ImageLiteral {
     static var inactiveCoin: UIImage { .load(named: "coin.deactivate") }
     static var inactiveShield: UIImage { .load(named: "shield.deactivate") }
     static var inactiveStar: UIImage { .load(named: "star.deactivate") }
+    static var poyoStar: UIImage { .load(named: "star.poyo.active") }
+    static var biyoStar: UIImage { .load(named: "star.biyo.active") }
+    static var kiyoStar: UIImage { .load(named: "star.kiyo.active") }
+    static var mayoStar: UIImage { .load(named: "star.mayo.active") }
+    static var allStar: UIImage { .load(named: "star.all.active") }
+    static var inactivePoyoStar: UIImage { .load(named: "star.poyo.inactive") }
+    static var inactiveBiyoStar: UIImage { .load(named: "star.biyo.inactive") }
+    static var inactiveKiyoStar: UIImage { .load(named: "star.kiyo.inactive") }
+    static var inactiveMayoStar: UIImage { .load(named: "star.mayo.inactive") }
+    static var inactiveAllStar: UIImage { .load(named: "star.all.inactive") }
 
     // MARK: - TabBar
 

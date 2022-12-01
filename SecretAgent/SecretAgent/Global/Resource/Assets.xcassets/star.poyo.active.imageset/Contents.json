@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "star.poyo.active.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
