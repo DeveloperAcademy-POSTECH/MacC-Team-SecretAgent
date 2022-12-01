@@ -71,7 +71,7 @@ final class SirenViewController: BaseViewController {
 
     private let minutesLabel = {
         let label = UILabel()
-        label.text = "00"
+        label.text = "15"
         label.textColor = .yoOrange
         label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         label.textAlignment = .center
@@ -136,6 +136,12 @@ final class SirenViewController: BaseViewController {
         setNotification()
         addTargets()
         requestAuthorization()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if sirenBackgroundView.isHidden {
+            startButton.sendActions(for: .touchUpInside)
+        }
     }
 
     override func render() {
