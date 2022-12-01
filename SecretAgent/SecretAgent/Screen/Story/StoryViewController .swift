@@ -94,6 +94,7 @@ class StoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTargets()
+        setUserDefaults()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -155,6 +156,10 @@ class StoryViewController: BaseViewController {
         
         preButton.addTarget(self, action: #selector(preStory), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextStory), for: .touchUpInside)
+    }
+
+    private func setUserDefaults() {
+        UserDefaults.standard.set(true, forKey: "isVisited")
     }
     
     private func playSound(_ sound: SoundLiteral?) {
@@ -256,4 +261,5 @@ class StoryViewController: BaseViewController {
     @objc func moveToBackVC() {
         navigationController?.popViewController(animated: true)
     }
+    
 }
