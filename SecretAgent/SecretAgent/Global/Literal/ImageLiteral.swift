@@ -77,6 +77,11 @@ enum ImageLiteral {
     static var scene10: UIImage { .load(named: "Scene10") }
     static var scene11: UIImage { .load(named: "Scene11") }
     static var scene12: UIImage { .load(named: "Scene12") }
+
+    // MARK: - StoryTab
+
+    static var biyoPlayButton: UIImage { .load(named: "biyoPlayButton") }
+    static var kiyoPlayButton: UIImage { .load(named: "kiyoPlayButton") }
 }
 
 extension UIImage {
