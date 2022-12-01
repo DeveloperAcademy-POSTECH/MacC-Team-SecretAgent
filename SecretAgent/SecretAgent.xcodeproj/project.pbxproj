@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */; };
 		213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B6974292DD5D40085C3B9 /* BoardViewController.swift */; };
+		217D3F7429376E2800D810A5 /* StarCollectCongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */; };
+		217D3F76293771F700D810A5 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F75293771F700D810A5 /* Badge.swift */; };
+		217D3F78293785CA00D810A5 /* BoardViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D3F77293785CA00D810A5 /* BoardViewController+Extension.swift */; };
 		21882899292C935C00C9D94B /* SoundLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21882898292C935C00C9D94B /* SoundLiteral.swift */; };
+		21B6F7C329373F5C001FAD5F /* CommonBadgeInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */; };
 		21BC09312935A04C0019572D /* HideBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC09302935A04C0019572D /* HideBadgeView.swift */; };
 		21CBBB6D292E1DBF0067FE17 /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */; };
+		35A8020829376FF50052451A /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A8020729376FF50052451A /* OpenSourceViewController.swift */; };
 		3518CAFA2934D3D30076C3E3 /* AfterTimerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */; };
 		35356FF82936CF1200B15F11 /* NumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */; };
 		35A801E629374D1E0052451A /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 35A801E529374D1E0052451A /* siren.mp3 */; };
@@ -64,6 +69,8 @@
 		B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4D2934DDD000613B95 /* TodayBadge.swift */; };
 		B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A4F2934DED000613B95 /* BaseNavigationController.swift */; };
 		B5587A692936E59700613B95 /* ONE-Mobile-POP-OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */; };
+		B5587A702936F2B000613B95 /* AgentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A6F2936F2B000613B95 /* AgentCardView.swift */; };
+		B5587A72293713A900613B95 /* AgentCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5587A71293713A800613B95 /* AgentCardViewController.swift */; };
 		B574F62F292B9C7300E8E268 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B574F62E292B9C7300E8E268 /* UserNotificationService.swift */; };
 		B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1932930B2AD006F9E8F /* MainTabViewController.swift */; };
 		B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */; };
@@ -73,6 +80,8 @@
 		CE0A5C292931C45700695FEC /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A5C282931C45700695FEC /* BaseButton.swift */; };
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
+		CEFBA37629365EFA002FF1DC /* AgentSelectionCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA37529365EFA002FF1DC /* AgentSelectionCompleteViewController.swift */; };
+		CEFBA37829365EFE002FF1DC /* AgentCardIssuanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBA37729365EFE002FF1DC /* AgentCardIssuanceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,9 +104,14 @@
 /* Begin PBXFileReference section */
 		212D1EAB292B53BD0079ECF2 /* TestSirenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSirenViewController.swift; sourceTree = "<group>"; };
 		213B6974292DD5D40085C3B9 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarCollectCongratsViewController.swift; sourceTree = "<group>"; };
+		217D3F75293771F700D810A5 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		217D3F77293785CA00D810A5 /* BoardViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoardViewController+Extension.swift"; sourceTree = "<group>"; };
 		21882898292C935C00C9D94B /* SoundLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundLiteral.swift; sourceTree = "<group>"; };
+		21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBadgeInfoComponent.swift; sourceTree = "<group>"; };
 		21BC09302935A04C0019572D /* HideBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideBadgeView.swift; sourceTree = "<group>"; };
 		21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		35A8020729376FF50052451A /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		3518CAF92934D3D30076C3E3 /* AfterTimerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterTimerDetailViewController.swift; sourceTree = "<group>"; };
 		35356FF72936CF1200B15F11 /* NumberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCollectionViewCell.swift; sourceTree = "<group>"; };
 		35A801E529374D1E0052451A /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
@@ -160,6 +174,8 @@
 		B5587A4D2934DDD000613B95 /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
 		B5587A4F2934DED000613B95 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B5587A682936E59700613B95 /* ONE-Mobile-POP-OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE-Mobile-POP-OTF.otf"; sourceTree = "<group>"; };
+		B5587A6F2936F2B000613B95 /* AgentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardView.swift; sourceTree = "<group>"; };
+		B5587A71293713A800613B95 /* AgentCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardViewController.swift; sourceTree = "<group>"; };
 		B574F62E292B9C7300E8E268 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		B576A1932930B2AD006F9E8F /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		B576A1D52930FFD3006F9E8F /* Preview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+Extension.swift"; sourceTree = "<group>"; };
@@ -169,6 +185,8 @@
 		CE0A5C282931C45700695FEC /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
+		CEFBA37529365EFA002FF1DC /* AgentSelectionCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentSelectionCompleteViewController.swift; sourceTree = "<group>"; };
+		CEFBA37729365EFE002FF1DC /* AgentCardIssuanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentCardIssuanceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +240,9 @@
 				213B6974292DD5D40085C3B9 /* BoardViewController.swift */,
 				21CBBB6C292E1DBF0067FE17 /* BadgeCollectionViewCell.swift */,
 				21BC09302935A04C0019572D /* HideBadgeView.swift */,
+				21B6F7C229373F5C001FAD5F /* CommonBadgeInfoComponent.swift */,
+				217D3F7329376E2800D810A5 /* StarCollectCongratsViewController.swift */,
+				217D3F77293785CA00D810A5 /* BoardViewController+Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,6 +254,50 @@
 			);
 			path = Cell;
       	sourceTree = "<group>";
+		};
+		35A801E129374CEF0052451A /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				35A801F029374D5B0052451A /* scene1.mp3 */,
+				35A801EB29374D5B0052451A /* scene2.mp3 */,
+				35A801ED29374D5B0052451A /* scene3.mp3 */,
+				35A801F229374D5C0052451A /* scene4.mp3 */,
+				35A801EE29374D5B0052451A /* scene5.mp3 */,
+				35A801EF29374D5B0052451A /* scene6.mp3 */,
+				35A801EC29374D5B0052451A /* scene7.mp3 */,
+				35A801F129374D5B0052451A /* scene8to12.mp3 */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		35A801E229374CF40052451A /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				35A801FB29374D700052451A /* character.mp3 */,
+				35A801FC29374D710052451A /* choiceLikeGoOut.mp3 */,
+				35A801FF29374D7E0052451A /* agentCard.mp3 */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		35A801E329374CFE0052451A /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+				35A801E529374D1E0052451A /* siren.mp3 */,
+				35A801E729374D2A0052451A /* failure.mp3 */,
+				35A801E829374D2A0052451A /* success.mp3 */,
+			);
+			path = Siren;
+			sourceTree = "<group>";
+		};
+		35A801E429374D060052451A /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				35A8020129374D920052451A /* coinCheck.mp3 */,
+				35A8020229374D920052451A /* starBadgeGain.mp3 */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
 		};
 		35A801E129374CEF0052451A /* Story */ = {
 			isa = PBXGroup;
@@ -444,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0A5C1F2931B97200695FEC /* Agent.swift */,
+				217D3F75293771F700D810A5 /* Badge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -451,6 +517,8 @@
 		35BD54F72925F605008F96AC /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B5587A6D2936F29E00613B95 /* AgentCard */,
+				CEFBA37429365EE9002FF1DC /* AgentSelectComplete */,
 				CE0A5C1B2931B8EB00695FEC /* AgentSelection */,
 				213B6970292DC9880085C3B9 /* Board */,
 				35BD55152928AA55008F96AC /* Siren */,
@@ -473,6 +541,7 @@
 				35BD54FA2925FBB1008F96AC /* View */,
 				B576A1932930B2AD006F9E8F /* MainTabViewController.swift */,
 				B5587A4F2934DED000613B95 /* BaseNavigationController.swift */,
+				35A8020729376FF50052451A /* OpenSourceViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -543,6 +612,24 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B5587A4A2934D90800613B95 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A4B2934DD2700613B95 /* AgentCardThumbnail.swift */,
+				B5587A4D2934DDD000613B95 /* TodayBadge.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		B5587A672936E58900613B95 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,7 +638,23 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-
+		B5587A6D2936F29E00613B95 /* AgentCard */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A6E2936F2A800613B95 /* View */,
+				B5587A71293713A800613B95 /* AgentCardViewController.swift */,
+			);
+			path = AgentCard;
+			sourceTree = "<group>";
+		};
+		B5587A6E2936F2A800613B95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5587A6F2936F2B000613B95 /* AgentCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CE0A5C1B2931B8EB00695FEC /* AgentSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +678,15 @@
 				CE0A5C262931BF1800695FEC /* AgentStackViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CEFBA37429365EE9002FF1DC /* AgentSelectComplete */ = {
+			isa = PBXGroup;
+			children = (
+				CEFBA37529365EFA002FF1DC /* AgentSelectionCompleteViewController.swift */,
+				CEFBA37729365EFE002FF1DC /* AgentCardIssuanceViewController.swift */,
+			);
+			path = AgentSelectComplete;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -776,16 +888,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A8020829376FF50052451A /* OpenSourceViewController.swift in Sources */,
 				35BD55052925FED5008F96AC /* UICollectionView+Extension.swift in Sources */,
 				35DCD6972934CC2D00FAC021 /* AfterTimerViewController.swift in Sources */,
 				35BD551B2928AA9F008F96AC /* ProgressBar.swift in Sources */,
 				35BD55032925FEC3008F96AC /* UIViewController+Extension.swift in Sources */,
 				35BD54FD2925FEA5008F96AC /* NSObject+Extension.swift in Sources */,
+				217D3F7429376E2800D810A5 /* StarCollectCongratsViewController.swift in Sources */,
+				B5587A702936F2B000613B95 /* AgentCardView.swift in Sources */,
 				35BD55012925FEB5008F96AC /* Color+Extension.swift in Sources */,
 				35C9129C2936CFB000A2EB3C /* UnlockViewController.swift in Sources */,
 				CE0A5C272931BF1800695FEC /* AgentStackViewCell.swift in Sources */,
 				35BD551D2928AAAE008F96AC /* CountDownTimer.swift in Sources */,
 				B576A1D62930FFD3006F9E8F /* Preview+Extension.swift in Sources */,
+				217D3F78293785CA00D810A5 /* BoardViewController+Extension.swift in Sources */,
 				35BD55172928AA62008F96AC /* SirenViewController.swift in Sources */,
 				35BD551129260026008F96AC /* ImageLiteral.swift in Sources */,
 				35BD550D2925FF10008F96AC /* BaseTableViewCell.swift in Sources */,
@@ -804,14 +920,19 @@
 				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
+				217D3F76293771F700D810A5 /* Badge.swift in Sources */,
 				21BC09312935A04C0019572D /* HideBadgeView.swift in Sources */,
 				35BD54A42925D497008F96AC /* SceneDelegate.swift in Sources */,
 				3518CAFA2934D3D30076C3E3 /* AfterTimerDetailViewController.swift in Sources */,
 				B576A1942930B2AD006F9E8F /* MainTabViewController.swift in Sources */,
 				B5587A4C2934DD2700613B95 /* AgentCardThumbnail.swift in Sources */,
+				B5587A72293713A900613B95 /* AgentCardViewController.swift in Sources */,
 				35BD54FF2925FEAC008F96AC /* UITableView+Extension.swift in Sources */,
 				212D1EAC292B53BD0079ECF2 /* TestSirenViewController.swift in Sources */,
+				CEFBA37829365EFE002FF1DC /* AgentCardIssuanceViewController.swift in Sources */,
+				CEFBA37629365EFA002FF1DC /* AgentSelectionCompleteViewController.swift in Sources */,
 				35BD550E2925FF10008F96AC /* BaseCollectionViewCell.swift in Sources */,
+				21B6F7C329373F5C001FAD5F /* CommonBadgeInfoComponent.swift in Sources */,
 				B5587A502934DED000613B95 /* BaseNavigationController.swift in Sources */,
 				CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */,
 				35BD55092925FEEA008F96AC /* UIFont+Extension.swift in Sources */,

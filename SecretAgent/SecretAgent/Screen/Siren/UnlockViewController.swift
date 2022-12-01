@@ -183,6 +183,7 @@ final class UnlockViewController: BaseViewController {
             if self.firstOperand * self.secondOperand == Int(self.resultText) {
                 self.delegate?.unlockSiren()
                 self.dismiss(animated: true)
+                print("정답") // 임시
             } else {
                 self.resultView.resultField.textColor = .yoOrange
                 self.failLabel.isHidden = false
