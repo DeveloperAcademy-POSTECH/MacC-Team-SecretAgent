@@ -25,7 +25,7 @@ final class UnlockViewController: BaseViewController {
     private let mainLabel = {
         let label = UILabel()
         label.text = "보호자 확인"
-        label.font = UIFont.oneMobile(size: 28)
+        label.font = UIFont.oneMobile(size: 32)
         return label
     }()
 
@@ -67,6 +67,7 @@ final class UnlockViewController: BaseViewController {
         button.setButton(text: "취소", color: .yoGray3)
         button.setButtonTextColor(color: .black)
         button.makeButtonSmall()
+        button.titleLabel?.font = UIFont.oneMobile(textStyle: .body)
         return button
     }()
 
@@ -75,6 +76,7 @@ final class UnlockViewController: BaseViewController {
         button.setButton(text: "잠금해제", color: .yoYellow2)
         button.setButtonTextColor(color: .white)
         button.makeButtonSmall()
+        button.titleLabel?.font = UIFont.oneMobile(textStyle: .body)
         button.isEnabled = false
         return button
     }()
