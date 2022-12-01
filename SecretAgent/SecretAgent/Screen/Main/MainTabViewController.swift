@@ -44,7 +44,7 @@ class MainTabViewController: UITabBarController {
 
     private func setTabViewControllers() {
         let boardTab = BaseNavigationController(
-            rootViewController: BaseViewController(),
+            rootViewController: BoardViewController(),
             title: TabBarLiteral.board(),
             tabBarItem: UITabBarItem(
                 title: TabBarLiteral.board(),
