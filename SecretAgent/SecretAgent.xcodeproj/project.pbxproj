@@ -69,6 +69,7 @@
 		CE4200C7292B9C28005D92E7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */; };
 		CE8B0B57292E097D002BF6EE /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8B0B56292E097D002BF6EE /* BadgeManager.swift */; };
 		CE990CF22936664900887913 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE990CF12936664900887913 /* OnBoardingViewController.swift */; };
+		CEBA0D6C293827B10015C29C /* StoryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */; };
 		CECB41B52936E5660000A3A6 /* onBoardingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */; };
 		CECB41B72936E61B0000A3A6 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B62936E61B0000A3A6 /* Guide.swift */; };
 		CECB41BA293725FF0000A3A6 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB41B9293725FF0000A3A6 /* Story.swift */; };
@@ -165,6 +166,7 @@
 		CE4200C6292B9C28005D92E7 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE8B0B56292E097D002BF6EE /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 		CE990CF12936664900887913 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTabViewController.swift; sourceTree = "<group>"; };
 		CECB41B42936E5660000A3A6 /* onBoardingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onBoardingTableViewCell.swift; sourceTree = "<group>"; };
 		CECB41B62936E61B0000A3A6 /* Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
 		CECB41B9293725FF0000A3A6 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 		35BD54F72925F605008F96AC /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CEBA0D6A293827970015C29C /* StoryTab */,
 				CECB41B8293725D40000A3A6 /* Story */,
 				CE990CEE2936660D00887913 /* OnBoarding */,
 				CE0A5C1B2931B8EB00695FEC /* AgentSelection */,
@@ -574,6 +577,14 @@
 				CECB41B32936E5540000A3A6 /* Cell */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CEBA0D6A293827970015C29C /* StoryTab */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA0D6B293827B10015C29C /* StoryTabViewController.swift */,
+			);
+			path = StoryTab;
 			sourceTree = "<group>";
 		};
 		CECB41B32936E5540000A3A6 /* Cell */ = {
@@ -817,6 +828,7 @@
 				35BD54AC2925D497008F96AC /* SecretAgent.xcdatamodeld in Sources */,
 				CECB41B72936E61B0000A3A6 /* Guide.swift in Sources */,
 				B5587A4E2934DDD000613B95 /* TodayBadge.swift in Sources */,
+				CEBA0D6C293827B10015C29C /* StoryTabViewController.swift in Sources */,
 				213B6975292DD5D40085C3B9 /* BoardViewController.swift in Sources */,
 				35BD54A22925D497008F96AC /* AppDelegate.swift in Sources */,
 				21BC09312935A04C0019572D /* HideBadgeView.swift in Sources */,
