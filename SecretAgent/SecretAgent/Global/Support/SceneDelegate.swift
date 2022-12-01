@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        if UserDefaults.standard.string(forKey: "isVisited") != nil {
+        if UserDefaults.standard.string(forKey: "isVisited") == nil {
             window?.rootViewController = UINavigationController(rootViewController: StoryViewController())
         } else {
             window?.rootViewController = MainTabViewController()
