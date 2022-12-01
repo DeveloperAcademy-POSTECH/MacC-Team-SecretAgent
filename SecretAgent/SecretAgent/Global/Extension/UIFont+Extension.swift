@@ -31,6 +31,10 @@ extension UIFont {
     static let boldCallout = UIFont.font(.callout, weight: .bold)
     /// regularBody - 17px
     static let boldBody = UIFont.font(.body, weight: .bold)
+    /// boldTitle1 - ?px
+    static let boldTitle1 = UIFont.font(.title1, weight: .bold)
+    /// boldTitle3 - ?px
+    static let boldTitle3 = UIFont.font(.title3, weight: .bold)
 
     /// oneMobile - custom size
     static func oneMobile(size: Double) -> UIFont {
