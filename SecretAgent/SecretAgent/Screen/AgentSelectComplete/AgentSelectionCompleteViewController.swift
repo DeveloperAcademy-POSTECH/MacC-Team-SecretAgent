@@ -39,8 +39,6 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     let yohanImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.yohanKo
-        imageView.layer.cornerRadius = ViewSize.yohanKoImageCornerRadius
-        imageView.layer.masksToBounds = true
         return imageView
     }()
     

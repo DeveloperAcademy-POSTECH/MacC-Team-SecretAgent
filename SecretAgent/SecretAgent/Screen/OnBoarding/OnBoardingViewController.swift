@@ -15,14 +15,14 @@ private enum ViewSize {
     static let leadingInset = UIScreen.main.bounds.width / 13
     static let cornerRadius: Double = 30
     static let separatorInset = UIEdgeInsets(top: 0, left: leadingInset, bottom: 0, right: leadingInset)
-    static let tipVStackViewMargin = UIEdgeInsets(top: UIScreen.main.bounds.height / 42.2, left: UIScreen.main.bounds.height / 42.2, bottom: UIScreen.main.bounds.height / 42.2, right: UIScreen.main.bounds.height / 42.2)
+    static let tipVStackViewMargin = UIEdgeInsets(top: UIScreen.main.bounds.width / 19.5, left: UIScreen.main.bounds.width / 19.5, bottom: UIScreen.main.bounds.width / 19.5, right: UIScreen.main.bounds.width / 19.5)
     
     static let titleLabelTopInset: Double = UIScreen.main.bounds.height / 17.22
     static let topHStackViewTopInset: Double = UIScreen.main.bounds.height / 7.74
     static let topHStackViewWidth: Double = UIScreen.main.bounds.width / 1.18
     static let guideLabelTopOffset: Double = UIScreen.main.bounds.height / 17.22
     static let guideLabelSize = CGSize(width: UIScreen.main.bounds.width / 1.18, height: 103)
-    static let tipBodyHeight = UIScreen.main.bounds.width / 1.18
+    static let tipBodyHeight = UIScreen.main.bounds.height / 9.59
     static let tipVStackViewSize = CGSize(width: UIScreen.main.bounds.width / 1.18, height: UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.height / 6.15 : UIScreen.main.bounds.height / 6)
     static let tipVStackViewTopOffset: Double = UIScreen.main.bounds.height / 35.17
     static let showStoryButtonTopOffset: Double = UIScreen.main.bounds.height / 8.44
@@ -109,7 +109,7 @@ class OnBoardingViewController: BaseViewController {
         vStackView.backgroundColor = UIColor.yoYellow3
         vStackView.axis = .vertical
         vStackView.alignment = .leading
-        vStackView.distribution = .equalSpacing
+        vStackView.distribution = .fillProportionally
         vStackView.layoutMargins = ViewSize.tipVStackViewMargin
         vStackView.isLayoutMarginsRelativeArrangement = true
         return vStackView
@@ -208,8 +208,8 @@ class OnBoardingViewController: BaseViewController {
             make.height.equalTo(tableView.contentSize.height)
         }
         
-        let newSize = tipBody.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 2 * ViewSize.leadingInset, height: Double.greatestFiniteMagnitude))
-        
+        let newSize = tipBody.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 3.9, height: Double.greatestFiniteMagnitude))
+
         tipBody.snp.makeConstraints { make in
             make.height.equalTo(newSize.height)
         }
@@ -252,9 +252,8 @@ class OnBoardingViewController: BaseViewController {
     }
     
     @objc func showStory() {
-        var controller = StoryViewController()
+        let controller = StoryViewController()
         navigationController?.pushViewController(controller, animated: true)
-        
     }
     
     @objc func dismissOnBoard() {
