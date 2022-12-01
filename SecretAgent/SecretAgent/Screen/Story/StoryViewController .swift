@@ -37,6 +37,7 @@ class StoryViewController: BaseViewController {
     private let skipButton: UIButton = {
         let button = UIButton()
         button.setTitle("건너뛰기", for: .normal)
+        button.titleLabel?.font = .oneMobile(textStyle: .body)
         button.setTitleColor(.black, for: .normal)
         button.setBackgroundImage(ImageLiteral.storySkipButton, for: .normal)
         return button
@@ -48,7 +49,7 @@ class StoryViewController: BaseViewController {
         label.layer.cornerRadius = 20
         label.layer.masksToBounds = true
         label.backgroundColor = UIColor(hex: "FFFBEC")
-        label.font = UIFont.regularBody
+        label.font = .oneMobile(textStyle: .body)
         label.textColor = .black
         return label
     }()
