@@ -9,9 +9,6 @@ import UIKit
 
 import SnapKit
 
-// TODO: - 125개 넘어가지 않게
-// TODO: - 보드에 쓰이는 스타 이미지 추가 및 적용
-
 private enum BoardSize {
     static let collectionViewInsets: UIEdgeInsets = .init(top: 52, left: 0, bottom: 52, right: 0)
     static let collectionViewLineSpacing: Double = 25.85
@@ -82,7 +79,7 @@ final class BoardViewController: BaseViewController {
 
     private var totalBadgeNumber: Int = 0
     private var totalBadgeNumberFromCoreData: Int = 0
-    private var curIndexPath = IndexPath(row: 0, section: 0)
+    private var curTableViewIndexPath = IndexPath(row: 0, section: 0)
     private let tableViewDataSource = ["포요스타", "비요스타", "키요스타", "마요스타", "모두스타"]
     private let starBadgeTypes: [BadgeType] = [.poyoStar, .biyoStar, .kiyoStar, .mayoStar, .allStar]
 
@@ -163,6 +160,10 @@ final class BoardViewController: BaseViewController {
         super.viewDidLoad()
         updateTotalBadgeFromCoreData()
         setDelegation()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        scrollCollectionView()
     }
 
     override func render() {
@@ -297,6 +298,21 @@ final class BoardViewController: BaseViewController {
             print(error)
         }
     }
+
+    func scrollCollectionView() {
+        let badgeNumberWhenFull = (curTableViewIndexPath.row + 1) * 25
+        let badgeNumberWhenEmpty = badgeNumberWhenFull - 25
+
+        if badgeNumberWhenFull <= totalBadgeNumberFromCoreData {
+            badgeCollectionView.scrollToItem(at: IndexPath(row: 30, section: 0), at: .top, animated: true)
+        } else if badgeNumberWhenEmpty >= totalBadgeNumberFromCoreData {
+            badgeCollectionView.scrollToItem(at: IndexPath(row: -1, section: 0), at: .top, animated: true)
+        } else {
+            let badgeNumber = totalBadgeNumberFromCoreData - badgeNumberWhenEmpty
+            let shieldNumber = badgeNumber / 5
+            badgeCollectionView.scrollToItem(at: IndexPath(row: badgeNumber + shieldNumber, section: 0), at: .centeredVertically, animated: true)
+        }
+    }
 }
 
 // MARK: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -309,7 +325,7 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withType: BadgeCollectionViewCell.self, for: indexPath)
 
-        let decreaseAmount = 25 * curIndexPath.row
+        let decreaseAmount = 25 * curTableViewIndexPath.row
         totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
 
         let badgeIndex = indexPath.row
@@ -322,7 +338,7 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
             myCell.badgeType = .coin
         }
         if badgeIndex == 30 {
-            myCell.badgeType = starBadgeTypes[curIndexPath.row]
+            myCell.badgeType = starBadgeTypes[curTableViewIndexPath.row]
         }
 
         // 이미지 생성
@@ -396,17 +412,19 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
         dropdownButton.setTitle("\(tableViewDataSource[indexPath.row]) ▼", for: .normal)
         removeDropdownBackgroundView()
 
-        curIndexPath = indexPath
+        curTableViewIndexPath = indexPath
 
         let decreaseAmount = 25 * indexPath.row
         totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
 
-        if totalBadgeNumber <= 0, indexPath.row > 0 {
+        if totalBadgeNumber < 0, indexPath.row > 0 {
             addHideBadgeView(previous: indexPath.row > 0 ? tableViewDataSource[indexPath.row - 1] : nil)
         } else {
             removeHideBadgeView()
         }
 
         badgeCollectionView.reloadData()
+
+        scrollCollectionView()
     }
 }
