@@ -20,6 +20,7 @@ extension UIColor {
     static let yoGreen: UIColor = .init(hex: "#07BB65")
     static let yoLightGreen: UIColor = .init(hex: "#90DB31")
 
+    static let yoGray0: UIColor = .init(hex: "#F2F2F2")
     static let yoGray1: UIColor = .init(hex: "#FBFBFB")
     static let yoGray2: UIColor = .init(hex: "#F8F8F8")
     static let yoGray3: UIColor = .init(hex: "#F4F4F4")

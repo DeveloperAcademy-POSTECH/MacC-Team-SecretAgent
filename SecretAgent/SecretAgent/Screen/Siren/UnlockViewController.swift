@@ -68,7 +68,7 @@ final class UnlockViewController: BaseViewController {
     private let cancelButton = {
         let button = BaseButton()
         button.setButton(text: "취소", color: .yoGray3)
-        button.setButtonTextColor(color: .black)
+        button.setButtonTextColor(color: .yoBlack)
         button.makeButtonSmall()
         button.titleLabel?.font = UIFont.oneMobile(textStyle: .body)
         return button
@@ -76,8 +76,8 @@ final class UnlockViewController: BaseViewController {
 
     private let unlockButton = {
         let button = BaseButton()
-        button.setButton(text: "잠금해제", color: .yoYellow2)
-        button.setButtonTextColor(color: .white)
+        button.setButton(text: "잠금해제", color: .yoGray4)
+        button.setButtonTextColor(color: .yoGray0)
         button.makeButtonSmall()
         button.titleLabel?.font = UIFont.oneMobile(textStyle: .body)
         button.isEnabled = false
@@ -223,6 +223,7 @@ extension UnlockViewController: UICollectionViewDelegate {
             resultView.resultField.text = resultText
             unlockButton.isEnabled = true
             unlockButton.backgroundColor = .yoYellow1
+            unlockButton.setTitleColor(UIColor.yoBlack, for: .normal)
         }
     }
 }
@@ -237,8 +238,9 @@ extension UnlockViewController: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         resultText = ""
         unlockButton.isEnabled = false
-        unlockButton.backgroundColor = .yoYellow2
-        resultView.resultField.textColor = .black
+        unlockButton.backgroundColor = .yoGray4
+        unlockButton.setTitleColor(UIColor.yoGray0, for: .normal)
+        resultView.resultField.textColor = .yoBlack
         subLabel.text = "부모님 확인을 위해 정답을 입력해주세요."
         subLabel.textColor = .black
 
