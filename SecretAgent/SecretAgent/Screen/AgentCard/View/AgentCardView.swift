@@ -12,6 +12,8 @@ import SnapKit
 enum AgentCardLiteral {
     static let role = "비밀요원"
     static let numberOfDays = "임무 수행 O일째"
+    static var name = "키요"
+    static var startDate = "2022.03.04 ~"
 }
 
 enum AgentCardSize {
@@ -41,7 +43,7 @@ class AgentCardView: UIImageView {
 
     // TODO: Agent 바꾸기
 
-    private let agentImage: UIImageView = {
+    private var agentImage: UIImageView = {
         let image = ImageLiteral.agentKiyoCircleProfile
         let imageView = UIImageView()
         imageView.image = image
@@ -58,9 +60,9 @@ class AgentCardView: UIImageView {
         return label
     }()
 
-    private let nameLabel: UILabel = {
+    private var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "키요"
+        label.text = Literal.name
         label.font = .oneMobile(size: Size.nameFontSize)
 
         return label
@@ -70,7 +72,7 @@ class AgentCardView: UIImageView {
 
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "2022.03.04 ~"
+        label.text = Literal.startDate
         label.font = .regularTitle3
         label.alpha = 0.5
 
@@ -176,5 +178,62 @@ class AgentCardView: UIImageView {
 
     private func setAgentCard() {
         image = ImageLiteral.agentCardBackground
+        setTempUserDefaults()
+        fetchUserDefaults()
+    }
+
+    private func setTempUserDefaults() {
+        UserDefaults.standard.setValue(Date() - 86400, forKey: "createdDate")
+        UserDefaults.standard.setValue("포요", forKey: "agentName")
+    }
+
+    private func fetchUserDefaults() {
+        guard let createdDate = UserDefaults.standard.object(forKey: "createdDate") as? Date else { return }
+        guard let agentName = UserDefaults.standard.string(forKey: "agentName") else { return }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY.MM.dd"
+
+        switch agentName {
+        case "비요":
+            agentImage.image = ImageLiteral.agentBiyoCircleProfile
+        case "포요":
+            agentImage.image = ImageLiteral.agentPoyoCircleProfile
+        case "키요":
+            agentImage.image = ImageLiteral.agentKiyoCircleProfile
+        case "마요":
+            agentImage.image = ImageLiteral.agentMayoCircleProfile
+        default:
+            ()
+        }
+
+        nameLabel.text = agentName
+        dateLabel.text = dateFormatter.string(from: createdDate) + "~"
+        numberOfDaysLabel.text = "임무 수행 \(days(from: createdDate) + 1)일째"
+    }
+
+    func setCompact() {
+        ggoyosLogoImage.snp.remakeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(6)
+            make.bottom.equalToSuperview().inset(16)
+            make.size.equalTo(48)
+        }
+
+        vStack.snp.remakeConstraints { make in
+            make.height.equalToSuperview().multipliedBy(0.85)
+            make.leading.bottom.trailing.equalToSuperview()
+        }
+
+        footer.snp.remakeConstraints { make in
+            make.height.equalTo(66)
+            make.width.equalToSuperview()
+        }
+    }
+
+    private func days(from date: Date) -> Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        return calendar.dateComponents([.day], from: date, to: currentDate).day!
     }
 }

@@ -14,9 +14,10 @@ private enum ButtonSize {
     static let screenWidth = UIScreen.main.bounds.width
     static let isPortrait = UIScreen.main.bounds.height > UIScreen.main.bounds.width
     
-    static let largeButtonWidth = isPortrait ? screenWidth / 1.11 : screenHeight / 1.11
+    static let largeButtonWidth = isPortrait ? screenWidth * 0.846 : screenHeight * 0.846
     static let smallButtonWidth = isPortrait ? screenWidth / 2.6 : screenHeight / 2.6
-    static let height = isPortrait ? screenHeight / 14.07 : screenWidth / 14.07
+    static let largeButtonHeight = isPortrait ? screenHeight * 0.083 : screenWidth * 0.083
+    static let smallButtonHeight = isPortrait ? screenHeight / 14.07 : screenWidth / 14.07
     static let borderWidth: Double = 1
     static let cornerRadiusSmall: Double = 18
     static let cornerRadiusLarge: Double = 16
@@ -67,7 +68,7 @@ class BaseButton: UIButton {
         
         snp.makeConstraints { make in
             make.width.equalTo(ButtonSize.largeButtonWidth)
-            make.height.equalTo(ButtonSize.height)
+            make.height.equalTo(ButtonSize.largeButtonHeight)
         }
     }
     
@@ -76,7 +77,7 @@ class BaseButton: UIButton {
         
         snp.makeConstraints { make in
             make.width.equalTo(ButtonSize.smallButtonWidth)
-            make.height.equalTo(ButtonSize.height)
+            make.height.equalTo(ButtonSize.smallButtonHeight)
         }
     }
 }

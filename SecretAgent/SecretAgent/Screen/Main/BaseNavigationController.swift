@@ -148,6 +148,8 @@ final class BaseNavigationController: UINavigationController {
         }
     }
 
+    func setCustomNavigationBarHidden() {}
+
     func setNavigationBarColor(to color: UIColor) {
         setNavigationBarBackground(to: color)
         setNavigationBarLayout()
