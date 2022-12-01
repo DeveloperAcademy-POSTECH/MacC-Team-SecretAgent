@@ -247,6 +247,14 @@ class OnBoardingViewController: BaseViewController {
     
     private func addTargets() {
         topXmarkButton.addTarget(self, action: #selector(dismissOnBoard), for: .touchUpInside)
+        topNextButton.addTarget(self, action: #selector(showStory), for: .touchUpInside)
+        showStoryButton.addTarget(self, action: #selector(showStory), for: .touchUpInside)
+    }
+    
+    @objc func showStory() {
+        var controller = StoryViewController()
+        navigationController?.pushViewController(controller, animated: true)
+        
     }
     
     @objc func dismissOnBoard() {

@@ -23,7 +23,7 @@ private enum ViewSize {
 class StoryViewController: BaseViewController {
     // MARK: - Properties
     
-    private let agentName: String = UserDefaults.standard.string(forKey: "") ?? "a"
+    private let agentName: String = UserDefaults.standard.string(forKey: "agentName") ?? ""
     
     private var sceneNo: Int = 0
     private var linesNo: Int = 0
@@ -94,7 +94,6 @@ class StoryViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addTargets()
-        setUserDefaults()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -156,10 +155,6 @@ class StoryViewController: BaseViewController {
         
         preButton.addTarget(self, action: #selector(preStory), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextStory), for: .touchUpInside)
-    }
-
-    private func setUserDefaults() {
-        UserDefaults.standard.set(true, forKey: "isVisited")
     }
     
     private func playSound(_ sound: SoundLiteral?) {
@@ -239,14 +234,14 @@ class StoryViewController: BaseViewController {
         
         if sceneNo
             >= Story.stories.count, linesNo + 1 >= Story.stories.last?.lines.count ?? 0 {
-            if agentName == "" {
-                navigationController?.pushViewController(AgentSelectionViewController(), animated: true)
-            }
+            navigationController?.pushViewController(AgentSelectionViewController(), animated: true)
             return
         }
         
-        if sceneNo == Story.stories.count - 1 && linesNo + 1 == Story.stories.last?.lines.count ?? 0 {
-            nextButton.isHidden = true
+        if agentName != "" {
+            if sceneNo == Story.stories.count - 1 && linesNo + 1 == Story.stories.last?.lines.count ?? 0 {
+                nextButton.isHidden = true
+            }
         }
         
         drawStory()
