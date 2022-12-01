@@ -79,8 +79,6 @@ class StoryViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
         
-        AppDelegate.AppUtility.changeOrientation(UIInterfaceOrientationMask.landscape)
-        
         sceneNo = 0
         linesNo = 0
         storyImageView.image = Story.stories[sceneNo].sceneImage
@@ -93,7 +91,14 @@ class StoryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AppDelegate.AppUtility.changeOrientation(UIInterfaceOrientationMask.landscape)
         addTargets()
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
