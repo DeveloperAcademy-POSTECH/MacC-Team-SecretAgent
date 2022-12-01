@@ -19,8 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.overrideUserInterfaceStyle = .light
         
-        UserDefaults.standard.setValue("", forKey: "agentName")
-        
         if UserDefaults.standard.string(forKey: "agentName") ?? "" == "" {
             window?.rootViewController = UINavigationController(rootViewController: OnBoardingViewController())
         } else {
@@ -66,6 +64,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if pastDay != currentDay && pastTime.compare("07").rawValue >= 0 {
             // 이렇게 해야 정산이 되더라
             UserDefaults.standard.setValue(1, forKey: "todaysFirstVisit")
+            
+            UserNotificationManager.shared.setEvery(at: 7, title: "획득한 보상 뱃지 총 5개", body: "아이와 함께 획득한 뱃지를 확인해 보세요!", uuid: "badge")
             
             let viewController = MainTabViewController()
             viewController.selectedIndex = 0
