@@ -19,7 +19,7 @@ private enum ViewSize {
     static let yohanLinesLabelTopOffset: Double = UIScreen.main.bounds.height / 42.2
     static let yohanLinesLabelWidth: Double = UIScreen.main.bounds.width / 1.39
     static let yohanLinesLabelHeight: Double = UIScreen.main.bounds.height / 15.63
-    static let goodButtonBottomOffset: Double = UIScreen.main.bounds.height / 8.36
+    static let goodButtonBottomOffset: Double = UIScreen.main.bounds.height * 0.12
 }
 
 final class AgentSelectionCompleteViewController: BaseViewController {
@@ -35,7 +35,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
         label.font = UIFont.boldSystemFont(ofSize: FontSize.largeTitle)
         return label
     }()
-    
+
     let yohanImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.yohanKo
@@ -82,7 +82,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(topLabel.snp.bottom).offset(ViewSize.yohanKoTopOffset)
         }
-        
+
         view.addSubview(yohanLinesLabel)
         yohanLinesLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

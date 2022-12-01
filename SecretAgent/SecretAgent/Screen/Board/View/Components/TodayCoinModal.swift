@@ -27,7 +27,6 @@ private final class Coin: UIImageView {
     }
 }
 
-
 private enum Literal {
     // TODO: - 리터럴에서 변경되어야함
 

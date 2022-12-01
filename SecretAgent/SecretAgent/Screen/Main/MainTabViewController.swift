@@ -23,13 +23,15 @@ private enum TabBarLiteral: String {
 
 class MainTabViewController: UITabBarController {
     // MARK: - Life Cycle
+
     private var todayCoin: Int = 5 {
         didSet {
-            boardTab.updateTodayCoin(to: self.todayCoin)
-            sirenTab.updateTodayCoin(to: self.todayCoin)
-            storyTab.updateTodayCoin(to: self.todayCoin)
+            boardTab.updateTodayCoin(to: todayCoin)
+            sirenTab.updateTodayCoin(to: todayCoin)
+            storyTab.updateTodayCoin(to: todayCoin)
         }
     }
+
     private var boardTab: BaseNavigationController!
     private var sirenTab: BaseNavigationController!
     private var storyTab: BaseNavigationController!
@@ -41,6 +43,7 @@ class MainTabViewController: UITabBarController {
         configUI()
         render()
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -84,7 +87,7 @@ class MainTabViewController: UITabBarController {
             )
         )
         storyTab = BaseNavigationController(
-            rootViewController: BaseViewController(),
+            rootViewController: StoryTabViewController(),
             title: TabBarLiteral.story(),
             tabBarItem: UITabBarItem(
                 title: TabBarLiteral.story(),

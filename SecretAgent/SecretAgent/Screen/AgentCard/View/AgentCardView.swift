@@ -29,7 +29,6 @@ enum AgentCardSize {
     static let nameFontSize = 35.0
 }
 
-
 class AgentCardView: UIImageView {
     typealias Literal = AgentCardLiteral
     typealias Size = AgentCardSize
@@ -211,6 +210,25 @@ class AgentCardView: UIImageView {
         nameLabel.text = agentName
         dateLabel.text = dateFormatter.string(from: createdDate) + "~"
         numberOfDaysLabel.text = "임무 수행 \(days(from: createdDate) + 1)일째"
+    }
+
+    func setCompact() {
+        ggoyosLogoImage.snp.remakeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(6)
+            make.bottom.equalToSuperview().inset(16)
+            make.size.equalTo(48)
+        }
+
+        vStack.snp.remakeConstraints { make in
+            make.height.equalToSuperview().multipliedBy(0.85)
+            make.leading.bottom.trailing.equalToSuperview()
+        }
+
+        footer.snp.remakeConstraints { make in
+            make.height.equalTo(66)
+            make.width.equalToSuperview()
+        }
     }
 
     private func days(from date: Date) -> Int {
