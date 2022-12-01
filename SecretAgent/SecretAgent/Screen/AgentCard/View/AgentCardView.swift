@@ -178,13 +178,7 @@ class AgentCardView: UIImageView {
 
     private func setAgentCard() {
         image = ImageLiteral.agentCardBackground
-        setTempUserDefaults()
         fetchUserDefaults()
-    }
-
-    private func setTempUserDefaults() {
-        UserDefaults.standard.setValue(Date() - 86400, forKey: "createdDate")
-        UserDefaults.standard.setValue("포요", forKey: "agentName")
     }
 
     private func fetchUserDefaults() {

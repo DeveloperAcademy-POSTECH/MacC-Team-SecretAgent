@@ -122,7 +122,7 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell()
         cell.textLabel?.text = "\(tableViewDataSource[indexPath.row])"
         cell.textLabel?.textAlignment = .center
-        cell.textLabel?.font = UIFont.boldBody
+        cell.textLabel?.font = .oneMobile(textStyle: .body)
         return cell
     }
 

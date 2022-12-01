@@ -32,15 +32,13 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     let topLabel: UILabel = {
         let label = UILabel()
         label.text = "요원 O요에게"
-        label.font = UIFont.boldSystemFont(ofSize: FontSize.largeTitle)
+        label.font = .oneMobile(size: 30)
         return label
     }()
 
     let yohanImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiteral.yohanKo
-        imageView.layer.cornerRadius = ViewSize.yohanKoImageCornerRadius
-        imageView.layer.masksToBounds = true
         return imageView
     }()
     
@@ -50,7 +48,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
         label.textAlignment = .center
         label.font = UIFont.regularFootnote
         label.numberOfLines = 2
-        label.backgroundColor = UIColor(hex: "CAD8FC")
+        label.backgroundColor = .yoMildBlue
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         return label
@@ -121,9 +119,16 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     private func addTargets() {
         goodButton.addTarget(self, action: #selector(goodButtonTapped), for: .touchUpInside)
     }
+    
+    private func playSound(_ sound: SoundLiteral, _ repeated: Bool = false) {
+        SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
+        SoundManager.shared.playSound()
+    }
 
     @objc private func goodButtonTapped() {
         let agentCardIssuanceVC = AgentCardIssuanceViewController(agentName: agentName)
+        navigationItem.title = "캐릭터 선택"
         navigationController?.pushViewController(agentCardIssuanceVC, animated: true)
+        playSound(.choiceLikeGoOut)
     }
 }
