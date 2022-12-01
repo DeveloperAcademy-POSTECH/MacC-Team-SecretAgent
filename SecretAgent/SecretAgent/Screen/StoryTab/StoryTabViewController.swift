@@ -23,11 +23,12 @@ class StoryTabViewController: BaseViewController {
     
     private let goToStoryButton = StoryCell(image: ImageLiteral.kiyoPlayButton, subTitle: "도입", title: "요원으로\n임명한다!")
     
-    private let showStoryButton = StoryCell(image: ImageLiteral.biyoPlayButton, subTitle: "규칙서", title: "앱 사용 설명서")
+    private let showOnboardingButton = StoryCell(image: ImageLiteral.biyoPlayButton, subTitle: "규칙서", title: "앱 사용 설명서")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configStackView()
+        addTargets()
     }
     
     override func render() {
@@ -48,9 +49,22 @@ class StoryTabViewController: BaseViewController {
             make.size.equalTo(ViewSize.buttonSize)
         }
         
-        vStackView.addArrangedSubview(showStoryButton)
-        showStoryButton.snp.makeConstraints { make in
+        vStackView.addArrangedSubview(showOnboardingButton)
+        showOnboardingButton.snp.makeConstraints { make in
             make.size.equalTo(ViewSize.buttonSize)
         }
+    }
+    
+    private func addTargets() {
+        showOnboardingButton.addTarget(self, action: #selector(viewOnBoarding), for: .touchUpInside)
+        goToStoryButton.addTarget(self, action: #selector(viewStory), for: .touchUpInside)
+    }
+    
+    @objc func viewStory() {
+        navigationController?.pushViewController(StoryViewController(), animated: true)
+    }
+    
+    @objc func viewOnBoarding() {
+        navigationController?.pushViewController(OnBoardingViewController(), animated: true)
     }
 }

@@ -62,7 +62,7 @@ class MainTabViewController: UITabBarController {
             )
         )
         let storyTab = BaseNavigationController(
-            rootViewController: BaseViewController(),
+            rootViewController: StoryTabViewController(),
             title: TabBarLiteral.story(),
             tabBarItem: UITabBarItem(
                 title: TabBarLiteral.story(),
