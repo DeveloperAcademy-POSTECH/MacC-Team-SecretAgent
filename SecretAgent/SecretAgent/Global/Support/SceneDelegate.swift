@@ -61,7 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.setValue(currentTime, forKey: "time")
         UserDefaults.standard.setValue(currentDay, forKey: "day")
         
-        if pastDay != currentDay && pastTime.compare("07").rawValue >= 0 {
+        if pastDay != currentDay && currentTime.compare("07").rawValue >= 0 {
             // 이렇게 해야 정산이 되더라
             UserDefaults.standard.setValue(1, forKey: "todaysFirstVisit")
             
