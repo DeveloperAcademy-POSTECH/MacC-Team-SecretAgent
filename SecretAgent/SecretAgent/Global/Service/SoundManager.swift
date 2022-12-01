@@ -24,6 +24,9 @@ class SoundManager {
         guard let url = Bundle.main.url(forResource: soundOption(), withExtension: MusicExtension.mp3()) else { return }
 
         do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+
             player = try AVAudioPlayer(contentsOf: url)
             guard let sound = player else { return }
             if repeated {
