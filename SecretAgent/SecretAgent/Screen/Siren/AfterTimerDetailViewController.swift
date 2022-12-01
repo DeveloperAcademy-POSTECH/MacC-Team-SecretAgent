@@ -140,7 +140,7 @@ class AfterTimerDetailViewController: BaseViewController {
         let confirmAction = UIAction { _ in
             if self.timerResult == .fail {
                 do {
-                    try BadgeManger.shared.decreaseTodaysBadge()
+                    try BadgeManager.shared.decreaseTodaysBadge()
                 } catch {
                     print("오늘뱃지를 감소시키는 작업이 실패하였습니다.")
                 }
