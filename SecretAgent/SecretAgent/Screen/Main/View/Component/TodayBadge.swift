@@ -106,6 +106,6 @@ final class TodayBadgeView: UIStackView {
     }
 
     func updateNumberOfCoins(to number: Int) {
-        fetchCoinNumber(number)
+        fetchCoinNumber()
     }
 }

@@ -24,9 +24,11 @@ private enum TabBarLiteral: String {
 class MainTabViewController: UITabBarController {
     // MARK: - Life Cycle
     private var todayCoin: Int = 5 {
-        boardTab.updateTodayCoin(to: self.todayCoin)
-        sirenTab.updateTodayCoin(to: self.todayCoin)
-        storyTab.updateTodayCoin(to: self.todayCoin)
+        didSet {
+            boardTab.updateTodayCoin(to: self.todayCoin)
+            sirenTab.updateTodayCoin(to: self.todayCoin)
+            storyTab.updateTodayCoin(to: self.todayCoin)
+        }
     }
     private var boardTab: BaseNavigationController!
     private var sirenTab: BaseNavigationController!
