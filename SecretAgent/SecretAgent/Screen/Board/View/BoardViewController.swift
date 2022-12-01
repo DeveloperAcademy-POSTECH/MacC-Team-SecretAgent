@@ -224,7 +224,7 @@ final class BoardViewController: BaseViewController {
         dropdownTableView.frame = CGRect(
             x: buttonFrame.origin.x + 5,
             // FIXME: - 여기서 Navigation Height을 적용해야 할 듯
-            y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset,
+            y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset + 100,
             width: BoardSize.tableViewRowWidth,
             height: 0
         )
@@ -238,7 +238,7 @@ final class BoardViewController: BaseViewController {
             self?.dropdownBackgroundView.alpha = 0.5
             self?.dropdownTableView.frame = CGRect(
                 x: buttonFrame.origin.x + 5,
-                y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset + Double(5),
+                y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset + Double(5) + 100,
                 width: BoardSize.tableViewRowWidth,
                 height: Double(self?.tableViewDataSource.count ?? 0) * BoardSize.tableViewRowHeight
             )
@@ -251,7 +251,7 @@ final class BoardViewController: BaseViewController {
             self?.dropdownBackgroundView.alpha = 0
             self?.dropdownTableView.frame = CGRect(
                 x: buttonFrame.origin.x + 5,
-                y: buttonFrame.origin.y + buttonFrame.height + BoardSize.safeAreaTopInset,
+                y: buttonFrame.origin.y + buttonFrame.height + Double(BoardSize.safeAreaTopInset) + 100,
                 width: BoardSize.tableViewRowWidth,
                 height: 0
             )
