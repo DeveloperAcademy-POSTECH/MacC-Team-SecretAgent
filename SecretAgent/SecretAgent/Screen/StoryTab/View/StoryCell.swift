@@ -13,12 +13,13 @@ class StoryCell: UIButton {
     let subTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .regularSubheadline
+        label.textColor = .yoGray5
         return label
     }()
 
     let centerLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldTitle2
+        label.font = .oneMobile(size: 22)
         label.numberOfLines = 2
         return label
     }()
