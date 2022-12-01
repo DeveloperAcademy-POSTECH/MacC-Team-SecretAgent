@@ -26,7 +26,6 @@ final class UnlockViewController: BaseViewController {
         let label = UILabel()
         label.text = "보호자 확인"
         label.font = UIFont.oneMobile(size: 32)
-
         return label
     }()
 
@@ -91,16 +90,6 @@ final class UnlockViewController: BaseViewController {
         return stackView
     }()
 
-    private let failLabel: UILabel = {
-        let label = UILabel()
-        label.text = "정답이 아닙니다. 다시 입력해주세요."
-        label.textAlignment = .center
-        label.textColor = .yoOrange
-        label.font = UIFont.systemFont(ofSize: 8, weight: .medium)
-        label.isHidden = true
-        return label
-    }()
-
     private var firstOperand = 0
     private var secondOperand = 0
     private var resultText = ""
@@ -160,12 +149,6 @@ final class UnlockViewController: BaseViewController {
             make.height.equalTo(160)
         }
 
-        view.addSubview(failLabel)
-        failLabel.snp.makeConstraints { make in
-            make.width.equalTo(resultView.resultField)
-            make.top.equalTo(resultView.resultField.snp.bottom).offset(8)
-            make.trailing.equalTo(resultView.resultField.snp.trailing)
-        }
     }
 
     override func configUI() {
@@ -189,7 +172,8 @@ final class UnlockViewController: BaseViewController {
                 print("정답") // 임시
             } else {
                 self.resultView.resultField.textColor = .yoOrange
-                self.failLabel.isHidden = false
+                self.subLabel.text = "정답이 아닙니다. 다시 입력해주세요."
+                self.subLabel.textColor = .yoOrange
             }
         }
         unlockButton.addAction(unlockAction, for: .touchUpInside)
@@ -253,7 +237,9 @@ extension UnlockViewController: UITextFieldDelegate {
         unlockButton.isEnabled = false
         unlockButton.backgroundColor = .yoYellow2
         resultView.resultField.textColor = .black
-        failLabel.isHidden = true
+        subLabel.text = "부모님 확인을 위해 정답을 입력해주세요."
+        subLabel.textColor = .black
+
         return true
     }
 }

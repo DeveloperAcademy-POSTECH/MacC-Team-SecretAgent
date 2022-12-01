@@ -235,6 +235,7 @@ final class SirenViewController: BaseViewController {
     }
 
     @objc private func stopTimer() {
+        stopSirenSound()
         cancelLocalNotification()
         countdownTimer.stop()
         progressBar.stop()
@@ -251,6 +252,7 @@ final class SirenViewController: BaseViewController {
         playSirenSound()
 
         if !countdownTimerDidStart {
+            playSirenSound()
             sendLocalNotification()
             countdownTimer.runTimer()
             progressBar.start()
@@ -258,6 +260,7 @@ final class SirenViewController: BaseViewController {
             startButton.setTitle("일시 정지", for: .normal)
             startButton.backgroundColor = .yoOrange
         } else {
+            stopSirenSound()
             cancelLocalNotification()
             countdownTimer.pause()
             progressBar.pause()
@@ -283,6 +286,11 @@ final class SirenViewController: BaseViewController {
         SoundManager.shared.setupSound(soundOption: .siren, repeated: false)
         SoundManager.shared.playSound()
     }
+
+    private func stopSirenSound() {
+        SoundManager.shared.stopSound()
+
+    }
 }
 
 // MARK: CountdownTimerDelegate
@@ -306,6 +314,7 @@ extension SirenViewController: CountdownTimerDelegate {
 
 extension SirenViewController: ProgressBarDelegate {
     func progressFinished() {
+        sirenBackgroundView.isHidden = false
         tabBarController?.selectedIndex = 0
         let afterTimerViewController = AfterTimerViewController()
         afterTimerViewController.modalTransitionStyle = .crossDissolve
