@@ -145,8 +145,8 @@ class StoryViewController: BaseViewController {
         nextButton.addTarget(self, action: #selector(nextStory), for: .touchUpInside)
     }
     
-    private func playSound(_ sound: SoundLiteral?, _ repeated: Bool = true) {
-        SoundManager.shared.setupSound(soundOption: sound ?? .choiceLikeGoOut, repeated: repeated)
+    private func playSound(_ sound: SoundLiteral?) {
+        SoundManager.shared.setupSound(soundOption: sound ?? .choiceLikeGoOut)
         SoundManager.shared.playSound()
     }
     
@@ -196,7 +196,7 @@ class StoryViewController: BaseViewController {
         if sceneNo < 7 {
             SoundManager.shared.stopSound()
             if Story.stories[sceneNo].backgroundSound != nil {
-                playSound(Story.stories[sceneNo].backgroundSound, false)
+                playSound(Story.stories[sceneNo].backgroundSound)
             }
         } else if sceneNo == 7 {
             SoundManager.shared.stopSound()
