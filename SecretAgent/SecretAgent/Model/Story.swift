@@ -65,7 +65,7 @@ struct Story {
         
         Story(sceneNo: 8,
               lines: ["그래서 자네가 비밀요원단, 꼬요즈가  되어줄 수 있겠나?!",
-                      "웅웅외계인으로부터 지구를 지키고 녀석들과 함꼐 싸워주게나!",
+                      "웅웅외계인으로부터 지구를 지키고 녀석들과 함께 싸워주게나!",
                       "이건 자네밖에 못하는 일이라네 부탁이야."],
               sceneImage: ImageLiteral.scene8,
               backgroundSound: SoundLiteral.scene8to12,

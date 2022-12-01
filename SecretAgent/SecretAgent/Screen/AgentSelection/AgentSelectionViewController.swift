@@ -103,14 +103,14 @@ final class AgentSelectionViewController: BaseViewController {
     
     // MARK: - Lift Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configStack()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configStack()
     }
     
     override func render() {
@@ -149,7 +149,7 @@ final class AgentSelectionViewController: BaseViewController {
     
     override func configUI() {
         super.configUI()
-        navigationItem.title = "캐릭터 선택"
+        navigationItem.hidesBackButton = true
     }
     
     private func configStack() {
@@ -196,10 +196,13 @@ final class AgentSelectionViewController: BaseViewController {
     }
     
     @objc private func selectCompleteClicked(sender: UIButton) {
-        // TODO: - 완료 버튼 구현 예정
         playSound(.choiceLikeGoOut, false)
         print(Agent.agentList[selectedAgentID].name, "선택완료")
-        let agentSelectionCompletionVC = AgentSelectionCompleteViewController(agentName: Agent.agentList[selectedAgentID].name)
+        let agentSelectionCompletionVC =  AgentSelectionCompleteViewController(agentName: Agent.agentList[selectedAgentID].name)
         navigationController?.pushViewController(agentSelectionCompletionVC, animated: true)
+        navigationItem.title = "캐릭터 선택"
+        UserDefaults.standard.setValue(Agent.agentList[selectedAgentID].name, forKey: "agentName")
+        UserDefaults.standard.setValue(Date(), forKey: "createdDate")
     }
 }
+

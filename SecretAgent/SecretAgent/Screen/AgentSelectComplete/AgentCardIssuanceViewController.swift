@@ -54,7 +54,7 @@ class AgentCardIssuanceViewController: BaseViewController {
     let actionButton: BaseButton = {
         let button = BaseButton()
         button.makeButtonLarge()
-        button.setButton(text: "출동하기", color: .yoBlack)
+        button.setButton(text: "출동하기", color: .clear)
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         return button
     }()
@@ -63,6 +63,7 @@ class AgentCardIssuanceViewController: BaseViewController {
 
     init(agentName: String) {
         self.agentName = agentName
+        topLabel.text = "요원 \(agentName)\n출동!"
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -102,7 +103,6 @@ class AgentCardIssuanceViewController: BaseViewController {
 
     override func configUI() {
         super.configUI()
-        guard let agentName = UserDefaults.standard.string(forKey: "agentName") else { return }
         topLabel.text = "요원 \(agentName)\n출동!"
         navigationController?.navigationBar.tintColor = .yoBlack
         navigationController?.navigationBar.topItem?.title = ""
@@ -111,15 +111,18 @@ class AgentCardIssuanceViewController: BaseViewController {
     private func addTargets() {
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
+    
+    private func playSound(_ sound: SoundLiteral, _ repeated: Bool = false) {
+        SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
+        SoundManager.shared.playSound()
+    }
 
     @objc private func actionButtonTapped() {
-        UserDefaults.standard.set(agentName, forKey: "agentName")
-        UserDefaults.standard.set(Date(), forKey: "createdDate")
-
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         guard let delegate = sceneDelegate else { return }
         let mainTabVC = MainTabViewController()
         mainTabVC.selectedIndex = 2
         delegate.window?.rootViewController = mainTabVC
+        playSound(.choiceLikeGoOut)
     }
 }

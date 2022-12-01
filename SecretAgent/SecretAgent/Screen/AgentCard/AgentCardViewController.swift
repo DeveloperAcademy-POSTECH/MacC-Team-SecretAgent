@@ -30,7 +30,7 @@ class AgentCardViewController: BaseViewController {
         let label = UILabel()
         label.text = Literal.agentCard
         label.textColor = .white
-        label.font = .boldBody
+        label.font = .oneMobile(textStyle: .body)
         return label
     }()
 

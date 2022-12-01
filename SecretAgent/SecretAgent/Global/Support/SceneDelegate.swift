@@ -16,6 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UNUserNotificationCenter.current().delegate = self
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        
+        window?.overrideUserInterfaceStyle = .light
+        
+        UserDefaults.standard.setValue("", forKey: "agentName")
+        
         if UserDefaults.standard.string(forKey: "agentName") ?? "" == "" {
             window?.rootViewController = UINavigationController(rootViewController: OnBoardingViewController())
         } else {
