@@ -14,7 +14,8 @@ final class CalculatorResultView: UIStackView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.text = "1"
-        label.textColor = .black
+        label.textColor = .yoBlack
+        label.textAlignment = .right  // FIXME: - 추후 수정 필요
         return label
     }()
 
@@ -22,15 +23,17 @@ final class CalculatorResultView: UIStackView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.text = "1"
-        label.textColor = .black
+        label.textColor = .yoBlack
+        label.textAlignment = .center
         return label
     }()
 
     private let multiplier: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
-        label.text = "X"
+        label.text = "x"
         label.textColor = .yoYellow1
+        label.textAlignment = .center
         return label
     }()
 
@@ -39,6 +42,7 @@ final class CalculatorResultView: UIStackView {
         label.font = UIFont.systemFont(ofSize: 34, weight: .bold)
         label.text = "="
         label.textColor = .yoYellow1
+        label.textAlignment = .center
         return label
     }()
 
@@ -48,7 +52,6 @@ final class CalculatorResultView: UIStackView {
         textfield.borderStyle = .none
         textfield.clearButtonMode = .always
         textfield.font = UIFont.systemFont(ofSize: 34, weight: .bold)
-
         return textfield
     }()
 
