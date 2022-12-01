@@ -9,15 +9,24 @@ import UIKit
 
 // MARK: - BoardViewController + UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 
+private enum BoardInfo {
+    static let numberOfBadgesPerStar = 25
+    static let numberOfBoardCollectionViewCells = 32
+    static let numberOfStarBadges = 5
+    static let horizontalBoardInset = 50.0
+}
+
+// MARK: - BoardViewController + UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+
 extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 31
+        return BoardInfo.numberOfBoardCollectionViewCells
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let myCell = collectionView.dequeueReusableCell(withType: BadgeCollectionViewCell.self, for: indexPath)
 
-        let decreaseAmount = 25 * curTableViewIndexPath.row
+        let decreaseAmount = BoardInfo.numberOfBadgesPerStar * curTableViewIndexPath.row
         totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
 
         let badgeIndex = indexPath.row
@@ -29,8 +38,11 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
         } else {
             myCell.badgeType = .coin
         }
-        if badgeIndex == 30 {
-            myCell.badgeType = starBadgeTypes[curTableViewIndexPath.row]
+        if badgeIndex == BoardInfo.numberOfBoardCollectionViewCells - 2 {
+            myCell.badgeType = starBadgeTypes[min(curTableViewIndexPath.row, BoardInfo.numberOfStarBadges - 1)]
+        }
+        if badgeIndex == BoardInfo.numberOfBoardCollectionViewCells - 1 {
+            myCell.badgeType = nil
         }
 
         // 이미지 생성
@@ -43,26 +55,36 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 myCell.generateInactiveImage()
             }
         }
-
-        if badgeIndex == 30, badgeIndex == totalBadgeNumber + shieldNumber {
+        if badgeIndex == BoardInfo.numberOfBoardCollectionViewCells - 2, badgeIndex == totalBadgeNumber + shieldNumber {
             myCell.generateActiveImage()
         }
+        if badgeIndex == BoardInfo.numberOfBoardCollectionViewCells - 1 {
+            if allStarsCollected, curTableViewIndexPath.row == BoardInfo.numberOfStarBadges - 1 {
+                myCell.generateLastImage()
+            } else {
+                myCell.generateLastImageTransparent()
+            }
+        }
 
+        // 위치(크기) 지정
         switch badgeIndex % 4 {
         case 0:
-            myCell.frame.size.width = Double(myCell.getBadgeWidth() + 50) // 뱃지크기 + 여백
+            myCell.frame.size.width = Double(myCell.getBadgeWidth() + BoardInfo.horizontalBoardInset) // 뱃지크기 + 여백
         case 1, 3:
             myCell.frame.size.width = Double(view.frame.size.width / 2) + (myCell.getBadgeWidth() / 2) // 반 채우고 뱃지 크기 반 만큼
         case 2:
-            myCell.frame.size.width = view.frame.size.width - 50 // 전체 너비 - 여백
+            myCell.frame.size.width = view.frame.size.width - BoardInfo.horizontalBoardInset // 전체 너비 - 여백
         default:
             myCell.frame.size.width = .zero
         }
-
-        if badgeIndex == 30 {
+        if badgeIndex == BoardInfo.numberOfBoardCollectionViewCells - 2 {
+            myCell.frame.size.width = Double(view.frame.size.width / 2) + (myCell.getBadgeWidth() / 2)
+        }
+        if badgeIndex == BoardInfo.numberOfBoardCollectionViewCells - 1 {
             myCell.frame.size.width = Double(view.frame.size.width / 2) + (myCell.getBadgeWidth() / 2)
         }
 
+        // 이미지 크기 지정
         myCell.setImageFrame()
 
         return myCell
@@ -79,6 +101,10 @@ extension BoardViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
         if indexPath.row == 30 {
             itemHeight = BoardSize.starSize.height
+        }
+
+        if indexPath.row == 31 {
+            itemHeight = BoardSize.mentSize.height
         }
 
         return CGSize(width: view.frame.size.width, height: itemHeight)
@@ -101,22 +127,6 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dropdownButton.setTitle("\(tableViewDataSource[indexPath.row]) ▼", for: .normal)
-        removeDropdownBackgroundView()
-
-        curTableViewIndexPath = indexPath
-
-        let decreaseAmount = 25 * indexPath.row
-        totalBadgeNumber = totalBadgeNumberFromCoreData - decreaseAmount
-
-        if totalBadgeNumber < 0, indexPath.row > 0 {
-            addHideBadgeView(previous: indexPath.row > 0 ? tableViewDataSource[indexPath.row - 1] : nil)
-        } else {
-            removeHideBadgeView()
-        }
-
-        badgeCollectionView.reloadData()
-
-        scrollCollectionView()
+        refreshBoard(targetIndex: indexPath.row)
     }
 }

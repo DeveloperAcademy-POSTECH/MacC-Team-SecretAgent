@@ -10,6 +10,9 @@ import SnapKit
 
 private enum Size {
     static let defaultOffset = 31
+    static let xmarkTopOffset = UIScreen.main.bounds.height / 11.40
+    static let resultViewHorizontalOffset = UIScreen.main.bounds.width / 7.84
+    static let resultViewTopOffset = UIScreen.main.bounds.height / 8.98
 }
 
 final class UnlockViewController: BaseViewController {
@@ -114,7 +117,7 @@ final class UnlockViewController: BaseViewController {
         view.addSubview(dismissButton)
         dismissButton.snp.makeConstraints { make in
             make.size.equalTo(36)
-            make.top.equalToSuperview().offset(74)
+            make.top.equalToSuperview().offset(Size.xmarkTopOffset)
             make.trailing.equalToSuperview().inset(29)
         }
 
@@ -128,8 +131,8 @@ final class UnlockViewController: BaseViewController {
 
         view.addSubview(resultView)
         resultView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(50)
-            make.top.equalTo(labelVStackView.snp.bottom).offset(94)
+            make.leading.trailing.equalToSuperview().inset(Size.resultViewHorizontalOffset)
+            make.top.equalTo(labelVStackView.snp.bottom).offset(Size.resultViewTopOffset)
             make.height.equalTo(45)
         }
 

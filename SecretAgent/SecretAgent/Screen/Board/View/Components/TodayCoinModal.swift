@@ -30,9 +30,9 @@ private final class Coin: UIImageView {
 private enum Literal {
     // TODO: - 리터럴에서 변경되어야함
 
-    static let prompt = "오늘 보상 코인 획득까지"
-    static let remainTime = " O시간 남음"
-    static let description = "사이렌 발동 후 조용하 하기에 실패할 때마다\n보상으로 받을 수 있는 콘의 수가 줄어듭니다."
+    static let prompt = "오늘 보상 코인 획득까지 "
+    static let remainTime = "시간 남음"
+    static let description = "사이렌 발동 후 조용히 하기에 실패할 때마다\n보상으로 받을 수 있는 코인의 수가 줄어듭니다."
 }
 
 final class TodayCoinModal: UIView {
@@ -59,7 +59,7 @@ final class TodayCoinModal: UIView {
     private let remainTime: UILabel = {
         let label = UILabel()
 
-        label.text = Literal.remainTime
+        label.text = Date.remainHourToday + Literal.remainTime
         label.textColor = .yoOrange
         label.font = .oneMobile(size: 18)
         label.textAlignment = .center
@@ -161,5 +161,20 @@ final class TodayCoinModal: UIView {
             make.width.equalTo(303)
             make.centerX.equalToSuperview()
         }
+    }
+}
+
+private extension Date {
+    static var remainHourToday: String {
+        let dateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "HH"
+
+        if let currentTime = Int(dateFormatter.string(from: Date())) {
+            return String(23 - currentTime)
+        }
+
+        // 0으로 나가면 오류
+        return "0"
     }
 }
