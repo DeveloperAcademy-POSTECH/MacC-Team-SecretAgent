@@ -11,9 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
+        UNUserNotificationCenter.current().delegate = self
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
@@ -26,7 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             window?.rootViewController = MainTabViewController()
         }
-        window?.makeKeyAndVisible()    }
+        window?.makeKeyAndVisible()
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {}
 
@@ -48,5 +49,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         UserDefaults.standard.setValue(Date(), forKey: "sceneDidEnterBackground")
+    }
+}
+
+// MARK: UNUserNotificationCenterDelegate
+
+extension SceneDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let identifier = response.notification.request.identifier
+        guard let tabBarController = window?.rootViewController as? UITabBarController else {
+            print("No TabBarController on SceneDelegate")
+            return
+        }
+
+        if identifier == "timer" {
+            let viewController = AfterTimerViewController()
+
+            viewController.modalPresentationStyle = .fullScreen
+            viewController.modalTransitionStyle = .crossDissolve
+            tabBarController.selectedIndex = 1
+            tabBarController.selectedViewController?.present(viewController, animated: true)
+        } else if identifier == "badge" {
+            guard let boardViewController = tabBarController.selectedViewController as? BoardViewController else { return
+            }
+            tabBarController.selectedIndex = 0
+            boardViewController.receiveTodaysBadges()
+        } else {
+            print("없는 알람이지롱")
+        }
+
+        // 이 completionHandler는 뭐지,,?
+        completionHandler()
     }
 }

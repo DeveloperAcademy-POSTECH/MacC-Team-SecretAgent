@@ -151,7 +151,6 @@ final class UnlockViewController: BaseViewController {
             make.bottom.equalTo(buttonHStackView.snp.top).offset(-70) // inset(70)하면 안되는데 이유가..
             make.height.equalTo(160)
         }
-
     }
 
     override func configUI() {

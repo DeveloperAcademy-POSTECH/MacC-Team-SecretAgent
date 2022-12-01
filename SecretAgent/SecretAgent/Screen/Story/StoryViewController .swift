@@ -244,7 +244,7 @@ class StoryViewController: BaseViewController {
         }
         
         if agentName != "" {
-            if sceneNo == Story.stories.count - 1 && linesNo + 1 == Story.stories.last?.lines.count ?? 0 {
+            if sceneNo == Story.stories.count - 1, linesNo + 1 == Story.stories.last?.lines.count ?? 0 {
                 nextButton.isHidden = true
             }
         }
@@ -261,5 +261,4 @@ class StoryViewController: BaseViewController {
     @objc func moveToBackVC() {
         navigationController?.popViewController(animated: true)
     }
-    
 }
