@@ -228,6 +228,7 @@ class AgentCardView: UIImageView {
     private func days(from date: Date) -> Int {
         let calendar = Calendar.current
         let currentDate = Date()
-        return calendar.dateComponents([.day], from: date, to: currentDate).day!
+        guard let totalDays = calendar.dateComponents([.day], from: date, to: currentDate).day else { return 0 }
+        return totalDays
     }
 }

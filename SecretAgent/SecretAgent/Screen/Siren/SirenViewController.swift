@@ -28,7 +28,7 @@ final class SirenViewController: BaseViewController {
         return button
     }()
 
-    private let sirenBackgroundView: UIView = {
+    let sirenBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view

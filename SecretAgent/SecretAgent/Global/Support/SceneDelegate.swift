@@ -97,11 +97,12 @@ extension SceneDelegate: UNUserNotificationCenterDelegate {
             viewController.modalPresentationStyle = .fullScreen
             viewController.modalTransitionStyle = .crossDissolve
             tabBarController.selectedIndex = 1
-            tabBarController.selectedViewController?.present(viewController, animated: true)
+            guard let sirenViewController = tabBarController.selectedViewController as? SirenViewController else { return }
+            sirenViewController.sirenBackgroundView.isHidden = true
+            sirenViewController.present(viewController, animated: true)
         } else if identifier == "badge" {
-            guard let boardViewController = tabBarController.selectedViewController as? BoardViewController else { return
-            }
             tabBarController.selectedIndex = 0
+            guard let boardViewController = tabBarController.selectedViewController as? BoardViewController else { return }
             boardViewController.receiveTodaysBadges()
         } else {
             print("없는 알람이지롱")
