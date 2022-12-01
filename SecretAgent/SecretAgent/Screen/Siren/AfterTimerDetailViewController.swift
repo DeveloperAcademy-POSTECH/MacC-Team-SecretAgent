@@ -138,6 +138,13 @@ class AfterTimerDetailViewController: BaseViewController {
             self.dismiss(animated: true)
         }
         let confirmAction = UIAction { _ in
+            if self.timerResult == .fail {
+                do {
+                    try BadgeManger.shared.decreaseTodaysBadge()
+                } catch {
+                    print("오늘뱃지를 감소시키는 작업이 실패하였습니다.")
+                }
+            }
             guard let mainTabBarVC = self.presentingViewController?.presentingViewController as? UITabBarController else { return }
             mainTabBarVC.dismiss(animated: true) // 의문
         }

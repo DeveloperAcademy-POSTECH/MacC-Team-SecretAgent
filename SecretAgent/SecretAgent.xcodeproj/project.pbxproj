@@ -343,6 +343,50 @@
 			path = Badge;
 			sourceTree = "<group>";
 		};
+		35A801E129374CEF0052451A /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				35A801F029374D5B0052451A /* scene1.mp3 */,
+				35A801EB29374D5B0052451A /* scene2.mp3 */,
+				35A801ED29374D5B0052451A /* scene3.mp3 */,
+				35A801F229374D5C0052451A /* scene4.mp3 */,
+				35A801EE29374D5B0052451A /* scene5.mp3 */,
+				35A801EF29374D5B0052451A /* scene6.mp3 */,
+				35A801EC29374D5B0052451A /* scene7.mp3 */,
+				35A801F129374D5B0052451A /* scene8to12.mp3 */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		35A801E229374CF40052451A /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				35A801FB29374D700052451A /* character.mp3 */,
+				35A801FC29374D710052451A /* choiceLikeGoOut.mp3 */,
+				35A801FF29374D7E0052451A /* agentCard.mp3 */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		35A801E329374CFE0052451A /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+				35A801E529374D1E0052451A /* siren.mp3 */,
+				35A801E729374D2A0052451A /* failure.mp3 */,
+				35A801E829374D2A0052451A /* success.mp3 */,
+			);
+			path = Siren;
+			sourceTree = "<group>";
+		};
+		35A801E429374D060052451A /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				35A8020129374D920052451A /* coinCheck.mp3 */,
+				35A8020229374D920052451A /* starBadgeGain.mp3 */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
 		35BD54952925D497008F96AC = {
 			isa = PBXGroup;
 			children = (
