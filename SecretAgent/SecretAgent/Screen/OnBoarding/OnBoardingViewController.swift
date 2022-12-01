@@ -206,6 +206,7 @@ class OnBoardingViewController: BaseViewController {
     }
     
     override func configUI() {
+        view.backgroundColor = .white
         tableView.dataSource = self
         tableView.delegate = self
     }
