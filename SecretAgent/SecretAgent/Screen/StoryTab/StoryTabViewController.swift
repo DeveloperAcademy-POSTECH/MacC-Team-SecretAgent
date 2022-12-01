@@ -22,9 +22,17 @@ class StoryTabViewController: BaseViewController {
         return stackView
     }()
     
-    private let goToStoryButton = StoryCell(image: ImageLiteral.kiyoPlayButton, subTitle: "도입", title: "요원으로\n임명한다!")
+    private let goToStoryButton = StoryCell(image: ImageLiteral.kiyoPlayButton, subTitle: "도입", title: "요원으로 임명\n한다!")
     
     private let showOnboardingButton = StoryCell(image: ImageLiteral.biyoPlayButton, subTitle: "규칙서", title: "앱 사용 설명서")
+    
+    private let openSourceLicenceButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("오픈소스 라이선스", for: .normal)
+        button.titleLabel?.font = .regularCaption1
+        button.setTitleColor(.yoGray5, for: .normal)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +53,12 @@ class StoryTabViewController: BaseViewController {
             make.centerX.equalTo(view.safeAreaLayoutGuide)
             make.top.equalTo(ViewSize.vStackViewTopInset)
             make.size.equalTo(ViewSize.stackViewSize)
+        }
+        
+        view.addSubview(openSourceLicenceButton)
+        openSourceLicenceButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().inset(UIScreen.main.bounds.height / 7.60)
         }
     }
     
@@ -67,6 +81,7 @@ class StoryTabViewController: BaseViewController {
     private func addTargets() {
         showOnboardingButton.addTarget(self, action: #selector(viewOnBoarding), for: .touchUpInside)
         goToStoryButton.addTarget(self, action: #selector(viewStory), for: .touchUpInside)
+        openSourceLicenceButton.addTarget(self, action: #selector(viewOpenSourceLicence), for: .touchUpInside)
     }
     
     @objc func viewStory() {
@@ -81,5 +96,10 @@ class StoryTabViewController: BaseViewController {
         onBoardingVC.modalPresentationStyle = .fullScreen
         onBoardingVC.showAgain()
         navigationController?.present(onBoardingVC, animated: true)
+    }
+    
+    @objc func viewOpenSourceLicence() {
+        navigationController?.pushViewController(OpenSourceViewController(), animated: true)
+        (navigationController as? BaseNavigationController)?.navigationButtons.isHidden = true
     }
 }
