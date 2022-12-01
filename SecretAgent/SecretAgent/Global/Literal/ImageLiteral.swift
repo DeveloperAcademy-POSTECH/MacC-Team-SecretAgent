@@ -30,6 +30,10 @@ enum ImageLiteral {
     static var agentBiyoCircleProfile: UIImage { .load(named: "CharProfile-Biyo-Circle-Profile") }
     static var agentKiyoCircleProfile: UIImage { .load(named: "CharProfile-Kiyo-Circle-Profile") }
     static var agentMayoCircleProfile: UIImage { .load(named: "CharProfile-Mayo-Circle-Profile") }
+    
+    static var yohanKo: UIImage { .load(named: "yohanKo") }
+
+    static var primaryButtonBackground: UIImage { .load(named: "primaryButtonBackground") }
 
     // MARK: - Badges
 
@@ -58,7 +62,7 @@ enum ImageLiteral {
 
     // MARK: - Siren
 
-    static var siren: UIImage { .load(named: "siren") }
+    static var siren: UIImage { .load(named: "sirenImage") }
     static var woongwoong: UIImage { .load(named: "woongwoong") }
 
     // MARK: - AgentCard
@@ -67,6 +71,13 @@ enum ImageLiteral {
     static var divider: UIImage { .load(named: "divider") }
     static var cancelWhite: UIImage { .load(named: "x.white") }
     static var agentCardBackground: UIImage { .load(named: "agentCard.background") }
+    static var speech: UIImage { .load(named: "speechImage") }
+
+    // MARK: - Timer
+
+    static var timerFail: UIImage { .load(named: "timerFail") }
+    static var timerSuccess: UIImage { .load(named: "timerSuccess") }
+    static var timerTimeOut: UIImage { .load(named: "timerTimeOut") }
 }
 
 extension UIImage {

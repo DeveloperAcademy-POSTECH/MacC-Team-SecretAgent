@@ -53,7 +53,7 @@ class MainTabViewController: UITabBarController {
             )
         )
         let sirenTab = BaseNavigationController(
-            rootViewController: TestSirenViewController(),
+            rootViewController: SirenViewController(),
             title: TabBarLiteral.siren(),
             tabBarItem: UITabBarItem(
                 title: TabBarLiteral.siren(),
