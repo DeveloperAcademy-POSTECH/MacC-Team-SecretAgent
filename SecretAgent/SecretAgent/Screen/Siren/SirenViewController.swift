@@ -10,7 +10,7 @@ import UIKit
 
 private enum Constants {
     static let progressBarSize = 300
-    static let selectedSeconds = 30 * 60
+    static let selectedSeconds = 5 * 1
 }
 
 final class SirenViewController: BaseViewController {
@@ -24,17 +24,6 @@ final class SirenViewController: BaseViewController {
     @IBOutlet var counterView: UIStackView!
 
     private let countdownTimer: CountDownTimer = .init(totalSeconds: Constants.selectedSeconds)
-
-    private let doneLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24.0,
-                                       weight: UIFont.Weight.light)
-        label.textColor = .white
-        label.textAlignment = .center
-        label.text = "Done!"
-        return label
-    }()
-
     private var countdownTimerDidStart = false
     private let progressBar: ProgressBar = .init(totalSeconds: Constants.selectedSeconds)
 
@@ -51,11 +40,6 @@ final class SirenViewController: BaseViewController {
         progressBar.snp.makeConstraints { make in
             make.center.equalTo(view)
         }
-
-        view.addSubview(doneLabel)
-        doneLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
     }
 
     override func configUI() {
@@ -63,7 +47,6 @@ final class SirenViewController: BaseViewController {
         countdownTimer.setTimer()
         stopButton.isEnabled = false
         stopButton.alpha = 0.5
-        doneLabel.isHidden = true
         counterView.isHidden = false
         minutes.text = String(format: "%02d",
                               Constants.selectedSeconds / 60)
@@ -75,6 +58,7 @@ final class SirenViewController: BaseViewController {
 
     private func setDelegation() {
         countdownTimer.delegate = self
+        progressBar.delegate = self
     }
 
     private func setNotification() {
@@ -93,12 +77,11 @@ final class SirenViewController: BaseViewController {
         progressBar.stop()
         countdownTimerDidStart = false
         stopButton.isEnabled = false
-        stopButton.alpha = 0.5
-        startButton.setTitle("START", for: .normal)
+        stopButton.alpha = 0.8
+        startButton.setTitle("시작", for: .normal)
     }
 
     @IBAction func startTimer(_ sender: UIButton) {
-        doneLabel.isHidden = true
         counterView.isHidden = false
         stopButton.isEnabled = true
         stopButton.alpha = 1.0
@@ -107,12 +90,12 @@ final class SirenViewController: BaseViewController {
             countdownTimer.runTimer()
             progressBar.start()
             countdownTimerDidStart = true
-            startButton.setTitle("PAUSE", for: .normal)
+            startButton.setTitle("일시 정지", for: .normal)
         } else {
             countdownTimer.pause()
             progressBar.pause()
             countdownTimerDidStart = false
-            startButton.setTitle("RESUME", for: .normal)
+            startButton.setTitle("재개", for: .normal)
         }
     }
 }
@@ -126,12 +109,22 @@ extension SirenViewController: CountdownTimerDelegate {
     }
 
     func countdownTimerDone() {
-        doneLabel.isHidden = false
         counterView.isHidden = true
         stopButton.isEnabled = false
-        stopButton.alpha = 0.5
-        startButton.setTitle("START", for: .normal)
+        stopButton.alpha = 0.8
+        startButton.setTitle("시작", for: .normal)
         countdownTimerDidStart = false
         progressBar.stop()
+    }
+}
+
+// MARK: ProgressBarDelegate
+
+extension SirenViewController: ProgressBarDelegate {
+    func progressFinished() {
+        let afterTimerViewController = AfterTimerViewController()
+        afterTimerViewController.modalTransitionStyle = .crossDissolve
+        afterTimerViewController.modalPresentationStyle = .fullScreen
+        present(afterTimerViewController, animated: true)
     }
 }
