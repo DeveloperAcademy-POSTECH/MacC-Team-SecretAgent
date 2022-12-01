@@ -30,7 +30,7 @@ enum ImageLiteral {
     static var agentBiyoCircleProfile: UIImage { .load(named: "CharProfile-Biyo-Circle-Profile") }
     static var agentKiyoCircleProfile: UIImage { .load(named: "CharProfile-Kiyo-Circle-Profile") }
     static var agentMayoCircleProfile: UIImage { .load(named: "CharProfile-Mayo-Circle-Profile") }
-    
+
     static var yohanKo: UIImage { .load(named: "yohanKo") }
 
     static var primaryButtonBackground: UIImage { .load(named: "primaryButtonBackground") }
