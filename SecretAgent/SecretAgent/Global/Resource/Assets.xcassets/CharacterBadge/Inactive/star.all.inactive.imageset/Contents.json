@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "star.all.inactive.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -10,7 +10,7 @@ import UIKit
 
 private enum Constants {
     static let progressBarSize = 300
-    static let selectedSeconds = 3 * 1 // 임시
+    static let selectedSeconds = 5 * 1 // 임시
     static let timeHStackViewHorizontalOffset = UIScreen.main.bounds.width / 2.48
     static let buttonHStackViewBottomOffset = UIScreen.main.bounds.height / 5.20
     static let defaultOffset = 20
@@ -135,6 +135,7 @@ final class SirenViewController: BaseViewController {
         setDelegation()
         setNotification()
         addTargets()
+        requestAuthorization()
     }
 
     override func render() {
@@ -234,6 +235,7 @@ final class SirenViewController: BaseViewController {
     }
 
     @objc private func stopTimer() {
+        cancelLocalNotification()
         countdownTimer.stop()
         progressBar.stop()
         countdownTimerDidStart = false
@@ -244,23 +246,36 @@ final class SirenViewController: BaseViewController {
     }
 
     @objc private func startTimer() {
-//        counterView.isHidden = false
         stopButton.isEnabled = true
         stopButton.alpha = 1.0
 
         if !countdownTimerDidStart {
+            sendLocalNotification()
             countdownTimer.runTimer()
             progressBar.start()
             countdownTimerDidStart = true
             startButton.setTitle("일시 정지", for: .normal)
             startButton.backgroundColor = .yoOrange
         } else {
+            cancelLocalNotification()
             countdownTimer.pause()
             progressBar.pause()
             countdownTimerDidStart = false
             startButton.setTitle("재개", for: .normal)
             startButton.backgroundColor = .yoGreen
         }
+    }
+
+    private func requestAuthorization() {
+        UserNotificationManager.shared.grant()
+    }
+
+    private func sendLocalNotification() {
+        UserNotificationManager.shared.setOnce(after: TimeInterval(countdownTimer.duration), title: "타이머", body: "타이머 제한 시간이 끝났습니다.", uuid: "timer")
+    }
+
+    private func cancelLocalNotification() {
+        UserNotificationManager.shared.cancel(at: "timer")
     }
 }
 
