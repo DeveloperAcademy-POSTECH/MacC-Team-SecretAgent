@@ -26,6 +26,7 @@ class MainTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
         configUI()
         render()
@@ -52,7 +53,7 @@ class MainTabViewController: UITabBarController {
             )
         )
         let sirenTab = BaseNavigationController(
-            rootViewController: TestSirenViewController(),
+            rootViewController: SirenViewController(),
             title: TabBarLiteral.siren(),
             tabBarItem: UITabBarItem(
                 title: TabBarLiteral.siren(),

@@ -26,15 +26,39 @@ enum ImageLiteral {
     static var agentKiyoDisabled: UIImage { .load(named: "CharProfile-Kiyo-Disabled") }
     static var agentMayoDisabled: UIImage { .load(named: "CharProfile-Mayo-Disabled") }
 
+    static var agentPoyoCircleProfile: UIImage { .load(named: "CharProfile-Poyo-Circle-Profile") }
+    static var agentBiyoCircleProfile: UIImage { .load(named: "CharProfile-Biyo-Circle-Profile") }
+    static var agentKiyoCircleProfile: UIImage { .load(named: "CharProfile-Kiyo-Circle-Profile") }
+    static var agentMayoCircleProfile: UIImage { .load(named: "CharProfile-Mayo-Circle-Profile") }
+
+    static var yohanKo: UIImage { .load(named: "yohanKo") }
+
+    static var primaryButtonBackground: UIImage { .load(named: "primaryButtonBackground") }
+
     // MARK: - Badges
 
     static var coin: UIImage { .load(named: "coin.activate") }
-    static var strokedCoin: UIImage { .load(named: "coin.stroke") }
+    static var smallCoin: UIImage { .load(named: "coin.small") }
     static var shield: UIImage { .load(named: "shield.activate") }
     static var star: UIImage { .load(named: "star.activate") }
     static var inactiveCoin: UIImage { .load(named: "coin.deactivate") }
     static var inactiveShield: UIImage { .load(named: "shield.deactivate") }
     static var inactiveStar: UIImage { .load(named: "star.deactivate") }
+    static var poyoStar: UIImage { .load(named: "star.poyo.active") }
+    static var biyoStar: UIImage { .load(named: "star.biyo.active") }
+    static var kiyoStar: UIImage { .load(named: "star.kiyo.active") }
+    static var mayoStar: UIImage { .load(named: "star.mayo.active") }
+    static var allStar: UIImage { .load(named: "star.all.active") }
+    static var inactivePoyoStar: UIImage { .load(named: "star.poyo.inactive") }
+    static var inactiveBiyoStar: UIImage { .load(named: "star.biyo.inactive") }
+    static var inactiveKiyoStar: UIImage { .load(named: "star.kiyo.inactive") }
+    static var inactiveMayoStar: UIImage { .load(named: "star.mayo.inactive") }
+    static var inactiveAllStar: UIImage { .load(named: "star.all.inactive") }
+    static var poyoStarBackground: UIImage { .load(named: "bg.poyo") }
+    static var biyoStarBackground: UIImage { .load(named: "bg.biyo") }
+    static var kiyoStarBackground: UIImage { .load(named: "bg.kiyo") }
+    static var mayoStarBackground: UIImage { .load(named: "bg.mayo") }
+    static var allStarBackground: UIImage { .load(named: "bg.all") }
 
     // MARK: - TabBar
 
@@ -53,8 +77,22 @@ enum ImageLiteral {
 
     // MARK: - Siren
 
-    static var siren: UIImage { .load(named: "siren") }
+    static var siren: UIImage { .load(named: "sirenImage") }
     static var woongwoong: UIImage { .load(named: "woongwoong") }
+
+    // MARK: - AgentCard
+
+    static var ggoyosLogo: UIImage { .load(named: "ggoyos.logo") }
+    static var divider: UIImage { .load(named: "divider") }
+    static var cancelWhite: UIImage { .load(named: "x.white") }
+    static var agentCardBackground: UIImage { .load(named: "agentCard.background") }
+    static var speech: UIImage { .load(named: "speechImage") }
+
+    // MARK: - Timer
+
+    static var timerFail: UIImage { .load(named: "timerFail") }
+    static var timerSuccess: UIImage { .load(named: "timerSuccess") }
+    static var timerTimeOut: UIImage { .load(named: "timerTimeOut") }
 }
 
 extension UIImage {
