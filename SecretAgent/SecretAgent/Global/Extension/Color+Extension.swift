@@ -8,10 +8,10 @@
 import UIKit
 
 extension UIColor {
-    static let yoYellow1: UIColor = .init(hex: "#FFD541")
-    static let yoYellow2: UIColor = .init(hex: "#FFD541").withAlphaComponent(0.5)
-    static let yoYellow3: UIColor = .init(hex: "#FFD541").withAlphaComponent(0.2)
-    static let yoYellow4: UIColor = .init(hex: "#FFD541").withAlphaComponent(0.1)
+    static let yoYellow1: UIColor = .init(hex: "#FFC531")
+    static let yoYellow2: UIColor = .init(hex: "#FFC531").withAlphaComponent(0.5)
+    static let yoYellow3: UIColor = .init(hex: "#FFC531").withAlphaComponent(0.2)
+    static let yoYellow4: UIColor = .init(hex: "#FFC531").withAlphaComponent(0.1)
 
     static let yoOrange: UIColor = .init(hex: "FF7051")
     static let yoBlue: UIColor = .init(hex: "#0087D3")
@@ -26,6 +26,8 @@ extension UIColor {
     static let yoGray4: UIColor = .init(hex: "#DCDCDC")
     static let yoGray5: UIColor = .init(hex: "#8D8D8D")
     static let yoGray6: UIColor = .init(hex: "#222222")
+
+    static let yoBlack: UIColor = .init(hex: "222222")
 }
 
 extension UIColor {

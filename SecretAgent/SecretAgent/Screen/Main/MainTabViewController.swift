@@ -23,12 +23,34 @@ private enum TabBarLiteral: String {
 
 class MainTabViewController: UITabBarController {
     // MARK: - Life Cycle
+    private var todayCoin: Int = 5 {
+        didSet {
+            boardTab.updateTodayCoin(to: self.todayCoin)
+            sirenTab.updateTodayCoin(to: self.todayCoin)
+            storyTab.updateTodayCoin(to: self.todayCoin)
+        }
+    }
+    private var boardTab: BaseNavigationController!
+    private var sirenTab: BaseNavigationController!
+    private var storyTab: BaseNavigationController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
         configUI()
         render()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        guard let (todayCoin, error) = try? BadgeManager.shared.coinsLeftForToday() else { return }
+
+        guard error == 1 else { return }
+
+        if self.todayCoin != todayCoin {
+            self.todayCoin = todayCoin
+        }
     }
 
     func configUI() {
@@ -42,8 +64,8 @@ class MainTabViewController: UITabBarController {
     // MARK: - Func
 
     private func setTabViewControllers() {
-        let boardTab = BaseNavigationController(
-            rootViewController: BaseViewController(),
+        boardTab = BaseNavigationController(
+            rootViewController: BoardViewController(),
             title: TabBarLiteral.board(),
             tabBarItem: UITabBarItem(
                 title: TabBarLiteral.board(),
@@ -51,8 +73,8 @@ class MainTabViewController: UITabBarController {
                 selectedImage: ImageLiteral.boardTab
             )
         )
-        let sirenTab = BaseNavigationController(
-            rootViewController: TestSirenViewController(),
+        sirenTab = BaseNavigationController(
+            rootViewController: SirenViewController(),
             title: TabBarLiteral.siren(),
             tabBarItem: UITabBarItem(
                 title: TabBarLiteral.siren(),
@@ -60,7 +82,7 @@ class MainTabViewController: UITabBarController {
                 selectedImage: ImageLiteral.sirenTab
             )
         )
-        let storyTab = BaseNavigationController(
+        storyTab = BaseNavigationController(
             rootViewController: BaseViewController(),
             title: TabBarLiteral.story(),
             tabBarItem: UITabBarItem(

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "storyLinesBackground.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -16,8 +16,8 @@ private enum Literal: String {
 }
 
 private enum Size {
-    static let width = 28.0
-    static let height = 30.0
+    static let width = 24.0
+    static let height = 24.0
 }
 
 final class TodayBadgeView: UIStackView {
@@ -25,7 +25,7 @@ final class TodayBadgeView: UIStackView {
 
     // 좌상단
     private let coinImageView: UIImageView = {
-        let image = ImageLiteral.strokedCoin
+        let image = ImageLiteral.smallCoin
         let imageView = UIImageView(image: image)
 
         return imageView
@@ -35,8 +35,8 @@ final class TodayBadgeView: UIStackView {
     private let numberLabel: UILabel = {
         let label = UILabel()
 
-        label.text = "5"
-        label.font = .boldBody
+        label.font = .oneMobile(size: 18)
+        label.textColor = .yoGray6
 
         return label
     }()
@@ -56,7 +56,8 @@ final class TodayBadgeView: UIStackView {
         let label = UILabel()
 
         label.text = Literal.todayBadges()
-        label.font = .regularCaption2
+        label.font = .oneMobile(size: 11)
+        label.textColor = .yoGray5
         label.textAlignment = .center
 
         return label
@@ -66,6 +67,7 @@ final class TodayBadgeView: UIStackView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        fetchCoinNumber()
         configUI()
         render()
     }
@@ -73,6 +75,11 @@ final class TodayBadgeView: UIStackView {
     @available(*, unavailable)
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func fetchCoinNumber() {
+        guard let (numberOfCoins, _) = try? BadgeManager.shared.coinsLeftForToday() else { return }
+        numberLabel.text = "\(numberOfCoins)"
     }
 
     private func configUI() {
@@ -96,5 +103,9 @@ final class TodayBadgeView: UIStackView {
 
         addArrangedSubview(coinAndNumber)
         addArrangedSubview(textLabel)
+    }
+
+    func updateNumberOfCoins(to number: Int) {
+        fetchCoinNumber()
     }
 }

@@ -26,10 +26,23 @@ enum ImageLiteral {
     static var agentKiyoDisabled: UIImage { .load(named: "CharProfile-Kiyo-Disabled") }
     static var agentMayoDisabled: UIImage { .load(named: "CharProfile-Mayo-Disabled") }
 
+    static var primaryButtonBackground: UIImage { .load(named: "primaryButtonBackground") }
+    static var skipButtonImage: UIImage { .load(named: "skipButtonImage") }
+    static var storySkipButton: UIImage { .load(named: "storySkipButton") }
+    static var preButton: UIImage { .load(named: "preButton") }
+    static var nextButton: UIImage { .load(named: "nextButton") }
+    static var storyLinesBackground: UIImage { .load(named: "storyLinesBackground") }
+    static var agentPoyoCircleProfile: UIImage { .load(named: "CharProfile-Poyo-Circle-Profile") }
+    static var agentBiyoCircleProfile: UIImage { .load(named: "CharProfile-Biyo-Circle-Profile") }
+    static var agentKiyoCircleProfile: UIImage { .load(named: "CharProfile-Kiyo-Circle-Profile") }
+    static var agentMayoCircleProfile: UIImage { .load(named: "CharProfile-Mayo-Circle-Profile") }
+
+    static var yohanKo: UIImage { .load(named: "yohanKo") }
+
     // MARK: - Badges
 
     static var coin: UIImage { .load(named: "coin.activate") }
-    static var strokedCoin: UIImage { .load(named: "coin.stroke") }
+    static var smallCoin: UIImage { .load(named: "coin.small") }
     static var shield: UIImage { .load(named: "shield.activate") }
     static var star: UIImage { .load(named: "star.activate") }
     static var inactiveCoin: UIImage { .load(named: "coin.deactivate") }
@@ -70,8 +83,42 @@ enum ImageLiteral {
 
     // MARK: - Siren
 
-    static var siren: UIImage { .load(named: "siren") }
+    static var siren: UIImage { .load(named: "sirenImage") }
     static var woongwoong: UIImage { .load(named: "woongwoong") }
+
+    // MARK: - Secene
+
+    static var scene1: UIImage { .load(named: "Scene1") }
+    static var scene2: UIImage { .load(named: "Scene2") }
+    static var scene3: UIImage { .load(named: "Scene3") }
+    static var scene4: UIImage { .load(named: "Scene4") }
+    static var scene5: UIImage { .load(named: "Scene5") }
+    static var scene6: UIImage { .load(named: "Scene6") }
+    static var scene7: UIImage { .load(named: "Scene7") }
+    static var scene8: UIImage { .load(named: "Scene8") }
+    static var scene9: UIImage { .load(named: "Scene9") }
+    static var scene10: UIImage { .load(named: "Scene10") }
+    static var scene11: UIImage { .load(named: "Scene11") }
+    static var scene12: UIImage { .load(named: "Scene12") }
+
+    // MARK: - StoryTab
+
+    static var biyoPlayButton: UIImage { .load(named: "biyoPlayButton") }
+    static var kiyoPlayButton: UIImage { .load(named: "kiyoPlayButton") }
+
+    // MARK: - AgentCard
+
+    static var ggoyosLogo: UIImage { .load(named: "ggoyos.logo") }
+    static var divider: UIImage { .load(named: "divider") }
+    static var cancelWhite: UIImage { .load(named: "x.white") }
+    static var agentCardBackground: UIImage { .load(named: "agentCard.background") }
+    static var speech: UIImage { .load(named: "speechImage") }
+
+    // MARK: - Timer
+
+    static var timerFail: UIImage { .load(named: "timerFail") }
+    static var timerSuccess: UIImage { .load(named: "timerSuccess") }
+    static var timerTimeOut: UIImage { .load(named: "timerTimeOut") }
 }
 
 extension UIImage {

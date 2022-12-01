@@ -12,14 +12,18 @@ private enum FontSize {
 }
 
 private enum ViewSize {
-    static let stackSpacing: Double = UIScreen.main.bounds.width / 27.86
-    static let informationLabelY: Double = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.height / 6.03 : UIScreen.main.bounds.height / 8
-    static let agentVStackTopOffset: Double = UIScreen.main.bounds.width / 25.58
-    static let agentVStackWidth: Double = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.width / 1.15 : UIScreen.main.bounds.height / 2.57
-    static let agentVStackHeight: Double = UIScreen.main.bounds.height / 2.57
-    static let selectedAgentNameLabelBottomInset: Double = UIScreen.main.bounds.height / 3.80
-    static let selectedAgentDescriptionLabelTopOffset: Double = UIScreen.main.bounds.height / 38.36
-    static let selectButtonBottomInset: Double = UIScreen.main.bounds.height / 11.41
+    static let screenHeight = UIScreen.main.bounds.height
+    static let screenWidth = UIScreen.main.bounds.width
+    static let isLandscapeToPortrait = UIScreen.main.bounds.height > UIScreen.main.bounds.width
+    
+    static let stackSpacing: Double = isLandscapeToPortrait ? screenWidth / 27.86 : screenHeight / 27.86
+    static let informationLabelY: Double = isLandscapeToPortrait ? (screenHeight / screenWidth > 2 ? screenHeight / 6.81 : screenHeight / 8) : (screenWidth / screenHeight > 2 ? screenWidth / 6.81 : screenWidth / 8)
+    static let agentVStackTopOffset: Double = isLandscapeToPortrait ? screenHeight / 19.63 : screenWidth / 19.63
+    static let agentVStackWidth: Double = isLandscapeToPortrait ? (screenHeight / screenWidth > 2 ? screenWidth / 1.15 : screenHeight / 2.57) : (screenWidth / screenHeight > 2 ? screenHeight / 1.15 : screenWidth / 2.57)
+    static let agentVStackHeight: Double = isLandscapeToPortrait ? screenHeight / 2.57 : screenWidth / 2.57
+    static let selectedAgentNameLabelBottomInset: Double = isLandscapeToPortrait ? screenHeight / 3.80 : screenWidth / 3.80
+    static let selectedAgentDescriptionLabelTopOffset: Double = isLandscapeToPortrait ? screenHeight / 38.36 : screenWidth / 38.36
+    static let selectButtonBottomInset: Double = isLandscapeToPortrait ? screenHeight / 11.41 : screenWidth / 11.41
 }
 
 final class AgentSelectionViewController: BaseViewController {
@@ -31,11 +35,12 @@ final class AgentSelectionViewController: BaseViewController {
     
     private let informationLabel: UILabel = {
         let label = UILabel()
-        label.text = "어떤 요원으로\n시작할까?"
+        label.text = "어떤 요원으로\n시작할까요?"
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: FontSize.largeTitle)
+        label.font = .oneMobile(size: 30)
+        
         return label
     }()
     
@@ -72,7 +77,7 @@ final class AgentSelectionViewController: BaseViewController {
         let label = UILabel()
         label.text = "O요"
         label.isHidden = true
-        label.font = UIFont.boldSystemFont(ofSize: FontSize.largeTitle)
+        label.font = .oneMobile(size: 30)
         return label
     }()
     
@@ -82,12 +87,13 @@ final class AgentSelectionViewController: BaseViewController {
         label.numberOfLines = 2
         label.isHidden = true
         label.textAlignment = .center
+        label.textColor = .yoGray5
         return label
     }()
     
     private lazy var selectButton: BaseButton = {
         let button = BaseButton()
-        button.setButton(text: "선택완료!", color: .systemGray4)
+        button.setButton(text: "선택완료!", color: .yoGray4)
         button.setButtonTextColor(color: .white)
         button.makeButtonSmall()
         button.isEnabled = false
@@ -100,6 +106,11 @@ final class AgentSelectionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configStack()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func render() {
@@ -137,7 +148,9 @@ final class AgentSelectionViewController: BaseViewController {
     }
     
     override func configUI() {
-        view.backgroundColor = .white
+        super.configUI()
+        navigationItem.title = "캐릭터 선택"
+
     }
     
     private func configStack() {
@@ -157,7 +170,14 @@ final class AgentSelectionViewController: BaseViewController {
     
     // MARK: - Func
     
+    private func playSound(_ sound: SoundLiteral, _ repeated: Bool = true) {
+        SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
+        SoundManager.shared.playSound()
+    }
+    
     @objc private func agentClicked(sender: UIButton) {
+        playSound(.character, false)
+        
         selectedAgentID = sender.tag
         
         selectedAgentNameLabel.text = Agent.agentList[selectedAgentID].name
@@ -166,7 +186,7 @@ final class AgentSelectionViewController: BaseViewController {
         selectedAgentNameLabel.isHidden = false
         selectedAgentDescriptionLabel.isHidden = false
         
-        selectButton.setButtonColor(color: .orange)
+        selectButton.setButtonColor(color: .yoYellow1)
         selectButton.isEnabled = true
         
         agentStackViewCells[selectedAgentID].selectAgent()
@@ -178,6 +198,9 @@ final class AgentSelectionViewController: BaseViewController {
     
     @objc private func selectCompleteClicked(sender: UIButton) {
         // TODO: - 완료 버튼 구현 예정
+        playSound(.choiceLikeGoOut, false)
         print(Agent.agentList[selectedAgentID].name, "선택완료")
-    }
-}
+        let agentSelectionCompletionVC =  AgentSelectionCompleteViewController(agentName: Agent.agentList[selectedAgentID].name)
+                navigationController?.pushViewController(agentSelectionCompletionVC, animated: true)
+        }
+        }
