@@ -121,7 +121,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     private func addTargets() {
         goodButton.addTarget(self, action: #selector(goodButtonTapped), for: .touchUpInside)
     }
-    
+
     private func playSound(_ sound: SoundLiteral, _ repeated: Bool = false) {
         SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
         SoundManager.shared.playSound()

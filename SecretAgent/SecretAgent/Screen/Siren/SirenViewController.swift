@@ -332,7 +332,6 @@ extension SirenViewController: ProgressBarDelegate {
         afterTimerViewController.modalPresentationStyle = .fullScreen
         present(afterTimerViewController, animated: true)
     }
-    
 }
 
 // MARK: UnlockViewDelegate

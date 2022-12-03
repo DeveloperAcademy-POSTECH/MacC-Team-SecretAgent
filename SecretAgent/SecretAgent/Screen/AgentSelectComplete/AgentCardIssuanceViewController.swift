@@ -112,7 +112,7 @@ class AgentCardIssuanceViewController: BaseViewController {
     private func addTargets() {
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
-    
+
     private func playSound(_ sound: SoundLiteral, _ repeated: Bool = false) {
         SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
         SoundManager.shared.playSound()
