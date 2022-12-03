@@ -55,6 +55,7 @@ class AgentCardIssuanceViewController: BaseViewController {
         let button = BaseButton()
         button.makeButtonLarge()
         button.setButton(text: "출동하기", color: .clear)
+        button.setButtonTextColor(color: .yoBlack)
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         return button
     }()

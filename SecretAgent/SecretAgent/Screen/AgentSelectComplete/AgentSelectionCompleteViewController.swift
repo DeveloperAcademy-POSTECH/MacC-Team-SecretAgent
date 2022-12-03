@@ -57,6 +57,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     let goodButton: BaseButton = {
         let button = BaseButton()
         button.setButton(text: "좋아요", color: .clear)
+        button.setButtonTextColor(color: .yoBlack)
         button.makeButtonLarge()
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         return button

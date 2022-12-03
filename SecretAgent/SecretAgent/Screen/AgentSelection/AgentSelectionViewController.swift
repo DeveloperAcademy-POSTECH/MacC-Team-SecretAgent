@@ -186,6 +186,7 @@ final class AgentSelectionViewController: BaseViewController {
         selectedAgentDescriptionLabel.isHidden = false
         
         selectButton.setButtonColor(color: .yoYellow1)
+        selectButton.setButtonTextColor(color: .yoBlack)
         selectButton.isEnabled = true
         
         agentStackViewCells[selectedAgentID].selectAgent()
