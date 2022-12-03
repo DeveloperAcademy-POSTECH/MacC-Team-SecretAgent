@@ -13,7 +13,7 @@ private enum Size {
     static let xmarkTopOffset = UIScreen.main.bounds.height / 11.40
     static let labelVStackViewTopOffset = UIScreen.main.bounds.height / 21.10
     static let resultViewHorizontalOffset = UIScreen.main.bounds.width / 7.84
-    static let resultViewTopOffset =  UIScreen.main.bounds.height >= 780 ? UIScreen.main.bounds.height / 8.98 : UIScreen.main.bounds.height / 15.00
+    static let resultViewTopOffset =  UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.height / 8.98 : UIScreen.main.bounds.height / 15.00
     static let buttonVStackViewVerticalOffset = UIScreen.main.bounds.height / 12.05
 }
 
