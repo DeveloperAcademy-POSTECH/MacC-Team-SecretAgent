@@ -36,7 +36,7 @@ final class BoardViewController: BaseViewController {
     let starBadgeTypes: [BadgeType] = [.poyoStar, .kiyoStar, .biyoStar, .mayoStar, .allStar]
 
     // MARK: - UI Properties
-    
+
     // 드롭다운 관련
     private lazy var dropdownBackgroundView: UIView = {
         let testView = UIView()
@@ -125,7 +125,7 @@ final class BoardViewController: BaseViewController {
             allStarsCollected = true
         }
         refreshBoard(targetIndex: getLatestTableViewIndex())
-        
+
         if UserDefaults.standard.integer(forKey: "todaysFirstVisit") == 1 {
             receiveTodaysBadges()
             UserDefaults.standard.setValue(0, forKey: "todaysFirstVisit")
@@ -330,9 +330,9 @@ final class BoardViewController: BaseViewController {
 
                 todaysBadgeNumber = try BadgeManager.shared.coinsLeftForToday().result
                 updatedTotalBadge = try BadgeManager.shared.numberOfTotalCoins().result
-                
+
                 try BadgeManager.shared.resetTodaysBadge()
-                
+
                 // 가장 최근 뱃지로 이동
                 playCoinCheckSound()
                 updateBadgeInformation()

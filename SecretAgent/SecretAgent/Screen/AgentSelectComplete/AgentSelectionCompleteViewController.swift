@@ -57,6 +57,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     let goodButton: BaseButton = {
         let button = BaseButton()
         button.setButton(text: "좋아요", color: .clear)
+        button.setButtonTextColor(color: .yoBlack)
         button.makeButtonLarge()
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         return button
@@ -120,7 +121,7 @@ final class AgentSelectionCompleteViewController: BaseViewController {
     private func addTargets() {
         goodButton.addTarget(self, action: #selector(goodButtonTapped), for: .touchUpInside)
     }
-    
+
     private func playSound(_ sound: SoundLiteral, _ repeated: Bool = false) {
         SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
         SoundManager.shared.playSound()

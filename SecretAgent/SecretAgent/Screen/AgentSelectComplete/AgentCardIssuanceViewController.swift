@@ -55,6 +55,7 @@ class AgentCardIssuanceViewController: BaseViewController {
         let button = BaseButton()
         button.makeButtonLarge()
         button.setButton(text: "출동하기", color: .clear)
+        button.setButtonTextColor(color: .yoBlack)
         button.setBackgroundImage(ImageLiteral.primaryButtonBackground, for: .normal)
         return button
     }()
@@ -111,7 +112,7 @@ class AgentCardIssuanceViewController: BaseViewController {
     private func addTargets() {
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
     }
-    
+
     private func playSound(_ sound: SoundLiteral, _ repeated: Bool = false) {
         SoundManager.shared.setupSound(soundOption: sound, repeated: repeated)
         SoundManager.shared.playSound()
