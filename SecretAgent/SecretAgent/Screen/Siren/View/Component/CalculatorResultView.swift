@@ -7,6 +7,9 @@
 
 import UIKit
 
+private enum Size {
+    static let resultViewSpacingOffset =  UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? 20.0 : 15.0
+}
 final class CalculatorResultView: UIStackView {
     // MARK: - Properties
 
@@ -86,7 +89,7 @@ final class CalculatorResultView: UIStackView {
         axis = .horizontal
         alignment = .center
         distribution = .fill
-        spacing = 20
+        spacing = Size.resultViewSpacingOffset
     }
 
     func addBottomBorder() {
