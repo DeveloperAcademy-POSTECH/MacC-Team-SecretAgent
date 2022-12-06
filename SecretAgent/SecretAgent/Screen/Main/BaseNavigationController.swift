@@ -18,6 +18,7 @@ private enum Size {
     static let buttonHeight = 41.0
     static let buttonSpacing = 36.0
     static let navigationBarHeight = 44.0
+    static let navigationHeight = 96.0
     static let agentCardWidth = 28.0
     static let coinPromptHeight = 247
 }
@@ -32,13 +33,12 @@ final class BaseNavigationController: UINavigationController {
     private var navigationBarHeader: UIView!
     private var navigationBarFooter: UIView!
     private lazy var todayCoinModal: TodayCoinModal = {
-        // FIXME: - CoreData 연동
         let modal = TodayCoinModal(of: numberOfCoins)
         modal.isHidden = true
         return modal
     }()
 
-    private let disableView: UIView = {
+    private lazy var disableView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = .yoBlack
         uiView.alpha = 0.5
@@ -58,24 +58,26 @@ final class BaseNavigationController: UINavigationController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont
-            .oneMobile(textStyle: .body)]
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationButtons()
         render()
         configUI()
+        hideModalTappedAround()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont
+            .oneMobile(textStyle: .body)]
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         lazyRender()
     }
+
 
     private func render() {
         todayBadge.snp.makeConstraints { make in
@@ -91,14 +93,14 @@ final class BaseNavigationController: UINavigationController {
     }
 
     private func lazyRender() {
-        tabBarController?.tabBar.addSubview(todayCoinModal)
+        tabBarController?.view.addSubview(todayCoinModal)
         todayCoinModal.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(93)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(Size.navigationHeight)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(Size.coinPromptHeight)
         }
 
-        tabBarController?.tabBar.addSubview(disableView)
+        tabBarController?.view.addSubview(disableView)
         disableView.snp.makeConstraints { make in
             make.top.equalTo(todayCoinModal.snp.bottom)
             make.horizontalEdges.equalToSuperview()
@@ -118,7 +120,7 @@ final class BaseNavigationController: UINavigationController {
     private func setNavigationButtons() {
         todayBadge = TodayBadgeView()
         todayBadge.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(showDropdown))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(toggleModal))
         todayBadge.addGestureRecognizer(gesture)
 
         navigationButtons = UIStackView(arrangedSubviews: [todayBadge])
@@ -183,51 +185,15 @@ final class BaseNavigationController: UINavigationController {
         present(agentCardViewController, animated: true)
     }
 
-    @objc func showDropdown() {
-        addTodayCoinPrompt()
-        addDisableView()
+    private func hideModalTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleModal))
+        disableView.addGestureRecognizer(tap)
     }
 
-    private func addTodayCoinPrompt() {
-        if todayCoinModal.isHidden {
-            animate { [weak self] in
-//                self?.todayCoinModal.snp.remakeConstraints { make in
-//                    make.top.equalTo(self?.todayBadge.snp.bottom).offset(10)
-//                    make.horizontalEdges.equalToSuperview()
-//                    make.height.equalTo(247)
-//                }
-                self?.todayCoinModal.isHidden = false
-            }
-        } else {
-            animate { [weak self] in
-//                self?.todayCoinModal.snp.remakeConstraints { make in
-//                    make.top.equalTo(self!.navigationBar.snp.bottom)
-//                    make.horizontalEdges.equalToSuperview()
-//                    make.height.equalTo(0)
-//                }
-                self?.todayCoinModal.isHidden = true
-            }
-        }
-    }
-
-    private func addDisableView() {
-        if disableView.isHidden {
-            animate { [weak self] in
-//                self?.disableView.snp.makeConstraints { make in
-//                    make.top.equalTo(self!.todayCoinModal.snp.bottom)
-//                    make.horizontalEdges.bottom.equalToSuperview()
-//                }
-                self?.disableView.isHidden = false
-            }
-        } else {
-            animate { [weak self] in
-//                self?.disableView.snp.makeConstraints { make in
-//                    make.top.equalTo(self!.todayCoinModal.snp.bottom)
-//                    make.horizontalEdges.equalToSuperview()
-//                    make.height.equalTo(0)
-//                }
-                self?.disableView.isHidden = true
-            }
+    @objc func toggleModal() {
+        animate { [weak self] in
+            self?.todayCoinModal.isHidden.toggle()
+            self?.disableView.isHidden.toggle()
         }
     }
 
