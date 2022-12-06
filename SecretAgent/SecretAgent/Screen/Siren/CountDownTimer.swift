@@ -45,7 +45,7 @@ final class CountDownTimer {
 
     // 타이머 실시간 업데이트
     @objc private func updateTimer() {
-        if duration <= 0.0 {
+        if duration < 0.0 {
             timerDone()
         } else {
             duration -= 0.01

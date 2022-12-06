@@ -10,7 +10,7 @@ import UIKit
 
 private enum Constants {
     static let progressBarSize = 300
-    static let selectedSeconds = 15 * 60 
+    static let selectedSeconds = 15 * 60
     static let timeHStackViewHorizontalOffset = UIScreen.main.bounds.width / 2.48
     static let buttonHStackViewBottomOffset = UIScreen.main.bounds.height / 5.20
     static let defaultOffset = 20
@@ -212,7 +212,6 @@ final class SirenViewController: BaseViewController {
 
     private func setDelegation() {
         countdownTimer.delegate = self
-        progressBar.delegate = self
     }
 
     private func addTargets() {
@@ -229,6 +228,7 @@ final class SirenViewController: BaseViewController {
         if countdownTimerDidStart == true {
             let time = notification.userInfo?["time"] as? Double ?? 0.0
             countdownTimer.duration -= time
+            progressBar.foregroundProgressLayer.beginTime += time / Double(Constants.selectedSeconds)
         }
     }
 
@@ -312,19 +312,7 @@ extension SirenViewController: CountdownTimerDelegate {
         countdownTimerDidStart = false
         progressBar.stop()
         speechImageView.image = ImageLiteral.speech
-    }
 
-    func countdownThirtySecond() {
-        if speechImageView.image == ImageLiteral.speech {
-            speechImageView.image = ImageLiteral.speech2
-        }
-    }
-}
-
-// MARK: ProgressBarDelegate
-
-extension SirenViewController: ProgressBarDelegate {
-    func progressFinished() {
         sirenBackgroundView.isHidden = false
         tabBarController?.selectedIndex = 0
         let afterTimerViewController = AfterTimerViewController()
@@ -332,7 +320,12 @@ extension SirenViewController: ProgressBarDelegate {
         afterTimerViewController.modalPresentationStyle = .fullScreen
         present(afterTimerViewController, animated: true)
     }
-    
+
+    func countdownThirtySecond() {
+        if speechImageView.image == ImageLiteral.speech {
+            speechImageView.image = ImageLiteral.speech2
+        }
+    }
 }
 
 // MARK: UnlockViewDelegate
