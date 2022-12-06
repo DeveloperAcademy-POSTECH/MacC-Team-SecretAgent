@@ -10,8 +10,8 @@ import UIKit
 private enum ProgressBarSize {
     static let startAngle = Double(-Double.pi / 2)
     static let endAngle = Double(3 * Double.pi / 2)
-    static let width = 300
-    static let height = 300
+    static let width = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? 300 : 230
+    static let height = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? 300 : 230 
 }
 
 protocol ProgressBarDelegate: AnyObject {

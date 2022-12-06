@@ -59,6 +59,12 @@ final class BaseNavigationController: UINavigationController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont
+            .oneMobile(textStyle: .body)]
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationButtons()
