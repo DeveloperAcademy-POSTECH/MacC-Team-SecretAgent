@@ -75,7 +75,7 @@ final class BaseNavigationController: UINavigationController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont
             .oneMobile(textStyle: .body)]
     }
 
@@ -83,7 +83,6 @@ final class BaseNavigationController: UINavigationController {
         super.viewDidAppear(animated)
         lazyRender()
     }
-
 
     private func render() {
         todayBadge.snp.makeConstraints { make in

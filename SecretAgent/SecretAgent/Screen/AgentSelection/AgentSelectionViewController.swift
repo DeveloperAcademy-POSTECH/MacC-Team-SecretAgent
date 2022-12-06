@@ -199,11 +199,10 @@ final class AgentSelectionViewController: BaseViewController {
     @objc private func selectCompleteClicked(sender: UIButton) {
         playSound(.choiceLikeGoOut, false)
         print(Agent.agentList[selectedAgentID].name, "선택완료")
-        let agentSelectionCompletionVC =  AgentSelectionCompleteViewController(agentName: Agent.agentList[selectedAgentID].name)
+        let agentSelectionCompletionVC = AgentSelectionCompleteViewController(agentName: Agent.agentList[selectedAgentID].name)
         navigationController?.pushViewController(agentSelectionCompletionVC, animated: true)
         navigationItem.title = "캐릭터 선택"
         UserDefaults.standard.setValue(Agent.agentList[selectedAgentID].name, forKey: "agentName")
         UserDefaults.standard.setValue(Date(), forKey: "createdDate")
     }
 }
-
