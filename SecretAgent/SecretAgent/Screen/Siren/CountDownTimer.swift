@@ -11,7 +11,6 @@ protocol CountdownTimerDelegate: AnyObject {
     func countdownTimerDone()
     func countdownTime(time: (minutes: String, seconds: String))
     func countdownThirtySecond()
-    
 }
 
 final class CountDownTimer {

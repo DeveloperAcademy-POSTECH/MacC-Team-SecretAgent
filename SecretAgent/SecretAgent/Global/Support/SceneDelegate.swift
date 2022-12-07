@@ -16,11 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UNUserNotificationCenter.current().delegate = self
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        
+
         window?.overrideUserInterfaceStyle = .light
-        
-        UserDefaults.standard.setValue("", forKey: "agentName")
-        
+
         if UserDefaults.standard.string(forKey: "agentName") ?? "" == "" {
             window?.rootViewController = UINavigationController(rootViewController: OnBoardingViewController())
         } else {
@@ -45,28 +43,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let start = UserDefaults.standard.object(forKey: "sceneDidEnterBackground") as? Date else { return }
         let interval = Double(Date().timeIntervalSince(start))
         NotificationCenter.default.post(name: NSNotification.Name("sceneWillEnterForeground"), object: nil, userInfo: ["time": interval])
-        
+
         // 이제부터 정산 드가자~
         let currentDate = Date()
-        
+
         let dayFormatter = DateFormatter()
         dayFormatter.dateFormat = "d"
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH"
-        
+
         let currentDay: String = dayFormatter.string(from: currentDate)
         let currentTime: String = timeFormatter.string(from: currentDate)
 
         let pastDay: String = UserDefaults.standard.string(forKey: "day") ?? currentDay
         let pastTime: String = UserDefaults.standard.string(forKey: "time") ?? currentTime
-        
+
         UserDefaults.standard.setValue(currentTime, forKey: "time")
         UserDefaults.standard.setValue(currentDay, forKey: "day")
-        
-        if pastDay != currentDay && pastTime.compare("07").rawValue >= 0 {
+
+        if pastDay != currentDay && currentTime.compare("07").rawValue >= 0 {
             // 이렇게 해야 정산이 되더라
             UserDefaults.standard.setValue(1, forKey: "todaysFirstVisit")
-            
+
+            UserNotificationManager.shared.setEvery(at: 7, title: "획득한 보상 뱃지 총 5개", body: "아이와 함께 획득한 뱃지를 확인해 보세요!", uuid: "badge")
+
             let viewController = MainTabViewController()
             viewController.selectedIndex = 0
             window?.rootViewController = viewController
@@ -97,11 +97,12 @@ extension SceneDelegate: UNUserNotificationCenterDelegate {
             viewController.modalPresentationStyle = .fullScreen
             viewController.modalTransitionStyle = .crossDissolve
             tabBarController.selectedIndex = 1
-            tabBarController.selectedViewController?.present(viewController, animated: true)
+            guard let sirenViewController = tabBarController.selectedViewController as? SirenViewController else { return }
+            sirenViewController.sirenBackgroundView.isHidden = true
+            sirenViewController.present(viewController, animated: true)
         } else if identifier == "badge" {
-            guard let boardViewController = tabBarController.selectedViewController as? BoardViewController else { return
-            }
             tabBarController.selectedIndex = 0
+            guard let boardViewController = tabBarController.selectedViewController as? BoardViewController else { return }
             boardViewController.receiveTodaysBadges()
         } else {
             print("없는 알람이지롱")

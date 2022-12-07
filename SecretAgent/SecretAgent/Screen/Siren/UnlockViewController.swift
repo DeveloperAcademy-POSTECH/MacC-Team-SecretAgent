@@ -11,8 +11,10 @@ import SnapKit
 private enum Size {
     static let defaultOffset = 31
     static let xmarkTopOffset = UIScreen.main.bounds.height / 11.40
+    static let labelVStackViewTopOffset = UIScreen.main.bounds.height / 21.10
     static let resultViewHorizontalOffset = UIScreen.main.bounds.width / 7.84
-    static let resultViewTopOffset = UIScreen.main.bounds.height / 8.98
+    static let resultViewTopOffset =  UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? UIScreen.main.bounds.height / 8.98 : UIScreen.main.bounds.height / 15.00
+    static let buttonVStackViewVerticalOffset = UIScreen.main.bounds.height / 12.05
 }
 
 final class UnlockViewController: BaseViewController {
@@ -44,7 +46,7 @@ final class UnlockViewController: BaseViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fillEqually
-        stackView.spacing = 20
+        stackView.spacing = Size.labelVStackViewTopOffset / 2.0
         return stackView
     }()
 
@@ -68,7 +70,7 @@ final class UnlockViewController: BaseViewController {
     private let cancelButton = {
         let button = BaseButton()
         button.setButton(text: "취소", color: .yoGray3)
-        button.setButtonTextColor(color: .black)
+        button.setButtonTextColor(color: .yoBlack)
         button.makeButtonSmall()
         button.titleLabel?.font = UIFont.oneMobile(textStyle: .body)
         return button
@@ -76,8 +78,8 @@ final class UnlockViewController: BaseViewController {
 
     private let unlockButton = {
         let button = BaseButton()
-        button.setButton(text: "잠금해제", color: .yoYellow2)
-        button.setButtonTextColor(color: .white)
+        button.setButton(text: "잠금해제", color: .yoGray4)
+        button.setButtonTextColor(color: .yoGray0)
         button.makeButtonSmall()
         button.titleLabel?.font = UIFont.oneMobile(textStyle: .body)
         button.isEnabled = false
@@ -125,7 +127,7 @@ final class UnlockViewController: BaseViewController {
         labelVStackView.addArrangedSubview(subLabel)
         view.addSubview(labelVStackView)
         labelVStackView.snp.makeConstraints { make in
-            make.top.equalTo(dismissButton.snp.bottom).offset(40)
+            make.top.equalTo(dismissButton.snp.bottom).offset(Size.labelVStackViewTopOffset)
             make.leading.trailing.equalToSuperview().inset(Size.defaultOffset)
         }
 
@@ -141,14 +143,14 @@ final class UnlockViewController: BaseViewController {
 
         view.addSubview(buttonHStackView)
         buttonHStackView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(70)
+            make.bottom.equalToSuperview().inset(Size.buttonVStackViewVerticalOffset)
             make.leading.trailing.equalToSuperview().inset(Size.defaultOffset)
         }
 
         view.addSubview(numberCollectionView)
         numberCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(Size.defaultOffset)
-            make.bottom.equalTo(buttonHStackView.snp.top).offset(-70) // inset(70)하면 안되는데 이유가..
+            make.bottom.equalTo(buttonHStackView.snp.top).offset(-Size.buttonVStackViewVerticalOffset) // inset(70)하면 안되는데 이유가..
             make.height.equalTo(160)
         }
     }
@@ -223,6 +225,7 @@ extension UnlockViewController: UICollectionViewDelegate {
             resultView.resultField.text = resultText
             unlockButton.isEnabled = true
             unlockButton.backgroundColor = .yoYellow1
+            unlockButton.setTitleColor(UIColor.yoBlack, for: .normal)
         }
     }
 }
@@ -237,8 +240,9 @@ extension UnlockViewController: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         resultText = ""
         unlockButton.isEnabled = false
-        unlockButton.backgroundColor = .yoYellow2
-        resultView.resultField.textColor = .black
+        unlockButton.backgroundColor = .yoGray4
+        unlockButton.setTitleColor(UIColor.yoGray0, for: .normal)
+        resultView.resultField.textColor = .yoBlack
         subLabel.text = "부모님 확인을 위해 정답을 입력해주세요."
         subLabel.textColor = .black
 

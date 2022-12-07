@@ -58,10 +58,10 @@ final class BaseNavigationController: UINavigationController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont
             .oneMobile(textStyle: .body)]
     }
 
@@ -82,10 +82,9 @@ final class BaseNavigationController: UINavigationController {
             make.width.equalTo(Size.buttonWidth)
         }
 
-        view.addSubview(navigationButtons)
-
+        navigationBar.addSubview(navigationButtons)
         navigationButtons.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(Size.navigationBarHeight)
+            make.top.equalTo(navigationBar.snp.top).offset(Size.navigationBarHeight)
             make.height.equalTo(Size.buttonHeight)
             make.trailing.equalToSuperview().inset(Size.buttonTrailing)
         }
@@ -94,7 +93,7 @@ final class BaseNavigationController: UINavigationController {
     private func lazyRender() {
         tabBarController?.tabBar.addSubview(todayCoinModal)
         todayCoinModal.snp.makeConstraints { make in
-            make.top.equalTo(todayBadge.snp.bottom).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(93)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(Size.coinPromptHeight)
         }
