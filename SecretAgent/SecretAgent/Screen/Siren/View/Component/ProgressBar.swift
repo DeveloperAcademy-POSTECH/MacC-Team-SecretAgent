@@ -14,22 +14,16 @@ private enum ProgressBarSize {
     static let height = UIScreen.main.bounds.height / UIScreen.main.bounds.width > 2 ? 300 : 230 
 }
 
-protocol ProgressBarDelegate: AnyObject {
-    func progressFinished()
-}
-
 final class ProgressBar: UIView {
     // MARK: - Properties
 
     private var animation = CABasicAnimation()
     private var animationDidStart = false
     private var timerDuration = 0
-    private let foregroundProgressLayer: CAShapeLayer = .init()
+    let foregroundProgressLayer: CAShapeLayer = .init()
     private let backgroundProgressLayer: CAShapeLayer = .init()
 
     private var centerPoint: CGPoint = .init(x: 0, y: 0)
-
-    var delegate: ProgressBarDelegate?
 
     var isProgressDone = false
 
@@ -42,14 +36,9 @@ final class ProgressBar: UIView {
         timerDuration = totalSeconds
         loadBackgroundProgressBar()
         loadForegroundProgressBar()
-        setDelegation()
     }
 
     // MARK: - Func
-
-    private func setDelegation() {
-        animation.delegate = self
-    }
 
     private func loadBackgroundProgressBar() {
         backgroundProgressLayer.path = UIBezierPath(
@@ -142,16 +131,6 @@ final class ProgressBar: UIView {
     // 멈춤 버튼 클릭시
     func stop() {
         stopAnimation()
-    }
-}
-
-// MARK: CAAnimationDelegate
-
-extension ProgressBar: CAAnimationDelegate {
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        if flag {
-            delegate?.progressFinished()
-        }
     }
 }
 

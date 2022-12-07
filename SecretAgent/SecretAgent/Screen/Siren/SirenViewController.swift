@@ -211,7 +211,6 @@ final class SirenViewController: BaseViewController {
 
     private func setDelegation() {
         countdownTimer.delegate = self
-        progressBar.delegate = self
     }
 
     private func addTargets() {
@@ -228,6 +227,7 @@ final class SirenViewController: BaseViewController {
         if countdownTimerDidStart == true {
             let time = notification.userInfo?["time"] as? Double ?? 0.0
             countdownTimer.duration -= time
+            progressBar.foregroundProgressLayer.beginTime += time / Double(Constants.selectedSeconds)
         }
     }
 
@@ -311,25 +311,19 @@ extension SirenViewController: CountdownTimerDelegate {
         countdownTimerDidStart = false
         progressBar.stop()
         speechImageView.image = ImageLiteral.speech
-    }
 
-    func countdownThirtySecond() {
-        if speechImageView.image == ImageLiteral.speech {
-            speechImageView.image = ImageLiteral.speech2
-        }
-    }
-}
-
-// MARK: ProgressBarDelegate
-
-extension SirenViewController: ProgressBarDelegate {
-    func progressFinished() {
         sirenBackgroundView.isHidden = false
         tabBarController?.selectedIndex = 0
         let afterTimerViewController = AfterTimerViewController()
         afterTimerViewController.modalTransitionStyle = .crossDissolve
         afterTimerViewController.modalPresentationStyle = .fullScreen
         present(afterTimerViewController, animated: true)
+    }
+
+    func countdownThirtySecond() {
+        if speechImageView.image == ImageLiteral.speech {
+            speechImageView.image = ImageLiteral.speech2
+        }
     }
 }
 
