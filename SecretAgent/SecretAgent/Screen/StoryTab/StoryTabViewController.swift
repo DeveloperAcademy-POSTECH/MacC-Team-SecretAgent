@@ -87,7 +87,6 @@ class StoryTabViewController: BaseViewController {
     @objc func viewStory() {
         (navigationController as? BaseNavigationController)?.navigationButtons.isHidden = true
         tabBarController?.tabBar.isHidden = true
-        
         navigationController?.pushViewController(StoryViewController(), animated: true)
     }
     

@@ -9,8 +9,7 @@ import SnapKit
 import UIKit
 
 private enum Constants {
-    static let progressBarSize = 300
-    static let selectedSeconds = 15 * 60 
+    static let selectedSeconds = 15 * 60
     static let timeHStackViewHorizontalOffset = UIScreen.main.bounds.width / 2.48
     static let buttonHStackViewBottomOffset = UIScreen.main.bounds.height / 5.20
     static let defaultOffset = 20
@@ -28,7 +27,7 @@ final class SirenViewController: BaseViewController {
         return button
     }()
 
-    private let sirenBackgroundView: UIView = {
+    let sirenBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
@@ -280,7 +279,7 @@ final class SirenViewController: BaseViewController {
     }
 
     private func sendLocalNotification() {
-        UserNotificationManager.shared.setOnce(after: TimeInterval(countdownTimer.duration), title: "타이머", body: "타이머 제한 시간이 끝났습니다.", uuid: "timer")
+        UserNotificationManager.shared.setOnce(after: TimeInterval(countdownTimer.duration), title: "15분 타이머 종료", body: "꼬마요원이 임무를 성공했는지 알려주세요.", uuid: "timer")
     }
 
     private func cancelLocalNotification() {
@@ -332,7 +331,6 @@ extension SirenViewController: ProgressBarDelegate {
         afterTimerViewController.modalPresentationStyle = .fullScreen
         present(afterTimerViewController, animated: true)
     }
-    
 }
 
 // MARK: UnlockViewDelegate

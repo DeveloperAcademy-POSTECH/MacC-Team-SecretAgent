@@ -203,7 +203,7 @@ class AgentCardView: UIImageView {
 
         nameLabel.text = agentName
         dateLabel.text = dateFormatter.string(from: createdDate) + "~"
-        numberOfDaysLabel.text = "임무 수행 \(days(from: createdDate) + 1)일째"
+        numberOfDaysLabel.text = "임무 수행 \(days(from: createdDate))일째"
     }
 
     func setCompact() {
@@ -225,9 +225,11 @@ class AgentCardView: UIImageView {
         }
     }
 
-    private func days(from date: Date) -> Int {
-        let calendar = Calendar.current
-        let currentDate = Date()
-        return calendar.dateComponents([.day], from: date, to: currentDate).day!
+    func days(from date: Date) -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd"
+        guard let past = Int(dateFormatter.string(from: date)) else { return 0 }
+        guard let now = Int(dateFormatter.string(from: Date())) else { return 0 }
+        return now - past + 1
     }
 }
