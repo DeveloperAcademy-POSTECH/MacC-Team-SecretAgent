@@ -3,7 +3,7 @@
 
 # 꼬요한 집
 
-![Group 105](https://user-images.githubusercontent.com/56468120/215275313-8cc77023-4653-4874-af7e-15d3c41b437d.png)
+<img width="800" alt="image" src= https://user-images.githubusercontent.com/56468120/215276043-a0d46090-381c-4749-bc77-1a1273b2b172.png>
 
 ### 뛰지 말라고 했지!
 
@@ -28,7 +28,7 @@
 
 | 온보딩 |
 |:---:|
-|<img width="600" alt="image" src= https://user-images.githubusercontent.com/56468120/215271938-309befd7-732e-414b-87db-147d6e9efd9a.gif> |
+|<img width="600" alt="image" src= https://user-images.githubusercontent.com/56468120/215276474-8ba3cdd9-13ff-4f5c-b967-414ef1717c23.gif> |
 
 | 요원 선택 | 요원증 확인 | 사이렌 울리기 |
 |:---:|:---:|:---:|
