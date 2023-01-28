@@ -32,15 +32,15 @@
 
 | 요원 선택 | 요원증 확인 | 사이렌 울리기 |
 |:---:|:---:|:---:|
-|<img width="250" alt="image" src= https://user-images.githubusercontent.com/56468120/215271231-53ab2924-d7ce-40fc-a5b4-4d0c7f91ee27.gif> |<img width="250" alt="image" src= https://user-images.githubusercontent.com/56468120/215271180-a855f731-9289-4e7c-81cf-bea64a4290db.gif> |<img width="250" alt="image" src= https://user-images.githubusercontent.com/56468120/215271489-2ab25434-509c-421a-847b-8e9e037a539a.gif>|
+|<img width="240" alt="image" src= https://user-images.githubusercontent.com/56468120/215271231-53ab2924-d7ce-40fc-a5b4-4d0c7f91ee27.gif> |<img width="240" alt="image" src= https://user-images.githubusercontent.com/56468120/215271180-a855f731-9289-4e7c-81cf-bea64a4290db.gif> |<img width="240" alt="image" src= https://user-images.githubusercontent.com/56468120/215271489-2ab25434-509c-421a-847b-8e9e037a539a.gif>|
 
 | 오늘의 코인 확인 | 보드 뱃지 확인 | 뱃지 획득 |
 |:---:|:---:|:---:|
-|<img width="250" alt="image" src= https://user-images.githubusercontent.com/56468120/215271262-e146af10-6011-48df-be31-ffbc327545e7.gif> |<img width="250" alt="image" src= https://user-images.githubusercontent.com/56468120/215271400-d2fc4574-7f93-4510-84ac-f3896cf35787.gif> |<img width="250" alt="image" src= https://user-images.githubusercontent.com/56468120/215270974-bf0ddcee-74cd-43fa-9136-4458f3519f24.gif>|
+|<img width="240" alt="image" src= https://user-images.githubusercontent.com/56468120/215271262-e146af10-6011-48df-be31-ffbc327545e7.gif> |<img width="240" alt="image" src= https://user-images.githubusercontent.com/56468120/215271400-d2fc4574-7f93-4510-84ac-f3896cf35787.gif> |<img width="240" alt="image" src= https://user-images.githubusercontent.com/56468120/215270974-bf0ddcee-74cd-43fa-9136-4458f3519f24.gif>|
 
 | 임무 성공 | 임무 실패 |
 |:---:|:---:|
-|<img width="250" alt="image" src= https://user-images.githubusercontent.com/56468120/215272701-d667aad3-cbc0-4729-afb3-d3610b7b36ed.gif> |<img width="250" alt="image" src= https://user-images.githubusercontent.com/56468120/215272646-a9aa12ed-74f3-45d7-bfcb-c9a6938c1e6a.gif> |
+|<img width="240" alt="image" src= https://user-images.githubusercontent.com/56468120/215272701-d667aad3-cbc0-4729-afb3-d3610b7b36ed.gif> |<img width="240" alt="image" src= https://user-images.githubusercontent.com/56468120/215272646-a9aa12ed-74f3-45d7-bfcb-c9a6938c1e6a.gif> |
 
 
 </div>
